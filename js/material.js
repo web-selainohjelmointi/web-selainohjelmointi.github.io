@@ -17,11 +17,11 @@ var Material = (function(){
         indices[hIndex] = 0;
       }
 
-      if(!$(this).parent('div').hasClass('tehtavat')){
+      if(!$(this).parent('div').hasClass('tehtavat') && !$(this).hasClass('ignore')){
         indices[hIndex]++;
       }
 
-      if(!$(this).parent('div').hasClass('tehtavat')){
+      if(!$(this).parent('div').hasClass('tehtavat') && !$(this).hasClass('ignore')){
         var anchorText = (indices.join(".") + '-' + $(this).text()).replace(/ /g,'-')
         $(this).prepend('<a name="' + anchorText + '"></a>' + indices.join(".") + ". ");
 
@@ -55,7 +55,7 @@ var Material = (function(){
     
     $('section.week').each(function(){
       var weekId = $(this).find('header h1').attr('data-week-id');
-      $(this).find('.tehtavat h3').each(function(index){
+      $(this).find('.tehtavat h3:not(.ignore)').each(function(index){
         exerciseId++;
 
         data.exercises.push({

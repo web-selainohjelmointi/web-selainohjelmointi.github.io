@@ -5938,19 +5938,880 @@ function showdata() {
     <a name="viikko4"></a>
     <h1 data-week-id="4">Viikko 4</h1>
   </header>
+
+  <h2>Sovelluksen rakenteen hallinta: AngularJS</h2>
+  <p>Olemme tähän mennessä onnistuneesti pystyneet esittämään sovelluksemme dataa käyttöliittymässä ja jopa välittämään käyttöliittymästä tehtyjä muutoksia sovelluslogiikkaan. Mustache tekee datan esittämisestä näkymässä melko helppoa, mutta kuten olet ehkä huomannut, datan muokkaaminen näkymän kautta ei ole aivan niin helppoa. Ongelmat ilmenevät etenkin sovelluksen kasvaessa, jolloin sen rakenteesta tulee aina vain sekavampi. Rakennetta selkeyttää huomattavasti käyttöliittymän erottaminen sovelluksen datasta, johon jo mainittu MVC-arkkitehtuuri pyrkiikin. Selkeän MVC-arkkitehtuurin aikaansaaminen on kuitenkin yllättävän vaikeaa, jos työkalut eivät ole oikeat.</p>
+  <p>
+    Apuun tulee suuren suosion saavuttanut <a href="https://angularjs.org/" target="_blank">AngularJS</a> MVW-sovelluskehys. Edellisessä lauseessa ei ole kirjoitusvirhettä, Angularia ei voi rajata pelkäksi MVC-sovelluskehykseksi (vaikkakin niin usein tehdään), vaan tarkempi termi onkin "Model View Whatever". Se siis esittää mallia näkymässä ja välittää näkymässä tehtyjä muutoksia takaisin malliin. Mitä mallin ja näkymän rajapinnassa tapahtuu, on ohjelmoijan itsensä päätettävissä.
+  </p>
+  <p>
+    Mikä Angularissa on hienoa, on se, että se tekee luonteeltaan staattisesta HTML:stä dynaamista, jolloin malli on sekä helppo esittää näkymässä, että helppo muokata näkymän kautta. Otetaan pieni esimerkki, joka havainnollistaa, kuinka paljon voimme saada aikaan kirjoittamatta riviäkään JavaScriptiä:
+  </p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div ng-app&gt;
+      &lt;h1&gt;Hello {{name}}!&lt;/h1&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Huomaat ensimmäiseksi, että Angularissa ja Mustachessa on sama syntaksi muuttujan upottamiseksi näkymään, eli <code>{{muuttuja}}</code>. Esimerkissä olemme upottaneet näkymäämme muuttujan <code>name</code>. Muuttuja ei ole vielä määritelty, joten näkymässä on pelkästään otsikko "Hello !". Otsikon alapuolella on tekstikenttä, jolle on määritelty attribuutti <code><a href="https://docs.angularjs.org/api/ng/directive/ngModel" target="_blank">ng-model</a></code>, jonka arvo on <code>name</code>. Tämä tarkoittaa sitä, että olemme sitoneet tekstikentän arvon muuttujaan <code>name</code>. Siis, jos muutamme tekstikentän arvoa, myös otsikon sisältö muuttuu. Tulemme myös myöhemmin huomaamaan, että jos muutamme muuttujan <code>name</code> arvoa sovelluslogiikassa, muuttuu myös tekstikentän arvo. Tämän yksinkertaiselta kuulostavan toiminnon toteuttaminen käyttämällä jQuerya ja Mustachea olisi helposti vienyt näin monta riviä koodia:
+</p>
+<pre class="sh_javascript_dom">
+var name = "";
+
+function renderHeading(){
+  var html = Mustache.render('Hello {{name}}!', { name: name });
+  $('h1').html(html);
+}
+
+$(document).ready(function(){
+  renderHeading();
+
+  $('input[type="text"]').on('keyup', function(){
+    name = $(this).val();
+    renderHeading();
+  });
+});
+</pre>
+<p>
+  Kokeile Angularilla toteutetua esimerkkiä vielä itse:
+  <iframe width="100%" height="300" src="http://jsfiddle.net/HB7LU/10885/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
+<h3>Kontrollerit</h3>
+<p>
+  Kuten on jo mainittu, kontrolleri on MVC-arkkitehtuurissa mallin ja näkymän yhdistävä tekijä. Se siis välittää esitettävän datan mallilta näkymälle ja muokkaa mallia näkymän pyynnöstä. Katsotaan, miten voimme liittää edelliseen esimerkkiimme kontrollerin käyttämällä Angularia:
+</p>
+<pre class="sh_javascript_dom">
+function HelloController($scope){
+  $scope.name = 'Kalle';
+}
+</pre>
+<p>
+  Se on siinä! Määrittelemme siis vain funktion nimeltä <code>HelloController</code>, jolla on yksi parametri. Parametrina saadun muuttujan <code>$scope</code> ("scope", suomeksi "näkyvyysalue") avulla toteuttamamme kontrolleri keskustelee näkymän kanssa. Se on objekti, johon voimme liittää kenttiä, joita voimme näyttää ja muokata näkymässä. Näkymään voi välittää sen kautta oikeastaan mitä vain, merkkijonoja, kokonaislukuja, objekteja tai jopa funktioita. Tässä esimerkissä välitämme näkymäämme vain muuttujan name, joka onnistuu lisäämälle <code>$scope</code>-objektiin kentän <code>name</code>.
+</p>
+<p>
+  Jotta näkymä tietäisi, minkä kontrollerin kanssa se on vuorovaikutuksessa, täytyy näkymään määrittää kontrollerin näkyvyysalue lisäämällä johonkin HTML-tagiin attribuutti <code><a href="https://docs.angularjs.org/api/ng/directive/ngController" target="_blank">ng-controller</a>="HelloController"</code> ja se elementti lapsineen muodostaa kontrollerin näkyvyysalueen. Liitetään toteuttamamme <code>HelloController</code> näkymäämme:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app&gt;
+    &lt;div ng-controller="HelloController"&gt;
+      &lt;h1&gt;Hello {{name}}!&lt;/h1&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Nyt kontrollerimme näkyvyysalue on <code>div</code>-elementti, ja kaikki sen lapset. Näkymän otsikon sisältö ei ole enää pelkästään "Hello!", vaan muuttujalla <code>name</code> on asetettu kontrollerissa alkuarvo, "Kalle". Otsikon sisältö on siis "Hello Kalle!" ja lisäksi tekstikentän, jonka arvo on sidottu muuttujaan <code>name</code>, sisältö on "Kalle". On myös tärkeää lisätä <code><a href="https://docs.angularjs.org/api/ng/directive/ngApp" target="_blank">ng-app</a></code>-attribuutti johonkin DOM-elementtiin, joka sisältää kaikki elementit, jotka ovat kytköksissä Angulariin. Lisäsin sen tässä esimerkissä <code>body</code>-tagiin, mutta olisin voinyt lisätä sen yhtä hyvin <code>html</code>-tagiin.
+</p>
+<div class="tehtavat">
+  <h3>My name is Bond, James Bond</h3>
+  Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että näkymän otsikon sisältö määräytyy "etunimi" ja "sukunimi" tekstikenttien perusteella. Otsikon alkuarvon tulee olla "My name is Bond, James Bond". Joudut tekemään muutoksia näkymän lisäksi <code>BondController</code>-kontrolleriin, joka sijaitsee tiedostossa X. 
+</div>
+<h3>Näkymät</h3>
+<p>
+  Angularissa jo pelkästään mallin esittäminen näkymässä on huomattavasti monipuolisempaa, kuin esimerkiksi Mustachen kanssa. Havainnollistetaan sitä tämän esimerkkikontrollerin avulla:
+</p>
+<pre class="sh_javascript_dom">
+function ExampleController($scope){
+  $scope.person = {
+    name: 'Kalle',
+    age: 22,
+    happy: true,
+    friends: ['Henri', 'Arto', 'Elina', 'Jorma']
+  };
+}
+</pre>
+<p>
+  Määritin siis <code>ExampleController</code>-funktiossa <code>person</code>-objektin, jonka haluan välittää näkymälle.
+</p>
+<h4>Muuttujien upottaminen</h4>
+<p>
+  Toteutetaan seuraavaksi näkymä, joka esittää <code>person</code>-objektin kentät. Aloitetaan <code>name</code>- ja <code>age</code>-kenttien esittämisellä:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app&gt;
+    &lt;div ng-controller="ExampleController"&gt;
+      &lt;h1&gt;{{person.name}}, {{person.age}} vuotta vanha&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Näkymässä ei tapahtu mitään kovin kummallista, siihen upotetaan arvot <code>person.age</code> ja <code>person.name</code> syntaksilla <code>{{muuttujan}}</code>, joka on jo ennestään tuttu Mustachen kanssa. Näkymään ilmestyy siis otsikko, jonka sisältö on "Kalle, 22 vuotta vanha".
+</p>
+<h4>Ehtolauseet ja DOM-elementtien muokkaus ehtojen perusteella</h4>
+<p>
+  Lisätään seuraavaksi näkymään tieto henkilön mielentilasta:
+</p>
+<pre class="sh_html">
+&lt;h1&gt;{{person.name}}, {{person.age}} vuotta vanha&lt;/h1&gt;
+&lt;p&gt;
+  Fiilis on
+  &lt;span ng-if="person.happy">:)&lt;/span&gt;
+  &lt;span ng-if="!person.happy">:(&lt;/span&gt;
+&lt;/p&gt;
+</pre>
+<p>
+  Lisäämällä <code><a href="https://docs.angularjs.org/api/ng/directive/ngIf" target="_blank">ng-if</a></code>-attribuutin elementtiin, pystymme määrittämään ehdon sen esittämiselle. Ehto määräytyy <code>ng-if</code>-attribuutin arvon perusteella, jonka tulee olla jokin totuusarvo. Koska kontrollerissa on määritelty <code>person.happy = true</code>, toteutuu attribuutissa määritelty ehto, joten <code>span</code>-elementti sisältöineen on näkymässä.
+</p>
+<p>
+  On lisäksi monia muita tapoja manipuloida DOM-elementtejä ehtojen perusteella. Voimme esimerkiksi lisätä <code>span</code>-elementtiin luokan <code>green</code>, jos ehto <code>person.happy</code> toteutuu. Vastaavasti, jos se ei toteudu, voimme lisätä siihen luokan <code>red</code>:
+</p>
+<pre class="sh_html">
+&lt;h1&gt;{{person.name}}, {{person.age}} vuotta vanha&lt;/h1&gt;
+&lt;p&gt;
+  Fiilis on
+  &lt;span ng-if="person.happy" ng-class="{ 'green': person.happy }">:)&lt;/span&gt;
+  &lt;span ng-if="!person.happy" ng-class="{ 'red': person.happy }">:(&lt;/span&gt;
+&lt;/p&gt;
+</pre>
+<p>
+  <code><a href="https://docs.angularjs.org/api/ng/directive/ngClass" target="_blank">ng-class</a></code>-attribuutin sisältö on JSON-muodossa oleva merkkijono, jonka kenttinä on lisättävä luokka ja arvona ehto, joka kyseisen luokan lisäämiseen kuuluu. Samalla tavalla toimii mm. <code>ng-attr</code>, joka lisää DOM-elementtiin tietyn attribuutin, jos annettu ehto toteutuu.
+</p>
+<h4>Listojen läpikäynti</h4>
+<p>Lopuksi täytyy vielä esittää lista henkilön ystävistä. Kuten Mustachessa, myös Angularissa on oma toistorakenteensa:
+</p>
+<pre class="sh_html">
+&lt;h1&gt;{{person.name}}, {{person.age}} vuotta vanha&lt;/h1&gt;
+&lt;p&gt;
+  Fiilis on
+  &lt;span ng-if="person.happy">:)&lt;/span&gt;
+  &lt;span ng-if="!person.happy">:(&lt;/span&gt;
+&lt;/p&gt;
+&lt;ul ng-repeat="friend in person.friends"&gt;
+  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>
+  Toisto siis onnistuu lisäämällä attribuutti <code><a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank">ng-repeat</a></code> elementtiin, jonka sisältöä halutaan toistaa. Attribuutin arvo on muotoa <code>iteroitavaAlkio in lista</code>. Toistojen määrää voi rajoittaa lisäämällä <code>ng-repeat</code>-attribuuttiin <code><a href="https://docs.angularjs.org/api/ng/filter/limitTo" target="_blank">limitTo</a></code> filtteri seuraavasti:
+</p>
+<pre class="sh_html">
+&lt;ul ng-repeat="friend in person.friends | limitTo: 5"&gt;
+  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>
+  Yllä olevassa esimerkissä tulostetaan vain viisi ensimmäistä kaveria, koska limitTo filtterille on annettu parametriksi kokonaisluku 5, joka kertoo rajan toistettaville alkioille. Toinen hyödillinen filtteri on <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>, joka toistaa taulukon alkiot tietyssä järjestyksessä, esimerkiksi nimen perusteella: 
+</p>
+<pre class="sh_html">
+&lt;ul ng-repeat="friend in person.friends | orderBy"&gt;
+  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>
+  Koska taulukko sisältää merkkijonoja, ei <code>orderBy</code>-filtterille tarvitse antaa parametreja. Jos <code>friend</code>-muuttuja olisi ollut objekti, jolla on kenttä <code>name</code> olisi filtterin pitänyt olla <code>orderBy: friend.name</code>.
+</p>
+<p>
+  Tustustutaan vielä lopuksi filtteriin <code><a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">filter</a></code>, joka toistaa vain alkiot, jotka toteuttavat annetun ehdon, esimerkiksi sisältävät kirjaimen "a":
+</p>
+<pre class="sh_html">
+&lt;ul ng-repeat="friend in person.friends | filter: 'a'"&gt;
+  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>
+  <code>filter</code>-filtterin parametri olisi yhtä hyvin voinut olla esimerkiksi muuttuja tai funktio.
+</p>
+<div class="tehtavat">
+  <h3>Nättiä dataa</h3>
+  Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että se listaa näkymässä X <code>MovieController</code>-kontrollerissa (löytyy tiedostosta X) määritellyn taulukon <code>movies</code> elokuvat siten, että lista näyttää kutakuinkin tältä:
+  <div>
+    <p>
+      <h3 class="ignore">
+        <a href="http://www.imdb.com/title/tt0120737">The Lord of the Rings: The Fellowship of the Ring</a> (2001)
+      </h3>
+      <p>
+        A meek hobbit of the Shire and eight companions set out on a journey to Mount Doom to destroy the One Ring and the dark lord Sauron.
+      </p>
+      <h4 class="ignore">Director</h4>
+      <p>
+        Peter Jackson
+      </p>
+      <h4 class="ignore">Oscar awards (4)</h4>
+      <p>
+        <ul>
+          <li>Best Cinematography</li>
+          <li>Best Makeup</li>
+          <li>Best Music, Original Score</li>
+          <li>Best Effects, Visual Effects</li>
+        </ul>
+      </p>
+      <h4 class="ignore">Roles</h4>
+      <ul>
+        <li>Elijah Wood (Frodo)</li>
+        <li>Sean Astin (Sam)</li>
+        <li>Billy Boyd (Pippin)</li>
+        <li>Dominic Monaghan (Merry)</li>
+        <li>Viggo Mortensen (Aragorn)</li>
+        <li>Orlando Bloom (Legolas)</li>
+      </ul>
+    </p>
+    <p>
+      <h3 class="ignore">
+        <a href="http://www.imdb.com/title/tt0097523">Honey, I Shrunk the Kids</a> (1989)
+      </h3>
+      <p>
+        The scientist father of a teenage girl and boy accidentally shrinks his and two other neighborhood teens to the size of insects. Now the teens must fight diminutive dangers as the father searches for them.
+      </p>
+      <h4 class="ignore">Director</h4>
+      <p>
+        Joe Johnston
+      </p>
+      <h4 class="ignore">Roles</h4>
+      <ul>
+        <li>Rick Moranis (Wayne Szalinski)</li>
+        <li>Marcia Strassman (Diane Szalinski)</li>
+        <li>Kristine Sutherland (Mae Thompson)</li>
+      </ul>
+    </p>
+  </div>
+  <p>
+    Elokuvan otsikko sisältää sen nimen ja julkaisuvuoden. Elokuvan nimen tulee olla linkki sen sivulle <a href="http://www.imdb.com" target="_blank">IMDb</a>:ssä (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngHref" target="_blank">ng-href</a></code>). Oscar-palkinnot tulee näyttää vain, jos elokuvalla niitä on (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngIf" target="_blank">ng-if</a></code>). "Oscar awards" otsikon viereissä suluissa on Oscar-palkintojen lukumäärä. Elokuvan näyttelijät tulee listata (vinkki: </code>ng-repeat</code>) niin, että näyttelijän nimi on ensin ja sen jälkeen suluissa näyttelijän roolinimi elokuvassa. Järjestä elokuvien lista julkaisuvuoden perusteella (vinkki: <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>), niin että uusin elokuva on listan kärjessä.
+  </p>
+  <ul> 
+</div>
+<h3>Mallin muokkaaminen näkymässä</h3>
+<p>
+  Pelkkä mallin esittäminen näkymässä ei riitä, jos sitä ei pysty myös muokkaamaan. Angularissa mallin pystyy helposti sitomaan lomakkeen elementteihin, kuten tekstikenttiin, radio-painikkeisiin ja checkboxeihin. Palataan takaisin <code>ExampleController</code>-kontrollerin pariin, jossa välitimme näkymään objektin <code>person</code>. Katsotaan, miten voimme muokata <code>person</code>-objektia näkymästämme käsin. Aloitetaan <code>name</code>-kentän muokkaamisella, jota haluan pystyä muokkaamaan tekstikentän avulla:
+</p>
+<pre class="sh_html">
+&lt;label&gt;Nimi&lt;/label&gt;
+&lt;input type="text" ng-model="person.name"&gt;
+</pre>
+<p>
+  Riittää siis vain määrittää tekstikentän <code>ng-model</code> attribuuttiin muuttuja, jonka arvo halutaan sitoa sen arvoon. Nyt kun tekstikentän arvo muuttuu, muuttuu myös <code>person</code>-objektin <code>name</code> kentän arvo. 
+</p>
+<p>
+  Totuusarvoa on kätevä muuttaa näkymissä sitomalla sen arvo checkboxin arvoon. Voimme siis helposti muuttaa <code>person</code>-objektin <code>happy</code>-kentän arvoa seuraavasti:
+</p>
+<pre class="sh_html">
+&lt;label&gt;Iloinen?&lt;/label&gt;
+&lt;input type="checkbox" ng-model="person.happy"&gt;
+</pre>
+<p>
+  Angularissa pystyt sitomaan muuttujan arvon lähes jokaiseen eri lomakkeen elementtiin lisäämällä sille <code>ng-model</code>-attribuutin, jonka arvona on sidotun muuttujan nimi.
+</p>
+<p>
+  <code>ng-model</code>-attribuutissa määritellyissä muuttujissa on käytössä nk. "two way data binding", jolloin mallin muuttaminen kontrollerissa aiheuttaa näkymän päivityksen ja samoin mallin muuttaminen näkymässä aiheuttaa siihen muutoksen kontrollerissa.  
+</p>
+<div class="tehtavat">
+  <h3>Elokuvafiltteri</h3>
+  <p>
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että siinä listattuja elokuvia pystyy filtteröimään nimen, julkaisuvuoden ja ohjaajan perusteella käyttämällä näkymässä olevia kenttiä. <a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">Filtteröintiin</a> tutustumisesta on tehtävässä paljon apua. Taulukko <code>movies</code> löytyy kontrollerista <code>MovieController</code> (joka löytyy tiedostosta X). Älä tee suoraan muutoksia <code>movies</code>-taulukkoon, mutta muuten voit tehdä kontrolleriin haluamiasi muutoksia.
+  </p>
+</div>
+<h4>Lomakkeiden validointi</h4>
+<p>
+  Katsotaan seuraavaksi hieman, kuina pystymme validoimaan käyttäjän syötteitä Angularin avulla. Otetaan esimerkiksi tämä lomake, joka sisältää kentät henkilötiedoille:
+</p>
+<pre class="sh_html">
+&lt;form name="infoForm"&gt;
+  &lt;p&gt;
+    &lt;label&gt;Etunimi&lt;/label&gt;
+    &lt;input name="firstName" type="text" ng-model="firstName"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label&gt;Sukunimi&lt;/label&gt;
+    &lt;input name="lastName" type="text" ng-model="lastName"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label&gt;Puhelinnumero&lt;/label&gt;
+    &lt;input name="phoneNumber" type="text" ng-model="phoneNumber"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label&gt;Sähköpostiosoite&lt;/label&gt;
+    &lt;input name="emailAddress" type="text" ng-model="emailAddress"&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;input type="submit" value="Lähetä"&gt;
+  &lt;/p&gt;
+&lt;/form&gt;
+</pre>
+<p>
+  Haluasin, että yllä oleva lomake validoitaisiin seuraavasti:
+  <ul>
+    <li>Etunimi, eikä sukunimi saa olla tyhjä ja molempien pituuden tulee olla vähintään kaksi merkkiä</li>
+    <li>Puhelinnumeron pitää koostua numeroista ja olla vähintään yhdeksän merkkiä pitkä</li>
+    <li>Sähköpostiosoitteen pitää olla muotoa jotain@jotain.jotain</li>
+  </ul>
+</p>
+<p>
+  Huh, kuulostaa aikamoiselta urakalta! Onneksi se ei Angularin kanssa ole. Aloitetaan etunimen ja sukunimen validoinnista. Jos kentät eivät ole valideja, lisätään niiden alapuolelle virheilmoitukset:
+</p>
+<pre class="sh_html">
+&lt;p&gt;
+  &lt;label&gt;Etunimi&lt;/label&gt;
+  &lt;input name="firstName" type="text" ng-model="firstName" required ng-minlength="2"&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;label&gt;Sukunimi&lt;/label&gt;
+  &lt;input name="lastName" type="text" ng-model="lastName" required ng-minlength="2"&gt;
+&lt;/p&gt;
+</pre>
+<p>
+  Kenttien validointi tapahtuu lisäämälle niihin validointiin liittyviä attribuutteja. Molempiin tekstikenttiin on lisätty attribuutti <code>required</code>, joka kertoo, että kentässä tulee olla sisältöä. Lisäksi molemmissa on attribuutti <code>ng-minlength</code>, jonka arvo on <code>2</code>. Se kertoo, että kentän pituuden tulee olla vähintään kaksi merkkiä.
+</p>
+<p>
+  Puhelinnumeron ja sähköpostiosoitteen kentät ovat hieman hankalampia, niissä pitää käyttää säännöllistälauseketta. Ei hätää, voimme määrittää niille attribuutin <code>ng-pattern</code>, jonka arvoksi määritämme haluamamme säännöllisenlausekkeen:
+</p>
+<pre class="sh_html">
+&lt;p&gt;
+  &lt;label&gt;Etunimi&lt;/label&gt;
+  &lt;input name="firstName" type="text" ng-model="firstName" ng-pattern="/^[0-9]{9,}$/"&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;label&gt;Sukunimi&lt;/label&gt;
+  &lt;input name="lastName" type="text" ng-model="lastName" ng-pattern="/^.+@.+\..+$/"&gt;
+&lt;/p&gt;
+</pre>
+<p>
+  Nyt puhelinnumerossa täytyy olla vähintään yhdeksän numeroa ja sähköpostiosoite on muotoa jotain@jotain.jotain. Huomaa, että säännöllinen lauseke, tulee sijoittaa merkkien <code>/^</code> ja <code>$/</code> väliin.
+</p>
+<p>
+  Seuraavaksi käyttäjälle pitäisi näyttää virheilmoitukset, jos hän on täyttänyt lomakkeet väärin. Lisätään jokaisen kentän alle virheilmoitus, jos se ei ole validi:
+</p>
+<pre class="sh_html">
+&lt;div ng-app&gt;
+  &lt;form name="infoForm"&gt;
+    &lt;p&gt;
+      &lt;label&gt;Etunimi&lt;/label&gt;
+      &lt;input name="firstName" type="text" ng-model="firstName" required ng-minlength="2"&gt;
+      &lt;div ng-show="infoForm.firstName.$invalid && infoForm.firstName.$dirty"&gt;
+        Etunimi ei ole validi!
+      &lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label&gt;Sukunimi&lt;/label&gt;
+      &lt;input name="lastName" type="text" ng-model="lastName" required ng-minlength="2"&gt;
+      &lt;div ng-show="infoForm.lastName.$invalid && infoForm.lastName.$dirty"&gt;
+        Sukunimi ei ole validi!
+      &lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label&gt;Puhelinnumero&lt;/label&gt;
+      &lt;input name="phoneNumber" type="text" ng-model="phoneNumber" required ng-pattern="/^[0-9]{9,}$/"&gt;
+      &lt;div ng-show="infoForm.phoneNumber.$invalid && infoForm.phoneNumber.$dirty"&gt;
+        Puhelinnumero ei ole validi!
+      &lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label&gt;Sähköpostiosoite&lt;/label&gt;
+      &lt;input name="emailAddress" type="text" ng-model="emailAddress" required ng-pattern="/^.+@.+\..+$/"&gt;
+      &lt;div ng-show="infoForm.emailAddress.$invalid && infoForm.emailAddress.$dirty"&gt;
+        Sähköpostiosoite ei ole validi!
+      &lt;/div&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input type="submit" value="Lähetä" ng-disabled="infoForm.$invalid"&gt;
+    &lt;/p&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</pre>
+<p>
+  Jokaiseen kenttään on lisätty virheilmoitus, joka näytetään, jos kenttä ei ole validi ja sitä on muokattu. Kentän oikeellisuuden pystyy tarkastamaan arvosta lomakkeenName.kentanName.$invalid, jossa <code>lomakkeenName</code> on <code>form</code>-elementin, jossa kenttä sijaitsee, <code>name</code>-attribuutin arvo ja <code>kentanName</code> kyseisen kentän <code>name</code>-attribuutin arvo. Esimerkiksi <code>infoForm.firstName.$invalid</code> on <code>false</code>, jos etunimen kenttä on validi ja <code>true</code>, jos se ei ole validi. Voimme tarkistaa onko koko lomake validi arvosta <code>lomakkeenName.$invalid</code>. Esimerkissä otin "Lähetä"-painikkeen pois käytöstä, jos lomake ei ole validi. Arvo <code>lomakkeenName.kentanName.$dirty</code> taas kertoo, onko kentän arvo muutettu. Se on lisätty ehtoon, koska emme halua näyttää virheilmoituksia ennen kuin käyttäjä on ehtinyt syöttää mitään kenttään.
+</p>
+<p>
+  Tässä vielä lopputulos:
+  <iframe width="100%" height="300" src="http://jsfiddle.net/HB7LU/10936/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
+<div class="tehtavat">
+  <h3>Validi sen olla pitää!</h3>
+  <p>Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että siinä oleva lomake validoidaan. Lomake on validi, jos seuraavat ehdot ovat voimassa:
+  <ul>
+    <li>
+      Käyttäjätunnus on vähintään kolme merkkiä pitkä.
+    </li>
+    <li>
+      Käyttäjän salasanan pituus on vähintään kahdeksan merkkiä ja sisältää vähintään yhden numero ja ison kirjaimen.
+    </li>
+    <li>
+      Käyttäjän antama salasana ja sen vahvistus vastaavat toisiaan. Käytetään tähän Angulariin toteutettua direktiiviä, jonka käyttöön löydät ohjeet <a href="https://github.com/TheSharpieOne/angular-input-match#usage" target="_blank">täältä</a>. Asennus on jo tehty, tutustu vain lyhyesti käyttöohjeisiin.
+    </li>
+    <li>
+      Käyttäjä on hyväksynyt käyttöehdot (checkboxi on valittu).
+    </li>
+  </ul>
+</p>
+  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon.
+</p>
+</div>
+<h3>Tapahtumat</h3>
+</p>
+  Puhutaan seuraavaksi hieman siitä, kuinka voimme sitoa tapahtumia näkymäämme. Puhuimme jo siitä, että näkymään voi välittää <code>$scope</code>-parametrin kautta myös funktioita. Kuulostaa siltä, että voisimme siis kutsua kontrollerissa määriteltyä funktiota näkymästä käsin.
+</p>
+<p>
+  Olemme tottuneet jQueryssa siihen, että tapahtumat sidotaan johonkin valitsimeen, esimerkiksi id:llä <code>nappula</code> varustettuun painikkeeseen sidottaisiin <code>click</code>, eli hiirenpainallus elementin päällä seuraavasti:
+</p> 
+<pre class="sh_javascript_dom">
+$('#nappula').on('click', function(){
+  alert('Painoit nappulaa!');
+});
+</pre>
+<p>
+  Tapahtumat sidotaan siis jQueryssa käyttöliittymälogiikan puolella. Tässä tavassa ei periaatteessa ole mitään vikaa, mutta kun tapahtumien määrä kasvaa, täyttyy käyttöliittymälogiikka oudoista valitsimista ja kukaan ei enää muista, mihin näkymän elementtiin kukin valitsin liittyi.
+</p>
+<p>
+  Angular lähestyy tapahtumien sitomista elementteihin toisesta näkökulmasta sitomalla tapahtumat näkymässä suoraan DOM-elementtiin valitsimen sijaan. Tapa muistuttaa hieman kurssin alkupuolella esitettyä tapaa sitoa tapahtumia DOM-elementteihin. Äskeinen jQuery esimerkki voidaan toteuttaa Angularilla seuraavasti: 
+</p>
+<pre class="sh_html">
+&lt;div ng-controller="NotificationController"&gt;
+  &lt;button ng-click="notify('Painoit nappulaa!')" id="nappula"&gt;Paina nappulaa!&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+<p>
+  Sidoimme siis <code>button</code>-elementtiin <code>click</code>-tapahtuman asettamalla sille <code>ng-click</code>-attribuutin, jonka arvona on funktionkutsu. Eri tapahtumia on lukuisia ja yleensä ne muistuttavat nimissään jQueryn tapahtumia, esimerkiksi <code>ng-mousemove</code>, <code>ng-keyup</code> ja <code>ng-focus</code>.
+  Nyt koodin ulkopuolinen katselijakin näkee helposti, mitä tapahtumia mihinkin DOM-elementtiin on sidottu ilman, että hänen täytyy tulkita valitsimia. Yllä oleva koodi ei tosin itsessään tee vielä mitään, koska funktiota <code>notify</code> ei ole määritelty. Toteutetaan siis kontrolleri, josta kyseinen funktio löytyy: 
+</p>
+<pre class="sh_javascript_dom">
+function NotificationController($scope){
+  $scope.notify = function(notification){
+    alert(notification);
+  }
+}
+</pre>
+<p>
+  Kuten jo puhuimme, näkymään voi välittää myös funktion, jonka nyt teimme lisäämällä <code>$scope</code>-objektiin kentän <code>notify</code>, jonka arvona on funktio.
+</p>
+<p>
+  Palataan hetkeksi <code>ExampleController</code>-funktion pariin, jonka kanssa töyskentelimme vähän aikaa sitten. Toteutetaan siihen toiminto, jonka avulla henkilön ystäviä voi lisätä ja poistaa:
+</p>
+<pre class="sh_javascript_dom">
+function ExampleController($scope){
+  $scope.person = {
+    name: 'Kalle',
+    age: 22,
+    happy: true,
+    friends: ['Henri', 'Arto', 'Elina', 'Jorma']
+  };
+
+  $scope.addFriend = function(){
+    $scope.person.friends.push($scope.newFriend);
+  }
+
+  $scope.removeFriend = function(index){
+    $scope.person.friends.splice(index, 1);
+  }
+}
+</pre>
+<p>
+  Ennen kuin etenemme pidemmälle, katsotaan, mitä muutoksia teimme. Lisäsimme siis funktiot <code>addFriend</code> ja <code>removeFriend</code> parametrin <code>$scope</code> kentiksi, jolloin ne ovat käytettävissä näkymässä. Funktio <code>addFriend</code> lisää ystävät sisältävään taulukkoon uuden ystävän. Emme ole vielä määritelleet muuttujaa <code>newFriend</code>, mutta tulemme tekemään sen pian näkymässämme. Toteutimme myös funktion <code>removeFriend</code>, joka poistaa ystävän taulukon tietystä indeksistä käyttäen <code>splice</code>-funktiota, joka poistaa taulukosta tietyn määrän alkioita alkaen tietystä indeksistä (järjestys on <code>splice(indeksi, lukumäärä)</code>).
+</p>
+<p>
+  Nyt kaikki kontrollerissa tehdyt muutokset on käyty läpi, joten siirrytäänpä näkymän pariin. Aloitetaan lisäystoiminnosta. Tarvitsemme tekstikentän, johon käyttäjä voi lisätä uuden ystävän nimen ja painikkeen, jota painamalla ystävä lisätään:
+</p>
+<pre class="sh_html">
+&lt;div ng-app&gt;
+  &lt;div ng-controller="ExampleController"&gt;
+    &lt;input type="text" ng-model="newFriend"&gt;
+    &lt;button ng-click="addFriend()"&gt;Lisää ystävä&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p>
+  Sidoimme muuttujan <code>newFriend</code> arvon tekstikenttään, jolloin sen arvo välittyy muuttujaamme. Lisäksi sidoimme painikkeeseen hiirenpainallustapahtuman, jonka seurauksena kutsutaan funktiota <code>addFriend</code>.
+</p>
+<p>
+  Seuraavaksi haluamme toteuttaa toiminnon ystävän poistamiselle. Olemme jo toteuttaneet näkymään ystävien listaamisen, lisätään vain jokaisen ystävän kohdalle painike sen poistamiseksi:
+</p>
+<pre class="sh_html">
+&lt;div ng-app&gt;
+  &lt;div ng-controller="ExampleController"&gt;
+    &lt;ul ng-repeat="friend in person.friends"&gt;
+      &lt;li&gt;{{friend}} &lt;button ng-click="removeFriend($index)"&gt;Poista&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;input type="text" ng-model="newFriend"&gt;
+    &lt;button ng-click="addFriend()"&gt;Lisää ystävä&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p>
+  Toteutimme <code>removeFriend</code>-funktion niin, että se poistaa ystävän taulukon tietystä indeksistä. Se tehtiin siksi, että <code>ng-repeat</code>-toistorakenteessa iteroitavan alkion indeksi on helppo saada muuttujasta <code>$index</code>. Funktion olisi voinut myös toteuttaa niin, että se poistaa ystävän tietyllä nimellä käyttäen jQueryn <code>$.grep</code>-funktiota siten, että se valitsee vain ystävät, joilla ei ole parametrina annettua nimeä. Tällöin taulukossa ei tosin olisi voinut olla saman nimisiä ystäviä.
+</p>
+<p>
+  Tämä pieni sovellus alkaa olla paketissa, katsotaan vielä, mitä olemme saaneet aikaan:
+  <iframe width="100%" height="300" src="http://jsfiddle.net/HB7LU/10905/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
+<div class="tehtavat">
+  <h3>Laskin</h3>
+  <p>
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi laskea kerto-, plus- ja jakolaskuja syöttämällä haluamansa luvut kahteen kenttään ja painamalla jotain kolmesta painikkeesta, jolloin valittu laskuoperaatio suoritetaan luvuille. Jos käyttäjä yrittää jakaa lukua nollalla, ota jakolaskupainike pois käytöstä (vinkki: <code>ng-disabled</code>). Toteuta laskin tekemällä tarvittavat muutokset <code>CalculatorController</code>-kontrolleriin ja näkymään.
+  </p>
+</div>
+<h4>Mallin tarkkailu</h4>
+<p>
+  Tulee usein tilanne, jossa haluamme tarkkailla muutosta mallissa. Esimerkiksi, jos henkilön nimeä muuttaa, hänen ystävän poistetaan, koska henkilö ei ole enää sama kuin ennen, joten hänellä ei ole myöskään samoja ystäviä.
+</p>
+<p>
+  Toteutetaan kuitenkin hieman yksinkertaisempi esimerkki, jossa käyttäjä syöttää nimensä tekstikenttään ja jos sen arvo on "James Bond", näytetään alert-ikkuna "I've been expecting you, mr. Bond". Aloitetaan luomalla luomalla näkymä, joka sisältyy <code>BondController</code>-kontrollerin näkyvyysalueeseen:
+</p>
+<pre class="sh_html">
+&lt;div ng-controller="BondController"&gt;
+  &lt;h1&gt;My name is {{name}}&lt;/h1&gt;
+  &lt;input type="text" ng-model="name"&gt;
+&lt;/div&gt;
+</pre>
+<p>
+  Se on siinä! Sidoimme vain <code>name</code>-muuttujan arvon tekstikentän arvoon ja lisäsimme otsikon, joka esittää <code>name</code>-muuttujan arvon. Seuraavaksi toteutetaan funktio <code>BondController</code>, jossa itse magia tapahtuu:
+</p>
+<pre class="sh_javascript_dom">
+function BondController($scope){
+  $scope.name = "Kalle";
+
+  $scope.$watch('name', function(newValue, oldValue){
+    if(newValue == 'James Bond'){
+      alert('I\'ve been expecting you, mr. Bond');
+    }
+  });
+}
+</pre>
+<p>
+  Lisäämme objektiin <code>$scope</code> tarkkailijan, joka tarkkailee <code><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch" target="_blank">$watch</a></code>-funktion ensimmäisenä saatua parametria. Parametri annetaan merkkijonona, joka vastaa tarkkailtavan muuttujan nimeä. Kun muuttujan arvo vaihtuu, kutsutaan toisena parametrina annettua anonyymiä-funktiota, joka saa parametreikseen muuttujan uuden ja vanhan arvon. Funktion sisällä voimme tarkkailla muuttujan uutta arvoa ja tehdä jotain sen perusteella. Tarkkailtavan muuttujan ei tarvitse olla merkkijono, se voi olla myös mm. objekti tai taulukko. Kannattaa kuitenkin olla tarkkana, sillä Angular ei välttämättä ole kanssasi samaa mieltä siitä, onko muuttujan arvo muuttunut. Angular tarkastaa oletusarvoisesti, onko muuttujan viite muuttunut, jolloin objektien kanssa tulee ongelmia. Ongelma ratkeaa lisäämällä <code>$watch</code>-funktioon kolmas parametri, jonka arvo on <code>true</code>. Tällöin Angular vertaa muuttujan sisältöä viitteen sijaan. 
+</p>
+<p>
+  Tässä vielä lopputulos:
+  <iframe width="100%" height="300" src="https://jsfiddle.net/HB7LU/10890/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
+<h3>Riippuvuuksien injektointi</h3>
+<p>
+  Riippuvuuksien injektointi (<a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a>) on suosittu suunnittelumalli sovelluskehityksessä, johon myös Angular hyvin vahvasti nojautuu. Dependency Injection suunnittelumallin suosio perustuu siihen, että se vähentää sovelluksen sisäisiä riippuvuuksia (tekee "<a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsible Principle</a>"-periaatteen noudattamisesta helpompaa) ja tekee koodista uudelleenkäytettävämpää sekä helpommin testattavaa. 
+</p>
+<p>
+  Katsotaan, miten riippuvuuksien injektointi on toteutettu Angularissa. Tähän mennessä olemme määritelleet kontrollerimme tähän tapaan:
+</p>
+<pre class="sh_javascript_dom">
+function MyController($scope){
+  $scope.message = 'Hello World!';
+}
+</pre>
+<p>
+  Tavassa ei periaatteessa ole mitään vikaa, mutta tulevaisuudessamme haluamme käyttää muita komponentteja kontrollereissamme, jolloin meidän täytyy injektoida ne kontrolleriimme. Jotta riippuvuuksien injektointi olisi helpompaa, määrittelemme kontrollerimme tulevaisuudessa seuraavanlaisesti:
+</p>
+<pre class="sh_javascript_dom">
+var App = angular.module('MyApp', []);
+
+App.controller('MyController', function($scope){
+  $scope.message = 'Hello World!';
+});
+</pre>
+<p>
+  Toteutimme siis moduulin nimeltä <code>MyApp</code> ja sille kontrollerin <code>MyController</code>, johon injektoin muuttujan <code>$scope</code>. Huomaa, että tyhjä taulukko <code>angular.module</code>-kutsun toisena parametrina tarkoittaa sitä, etten injektoi moduuliini toisia moduuleja. Tulemme kuitenkin tekemään niin tulevaisuudessa. Moduuli on Angularissa pelkästään laatikko, joka sisältää sovelluksemme konponentit, kuten kontrollerit. Se on siis tapa organisoida sovelluksen eri osia. Moduulin käyttö lähtee liikkeelle näkymästä, jossa se otetaan käyttöön lisäämällä se <code>ng-app</code>-attribuutin arvoksi:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;div ng-controller="MyController"&gt;
+      &lt;h1&gt;{{message}}&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Ei siis sen kummempaa. Tehdään hommasta hieman jännittävämpää ja injektoidaan <code>MyController</code>-kontrolleriin <code>$scope</code>-muuttujan lisäksi funktio <code>$interval</code>, joka kutsuu parametrina saatua funktiota tietyn aikajakson välein:
+</p>
+<pre class="sh_javascript_dom">
+App.controller('MyController', function($scope, $interval){
+  $scope.message = 60;
+
+  $interval(function(){
+    $scope.message--;
+  }, 1000);
+});
+</pre>
+<p>
+  Käytän injektoitua <code>$interval</code>-funktiota vähentääkseni muuttujan <code>message</code> arvoa joka sekuntti (sekuntti on 1000 millisekunttia).
+</p>
+<div class="tehtavat">
+  <h3>Pikakirjoitus</h3>
+  <p>
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi testata pikakirjoitustaitojaan. Pikakirjoitus pelin tulee toimia niin, että käyttäjä näpee sivulla pitkän "Lorem ipsum dolor sit amet..."-tekstin. Kun käyttäjä painaa "Aloita!"-painiketta, hänen täytyy alkaa kirjoittamaan näkeemäänsä tekstiä tekstikenttään niin nopeasti kuin mahdollista. Varmista, ettei käyttäjä tee kirjoitusvirhettä niin, ettet hyväksy tekstikenttään virheellisiä merkkejä. Samaan aikaan, kun käyttäjä kirjoittaa, sivulla näkyvän laskurin arvo vähenee joka sekuntti. Kun laskurin arvo on 0, tulee käyttäjälle ilmoittaa alert-ikkunan kautta, kuinka monta merkkiä hän onnistui kirjoittamaan.
+  </p>
+  <p>
+    Toteuta pikakirjoituspeli käyttämällä <code>$watch</code>-funktiota tarkkailemaan sekä <code>timeLeft</code>-, että <code>userText</code>-muuttujien arvoja. Kun <code>timeLeft</code> muuttujan arvo on 0, ilmoita käyttäjälle, kuinka monta merkkiä hän onnistui kirjoittamaan oikein (esim. "Onnistuit kirjoittamaan 30 merkkiä!"). Tarkkaile <code>userText</code>-muuttuja kirjoitusvirheiden varalta esimerkiksi seuraavasti: 
+<pre class="sh_javascript_dom">
+var lastChar = newVal.charAt(newVal.length - 1);
+
+if(lastChar != $scope.text.charAt(newVal.length - 1)){
+  $scope.userText = $scope.userText.slice(0,-1);
+}
+</pre>
+  </p>
+  <p>
+    Pelin aloittaa "Aloita!"-painikkeen klikkaaminen. Aloita siis laskurin vähentäminen siitä hetkestä käyttämällä <code><a href="https://docs.angularjs.org/api/ng/service/$interval" target="_blank">$interval</a></code>-funktiota.
+  </p>
+  <h3>TodoApp</h3>
+  Seuraavaksi pääset toteuttamaan hieman suurempaa sovellusta, muistilistaa. Muistilistan avulla käyttäjä voi lisätä itselleen tehtäviä, jotka hän itse priorisoi. Tehtävän voi merkata tehdyiksi, poistaa ja sen prioriteettia voi muuttaa. Tehtävät tulee järjestää muistilistaan niiden prioriteetin mukaan. Lopullinen muistilista muistuttaa tätä (pelkkä käyttöliittymä, toiminallisuus puuttuu):
+  <p>
+  <style>
+    #todo-container{
+      border: 1px solid rgb(220,220,220);
+      font: 13px arial;
+    }
+    #add-todo-container{
+      padding: 10px;
+    }
+    #add-todo-container input[type="text"]{
+      padding: 10px;
+      width: 400px;
+      border: 1px solid rgb(220,220,220);
+    }
+    #mark-todos-done{
+      background-color: #00C000 !important;
+      border: 1px solid #00C000 !important;
+    }
+    #remove-todos{
+      background-color: #C63717 !important;
+      border: 1px solid #C63717 !important;
+    }
+    #todo-footer{
+      border-top: 1px solid rgb(220,220,220);
+      padding: 10px;
+    }
+    #add-todo-container button{
+      padding: 10px 14px;
+      border: 1px solid black;
+      background-color: black;
+      color: white;
+    }
+    .todo{
+      border-top: 1px solid rgb(220,220,220); 
+      padding: 10px; 
+      overflow: hidden;
+    }
+    .todo .todo-priority{
+      padding: 10px 10px;
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+      border: 1px solid white;
+    }
+    .todo .todo-priority:hover, .todo-priority:focus{
+      border: 1px solid rgb(220,220,220);
+    }
+    .todo .todo-done{
+      text-decoration: line-through;
+    }
+    .todo .remove-todo{
+      background-color: #C63717;
+      border: 1px solid #C63717;
+      color: white;
+      padding: 10px 14px;
+      float: right;
+    }
+  </style>
+      <h1 class="ignore">Muistilista</h1>
+      <div id="todo-container">
+        <div id="add-todo-container">
+          <input type="text" placeholder="Uusi tehtävä">
+          <button>Lisää tehtävä</button>
+          <button id="mark-todos-done">Merkkaa kaikki tehdyiksi</button>
+          <button id="remove-todos">Poista kaikki</button>
+        </div>
+
+        <div class="todo">
+          <input type="text" value="1" class="todo-priority">
+          <label>
+            <input type="checkbox" checked> <span class="todo-done">Kirjoita Angular-materiaalia</span>
+          </label>
+          <button class="remove-todo">Poista</button>
+        </div>
+
+        <div class="todo">
+          <input type="text" value="2" class="todo-priority">
+          <label>
+            <input type="checkbox"> <span>Ruoki koira</span>
+          </label>
+          <button class="remove-todo">Poista</button>
+        </div>
+
+        <div class="todo">
+          <input type="text" value="3" class="todo-priority">
+          <label>
+            <input type="checkbox"> <span>Käy kaupassa</span>
+          </label>
+          <button class="remove-todo">Poista</button>
+        </div>
+
+        <div id="todo-footer">
+          1 tehtävä tehty, 2 tehtävää jäljellä
+        </div>
+      </div>
+  </p>
+  <p>
+    Toteuta valmiiseen käyttöliittymään seuraavat toiminnot:
+    <ul>
+      <li>Käyttäjä voi lisätä tehtävän listaan "Uusi tehtävä"-tekstikentän nimen perusteella. Älä anna käyttäjän lisätä tehtävää tyhjällä nimellä.</li>
+      <li>Käyttäjä voi merkata merkata tehtävän tehdyksi klikkaamalla checkboxia. Tehdyn tehtävän nimi vedetään yli (voit lisätä tehtävän nimeen tällöin luokan <code>todo-done</code> (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngClass" target="_blank">ng-class</a></code>).</li>
+      <li>
+        Käyttäjä voi merkata kaikki tehtävät tehdyksi klikkaamalla "Merkkaa kaikki tehdyiksi"-painiketta.
+      </li>
+      <li>
+        Käyttäjä voi poistaa tehtävän listasta painamalla oikeasta laidasta "Poista"-painiketta.
+      </li>
+      <li>
+        Käyttäjä voi poistaa kaikki tehtävät klikkaamalla "Poista kaikki"-painiketta. Varmista painikkeen klikkaamisen jälkeen, että käyttäjä haluaa varmasti poistaa kaikki tehtävät (vinkki: <code><a href="http://www.w3schools.com/jsref/met_win_confirm.asp" target="_blank">confirm</a></code>). 
+      </li>
+      <li>
+        Tehtävään liittyy prioriteetti. Jokaiselle tehtävälle lisätään sen lisäämisen yhteydessä prioriteetti <code>1</code>. Sitä pienempi prioriteetti on, sitä tärkeämpi tehtävä on. Käyttäjä voi muokata tehtävän prioriteettia vaihtamalla sen vieressä olevan tekstikentän arvoa. Järjestä tehtävät prioriteetin mukaan niin, että tärkeimmät tehtävät ovat listan yläpäässä (vinkki: <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>).
+      </li>
+      <li>
+        Käyttäjä voi nähdä muistilistan alalaidasta, kuinka monta tehtävää hän on tehnyt ja kuinka monta on vielä tekemättä. Käytä selkeää suomen kieltä, jolloin "1 tehtävä tehty" on oikein ja "1 tehtävää tehty" on väärin (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngPluralize" target="_blank">ng-pluralize</a></code>). Voit toteuttaa toiminnon käyttämällä <code><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch" target="_blank">$watch</a></code>-funktiota niin, että seuraat tehtävät sisältävää taulukkoa ja päivittää esimerkiksi muuttujien <code>todosDone</code> ja <code>todosRemaining</code> arvot aina, kun taulukossa tapahtuu muutoksia. <strong>Muista lisätä <code>$watch</code>-funktiokutsun viimeiseksi parametriksi <code>true</code>, niin Angular tarkastaa onko taulukossa tapahtunut muutoksia sen sisällön, eikä pelkän viitteen perusteella</strong>. 
+      </li>
+    </ul>
+  </p>
+</div>
+<h3>Direktiivit</h3>
+<p>
+  Jos olemme tarkkoja, emme ole puhuneet asioista täysin niiden oikeilla nimillä. Olemme puhuneet mm. <code>ng-repeat</code>, <code>ng-if</code> ja <code>ng-controller</code> yhteydessä pelkistä attribuuteista, joita annetaan DOM-elementeille. Toisaalta ne ovat sitä, mutta Angularin yhteydessä niillä on toinen nimi, <a href="https://docs.angularjs.org/guide/directive" target="_blank">direktiivi</a> (directive). Direktiivit ovat yksinkertaisesti tunnuksia (yleensä juuri attribuutteja) DOM-elementeissä, jotka kertovat Angularin HTML-kääntäjälle, että niihin pitää liittää erityisiä ominaisuuksia tai muuttaa elementtiä ja sen lapsielementtejä esimerkiksi lisäämällä niiden sisään toisia DOM-elementtejä tai muokkaamalla olemassaolevien elementtien esitystä.
+</p>
+<p>
+  Sovellusta toteuttaessa tulee usein vastaan tilanne, jossa valmista direktiiviä ei löydy, jolloin se pitää joko toteuttaa itse, tai etsiä muualta. Angulariin on toteuttu lukuisia ulkopuolisia direktiivejä, mutta toteutetaan harjoituksen vuoski yksi itse. Oman direktiivin luonti tapahtuu seuraavasti: 
+</p>
+<pre class="sh_javascript_dom">
+var App = angular.module('MyApp', []);
+
+App.directive('counter', function(){
+  // ...
+});
+</pre>
+<p>
+  Huomaat, että direktiivin luonti muistuttaa erehdyttävästi kontrollerin luontia. Kutsumme vain moduulillemme <code>directive</code>-funktiota ja annamme ensimmäiseksi parametriksi direktiivin nimen ja toiseksi anonyymin funktion. Tässä esimerkissä loin direktiivin <counde>counter</code>, jonka voin liittää DOM-elementtiin seuraavasti:
+</p>
+<pre class="sh_html">
+&lt;button counter&gt;Kasvata&lt;/button&gt;
+</pre>
+<p>
+  <code>counter</code>-direktiivi on nyt liitetty <code>button</code>-elementtiin, se ei tosin vielä tee mitään. Muista nimeämisessä että, jos direktiivisi nimi on esimerkiksi <code>MinunOmaDirektiivini</code>, voi sen lisätä DOM-elementtiin attribuutilla <code>minun-oma-direktiivini</code> (CamelCase-tyyli muuttuu viivoilla erotetuiksi sanoiksi). Laitetaan seuraavaksi direktiivimme esittämään käyttäjälle alert-ikkuna, kun siihen liittyvää elementtiä klikataan:
+</p>
+<pre class="sh_javascript_dom">
+App.directive('counter', function(){
+  return {
+    link: function(scope, elem, attrs){
+      $(elem).on('click', function(){
+        alert('Klikkasit!');
+      });
+    }
+  }
+});
+</pre>
+<p>
+  Direktiivin ominaisuudet liitetään objektiin, jonka toisena parametrina annettu anonyymifunktio palauttaa. Voimme liittää palautettuun objektiin kentän <code>link</code>, joka sisältää funktion, joka ottaa parametreikseen Angularin scope-objektin, elementin, johon direktiivi on liitetty ja attribuutit, mikä kyseiseen elementtiin liittyy. Funktion avulla voimme manipuloida DOM-elementtiä, johon direktiivimme on liitetty, kuten liittää siihen tapahtumankuuntelijan. Nyt kun käyttäjä klikkaa "Kasvata"-painiketta, johon <code>counter</code>-direktiivi on liitetty, ilmestyy alert-ikkuna "Klikkasit!". 
+</p>
+<p>
+  <code>link</code>-kentässä määritellyn funktion ensimmäisen parametrin, <code>scope</code> avulla pääsemme käsiksi koko direktiivin näkyvyysalueeseen, joka on koko direktiivin ulkoinen näkyvyysalue. Usein haluamme kuitenkin määrittää direktiivillemme nk. eristetyn näkyvyysalueen, jonka avulla voimme kuvata direktiivin ulkoisen näkyvyysalueen sen sisäiseksi näkyvyysalueeksi. Se on kätevää, koska silloin direktiivinen toteutuksen ei tarvitse riippua siitä, minkä kontrollerin sisällä se on käytössä. Eristetyn näkyvyysaluuen toteuttaminen onnistuu määrittelemällä palautettavaan objektiin kenttä <code>scope</code>, johon määrittelemme direktiivin näkyvyysalueen. Käytännössä voimme esimerkiksi käyttää <code>ng-model</code>-direktiivissä määriteltyä muuttujaa direktiivissämme seuraavasti:
+</p>
+<pre class="sh_javascript_dom">
+App.directive('counter', function(){
+  return {
+    scope: {
+      number: '=ngModel'
+    },
+    link: function(scope, elem, attrs){
+      $(elem).on('click', function(){
+        alert(scope.number);
+      });
+    }
+  }
+});
+</pre>
+<p>
+  Lisäsimme siis palautettavaan objektiin <code>scope</code> kentän, jossa määritimme, että lisäämme direktiivimme näkyvyysalueseen muuttujan <code>number</code>, jonka arvo vastaa <code>ng-model</code>-direktiivissä määriteltyä arvoa. Merkkijonossa <code>=ngModel</code>, <code>=</code>-merkki tarkoittaa, että sidomme ulkoisen näkyvyysalueen muuttujan direktiivimme näkyvyysalueeseen ja <code>ngModel</code> viittaa vain direktiiviin <code>ng-model</code> (huomaathan, että attribuutti on muotoa <code>attribuutin-nimi</code>, mutta siihen viitataan nimellä <code>attribuutinNimi</code>).  Muokkasimme myös <code>link</code>-kentessä määriteltyä funktiota niin, että alert-ikkunaan ilmestyy näkyvyysalueeseen lisätyn <code>number</code>-muuttujan arvo. Muokataan vielä näkymää niin, että <code>button</code>-elementtiin lisätään <code>ng-model</code>-direktiivi, jonka arvo on muuttuja <code>value</code>:
+</p>
+<pre class="sh_html">
+Laskurin arvo on: {{value}}
+&lt;button counter ng-model="value"&gt;Kasvata&lt;/button&gt;
+</pre>
+<p>
+  Koska muuttujan <code>value</code> arvoa ei ole vielä asetettua, "Kasvata"-painikkeen klikkaamisesta ilmestyvän alert-ikkunan sisältö on "undefined". Muokataan direktiiviämme vielä niin, että painikkeen klikkaaminen kasvattaa <code>ng-model</code>-direktiivissä määriteltyä arvoa:
+</p>
+<pre class="sh_javascript_dom">
+App.directive('counter', function(){
+  return {
+    scope: {
+      number: '=ngModel'
+    },
+    link: function(scope, elem, attrs){
+      if(typeof scope.number == 'undefined'){
+        scope.number = 0; 
+      }
+
+      $(elem).on('click', function(){
+        scope.$apply(function(){
+          scope.number++;
+        });
+      });
+    }
+  }
+});
+</pre>
+<p>
+  Ratkaisimme alustamattoman <code>ng-model</code>-direktiivissä annetun muuttujan ongelman, asettamalla siinä tilanteessa <code>number</code>-muuttujan arvo nollaksi. Lisäsimme myös klikkauksen tapahtumankuuntelijaan <code>number</code>-arvon kasvatuksen. Huomaa, jotta arvon muokkaaminen välittyisi direktiivin ulkopuolelle, täytyy kutsua funktiota <code>$apply</code>, jolloin kerromme Angularille, että olemme tehneet muutoksia malliin ja ne muutokset pitäisi välittää näkymään. Yleensä <code>$apply</code>-funktiota ei tarvitse erikseen kutsua, koska Angular hoitaa sen puolestasi. Olemme tapahtumankuuntelijassa kuitenkin Angularin kontekstin ulkopuolella, joten meidän täytyy kutsua <code>$apply</code>-funktiota itse, jotta saamme välitettyä mallissa tehdyt muutokset näkymään. 
+</p>
+<p>
+  Lisätään vielä direktiiviimme yksi toiminto, jonka avulla sen käyttäjä kertoo, kuinka paljon hän haluaa muuttaa <code>ng-model</code>-direktiivissä määriteltyä arvoa. Sen voisi määritellä elementissä näin:
+</p>
+<pre class="sh_html">
+Laskurin arvo on: {{value}}
+&lt;button counter ng-model="value" amount="-2"&gt;Kasvata&lt;/button&gt;
+</pre>
+<p>
+  Määritimme siis elementtiin <code>amount</code>-attribuutin, joka kertoo, että haluamme vähentää <code>value</code>-muuttujan arvoa kahdella jokaisen klikkauksen jälkeen. Joudumme vielä määrittämään <code>amount</code>-attribuutin direktiivimme eristettyyn näkyvyysalueeseen:
+</p>
+<pre class="sh_javascript_dom">
+App.directive('counter', function(){
+  return {
+    scope: {
+      number: '=ngModel',
+      amount: '=amount'
+    },
+    link: function(scope, elem, attrs){
+      if(typeof scope.number == 'undefined'){
+        scope.number = 0; 
+      }
+
+      $(elem).on('click', function(){
+        scope.$apply(function(){
+          scope.number+=parseInt(scope.amount);
+        });
+      });
+    }
+  }
+});
+</pre>
+<p>
+  Liitimme <code>amount</code>-muuttujan eristettyyn näkyvyysalueeseemme. Muutimme myös <code>link</code>-kentässä määriteltyä funktiota niin, että se kasvattaa (tai vähentää) <code>number</code>-muuttujan arvoa <code>amount</code>-muuttujan arvon verran jokaisen klikkauksen jälkeen. Muuttujan <code>amount</code> arvoksi olisi voinut asettaa näkymässä myös muuttujan. Se johtuu siitä, että lisäsimme sen direktiivimme näkyvyysalueeseen <code>=</code>-operaattorilla. Toinen mahdollinen operaattori olisi ollut <code>@</code>, mutta silloin näkymän <code>amount</code>-attribuutissa määriteltyä arvoa olisi käsitelty puhtaana arvona, ei muuttujana. Lopputulos on testattavissa <a href="http://plnkr.co/edit/CtAROoWeBUWMNWRnistW?p=preview" target="_blank">Plunkerissa</a>.
+</p>
+<p>
+  Tämä osio oli vasta pintaraapaisu direktiivien käyttöön. Lisää niistä voi lukea <a href="https://docs.angularjs.org/guide/directive" target="_blank">Angularin Developer Guidesta</a>.
+</p>
 </section>
 <section class="week">
   <header>
     <a name="viikko5"></a>
     <h1 data-week-id="5">Viikko 5</h1>
   </header>
-
+  
 </section>
 <section class="week">
   <header>
     <a name="viikko6"></a>
     <h1 data-week-id="6">Viikko 6</h1>
   </header>
+  
 </section>
 <section class="week">
   <header>
