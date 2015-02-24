@@ -6015,7 +6015,7 @@ function HelloController($scope){
 </p>
 <div class="tehtavat">
   <h3>My name is Bond, James Bond</h3>
-  Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että näkymän otsikon sisältö määräytyy "etunimi" ja "sukunimi" tekstikenttien perusteella. Otsikon alkuarvon tulee olla "My name is Bond, James Bond". Joudut tekemään muutoksia näkymän lisäksi <code>BondController</code>-kontrolleriin, joka sijaitsee tiedostossa X. 
+  Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että näkymän otsikon sisältö määräytyy "etunimi" ja "sukunimi" tekstikenttien perusteella. Jos siis "etunimi"-kentän arvo on "Kalle" ja "sukunimi"-kentän arvo on "Ilves", on otsikon sisältö "My names is Ilves, Kalle Ilves". Otsikon alkuarvon tulee olla "My name is Bond, James Bond". Joudut tekemään muutoksia näkymän lisäksi <code>BondController</code>-kontrolleriin, joka sijaitsee tiedostossa <code>app/app.js</code>. 
 </div>
 <h3>Näkymät</h3>
 <p>
@@ -6127,7 +6127,7 @@ function ExampleController($scope){
 </p>
 <div class="tehtavat">
   <h3>Nättiä dataa</h3>
-  Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että se listaa näkymässä X <code>MovieController</code>-kontrollerissa (löytyy tiedostosta X) määritellyn taulukon <code>movies</code> elokuvat siten, että lista näyttää kutakuinkin tältä:
+  Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että se listaa (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank">ng-repeat</a></code>) <code>index.html</code>-näkymässä <code>MovieController</code>-kontrollerissa (löytyy tiedostosta <code>app/app.js</code>) määritellyn taulukon <code>movies</code> elokuvat siten, että lista näyttää kutakuinkin tältä:
   <div>
     <p>
       <h3 class="ignore">
@@ -6177,9 +6177,26 @@ function ExampleController($scope){
         <li>Kristine Sutherland (Mae Thompson)</li>
       </ul>
     </p>
+    <p>
+      <h3 class="ignore"><a href="http://www.imdb.com/title/tt0096283">My Neighbor Totoro</a> (1988)</h3>
+      <p>
+        When two girls move to the country to be near their ailing mother, they have adventures with the wonderous forest spirits who live nearby.
+      </p>
+      <h4 class="ignore">Director</h4>
+      <p>
+        Hayao Miyazaki
+      </p>
+      <h4 class="ignore">Roles</h4>
+      <ul>
+        <li>Toshiyuki Amagasa (Kanta)</li>
+        <li>Brianne Brozey (Michiko)</li>
+        <li>Cheryl Chase (Mei)</li>
+        <li>Dakota Fanning (Satsuki)</li>
+      </ul>
+    </p>
   </div>
   <p>
-    Elokuvan otsikko sisältää sen nimen ja julkaisuvuoden. Elokuvan nimen tulee olla linkki sen sivulle <a href="http://www.imdb.com" target="_blank">IMDb</a>:ssä (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngHref" target="_blank">ng-href</a></code>). Oscar-palkinnot tulee näyttää vain, jos elokuvalla niitä on (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngIf" target="_blank">ng-if</a></code>). "Oscar awards" otsikon viereissä suluissa on Oscar-palkintojen lukumäärä. Elokuvan näyttelijät tulee listata (vinkki: </code>ng-repeat</code>) niin, että näyttelijän nimi on ensin ja sen jälkeen suluissa näyttelijän roolinimi elokuvassa. Järjestä elokuvien lista julkaisuvuoden perusteella (vinkki: <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>), niin että uusin elokuva on listan kärjessä.
+    Elokuvan otsikko sisältää sen nimen ja julkaisuvuoden. Elokuvan nimen tulee olla linkki sen sivulle <a href="http://www.imdb.com" target="_blank">IMDb</a>:ssä (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngHref" target="_blank">ng-href</a></code>). Oscar-palkinnot tulee näyttää vain, jos elokuvalla niitä on (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngIf" target="_blank">ng-if</a></code>). "Oscar awards" otsikon vieressä suluissa on Oscar-palkintojen lukumäärä. Elokuvan näyttelijät tulee listata (vinkki: </code>ng-repeat</code>) niin, että näyttelijän nimi on ensin ja sen jälkeen suluissa näyttelijän roolinimi elokuvassa. Järjestä elokuvien lista julkaisuvuoden perusteella (vinkki: <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>), niin että uusin elokuva on listan kärjessä.
   </p>
   <ul> 
 </div>
@@ -6210,7 +6227,7 @@ function ExampleController($scope){
 <div class="tehtavat">
   <h3>Elokuvafiltteri</h3>
   <p>
-    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että siinä listattuja elokuvia pystyy filtteröimään nimen, julkaisuvuoden ja ohjaajan perusteella käyttämällä näkymässä olevia kenttiä. <a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">Filtteröintiin</a> tutustumisesta on tehtävässä paljon apua. Taulukko <code>movies</code> löytyy kontrollerista <code>MovieController</code> (joka löytyy tiedostosta X). Älä tee suoraan muutoksia <code>movies</code>-taulukkoon, mutta muuten voit tehdä kontrolleriin haluamiasi muutoksia.
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että <code>index.html</code>-näkymässä muodostettua elokuvien listaa pystyy filtteröimään nimen, julkaisuvuoden ja ohjaajan perusteella käyttämällä näkymässä olevia kenttiä. Jos siis käyttäjä syöttää esimerkiksi "nimi"-kenttään arvon "The Lord" ja "ohjaaja"-kenttään arvon "Peter", tulee näkymässä listata vain elokuvat, joiden nimestä löytyy sana "The Lord" ja ohjaajan nimestä löytyy sana "Peter". <a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">Filtteröintiin</a> tutustumisesta on tehtävässä paljon apua. Taulukko <code>movies</code> löytyy kontrollerista <code>MovieController</code> (joka löytyy tiedostosta <code>app/app.js</code>). Älä tee muutoksia <code>movies</code>-taulukkoon, mutta muuten voit tehdä kontrolleriin haluamiasi muutoksia.
   </p>
 </div>
 <h4>Lomakkeiden validointi</h4>
@@ -6321,7 +6338,10 @@ function ExampleController($scope){
 &lt;/div&gt;
 </pre>
 <p>
-  Jokaiseen kenttään on lisätty virheilmoitus, joka näytetään, jos kenttä ei ole validi ja sitä on muokattu. Kentän oikeellisuuden pystyy tarkastamaan arvosta lomakkeenName.kentanName.$invalid, jossa <code>lomakkeenName</code> on <code>form</code>-elementin, jossa kenttä sijaitsee, <code>name</code>-attribuutin arvo ja <code>kentanName</code> kyseisen kentän <code>name</code>-attribuutin arvo. Esimerkiksi <code>infoForm.firstName.$invalid</code> on <code>false</code>, jos etunimen kenttä on validi ja <code>true</code>, jos se ei ole validi. Voimme tarkistaa onko koko lomake validi arvosta <code>lomakkeenName.$invalid</code>. Esimerkissä otin "Lähetä"-painikkeen pois käytöstä, jos lomake ei ole validi. Arvo <code>lomakkeenName.kentanName.$dirty</code> taas kertoo, onko kentän arvo muutettu. Se on lisätty ehtoon, koska emme halua näyttää virheilmoituksia ennen kuin käyttäjä on ehtinyt syöttää mitään kenttään.
+  Jokaiseen kenttään on lisätty virheilmoitus, joka näytetään, jos kenttä ei ole validi ja sitä on muokattu. Kentän oikeellisuuden pystyy tarkastamaan arvosta lomakkeenName.kentanName.$invalid, jossa <code>lomakkeenName</code> on <code>form</code>-elementin <code>name</code>-attribuutin arvo, jonka sisällä kenttä sijaitsee ja <code>kentanName</code> kyseisen kentän <code>name</code>-attribuutin arvo. Esimerkiksi <code>infoForm.firstName.$invalid</code> on <code>false</code>, jos etunimen kenttä on validi ja <code>true</code>, jos se ei ole validi. Voimme tarkistaa onko koko lomake validi arvosta <code>lomakkeenName.$invalid</code>. Lisäksi voimme tarkistaa onko kenttä validi yksittäinen validaattorin perusteella, esimerkiksi <code>required</code>-validaattorin perusteella, syntaksilla <code>lomakkeenName.kentanName.$error.required</code> (<code>true</code>, jos kenttä ei ole validi <code>require</code>-validaattorin perusteella). Esimerkissä otin "Lähetä"-painikkeen pois käytöstä, jos lomake ei ole validi. Arvo <code>lomakkeenName.kentanName.$dirty</code> taas kertoo, onko kentän arvoa muutettu. Se on lisätty ehtoon, koska emme halua näyttää virheilmoituksia ennen kuin käyttäjä on ehtinyt syöttää mitään kenttään.
+</p>
+<p>
+  Lisää lomakkeista ja niiden validoinnista voit lukea <a href="https://docs.angularjs.org/guide/forms" target="_blank">täältä</a>.
 </p>
 <p>
   Tässä vielä lopputulos:
@@ -6341,11 +6361,15 @@ function ExampleController($scope){
       Käyttäjän antama salasana ja sen vahvistus vastaavat toisiaan. Käytetään tähän Angulariin toteutettua direktiiviä, jonka käyttöön löydät ohjeet <a href="https://github.com/TheSharpieOne/angular-input-match#usage" target="_blank">täältä</a>. Asennus on jo tehty, tutustu vain lyhyesti käyttöohjeisiin.
     </li>
     <li>
+      Sekä etu-, että sukunimi on pituudeltaan vähintään kaksi merkkiä ja koostuvat pelkistä kirjaimista.
+    </li>
+    <li>Henkilötunnus on <a href="http://fi.wikipedia.org/wiki/Henkil%C3%B6tunnus#Tunnuksen_muoto" target="_blank">täällä</a> määriteltyä mutoa.</li>
+    <li>
       Käyttäjä on hyväksynyt käyttöehdot (checkboxi on valittu).
     </li>
   </ul>
 </p>
-  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon.
+  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi kenttiin kohdistuvat virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon. Yksittäisen validaattorin virheitä ei tarvitse, näyttää, riittää ilmoittaa, jos kenttä ei ole validi jonkin validaattorin perusteella. Muista sitoa jokainen kenttä jonkin muuttujan arvoon <code>ng-model</code>-attribuutin avulla, muuten validointi ei toimi.
 </p>
 </div>
 <h3>Tapahtumat</h3>
@@ -6447,7 +6471,7 @@ function ExampleController($scope){
 <div class="tehtavat">
   <h3>Laskin</h3>
   <p>
-    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi laskea kerto-, plus- ja jakolaskuja syöttämällä haluamansa luvut kahteen kenttään ja painamalla jotain kolmesta painikkeesta, jolloin valittu laskuoperaatio suoritetaan luvuille. Jos käyttäjä yrittää jakaa lukua nollalla, ota jakolaskupainike pois käytöstä (vinkki: <code>ng-disabled</code>). Toteuta laskin tekemällä tarvittavat muutokset <code>CalculatorController</code>-kontrolleriin ja näkymään.
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi laskea kerto-, plus-, erotus- ja jakolaskuja syöttämällä haluamansa luvut kahteen kenttään ja painamalla jotain neljästä painikkeesta, jolloin valittu laskuoperaatio suoritetaan luvuille ja tulos näytetään käyttäjälle kenttien yläpuolella. Jos käyttäjä yrittää jakaa lukua nollalla, ota jakolaskupainike pois käytöstä (vinkki: <code>ng-disabled</code>). Toteuta laskin tekemällä tarvittavat muutokset <code>CalculatorController</code>-kontrolleriin (löytyy tiedostosta <code>app/app.js</code>) ja <code>index.html</code>-näkymään.
   </p>
 </div>
 <h4>Mallin tarkkailu</h4>
@@ -6538,10 +6562,10 @@ App.controller('MyController', function($scope, $interval){
 <div class="tehtavat">
   <h3>Pikakirjoitus</h3>
   <p>
-    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi testata pikakirjoitustaitojaan. Pikakirjoitus pelin tulee toimia niin, että käyttäjä näpee sivulla pitkän "Lorem ipsum dolor sit amet..."-tekstin. Kun käyttäjä painaa "Aloita!"-painiketta, hänen täytyy alkaa kirjoittamaan näkeemäänsä tekstiä tekstikenttään niin nopeasti kuin mahdollista. Varmista, ettei käyttäjä tee kirjoitusvirhettä niin, ettet hyväksy tekstikenttään virheellisiä merkkejä. Samaan aikaan, kun käyttäjä kirjoittaa, sivulla näkyvän laskurin arvo vähenee joka sekuntti. Kun laskurin arvo on 0, tulee käyttäjälle ilmoittaa alert-ikkunan kautta, kuinka monta merkkiä hän onnistui kirjoittamaan.
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi testata pikakirjoitustaitojaan. Pikakirjoituspelin tulee toimia niin, että käyttäjä näkee sivulla pitkän "Lorem ipsum dolor sit amet..."-tekstin, jonka sisältö löytyy muuttujasta <code>text</code>. Kun käyttäjä painaa "Aloita!"-painiketta, hänen täytyy alkaa kirjoittamaan näkeemäänsä tekstiä tekstikenttään niin nopeasti kuin mahdollista. Käyttäjällä on aikaa kirjoittaa tekstiä 15 sekunttia. Varmista, ettei käyttäjä tee kirjoitusvirhettä niin, ettet hyväksy tekstikenttään virheellisiä merkkejä. Samaan aikaan, kun käyttäjä kirjoittaa, sivulla näkyvän laskurin arvo vähenee joka sekuntti. Kun laskurin arvo on 0, tulee käyttäjälle ilmoittaa alert-ikkunan kautta, kuinka monta merkkiä hän onnistui kirjoittamaan. Pelin uudelleen aloittamiseksi riittää, että käyttäjä päivittää sivun, mutta voit halutessasi alustaa pelin uudelleen, kun laskurin arvo on 0.
   </p>
   <p>
-    Toteuta pikakirjoituspeli käyttämällä <code>$watch</code>-funktiota tarkkailemaan sekä <code>timeLeft</code>-, että <code>userText</code>-muuttujien arvoja. Kun <code>timeLeft</code> muuttujan arvo on 0, ilmoita käyttäjälle, kuinka monta merkkiä hän onnistui kirjoittamaan oikein (esim. "Onnistuit kirjoittamaan 30 merkkiä!"). Tarkkaile <code>userText</code>-muuttuja kirjoitusvirheiden varalta esimerkiksi seuraavasti: 
+    Toteuta pikakirjoituspeli käyttämällä <code>$watch</code>-funktiota tarkkailemaan esimerkiksi <code>timeLeft</code> (kuinka paljon laskurissa on aikaa) ja <code>userText</code> nimisten muuttujien (käyttäjän kirjoittama teksti) arvoja. Kun <code>timeLeft</code> muuttujan arvo on 0, ilmoita käyttäjälle, kuinka monta merkkiä hän onnistui kirjoittamaan oikein (esim. "Onnistuit kirjoittamaan 30 merkkiä!"). Tarkkaile <code>userText</code>-muuttuja kirjoitusvirheiden varalta esimerkiksi seuraavasti: 
 <pre class="sh_javascript_dom">
 var lastChar = newVal.charAt(newVal.length - 1);
 
@@ -6551,10 +6575,10 @@ if(lastChar != $scope.text.charAt(newVal.length - 1)){
 </pre>
   </p>
   <p>
-    Pelin aloittaa "Aloita!"-painikkeen klikkaaminen. Aloita siis laskurin vähentäminen siitä hetkestä käyttämällä <code><a href="https://docs.angularjs.org/api/ng/service/$interval" target="_blank">$interval</a></code>-funktiota.
+    Pelin aloittaa "Aloita!"-painikkeen klikkaaminen. Aloita siis laskurin vähentäminen siitä hetkestä käyttämällä <code><a href="https://docs.angularjs.org/api/ng/service/$interval" target="_blank">$interval</a></code>-funktiota. <code>TypeController</code>-kontrollerin pohja löytyy tiedostosta <code>app/app.js</code> ja näkymä tiedostosta <code>index.html</code>.
   </p>
-  <h3>TodoApp</h3>
-  Seuraavaksi pääset toteuttamaan hieman suurempaa sovellusta, muistilistaa. Muistilistan avulla käyttäjä voi lisätä itselleen tehtäviä, jotka hän itse priorisoi. Tehtävän voi merkata tehdyiksi, poistaa ja sen prioriteettia voi muuttaa. Tehtävät tulee järjestää muistilistaan niiden prioriteetin mukaan. Lopullinen muistilista muistuttaa tätä (pelkkä käyttöliittymä, toiminallisuus puuttuu):
+  <h3>TodoApp (3p)</h3>
+  Seuraavaksi pääset toteuttamaan hieman suurempaa sovellusta, muistilistaa. Muistilistan avulla käyttäjä voi lisätä itselleen tehtäviä, jotka hän itse priorisoi. Lisätyn tehtävän voi merkata tehdyiksi, poistaa ja sen prioriteettia voi muuttaa. Tehtävät tulee järjestää muistilistaan niiden prioriteetin mukaan. Lopullinen muistilista muistuttaa tätä (pelkkä käyttöliittymä, toiminallisuus puuttuu):
   <p>
   <style>
     #todo-container{
@@ -6666,12 +6690,15 @@ if(lastChar != $scope.text.charAt(newVal.length - 1)){
         Käyttäjä voi poistaa kaikki tehtävät klikkaamalla "Poista kaikki"-painiketta. Varmista painikkeen klikkaamisen jälkeen, että käyttäjä haluaa varmasti poistaa kaikki tehtävät (vinkki: <code><a href="http://www.w3schools.com/jsref/met_win_confirm.asp" target="_blank">confirm</a></code>). 
       </li>
       <li>
-        Tehtävään liittyy prioriteetti. Jokaiselle tehtävälle lisätään sen lisäämisen yhteydessä prioriteetti <code>1</code>. Sitä pienempi prioriteetti on, sitä tärkeämpi tehtävä on. Käyttäjä voi muokata tehtävän prioriteettia vaihtamalla sen vieressä olevan tekstikentän arvoa. Järjestä tehtävät prioriteetin mukaan niin, että tärkeimmät tehtävät ovat listan yläpäässä (vinkki: <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>).
+        Tehtävään liittyy prioriteetti. Jokaiselle tehtävälle lisätään sen lisäämisen yhteydessä prioriteetti <code>1</code>. Sitä pienempi prioriteetti on, sitä tärkeämpi tehtävä on. Käyttäjä voi muokata tehtävän prioriteettia vaihtamalla sen vieressä olevan tekstikentän arvoa. Järjestä tehtävät prioriteetin mukaan niin, että tärkeimmät tehtävät ovat listan yläpäässä (vinkki: liitä prioriteetin sisältävään tekstikenttään <code><a href="https://docs.angularjs.org/api/ng/directive/ngBlur" target="_blank">ng-blur</a></code>-kuuntelija ja järjestä tehtävien taulukko prioriteetin mukaan, kun kenttä menettää fokuksen käyttämällä <code><a href="http://www.w3schools.com/jsref/jsref_sort.asp" target="_blank">sort</a></code>-funktiota).
       </li>
       <li>
         Käyttäjä voi nähdä muistilistan alalaidasta, kuinka monta tehtävää hän on tehnyt ja kuinka monta on vielä tekemättä. Käytä selkeää suomen kieltä, jolloin "1 tehtävä tehty" on oikein ja "1 tehtävää tehty" on väärin (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngPluralize" target="_blank">ng-pluralize</a></code>). Voit toteuttaa toiminnon käyttämällä <code><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch" target="_blank">$watch</a></code>-funktiota niin, että seuraat tehtävät sisältävää taulukkoa ja päivittää esimerkiksi muuttujien <code>todosDone</code> ja <code>todosRemaining</code> arvot aina, kun taulukossa tapahtuu muutoksia. <strong>Muista lisätä <code>$watch</code>-funktiokutsun viimeiseksi parametriksi <code>true</code>, niin Angular tarkastaa onko taulukossa tapahtunut muutoksia sen sisällön, eikä pelkän viitteen perusteella</strong>. 
       </li>
     </ul>
+    <p>
+      <code>TodoController</code>-kontrollerin valmis pohja löytyy tiedostosta <code>app/controllers/todo_controller.js</code> ja näkymä tiedostosta <code>index.html</code>.
+    </p>
   </p>
 </div>
 <h3>Direktiivit</h3>
@@ -6709,7 +6736,7 @@ App.directive('counter', function(){
 });
 </pre>
 <p>
-  Direktiivin ominaisuudet liitetään objektiin, jonka toisena parametrina annettu anonyymifunktio palauttaa. Voimme liittää palautettuun objektiin kentän <code>link</code>, joka sisältää funktion, joka ottaa parametreikseen Angularin scope-objektin, elementin, johon direktiivi on liitetty ja attribuutit, mikä kyseiseen elementtiin liittyy. Funktion avulla voimme manipuloida DOM-elementtiä, johon direktiivimme on liitetty, kuten liittää siihen tapahtumankuuntelijan. Nyt kun käyttäjä klikkaa "Kasvata"-painiketta, johon <code>counter</code>-direktiivi on liitetty, ilmestyy alert-ikkuna "Klikkasit!". 
+  Direktiivin ominaisuudet liitetään objektiin, jonka toisena parametrina annettu anonyymifunktio palauttaa. Voimme liittää palautettuun objektiin kentän <code>link</code>, joka sisältää funktion, joka ottaa parametreikseen näkyvyysalueen, jossa direktiivi sijaitsee (<code>scope</code>), elementin, johon direktiivi on liitetty (<code>elem</code>) ja attribuutit, mikä kyseiseen elementtiin liittyy (<code>attrs</code>). Funktion avulla voimme manipuloida DOM-elementtiä, johon direktiivimme on liitetty, kuten liittää siihen tapahtumankuuntelijan. Voimme lisäksi funktiossa päästä käsiksi koko kontrollerin näkyvyysalueeseen, jonka sisällä direktiivimme sijaitsee <code>scope</code>-parametrin avulla. Nyt kun käyttäjä klikkaa "Kasvata"-painiketta, johon <code>counter</code>-direktiivi on liitetty, ilmestyy alert-ikkuna "Klikkasit!". 
 </p>
 <p>
   <code>link</code>-kentässä määritellyn funktion ensimmäisen parametrin, <code>scope</code> avulla pääsemme käsiksi koko direktiivin näkyvyysalueeseen, joka on koko direktiivin ulkoinen näkyvyysalue. Usein haluamme kuitenkin määrittää direktiivillemme nk. eristetyn näkyvyysalueen, jonka avulla voimme kuvata direktiivin ulkoisen näkyvyysalueen sen sisäiseksi näkyvyysalueeksi. Se on kätevää, koska silloin direktiivinen toteutuksen ei tarvitse riippua siitä, minkä kontrollerin sisällä se on käytössä. Eristetyn näkyvyysaluuen toteuttaminen onnistuu määrittelemällä palautettavaan objektiin kenttä <code>scope</code>, johon määrittelemme direktiivin näkyvyysalueen. Käytännössä voimme esimerkiksi käyttää <code>ng-model</code>-direktiivissä määriteltyä muuttujaa direktiivissämme seuraavasti:
@@ -6759,7 +6786,7 @@ App.directive('counter', function(){
 });
 </pre>
 <p>
-  Ratkaisimme alustamattoman <code>ng-model</code>-direktiivissä annetun muuttujan ongelman, asettamalla siinä tilanteessa <code>number</code>-muuttujan arvo nollaksi. Lisäsimme myös klikkauksen tapahtumankuuntelijaan <code>number</code>-arvon kasvatuksen. Huomaa, jotta arvon muokkaaminen välittyisi direktiivin ulkopuolelle, täytyy kutsua funktiota <code>$apply</code>, jolloin kerromme Angularille, että olemme tehneet muutoksia malliin ja ne muutokset pitäisi välittää näkymään. Yleensä <code>$apply</code>-funktiota ei tarvitse erikseen kutsua, koska Angular hoitaa sen puolestasi. Olemme tapahtumankuuntelijassa kuitenkin Angularin kontekstin ulkopuolella, joten meidän täytyy kutsua <code>$apply</code>-funktiota itse, jotta saamme välitettyä mallissa tehdyt muutokset näkymään. 
+  Ratkaisimme alustamattoman <code>ng-model</code>-direktiivissä annetun muuttujan ongelman, asettamalla siinä tilanteessa <code>number</code>-muuttujan arvon nollaksi. Lisäsimme myös klikkauksen tapahtumankuuntelijaan <code>number</code>-arvon kasvatuksen. Huomaa, jotta arvon muokkaaminen välittyisi direktiivin ulkopuolelle, täytyy kutsua funktiota <code>$apply</code>, jolloin kerromme Angularille, että olemme tehneet muutoksia malliin ja ne muutokset pitäisi välittää näkymään. Yleensä <code>$apply</code>-funktiota ei tarvitse erikseen kutsua, koska Angular hoitaa sen puolestasi. Olemme tapahtumankuuntelijassa kuitenkin Angularin kontekstin ulkopuolella, joten meidän täytyy kutsua <code>$apply</code>-funktiota itse, jotta saamme välitettyä mallissa tehdyt muutokset näkymään. 
 </p>
 <p>
   Lisätään vielä direktiiviimme yksi toiminto, jonka avulla sen käyttäjä kertoo, kuinka paljon hän haluaa muuttaa <code>ng-model</code>-direktiivissä määriteltyä arvoa. Sen voisi määritellä elementissä näin:
@@ -6798,20 +6825,1137 @@ App.directive('counter', function(){
 <p>
   Tämä osio oli vasta pintaraapaisu direktiivien käyttöön. Lisää niistä voi lukea <a href="https://docs.angularjs.org/guide/directive" target="_blank">Angularin Developer Guidesta</a>.
 </p>
+<div class="tehtavat">
+  <h3>Slider-direktiivi</h3>
+  <p>
+    Tehtävänäsi on toteuttaa jQueryn <a href="http://jqueryui.com/slider/" target="_blank">slider</a>-widgetti <code>slider</code>-nimisenä direktiivinä. Tarkoitus on, että kun käyttäjä muuttaa sliderin arvoa, myös siihen <code>ng-model</code>-direktiivin avulla sidotun muuttujan arvo muuttuu. Sliderin alkuarvon tulee olla sama, kuin siihen sidotun muuttujan arvo. Voit olettaa etta <code>ng-model</code>-direktiivissä sidottu muuttuja on kokonaisluku. Sliderin <a href="http://jqueryui.com/slider/#steps" target="_blank">stepin</a> (kuinka paljon sliderin arvo muuttuu liikutuksesta) voit päätää itse. Näkymässä esimerkiksi <code>div</code>-elementtiin sidottu <code>slider</code>-direktiivi näyttäisi tältä:  
+  </p>
+<pre class="sh_html">
+&lt;div slider ng-model="number"&gt;&lt;/div&gt;
+</pre>
+<p>
+  Tehtäväpohjasta löytyy valmis pohja direktiiville tiedostosta <code>app/directives/slider.js</code>. Kun näkymässä <code>index.html</code>-upotetun <code>number</code>-muuttujan arvo muuttuu sliderin liikuttamisen perusteella ja sliderin alkuperäinen sijainti vastaa muuttujan alkuarvoa (joka on <code>10</code>), tehtävä on valmis.
+</p>
+</div>
 </section>
 <section class="week">
   <header>
     <a name="viikko5"></a>
     <h1 data-week-id="5">Viikko 5</h1>
   </header>
+  <h2>Jatketaan keskustelua palvelimen kanssa: Firebase</h2>
+    <p>
+      Viime viikolla kehitimme upean muistilistasovelluksen (tehtävä TodoApp), johon pystyi lisäämään muistettavia asioita ja merkkaamaan niitä tehdyiksi. Tylsä puoli sovelluksessa oli se, ettei se tallettanut lisäämiämme muistutuksia mihinkään. Korjaamme sen puolen sovelluksestamme tällä viikolla ottamalla käyttöön <a href="https://www.firebase.com/">Firebasen</a>, jonka avulla voimme tallettaa ja muuttaa dataa reaaliajassa. Kuulostaa siistiltä!  
+    </p>
+    <p>
+      Aoita rekisteröitymällä Firebaseen <a href="https://www.firebase.com/signup/">täältä</a>. Kun olet rekisteröitynyt sinut ohjataan käyttäjäsi dashboardille, jossa ensimmäinen sovelluksesi on jo alustettu puolestasi nimellä "My first app". Olemme siis jo periaatteessa valmiita, katsotaan seuraavaksi hieman, miten saamme kytkettyä Firebasen Angular-sovellukseemme. 
+    </p>
+    <h3>Firebase ja Angular</h3>
+    <p>
+      Firebasella on oma moduuli (jonka nimi on yllätys ja yllätys <code>firebase</code>), joka tarjoaa työkalut datamme muokkaamiseen ja hakemiseen. <code>firebase</code>-moduuli on sisällä jokaisessa tehtäväpohjassa, joten riittää vain, että injektoit sen omaan <code>MyApp</code>-moduuliisi seuraavasti:
+    </p>
+<pre class="sh_javascript_dom">
+var MyApp = angular.module('MyApp', ['firebase']);
+</pre>
+<p>
+  Kun <code>firebase</code> moduuli on injektoitu omaan moduuliimme, pääsemme käyttämään sen tarjoamia palveluita. Seuraavaksi meidän täytyy toteuttaa omalle kontrollerillemme palvelu, joka hoitaa Firebasen kanssa keskustelmisen.
+</p>
+<h3>Palvelut (services)</h3>
+<p>
+  Palvelut ovat Angularissa kontrollereihin ja toisiin palveluihin injektoitavia komponentteja, jotka, kuten jo nimestä voi päätellä, tarjoavat sen käyttäjälle jonkin palvelun. Palvelu voi olla esimerkiksi API tiedon hakuun palvelimelta tai joukko funktioita, jotka tekevät eri joukko-operaatioita:  
+</p>
+<pre class="sh_javascript_dom">
+var MyApp = angular.module('MyApp', []);
+
+MyApp.service('Set', function(){
+  return {
+    intoSet: function(arr){
+      var set = [];
+
+      arr.forEach(function(item){
+        if(set.indexOf(item) < 0){
+          set.push(item);
+        } 
+      });
+
+      return set;
+    },
+
+    union: function(arrA, arrB){
+      var setA = this.intoSet(arrA);
+      var setB = this.intoSet(arrB);
+
+      setB.forEach(function(item){
+        if(setA.indexOf(item) < 0){
+          setA.push(item);
+        } 
+      });
+
+      return setA;
+    },
+
+    intersection: function(arrA, arrB){
+      var setA = this.intoSet(arrA);
+      var setB = this.intoSet(arrB);
+
+      var intersected = [];
+
+      setA.forEach(function(item){
+        if(setB.indexOf(item) >= 0){
+          intersected.push(item);
+        } 
+      });
+
+      return intersected;
+    }
+  }
+});
+</pre>
+<p>
+  Palvelun saa liitettyä moduulin täysin samaan tapaan kuin kontrollerinkin, kutsumme vain moduulillemme <code>controller</code>-funktion sijasta funktiota <code>service</code>. Funktio ottaa parametrikseen palvelun nimen merkkijonona ja funktion, joka palauttaa objektina palvelun tarjoamat funktiot. Huomaat varmasti, että palvelun rakenne muistuttaa hyvin paljon <a href="http://en.wikipedia.org/wiki/Module_pattern" target="_blank">Module pattern</a>-suunnittelumallia. Palveluiden luominen onkin hyvä tapa jakaa ohjelmaa pieniin ja helposti hallittaviin komponentteihin. Otetaan toteuttamme palvelu käyttöön kontrollerissa:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.controller('MyController', function($scope, Set) {    
+    $scope.union = function(){
+       var arrA = $scope.arrA.split(',');
+       var arrB = $scope.arrB.split(',');
+       
+       $scope.result = Set.union(arrA, arrB).toString();
+    }
+    
+    $scope.intersection = function(){
+       var arrA = $scope.arrA.split(',');
+       var arrB = $scope.arrB.split(',');
+       
+       $scope.result = Set.intersection(arrA, arrB).toString();
+    }
+});
+</pre>
+<p>
+  Voimme käyttää siis toteuttamaamme palvelua injektoimalla sen kontrolleriimme lisäämällä sille parametrin <code>Set</code>. Palvelun tarjoamat funktiot ovat sen jälkeen käytettävissä kontrollerissa. Tässä vielä lopullinen versio:
+  <iframe width="100%" height="300" src="http://jsfiddle.net/HB7LU/11001/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+</p>
+<h4>Firebase-palvelu</h4>
+<p>
+  Voisimme periaatteessa upottaa kaiken Firebasen käyttöön liittyvän logiikan suoraan kontrolleriimme, mutta siitä tulisi erittäin sekavaa. Tehdään sen sijaan moduuliimme palvelu (service), joka hoitaa Firebasen kanssa keskustelemisen kontrollerimme puolesta, niin kontrolleristamme tulee selkeämpi ja se noudattaa paremmin jo mainittua "Single Responsibility"-periaatetta. Liitetään moduuliimme aluksi <code>FirebaseService</code>-niminen palvelu:
+</p>
+<pre class="sh_javascript_dom">
+var MyApp = angular.module('MyApp', ['firebase']);
+
+MyApp.service('FirebaseService', function($firebase){
+  // ...  
+});
+</pre>
+<p>
+  Injektoin siis ensin <code>firebase</code>-moduulin omaan moduuliini ja sen jälkeen sen tarjoaman <code>$firebase</code>-palvelun omaan <code>FirebaseService</code>-palveluuni. 
+</p>
+<img src="img/firebase_content.png" style="float: right; width: 300px; margin-left: 15px;">
+<p>
+  Ennen kuin etenemme pidemmälle, lisätään sovellukseemme hieman dataa Firebasen kautta. Siirry ensin käyttäjäsi dashboardille ja klikkaa "My first app" alapuolelta painiketta "Manage app". Sivulle aukee sovelluksesi datasisältö, joka on tällä hetkellä tyhjä. Lisätään sovellukseen dataa, viemällä hiiri sovelluksemme datan osoitteen päälle (se on hassu nimi, kuten scorching-torch-2360), jolloin sen viereen ilmestyy vihreä "+"-painike, paina sitä. Kun olet painanut "+"-painiketta ilmestyy datan osoitteen alapuolelle tekstikentät <code>name</code> ja <code>value</code>. Kirjoita <code>name</code>-kenttään "message" ja <code>value</code>-kenttään "Hello World!" ja paina kenttien vierestä vihreää "+"-painiketta. Sovelluksessamme on nyt dataa, joka on objekti <code>{ message: 'Hello World!' }</code>, jonka rakenteen määrittelimme <code>name</code>- ja <code>value</code>-kenttien kautta. Katsotaan seuraavaksi, miten voimme hakea tämän datan sovelluksestamme käsin.
+</p>
+<h4>Datan haku Firebasesta</h4>
+<p>
+  Olen jo saanut valmiiksi <code>FirebaseService</code>-palveluni rungon. Lisään siihen seuraavaksi funktion, joka hakee datani Firebasesta:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.service('FirebaseService', function($firebase){
+  var firebaseRef = new Firebase('OMA_FIREBASE');
+  var sync = $firebase(firebaseRef);
+  var data = sync.$asObject(); 
   
+  this.fetchData = function(){
+    return data;
+  }
+});
+</pre>
+
+<img src="img/firebase_data_url.png" style="float: left; width: 300px; margin-right: 15px;">
+<p>
+  Käydään läpi, mitä <code>FirebaseService</code>-palvelussa oikein tapahtuu. Talletan aluksi <code>firebaseRef</code>-muuttujaan <code>Firebase</code>-olion, joka ottaa parametrikseen sovelluksemme datasäilön sijainnin (joudut vaihtamaan kohtaan <code>OMA_FIREBASE</code> oman datasi sijainnin, joka löytyy dashboardiltasi kuvan osoittamasta paikasta). Sen jälkeen lisään palveluuni funktion <code>fetchData</code> kontrollerin käyttöä varten. Funktiossa talletan referenssin dataani kutsumalla injektoimaani <code>$firebase</code>-funktiota omalla <code>Firebase</code>-oliollani. Sen jälkeen voin hakea sovellukseni datan kutsumalla referenssille funktiota <code>$asObject()</code>. Otetaan seuraavaksi palvelu käyttöön kontrollerissa:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.controller('MyController', function($scope, FirebaseService){
+  var data = FirebaseService.fetchData();
+  $scope.message = data.message;
+});
+</pre>
+<p>
+  Riittää siis vain injektoida toteutettu <code>FirebaseService</code>-palvelu kontrolleriin ja olemme valmiita käyttämään sitä. Voimme näyttää Firebasesta hakemamme datan, joka oli objekti <code>{ message: 'Hello World!' }</code> näkymässämme, aivan kuten muutkin muuttujat:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;div ng-controller="MyController"&gt;
+      &lt;h1&gt;{{message}}&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Näkymään ilmestyy otsikko "Hello World!", joten datan hakeminen Firebasesta on onnistunut.
+</p>
+<div class="tehtavat">
+  <h3>Hello Firebase!</h3>
+  <p>
+    <a href="https://www.firebase.com/signup/" target="_blank">Rekisteröidy</a> Firebaseen ja lisää sinne dataa, jonka sisältö on <code>{ message: 'Hello World!' }</code> (<code>message</code>-kenttä, jonka arvo on "Hello World"). Muista, että voit lisätä sovellukseesi dataa suoraan Firebasesta siirtymällä dashboardilta sovelluksesi hallintaan klikkaamalla "Manage App".  
+  </p>
+  <p>
+    Muokkaa tehtäväpohjaa siten, että <code>app/services/firebase_service.js</code>-tiedostossa sijaitseva <code>FirebaseService</code>-palvelu hakee lisäämäsi datan Firebasesta (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebase-asobject" target="_blank">$asObject</a></code>). Muokkaa sen jälkeen <code>app/controllers/hello_controller.js</code>-tiedossa sijaitsevaa <code>HelloController</code>-kontrolleria niin, että se käyttää <code>FirebaseService</code>-palvelua hakemaan Firebasesta viestin "Hello World!" ja esittää sen näkymässä esimerkiksi muuttujan <code>message</code> arvona. Muista injektoida <code>FirebaseService</code> kontrolleriin, muuten sen käyttäminen ei onnistu!
+  </p>
+</div>
+<h4>Datan lisääminen Firebaseen</h4>
+<p>
+  Olemme onnistuneet hakemaan dataa Firebasesta, joten seuraava looginen askel on katsoa, miten voimme lisätä sinne dataa. Paltaan takaisin <code>FirebaseService</code>-palvelumme pariin ja lisätään siihen funktio <code>addMessage</code>, joka lisää parametrina saadun objektin Firebaseen:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.service('FirebaseService', function($firebase){
+  var firebaseRef = new Firebase('OMA_FIREBASE/messages');
+  var sync = $firebase(firebaseRef);
+  var messages = sync.$asArray();
+
+  this.addMessage = function(message){
+    messages.$add(message);
+  }
+});
+</pre>
+<p>
+  Tämä eroaa melko datan lisäämisestä, joten on hyvä käydä läpi, mitä oikein tapahtuu. Aluksi alustin uuden <code>Firebase</code>-olion melkein samaan tapaan kuin datan hakemisen kanssa, pientä yksityiskohtaa lukuunottamatta. Huomasit ehkä, että lisäsin Firebase-polkuni perään <code>/messages</code>. Tein sen siitä syystä, että haluan hakea ja tehdä muutoksia vain resurssiin <code>messages</code>. Sen jälkeen kutsun <code>$firebase</code>-funktiota alustamallani <code>Firebase</code> oliolla aivan, kuten datan lisäämisen kanssa. Seuraavaksi en kuitenkaan kutsu referenssille funktiota <code>$asObject</code>, vaan <code>$asArray</code>, koska haluan käsitellä dataani taulukkona objektin sijaan. Se on melko loogista, koska haluan hakea ja muokata joukkoa viestejä.
+</p>
+<p>
+  Alustus on tehty, pureudutaan seuraavaksi funktioon <code>addMessage</code>. Sen toteutus on erittäin yksinkertainen, kutsun vain <code>messages</code>-resurssilleni funktiota <code>$add</code>, joka lisää parametrina saadun objektin taulukkoon muiden viestien sekaan. Ei siis sen kummempaa. Käytetään toteuttamaamme palvelua vielä kontrollerissamme: 
+</p>
+<pre class="sh_javascript_dom">
+MyApp.controller('MyController', function($scope, FirebaseService){
+  $scope.newText = '';
+  
+  $scope.addMessage = function(){
+    if($scope.newText != ''){
+      FirebaseService.addMessage({
+        text: $scope.newText
+      });
+
+      $scope.newText = '';
+    }
+  }
+});
+</pre>
+<p>
+  Nyt voimme sitoa näkymässä tekstikentän arvon muuttujaan <code>newText</code> ja sitoa painikkeen painalluksen funktion <code>addMessage</code>-kutsuun:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;div ng-controller="MyController"&gt;
+      &lt;textarea ng-model="newMessage"&gt;&lt;/textarea&gt;
+      &lt;button ng-click="addMessage()"&gt;Lisää viesti&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Pystyn nyt lisäämään dataa Firebaseen, mutta en pääse tarkkailemaan sitä muualta, kuin Firebase käyttäjäni dashboardilta. Lisätään siis vielä <code>FirebaseService</code>-palveluun funktio <code>getMessages</code>, joka hakee kaikki viestit <code>messages</code>-resurssista, jotta voimme näyttää ne näkymässä:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.service('FirebaseService', function($firebase){
+  var firebaseRef = new Firebase('OMA_FIREBASE/messages');
+  var sync = $firebase(firebaseRef);
+  var messages = sync.$asArray();
+
+  this.addMessage = function(message){
+    messages.$add(message);
+  }
+
+  this.getMessages = function(){
+    return messages;
+  }
+});
+</pre>
+<p>
+  Todella helppoa! Palautan siis vain <code>getMessages</code>-funktiossa <code>messages</code>-taulukon, joka sisältää kaikki sovellukseni viestit. Muokataan vielä hieman kontrolleriamme:
+</p>
+
+<pre class="sh_javascript_dom">
+MyApp.controller('MyController', function($scope, FirebaseService){
+  $scope.messages = FirebaseService.getMessages();
+  $scope.newText = '';
+  
+  $scope.addMessage = function(){
+    if($scope.newText != ''){
+      FirebaseService.addMessage({
+        text: $scope.newText
+      });
+
+      $scope.newText = '';
+    }
+  }
+});
+</pre>
+<p>
+  Huomaa, ettei <code>addMessage</code>-funktiossa uutta viestiä tarvitse lisätä erikseen <code>messages</code>-taulukkoon, sillä Firebase synkronoi taulukon sisällön lisäämisen yhteydessä puolestasi. Kätevää! Listataan <code>messages</code>-taulukon alkiot vielä näkymässä:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;div ng-controller="MyController"&gt;
+      &lt;ul ng-repeat="message in messages"&gt;
+        &lt;li&gt;{{messages.text}}&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;textarea ng-model="newText"&gt;&lt;/textarea&gt;
+      &lt;button ng-click="addMessage()"&gt;Lisää viesti&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Se on siinä! Olemme toteuttaneet pienen chatin, seuraavaksi saat hieman parannella sitä.
+</p>
+<div class="tehtavat">
+  <h3>Chat (2p)</h3>
+  <p>
+    Parannellaan hieman yllä olevaa esimerkkiä lisäämällä chattiin käyttäjät (vinkki: pidä käyttäjät ja viestit erillisinä resursseina Firebasessa). Kun käyttäjä avaa sovelluksen, pyydä häntä valitsemaan itselleen käyttäjätunnus. Jos käyttäjätunnus löytyy ennestään, älä lisää sitä uudestaan Firebaseen (vinkki: hae kaikki käyttäjät Firebasesta ja katso, löytyykö sieltä käyttäjän antamaa käyttäjätunnusta), muuten lisää uusi käyttäjä (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-addnewdata" target="_blank">$add</a></code>). Kun käyttäjätunnus on valittu (vinkki: piilota chatti-näkymä kunnes käyttäjätunnuksella on arvo, esimerkiksi <code>ng-if</code>-direktiivin avulla), näytä näkymässä chatin viestit ja sen vieressä chatin käyttäjät. Kun käyttäjä lisää viestin chattiin, näytä viestin vieressä hänen käyttäjänimensä ja sen alapuolella, milloin viesti on lisätty (vinkki: <code><a href="http://www.w3schools.com/jsref/jsref_obj_date.asp" target="_blank">Date</a></code>). Lisää siis Firebaseen talletettavaan viestiin esimerkiksi kenttä <code>username</code> (käyttäjätunnukselle) ja <code>added</code> (viestin lisäämisen ajalle). Älä anna käyttäjän lisätä chattiin tyhjää viestiä.
+  </p>
+  <p>
+    Tehtäväpohjasta löytyy <code>ChatController</code>-kontrollerin pohja tiedostosta <code>app/controllers/chat_controller.js</code> ja Firebasen kanssa keskustelevan <code>FirebaseService</code>-palvelun pohja tiedostosta <code>app/services/firebase_service.js</code>. Näkymä löytyy tutusta <code>index.html</code>-tiedostosta.
+  </p>
+</div>
+<h4>Olemassaolevan datan muokkaaminen ja poistaminen Firebasessa</h4>
+<p>
+  Katsotaan vielä pari höydyllistä Firebasen toimintoa ennen kuin siirrymme muiden aiheiden pariin. Tarkastellaan ensin, miten voimme muokata olemassaolevaa dataa. Käytetään esimerkkinä edellisessä osiossa toteuttamaamme pientä chatti-sovellusta. Lisätään <code>FirebaseService</code>-palveluun funktio <code>editMessage</code>, joka tallettaa parametreina saatuun viestiin tehdyt muutokset:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.service('FirebaseService', function($firebase){
+  var firebaseRef = new Firebase('OMA_FIREBASE/messages');
+  var sync = $firebase(firebaseRef);
+  var messages = sync.$asArray();
+
+  this.addMessage = function(message){
+    messages.$add(message);
+  }
+
+  this.getMessages = function(){
+    return messages;
+  }
+
+  this.editMessage = function(message){
+    messages.$save(message);
+  }
+});
+</pre>
+<p>
+  Funktiossa <code>editMessage</code> kutsumme <code>messages</code>-resurssille funktiota <code>$save</code>, joka päivittää parametrina saadun alkion Firebasessa. Tehdään seuraavaksi kontrolleriin saman niminen funktio, joka käyttää toteuttamaamme funktiota:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.controller('MyController', function($scope, FirebaseService){
+  $scope.messages = FirebaseService.getMessages();
+  $scope.newText = '';
+  $scope.editText = ''
+  
+  $scope.addMessage = function(){
+    if($scope.newText != ''){
+      FirebaseService.addMessage({
+        text: $scope.newText
+      });
+
+      $scope.newText = '';
+    }
+  }
+
+  $scope.showEditForm = function(message){
+    $scope.editText = message.text;
+    message.editing = true;
+  }
+
+  $scope.editMessage = function(message){
+    if($scope.editText != ''){
+      delete message.editing
+
+      message.text = $scope.editText;
+      FirebaseService.editMessage(message);
+      
+      $scope.editText = '';
+    }
+  }
+});
+</pre>
+<p>
+  Lisäsin <code>editMessage</code>-funktion lisäksi funktion, jonka avulla näytän viestin muokkauslomakkeen. Funktio <code>showEditForm</code> näyttää parametrina saadun viestin muokkauslomakkeen asettamalla sen <code>editing</code>-kentän arvoksi <code>true</code>. Kun muokkaan viestiä <code>editMessage</code>-funktiossa, poistan siitä kentän <code>editing</code> ennen kuin muokkaan sitä, jotta sitä ei talletettaisi Firabaseen. Katsotaan vielä, miten näitä funktioita käytetään näkymässä: 
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;div ng-controller="MyController"&gt;
+      &lt;ul ng-repeat="message in messages"&gt;
+        &lt;li&gt;
+          {{messages.text}}
+
+          &lt;button ng-click="showEditForm(message)" ng-hide="message.editing"&gt;Muokkaa&lt;button&gt; 
+
+          &lt;p ng-show="message.editing"&gt;
+            &lt;textarea ng-model="editText"&gt;&lt;/textarea&gt;
+            &lt;button ng-click="editMessage(message)"&gt;Lisää viesti&lt;/button&gt;
+          &lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;textarea ng-model="newText"&gt;&lt;/textarea&gt;
+      &lt;button ng-click="addMessage()"&gt;Lisää viesti&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Lisäsin jokaisin viestin alle sen muokkauslomakkeen, joka näytetään vain, jos sen <code>editing</code>-kentän arvo on <code>true</code>. Muokkauslomakkeen avaaminen onnistuu klikkaamalla "Muokkaa"-painiketta, jonka klikkaaminen kutsuu <code>showEditForm</code>-funktiota. Muokkauslomakkeesta "Lähetä"-painikkeen painallus taas kutsuu <code>editMessage</code>-funktiota, joka muokkaa viestin sisältöä painikkeen yllä olevan tekstikentän perusteella, joka on sidottu muuttujan <code>editText</code> arvoon.
+</p>
+<p>
+  Kun olemme päässeet vauhtiin, toteutetaan vielä viestin poistotoiminto. Palataan takaisin <code>FirebaseService</code>-palvelun pariin ja lisätään sinne funktio <code>removeMessage</code>, joka poistaa parametrina annetun pelin Firebasesta:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.service('FirebaseService', function($firebase){
+  var firebaseRef = new Firebase('OMA_FIREBASE/messages');
+  var sync = $firebase(firebaseRef);
+  var messages = sync.$asArray();
+
+  this.addMessage = function(message){
+    messages.$add(message);
+  }
+
+  this.getMessages = function(){
+    return messages;
+  }
+
+  this.editMessage = function(message){
+    messages.$save(message);
+  }
+
+  this.removeMessage = function(message){
+    messages.$remove(message);
+  }
+});
+</pre>
+<p>
+  Saatoit jo melkein arvata, miten <code>removeMessage</code>-funktio toteutetaan. Kuten ennenkin, selviämme yhdellä rivillä koodi, tällä kertaa kutsumme <code>messages</code>-resurssille funktiota <code>$remove</code>, joka poistaa parametrina annetun alkion Firebasesta. Toteutetaan vielä kontrolleriin <code>removeMessage</code>-metodi:
+</p>
+<pre class="sh_javascript_dom">
+MyApp.controller('MyController', function($scope, FirebaseService){
+  $scope.messages = FirebaseService.getMessages();
+  $scope.newText = '';
+  $scope.editText = ''
+  
+  $scope.addMessage = function(){
+    if($scope.newText != ''){
+      FirebaseService.addMessage({
+        text: $scope.newText
+      });
+
+      $scope.newText = '';
+    }
+  }
+
+  $scope.showEditForm = function(message){
+    $scope.editText = message.text;
+    message.editing = true;
+  }
+
+  $scope.editMessage = function(message){
+    if($scope.editText != ''){
+      delete message.editing
+
+      message.text = $scope.editText;
+      FirebaseService.editMessage(message);
+      
+      $scope.editText = '';
+    }
+  }
+
+  $scope.removeMessage = function(message){
+    FirebaseService.removeMessage(message);
+  }
+});
+</pre>
+<p>
+  Kontrollerissa ei tapahtu mitään kovin kummallista, <code>removeMessage</code>-funktiossa kutsutaan vain <code>FirebaseService</code>-palvelun tarjoamaa <code>removeMessage</code>-funktiota. Lisätään vielä näkymään panike, jonka painallus kutsuu toteuttamaamme funktiota:
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;div ng-controller="MyController"&gt;
+      &lt;ul ng-repeat="message in messages"&gt;
+        &lt;li&gt;
+          {{message.text}}
+
+          &lt;button ng-click="removeMessage(message)"&gt;Poista&lt;button&gt; 
+          &lt;button ng-click="showEditForm(message)" ng-hide="message.editing"&gt;Muokkaa&lt;button&gt; 
+
+          &lt;p ng-show="message.editing"&gt;
+            &lt;textarea ng-model="editText"&gt;&lt;/textarea&gt;
+            &lt;button ng-click="editMessage(message)"&gt;Lisää viesti&lt;/button&gt;
+          &lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;textarea ng-model="newText"&gt;&lt;/textarea&gt;
+      &lt;button ng-click="addMessage()"&gt;Lisää viesti&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Näkymässä "Poista"-painikkeen painallus kutsuu funktiota <code>removeMessage</code>. Huomaa, ettei poistamisen yhteydessä tarvitse poistaa alkiota erikseen <code>messages</code>-taulukossa, koska Firebase synkronoi taulukon sisällön automaattisesti.
+</p>
+<div class="tehtavat">
+  <h3>TodoApp ja Firebase (3p)</h3>
+  <p>
+    Toteutimme viime viikolla muistilistan, jonka mallivastaus löytyy tehtäväpohjasta. Voit halutessasi korvata mallivastauksen omalla toteutuksellasi. Toteuta sovellukseen palvelu, joka keskustelee Firebasen kanssa niin, että muistilistan tehtäviä pystyy lisäämään (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-addnewdata" target="_blank">$add</a></code>), merkkaamaan tehdyiksi (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-saverecordorindex" target="_blank">$save</a></code>) ja poistamaan (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-removerecordorindex" target="_blank">$remove</a></code>) Firebasesta. Kaikki viime viikolla toteutetut toiminnot tulee siis nyt toteuttaa käyttämällä Firebasea. Valmiissa tehtäväpohjassa Firebasen kanssa keskustelevan <code>FirebaseService</code>-palvelun pohja löytyy tiedostosta <code>app/directives/firebase_service.js</code>, kontrolleri <code>TodoController</code> tiedostosta <code>app/controllers/todo_controller.js</code> ja näkymä tiedostosta <code>index.html</code>. Tee siis tarvittavat muutokset palveluun, kontrolleriin ja näkymään.
+  </p>
+</div>
+    <h2>Testaaminen</h2>
+  <p>
+    Yksi Angularin käytön hyvä puoli on se, että se on helposti testattava, kunhan käytettävät työkalut on oikeat. Ensimmäiseksi tarvitaan työkalu, joka käytännössä ajaa testit. Tähän tehtävään käytetään usein Angularin kanssa <a href="http://karma-runner.github.io/0.12/index.html" target="_blank">Karmaa</a>. Se on komentorivi työkalu, jonka avulla voimme muodostaa tilapäisen web-palvelimen, joka lataa sovelluksesi lähdekoodit ja ajaa testisi ja kertoo, mitkä niistä läpäistiin ja mitkä ei. Karman lisäksi tarvitsemme testaamista varten kehitetyn sovelluskehyksen, jota käyttäen voimme toteuttaa sovelluksellemme testit. Sitä varten on kehitetty <a href="http://jasmine.github.io/1.3/introduction.html" target="_blank">Jasmine</a>, joka on "<a href="http://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank">Behavior-driven</a>"-sovelluskehitykseen (BDD) toteutettu sovelluskehys JavaScript-koodin testaamiseen.
+  </p>
+<h3>Testaaminen Jasminella</h3>
+<p>
+  Jasminella toteutettu testi alkaa <code>describe</code>-funktion kutsulla, joka ottaa ensimmäiseksi parametrikseen merkkijonon, joka on testijoukon nimi, tai otsikko ja toiseksi parametrikseen anonyymin funktion, jonka sisältää itse testit:
+</p>
+<pre class="sh_javascript_dom">
+describe('An example', function(){
+  // ...
+});
+</pre>
+<p>
+  Eli määrittelemme testijoukon nimeltä "An example" kutsumalla <code>describe</code>-funktiota. Itse testit sijoitetaan toisena parametrina annetun anonyymin funktion sisään. Jokainen testi on yksi <code>it</code>-funktion kutsu, jonka ensimmäinen parametri on <code>describe</code>-funktiossa määritellyn testijoukon yhden testattavan toiminnon nimi ja toinen parametri on anonyymifunktio, joka sisältää itse testin.
+</p>
+<pre class="sh_javascript_dom">
+describe('An example', function(){
+  it('should work when trying to match true with true', function(){
+    var isTrue = true;
+    expect(isTrue).toBe(true)
+  })
+});
+</pre>
+<p>
+  Testin sisällä määritämme, että haluamme tarkkailla <code>isTrue</code>-muuttujan arvoa kutsumalla <code>expect</code>-funktiota se parametrinaan. Sen jälkeen ketjutamme sen perään funktiokutsun, jonka avulla kohdistamme <code>isTrue</code>-muuttujan arvoon jonkin oletuksen. Tässä esimerkissä oletimme sen arvon olevan <code>true</code> kutsumalla <code>toBe</code>-funktiota. Koodi on niin selkeää, että sen voi oikeastaan lukea ääneen - "expect isTrue to be true", eli "oletetaan, että isTrue on true". Muuttujaan liittyviä oletuksia on lukuisia, tässä tärkeimpiä:
+</p>
+<pre class="sh_javascript_dom">
+describe('An example', function(){
+  it('should work when trying to match true with true', function(){
+    var isTrue = true;
+    expect(isTrue).toBe(true)
+  });
+
+  it('should work with negation', function(){
+    var isFalse = false;
+    // negaatiota, not, voi käyttää kaikkien oletuksien kanssa
+    expect(isFalse).not.toBe(true);
+  });
+
+  it('should work when checking object equality', function(){
+    var foo = {
+      a: 12,
+      b: 34
+    };
+
+    var bar = {
+      a: 12,
+      b: 34
+    };
+
+    // foo- ja bar-objektit ovat samat, jos niissä on samat kentät, joiden arvot ovat samat
+    expect(foo).toEqual(bar);
+  });
+
+  it('should work when checking variable existence', function(){
+    var foo = 'bar';
+    // oletetaan, että muuttuja foo on määritelty
+    expect(foo).toBeDefined();
+  });
+
+  it('should work when checking if item is in array', function(){
+    var names = ['Elina', 'Kalle', 'Arto', 'Jorma', 'Matti']
+    // oletetaan, että taulukossa names on alkio "Elina"
+    expect(names).toContain('Elina');
+  });
+
+  it('should work when checking if the value is less or greater than another', function(){
+    var age = 21;
+    // oletetaan, että age on suurempi kuin 18
+    expect(age).toBeGreaterThan(18);
+    // oletetaan, että age on pienempi kuin 50
+    expect(age).toBeLessThan(50);
+  });
+});
+</pre>
+<p>
+  Tässä vain pieni osa mahdollisia oletuksia muuttujan arvolle. Kuten huomaat, oletuksien nimeäminen on niin selkeää, että tiedät heti, mitä muuttujalta oletetaan. Voit lukea lisää Jasminen oletuksista sen <a href="http://jasmine.github.io/2.0/introduction.html#section-Expectations" target="_blank">dokumentaatiosta</a>. Katsotan seuraavaksi, miten pystymme testaaman Angular-sovellustamme Jasminella.
+</p>
+<h3>Angular sovelluksen testaaminen</h3>
+<p>
+  Testataan seuraavaksi yksinkertaista ystävälista sovellusta, jonka kautta käyttäjä voi lisätä ystäviä ystävälistalleen ja poistaa niitä. Sovelluksen toteutus on seuraava:
+</p>
+<pre class="sh_javascript_dom">
+var FriendApp = angular.module('FriendApp', []);
+
+FriendApp.controller('FriendListController', function($scope){
+  $scope.friends = [];
+
+  $scope.addFriend = function(){
+    if($scope.newFriend != ''){
+      $scope.friends.push($scope.newFriend);
+      $scope.newFriend = '';
+    }
+  }
+
+  $scope.removeFriend = function(index){
+    if($scope.friends.length >= index){
+      $scope.friends.splice(index, 1);
+    }
+  }
+});
+</pre>
+<p>
+  Haluamme testata <code>FriendListController</code>-kontrollerissa viittä eri asiaa:
+  <ul>
+    <li>Ystävälista on aluksi tyhjä.</li>
+    <li>Ystävälistaan pystyy lisäämään ystävän kutsumalla <code>addFriend</code>-funktiota.</li>
+    <li>Jos lisättän ystävän nimi on tyhjä, häntä ei lisätä ystävälistaan.</li>
+    <li>Ystävän pystyy poistamaan ystävälistalta kutsumalla <code>removeFriend</code>-funktiota.</li>
+    <li>Ystävää ei poisteta, jos häntä yritetään poistaa <code>friends</code>-taulukon ulkopuolelta.</li>
+  </ul>
+</p>
+<p>
+  Aloitetaan testaaminen kutsumalla Jasminen <code>describe</code>-funktiota:
+</p>
+<pre class="sh_javascript_dom">
+describe('FriendListController', function(){
+  var controller, scope;
+
+  beforeEach(function(){
+    module('FriendApp');
+
+    inject(function($controller, $rootScope) {
+      scope = $rootScope.$new();
+      controller = $controller('FriendListController', {
+        $scope: scope
+      });
+    });
+  });
+
+});
+</pre>
+<p>
+  Jotta voimme testata kontrolleriamme, meidän täytyy ensin alustaa se ennen jokaista testiä, eli <code>it</code>-funktion kutsua. Kätevimmin se tapahtuu kutsumalla <code>beforeEach</code>-funktiota, jonka parametrina saatua funktiota kutsutaan jokaisen <code>it</code>-funktiokutsun alussa. Alustuksessa määrittelemme aluksi, mikä moduuli on testattavana kutsumalla <code>module</code>-funktiota, meidän tapauksessamme se on <code>FriendApp</code>. Seuraavaksi injektoimme testeihimme <code>FriendListController</code>-kontrollerimme ja injektoimme sen <code>$scope</code>-parametrin arvoksi globaalin <code>scope</code>-parametrin arvomme. Nyt pääsemme käsiksi kontrollerin näkyvyysalueeseen testeissämme <code>scope</code>-muuttujan kautta:
+</p>
+<pre class="sh_javascript_dom">
+describe('FriendListController', function(){
+  var controller, scope;
+
+  beforeEach(function(){
+    module('FriendApp');
+
+    inject(function($controller, $rootScope) {
+      scope = $rootScope.$new();
+      controller = $controller('FriendListController', {
+        $scope: scope
+      });
+    });
+  });
+
+  it('should be initialized with an empty friend list', function(){
+    expect(scope.friends.length).toBe(0);
+  });
+
+  it('should be able to add a friend', function(){
+    expect(scope.friends.length).toBe(0);
+    scope.newFriend = 'Arto';
+    scope.addFriend();
+    expect(scope.friends.length).toBe(1);
+  });
+
+  it('should not be able to add a friend with an empty name', function(){
+    expect(scope.friends.length).toBe(0);
+    scope.newFriend = '';
+    scope.addFriend();
+    expect(scope.friends.length).toBe(0);
+  });
+
+  it('should be able to remove a friend', function(){
+    scope.friends = ['Arto', 'Matti', 'Elina', 'Kalle'];
+    expect(scope.friends.length).toBe(4);
+    scope.removeFriend(0);
+    expect(scope.friends.length).toBe(3);
+    expect(scope.friends).not.toContain('Arto');
+  });
+
+  it('should not be able to remove a friend outside the array boundaries', function(){
+    scope.friends = ['Kalle', 'Elina'];
+    expect(scope.friends.length).toBe(2);
+    scope.removeFriend(6);
+    expect(scope.friends.length).toBe(2);
+  });
+});
+</pre>
+<p>
+  <code>FriendListController</code>-kontrollerille on nyt kirjoitettu viisi eri testiä, joista jokainen on oma <code>it</code>-funktion kutsunsa. Testeissä ei tapahdu mitään kovin erikoista, kutsumme <code>scope</code>-muuttujan kautta kontrollerissamme määriteltyjä <code>addFriend</code>- ja <code>removeFriend</code>-funktiota ja varmistamme, etteivät ne tee mitään kummallista <code>friends</code>-taulukolle.
+</p>
+<h3>Testien suorittaminen</h3>
+<p>
+  Tarvitset tässä vaiheessa NetBeansin versiota 8.0.1, tai uudempaa. Uusimman version voit asentaa <a href="https://netbeans.org/downloads/" target="_blank">täältä</a>. Testien ajamiseen tarvitsemme jo mainitun Karman, joka taas tarvitsee toimiakseen <a href="http://nodejs.org/" target="_blank">Node.js</a>:ssän. Lisäksi tarvitsemme <a href="http://git-scm.com/" target="_blank">Git</a>:iä riippuvuuksien hallintaan. Alla on asennusohjeet eri alustoille. Huomaa, että kaksi ensimmäistä ohjetta olettaa, että sinulla on koneellasi pääkäyttäjän oikeudet. Kolmas ohje on laitoksen koneelle, jossa sinulla ei ole pääkäyttäjän oikeuksia.
+</p>
+<h4>Node.js ja Git Windowsille (pääkäyttäjän oikeuksilla)</h4>
+<p>
+  Käy hakemassa <a href="http://nodejs.org/" target="_blank">Node.js</a>-asennuspaketti sen kotisivuilta painamalla "Install"-painiketta. Kun asennuspaketti on ladattu, käynnistä se. Kun asennus on valmis avaa Noden komentorivi työkalu siirtymällä "Start", hakemalla ohjelmaa "Node.js command promt" ja käynnistämällä sen. Jos ohjelma löytyy, Node.js on asennettu onnistuneesti.
+</p>
+<p>
+  Jos koneeltasi puuttuu Git, asenna se seuraavaksi <a href="http://git-scm.com/" target="_blank">täältä</a> painamalla "Download"-painiketta. Kun pääset asennusikkunaan, voit käyttää oletusasetuksia, mutta valitse "Run Git from the Windows Command Promt"-asetus, kun se tulee valittavaksi</strong>. Kun asennus on valmis, avaa "Node.js command promt", kuten edellisessä kohdassa ja suorita siinä komento <code>git --version</code>. Terminaaliin pitäisi ilmestyä versionumero, kuten <code>git version 1.8.5.2</code>.
+</p>
+<h4>Node.js ja Git OS X:lle ja Linuxille (pääkäyttäjän oikeuksilla)</h4>
+<p>
+  Käy hakemassa <a href="http://nodejs.org/" target="_blank">Node.js</a>-asennuspaketti sen kotisivuilta painamalla "Install"-painiketta. Kun asennuspaketti on ladattu, käynnistä se. Kun asennus on valmis, avaa terminaali ja suorita siinä komento <code>node --version</code>, jonka jälkeen terminaaliin pitäisi ilmestyä jokin versionumero, kuten <code>v0.10.29</code>. Jos versionumero ilmestyy terminaaliin, Node.js on asennettu onnistuneesti.
+</p>
+<p>
+  Jos koneeltasi puuttuu Git, asenna se seuraavaksi <a href="http://git-scm.com/" target="_blank">täältä</a> painamalla "Download"-painiketta. Kun asennus on valmis siirry terminaaliin ja suorita siinä komento <code>git --version</code>. Terminaaliin pitäisi ilmestyä versionumero, kuten <code>git version 1.8.5.2</code>.
+</p>
+<h4>Node.js laitoksen koneille</h4>
+<p>
+  Laitoksen koneilla Git:in pitäisi olla valmiina asennettuna, mutta Noden asennuksen kanssa ongelma on se, ettei sinulla ole pääkäyttäjän oikeuksia, joka tekee asioista hieman vaikeampaa. Noden asennus onnistuu kuitenkin suorittamalla terminaalissa seuraavan komennon:
+</p>
+<pre class="sh_javascript_dom">
+curl http://web-selainohjelmointi.github.io/node-install.sh | bash
+</pre>
+<p>
+  Komennon suorittaminen kestää jonkin aikaan. Kun se on valmis suorita terminaalissa komento <code>node --version</code>, jonka jälkeen terminaaliin pitäisi ilmestyä jokin versionumero, kuten <code>v0.10.29</code>. Tämä tarkoittaa sitä, että Node on asennettu. <strong>Laitoksen koneilla Node.js komentojen ajaminen NetBeansin kautta ei kuitenkaan onnistu, mutta samat komennot voit ajaa terminaalissa NetBeans-projektien jureessa</strong>.
+</p>
+<h4>Testien ajaminen NetBeansissa</h4>
+<p>
+  Kun Node ja Git on asennettua, olemma valmiita siirtymään NetBeansiin pariin. Käynnistä NetBeans ja avaa siinä tämän viikon tehtävä <code>TodoAppTestaaminen</code>. Jos NetBeans oli jo käynnissä, käynnistä se uudelleen, niin asennukset ovat varmasti tulleet voimaan. Kuten huomaat, projektin nimi on punainen, joten jotain on vialla. Ongelma ratkeaa painamalla hiiren oikeaa painiketta projektin päällä ja valitsemalla "Npm install". Klikkaaminen asentaa Karman ja muut tarvittavat riippuvuudet. Kun riippuvuudet on asennettu, klikkaa taas hiiren oikeaa painiketta projektisi nimen päällä ja valitse "Properties". Valitse avautuvasta ikkunasta oikealla sijaitsevasta valikosta "JavaScript Testing" ja valitse "Testing Provider"-valikosta "Karma". Alle ilmestyy tekstikentät "Karma" ja "Configuration", klikkaa molempien oikealta puolelta "Search"-painikkeita, niin tarvittavat tiedostot löytyvät automaattisesti. Voit nyt ajaa testit klikkaamalla hiiren oikeaa painiketta projektisi nimen päällä ja valitsemalla "Test". Testit eivät vielä mene läpi, joudutkin seuraavassa tehtävässä korjaamaan ne.
+</p>
+<h4>Testien ajaminen terminaalissa</h4>
+<p>
+  Laitoksen koneilla Node.js-komentoja ei pysty ajamaan NetBeansin kautta, mutta pystyt ajamaan ne terminaalissa. Siirry terminaalissa <code>TodoAppTestaaminen</code>-projektin juureen. Saat selville, missä projektikansio sijaitsee klikkaamalla NetBeansissa projektin nimen päällä hiiren oikeaa painiketta ja valitsemalla "Properties". Kopio avautuneesta ikkunasta "Project Folder"-kentän sisältö ja siirry siihen terminaalissa seuraavasti: 
+</p>
+<pre class="sh_javascript_dom">
+cd PROJEKTIN_KANSION_POLKU
+</pre>
+<p>
+  Korvaa vain kohtaan <code>PROJEKTIN_KANSION_POLKU</code> kopioimasi projektikansion sijainti. Kun olet siirtynyt projektikansioon, suorita siinä komento <code>npm install</code>, se asentaa tarvitsemasi riippuvuudet. Kun riippuvuudet on asennettu, voit ajaa testit projektikansion juuressa komennolla <code>./node_modules/karma/bin/karma start</code>.
+</p>
+<h4>karma.conf.js</h4>
+<p>
+  <code>karma.conf.js</code> on tiedosto, joka kertoo Karmalle mm. mitkä tiedostot ladataan selaimeen, kun testit ajetaan. Testeihin pitää ladata koko sovelluksen koodi, kaikki sen käyttämät kirjastot ja itse testit. Tiedoston sisältö voi olla esimerkiksi seuraava:
+</p>
+<pre class="sh_javascript_dom">
+module.exports = function(config) {
+  config.set({
+
+    // annetaan tiedostojen aloituspolku (jos tyhjä, niin se on karma.conf.js tiedoston polku)
+    basePath: '',
+
+
+    // käytettävät sovelluskehykset
+    frameworks: ['jasmine'],
+
+    // tiedostot, jotka ladataan selaimeen, kun testit ajetaan
+    files: [
+        'bower_components/angular.min.js',
+        'js/app.js',
+        'js/controllers/*.js'
+    ],
+
+
+    // web-palvelimen portti, jossa testit ajetaan
+    port: 9876,
+
+
+    colors: true,
+
+    config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+
+    // jos "true", niin Karma ajaa testit aina kun jokin "files"-kentässä määritelty tiedosto tallennetaan
+    autoWatch: true,
+
+
+    // testien ajamiseen käytettävä selain
+    browsers: ['Chrome'],
+
+    singleRun: false
+  });
+};
+</pre>
+<p>
+  Yleensä <code>karma.conf.js</code>-tiedosto löytyy tehtäväpohjasta valmiina, mutta tulevaisuudessa tulee tehtäviä, jossa sinun täytyy määritellä se itse. Silloinkin yleensä <code>karma.conf.js</code>-tiedoston runko on valmiina, jolloin riittää vain määritellä <code>files</code>-kenttään testien ajamisen yhteydessä selaimeen ladattavat tiedostot.
+</p>
+<div class="tehtavat">
+  <h3>Muistilistan testaaminen</h3>
+  <p>
+    Tehtäväpohjasta löytyy viime viikolla toteutetun muistilistasovelluksen mallivastaus, joka ei vielä käyttänyt Firebasea. Voit halutessasi korvata mallivastauksen omalla toteutuksellasi. Muistilistan testaamista veaten on toteutettu runko tiedostossa <code>app/test/todo_controller_test.js</code>, mutta testit eivät vielä meni läpi. Sinun tehtäväsi on testata testeissä muistilistan eri toimintoja ja saada testit menemään läpi. Testattavat toiminnot kuvataan kunkin testin kohdalla, <code>it</code>-funktion kutsussa, toteuta siis kuvausta vastaava testi. Jos käytät tehtäväpohjan toteutusta, aloita tutustumalla <code>TodoController</code>-kontrolleriin tiedostossa <code>app/controllers/todo_controller.js</code>. <strong>Huom! Jos lisäät tehtäväpohjaan tiedostoja tai muokkaat niiden nimiä, muista päivättää <code>karma.conf.js</code>-tiedosto, jotta lisäämäsi/muokkaamasi tiedostot ladataan selaimeen testien ajamisen yhteydessä.</strong> 
+  </p>
+</div>
+
+<h2>Reititys Angularissa</h2>
+<p>
+  Isompi sovellus on usein jaettu useaan eri näkymään, jotka löytyvät eri poluista, kuten <code>/elokuvat</code>, <code>/elokuvat/1</code> ja <code>elokuvat/uusi</code>. Perinteisesti sovelluksen polut määritetään palvelinpuolen sovelluksessa, mutta kasva trendi on toteuttaa ainakin osa sovelluksen reitityksestä selainpuolella, jolloin sovelluksessa uuteen polkuun siirtyminen ei rasita niin paljon palvelinta. Näitä sovelluksia kutsutaan nimellä "<a href="http://en.wikipedia.org/wiki/Single-page_application">Single-page application</a>".
+</p>
+<h3>Single-page sovellukset</h3>
+<p>
+  Single-page sovelluksesissa reitityksen pääpaino on siirtynyt palvelinpuolelta selainpuolella. Mutta miksi, mitä etuja siitä on? Suurin etu on siinä, että kun käyttäjä siirtyy sovelluksessa toiseen polkuun, palvelimelta haetaan vain uuden näkymän esittämiseen vaadittava sisältö, kuten HTML-sivu tai JSON-dataa sen sijaan, että kaikki sivulla esiintyvät resurssit kuten tyyli- ja skripti-tiedostot sekä kuvat haettaisiin uudelleen. Suorituskyky etu on siis melko huomattava, jolloin näkymien välillä siirtyminen on nopeampaa. Selainpuolen reititys ei ole kuitenkaan kaikki maailman ongelmat ratkaiseva tekiä, siinä on huonojakin puolia. Selainpuolen reitit eivät välttämättä toimi kaikilla alustoilla (etenkin mobiililaitteilla) ja usein sivulla on vain yksi sisääntuloväylä, jonka kautta kaikki reitit käsitellään. 
+</p>
+<h3>Reittien määrittäminen Angularissa</h3>
+<p>
+  Angularissa reititykseen käytetään <code>ngRoute</code>-moduulia. Kuten moduulit yleensä, ennen kuin sitä pääsee käyttämään, se täytyy injektoida omaan moduuliisi:
+</p>
+<pre class="sh_javascript_dom">
+var App = angular.module('MyApp', ['ngRoute']);
+</pre>
+<p>
+  Se on siinä! Injektoin <code>ngRoute</code>-moduulin muiden moduulien tapaan lisäämällä sen nimen moduulin alustamiskutsun toisena parametrina olevaan taulukkoon. Itse reititys tapahtuu konfiguroimalla <code>ngRoute</code>-moduulin komponenttia <code>$routeProvider</code>. Se onnistuu seuraavasti:
+</p>
+<pre class="sh_javascript_dom">
+var App = angular.module('MyApp', ['ngRoute']);
+
+App.config(function($routeProvider){
+  $routeProvider
+    .when('/', {
+      controller: 'HomeController',
+      templateUrl: 'templates/home.html'
+    })
+    .when('/hello', {
+      controller: 'HelloController',
+      templateUrl: 'templates/hello.html'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});
+</pre>
+<p>
+  Lisäämme konfiguraatiossa <code>$routeProvider</code>-komponentin kautta sovellukseemme kaksi reittiä <code>/</code> ja <code>/hello</code> kutsumalla sen funktiota <code>when</code>. Kuten huomaat, funktiokutsuja voi ketjuttaa. Funktio <code>when</code> ottaa parametrikseen polun merkkijonona ja objektin, joka kertoo, mitä tulee tapahtua, kun käyttäjä siirtyy sovelluksessa ensimmäisenä parametrina annettuun polkuun. Objekti sisältää kentän <code>controller</code>, joka kertoo, mikä kontrolleri otetaan reitissä käyttöön ja kentän <code>templateUrl</code>, joka kertoo, mitä näkymätiedostoa käytetään. Ketjun viimeisessä funktiokutsussa kutsutaan funktiota <code>otherwise</code>, joka kertoo, mitä tehdään, jos käyttäjä siirtyy polkuun, jota ei ole määritelty <code>when</code>-funktioiden kutsuissa. Funktio <code>otherwise</code> ottaa parametrikseen objektin, jossa yleensä määritetään kenttä <code>redirectTo</code>, joka kertoo, mihin polkuun käyttäjä ohjataan, jos hän yrittää mennä polkuun, jota ei ole määritelty.
+</p>
+<p>
+  Kontrollerin määrittäminen ei ole pakollista, jos haluat esittää polussa käyttäjälle pelkästään staattisen näkymän. <code>templaUrl</code>-kentän sijaan voi määrittää kentän <code>template</code>, jonka arvo on tiedoston sijaan merkkijono, joka sisältää näkymän sisällön HTML-elementteineen. <code>template</code>-kentän määrittäminen <code>templateUrl</code>-kentän sijaan periaatteessa parantaa hieman sovelluksen suorituskykyä, koska näkymätiedostoa ei tarvitse hakea palvelimelta, mutta isojen näkymien esittäminen merkkijonona on todella sekavaa.
+</p>
+  Liitetään moduulimme kontrollerit <code>HomeController</code> ja <code>HelloController</code>, joihin reiteissä viittaamme:
+</p>
+<pre class="sh_javascript_dom">
+App.controller('HomeController', function($scope){
+  $scope.message = 'Olet etusivulla!';
+});
+
+App.controller('HelloController', function($scope){
+  $scope.message = 'Olet hello sivulla! Hello World!';
+});
+</pre>
+<p>
+  Tarvitsemme vielä reiteissä viitatut näkymätiedostot <code>home.html</code> ja <code>hello.html</code>. Tarvitsemme kuitenkin sitä ennen pohjatiedoston, johon näkymät upotetaan, joka on yleensä nimeltään <code>index.html</code>: 
+</p>
+<pre class="sh_html">
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body ng-app="MyApp"&gt;
+    &lt;a href="#"&gt;Etusivu&lt;a&gt; | &lt;a href="#/hello"&gt;Hello&lt;a&gt;
+    &lt;h1&gt;Kallen Single-page sovellus&lt;/h1&gt;
+    &lt;div ng-view&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>
+  Pohjatiedostossa määrittelemme moduulimme <code>ng-app</code>-attribuutissa. Lisäksi pohjatiedostossa määritellään, mihin reiteissä määritellyt näkymätiedostot upotetaan. Se tapahtuu lisäämällä <code>ng-view</code>-attribuutti DOM-elementille, jonka sisään näkymätiedostojen sisältö halutaan lisätä. 
+</p>
+<p>
+  Jos olit tarkkana, huomasit myös, että lisäsin pohjatiedostoon pienen navigaation, joka hyvä lisätä juuri pohjatiedostoon, koska navigaatio esiintyy joka sivulla. Navigaation linkit eroavat kuitenkin <code>href</code>-attribuutin arvon osalta hieman. On tärkeää, että linkin kohde on muotoa <code>#/hello</code>, eikä <code>/hello</code>. Ero on siinä, että <code>#</code>-alkuiset kohteet ovat nk. sivun sisäisiä linkkejä, eli niihin siirtyminen ei aiheuta pyyntöä palvelimelle, vaan kohteen käsittely jää selainpuolen sovelluksen tulkittavaksi. Tämä mahdollistaa selainpuolella tapahtuvan reitityksen. 
+</p>
+<p>
+  Nyt, jos käyttä klikkaa linkkiä "Hello", selaimen osoiteriivin ilmestyy sivuston url:in jatkeeksi <code>/#hello</code>, eikä käyttäjä poistu sivulta, vaan selainpuolen sovellus (meidän Angular-sovelluksemme) päättää, mitä tehdään. Olemme määrittäneet <code>$routeProvider</code>-komponentissa, että polussa <code>/hello</code> otetaan käyttöön kontrolleri <code>HelloController</code> ja näytetään näkymä <code>hello.html</code>. Näkymän <code>hello.html</code> sisältö voisi olla vaikka seuraava:
+</p>
+<pre class="sh_html">
+&lt;h2&gt;Hello sivu&lt;/h2&gt;
+{{message}}
+</pre>
+<p>
+  Huomaa, ettei näkymätiedostossa tarvitse määrittää <code>html</code>- ja <code>body</code>-tageja, koska tiedoston sisältö upotetaan pohjatiedoston <code>div</code>-elementin sisään, jolla on <code><a href="https://docs.angularjs.org/api/ngRoute/directive/ngView" target="_blank">ng-view</a></code>-attribuutti. 
+</p>
+<p>
+  Tässä vielä tähän astinen toteutuksemme (huomaa, etten voi jsFiddlessä määrittää näkymätiedoston polkua, joten joudun laittamaan näkymän sisällön suoraan reitin määritykseen):
+  <iframe width="100%" height="300" src="http://jsfiddle.net/Mh2UH/15/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
+<div class="tehtavat">
+  <h3>PerusMOOC reiteillä</h3>
+  <p>
+    Tehtäväpohjan mukana tulee viikolla 1 toteutetun PerusMOOC-tehtävän runko ja sivupohjat sivuille "PerusMOOC", "Materiaali" ja "Oma etenemiseni". Muokkaa tehtäväpohjaa niin, että etusivun sisältönä (polussa <code>#/</code>) näytetään "PerusMOOC"-sivupohja, polussa <code>#/materiaali</code> "Materiaali"-sivupohja ja polussa <code>#/oma-etenemiseni</code> "Oma etenemiseni"-sivupohja. Muista injektoida <code>ngroute</code>-moduuli omaan moduulisi, jotta pääset määrittämään sovelluksesi reitit konfiguroimalla <code>$routeProvider</code>-komponenttia. Tee <code>$routeProvider</code>-komponenttiin liittyvät konfiguraatiot tiedostossa <code>app/app.js</code>, jossa itse moduuli sijaitsee. Tarvittavat kontrollerit voit luoda <code>app/controllers</code> kansioon. <strong>Muista linkittää luomasi <code>js</code>-tiedostot <code>index.html</code>-näkymässä <code>script</code>-tagien avulla!</strong>. Näkymätiedostot <code>etusivu.html</code>, <code>materiaali.html</code> ja <code>etenemiseni.html</code> löytyvät kansiosta <code>app/views</code>. 
+  </p>
+</div>
+<h4>Polkujen parametrit</h4>
+<p>
+  Sovelluksen polun kautta halutaan usein välittää tietoa. Jos meillä on esimerkiksi sovellus, joka esittää käyttäjän profiilisivun, haluamme, että profiilisivulle pääse esimerkiksi polun <code>#/kayttaja/KAYTTAJANIMI</code>-kautta, jossa <code>KAYTTAJANIMI</code> on käyttäjän nimi. Kun käyttäjä tällöin siirtyy sovelluksessa esimerkiksi polkuun <code>#/kayttaja/kalle</code>, voimme hakea tietokannasta (esim. Firebasesta) käyttäjän "kalle" tiedot ja esittää ne profiilisivulla.
+</p>
+<p>
+  Angularissa voimme helposti upottaa polkuihin nk. polkuparametreja, joiden sisältö vaihtelee käyttäjän antaman polun perusteella. Katsotaan, miten voisimme upottaa käyttäjän nimen polkuun <code>#/kayttaja/KAYTTAJANIMI</code>:
+</p>
+<pre class="sh_javascript_dom">
+var App = angular.module('MyApp', ['ngRoute']);
+
+App.config(function($routeProvider){
+  $routeProvider
+    .when('/kayttaja/:username', {
+      controller: 'UserController',
+      templateUrl: 'templates/profile.html'
+    });
+});
+</pre>
+<p>
+  Määrittelemme sovelluksemme reitit tavalliseen tapaan konfiguroimalla <code>ngRoute</code>-moduulin <code>$routeProvider</code>-komponenttia. Tällä kertaa funktiossa <code>when</code> määritelty polku näyttää tosin hieman erinlaiselta, sillä siihen on upotettu parametri <code>username</code>. Parametrin upotus polkuun tapahtuu yksinkertaisesti syntaksilla <code>:parametrinNimi</code>, eli <code>:</code> ja nimi parametrille, jonka kautta voimme hakea sen arvon. Nyt polussa <code>#/kayttaja/arto</code> parametrin <code>username</code> arvo on "arto". Katsotaan, miten voimme käyttää polkumme <code>username</code> parametria määrittelemällä kontrolleri <code>UserController</code>:
+</p>
+<pre class="sh_javascript_dom">
+App.controller('UserController', function($scope, $routeParams){
+  var users = {
+    'arto': {
+      name: 'Arto',
+      friends: ['Kalle', 'Matti']
+    },
+    'kalle': {
+      name: 'Kalle',
+      friends: ['Elina', 'Arto', 'Matti']
+    },
+    'elina': {
+      name: 'Elina',
+      friends: ['Kalle']
+    },
+    'matti': {
+      name: 'Matti',
+      friends: ['Arto', 'Kalle']
+    }
+  }
+
+  if(users[$routeParams.username.toLowerCase()]){
+    $scope.user = users[$routeParams.username.toLowerCase()];
+  }else{
+    $scope.user = null;
+  }
+});
+</pre>
+<p>
+  Huomasit varmaan, että kontrolleriin on injektoitu <code><a href="https://docs.angularjs.org/api/ngRoute/service/$routeParams" target="_blank">$routeParams</a></code>-muuttuja. Se on objekti, joka sisältää kenttinä kaikki nykyiseen polkuun liittyvät parametrit. <code>username</code>-parametrin arvo on siis <code>$routeParams.username</code>. Voimme käyttää polkuparametrin arvoa, esimerkiksiä määrittämään, minkä käyttäjän profiili esitetään näkymässä, kuten yllä on tehty. Toteutaan vielä näkymä <code>profile.html</code>, jotta saamme homman pakettiin:
+</p>
+<pre class="sh_html">
+&lt;h2&gt;Käyttäjän {{user.name}} profiili&lt;/h2&gt;
+Kaverit:
+&lt;ul ng-repeat="friend in user.friends"&gt;
+  &lt;li&gt;&lt;a ng-href="#/kayttaja/{{friend}}"&gt;{{friend}}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>
+  Huomaa, että linkeissä kannattaa käyttää <code><a href="https://docs.angularjs.org/api/ng/directive/ngHref" target="_blank">ng-href</a></code>-attribuuttia perinteisen <code>href</code>-attribuutin sijaan, muuten voi käydä niin, että linkin <code>href</code>-attribuutti asetetaan ennen kuin muuttujat ovat latautuneet. Tällöin esimerkiksi linkin polku voisi olla <code>#/kayttaja/{{friend}}</code> polun <code>#/kayttaja/elina</code> sijaan.
+</p>
+<p>
+  Tässä vielä lopputulos:
+  <iframe width="100%" height="300" src="http://jsfiddle.net/Mh2UH/18/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</p>
+<h4>Polkujen käsittely kontrollereissa</h4>
+<p>
+  Sovelluksen polkuja pystyy käsittelemään monin tavoin kontrollereissa. Tärkein palvelu polkujen käsittelyyn on <code><a href="https://docs.angularjs.org/api/ng/service/$location" target="_blank">$location</a></code>-palvelu. Yksi sen tärkeimmistä toiminnoista on käyttäjän ohjaaminen toiseen polkuun käyttäen <code>path</code>-funktiota:
+</p>
+<pre class="sh_javascript_dom">
+App.controller('UserController', function($scope, $routeParams, $location){
+  var users = {
+    'arto': {
+      name: 'Arto',
+      friends: ['Kalle', 'Matti']
+    },
+    'kalle': {
+      name: 'Kalle',
+      friends: ['Elina', 'Arto', 'Matti']
+    },
+    'elina': {
+      name: 'Elina',
+      friends: ['Kalle']
+    },
+    'matti': {
+      name: 'Matti',
+      friends: ['Arto', 'Kalle']
+    }
+  }
+
+  if(users[$routeParams.username.toLowerCase()]){
+    $scope.user = users[$routeParams.username.toLowerCase()];
+  }else{
+    $location.path('/kayttajat/kalle');
+  }
+});
+</pre>
+<p>
+  Lisäsin siis kontrollerin <code>if</code>-ehdon <code>else</code>-haaraan ohjauksen polkuun <code>#/kayttaja/kalle</code> (huomaa, ettei polun eteen tarvitse laittaa <code>#</code>-merkkiä!). Nyt jos käyttäjää ei löydy, ohjataan käyttäjä polkuun <code>#/kayttaja/kalle</code>, eli käyttäjän "Kalle" profiilisivulle. Tapa muistuttavaa hyvin paljon palvelinohjelmissa tehtävää uudelleenohjausta. <code>$location</code>-palvelua käytetään myös hyvin paljon selaimen osoitepalkin sisällön tarkkailuun. Esimerkiksi, jos haluamme koko tähän hetkisen url:in (esim. http://cs.helsinki.fi/courses), voimme kutsua <code>absUrl</code>-funktiota ja jos haluamme vain pyynnön osan (esim. /courses), voimme kutsua <code>url</code>-funktiota.
+</p>
+<div class="tehtavat">
+  <h3>Kuin kissat ja koirat</h3>
+  <p>
+    Tehtäväpohjassa on määritelty palvelut <code>Cat</code> (tiedostossa <code>app/services/cat.js</code>) ja <code>Dog</code> (tiedostossa <code>app/services/dog.js</code>), jotka molemmat tarjoavat funktion <code>all</code>, joka paluttaa taulukon kissoja, tai koiria, riippuen kumman palvelun funktiota kutsutaan. Toteuta kontrollerit <code>ListController</code> (pohja tiedostossa <code>app/controllers/list_controller.js</code>), joka listaa etusivulla (polussa #/) kaikki kissat sekä koirat ja <code>CatController</code> (pohja tiedostossa <code>app/controllers/cat_controller.js</code>), joka näyttää polussa <code>#/kissat/ROTU</code> polkuparametrin <code>ROTU</code>-arvonana (vinkki: <code><a href="https://docs.angularjs.org/api/ngRoute/service/$routeParams" target="_blank">$routeParams</a></code>) annetun kissarodun tiedot seuraavasti:
+  </p>
+  <h1 class="ignore">Eksoottinen lyhytkarva</h1>
+  <p>
+    Eksoottisen lyhytkarvan turkki on tiheä ja samettisen pehmeä, luonne koiramaisen seurallinen. Rakenne on roteva ja litteänaamainen kuten persialaisella. Rotumääritelmä on turkin pituutta lukuun ottamatta yhtenevä persialaisen rotumääritelmän kanssa.
+  </p>
+  <p>
+    Sivun otsikko on siis kissarodun nimi ja sen alla on sen kuvaus. Toteuta myös kontrolleri <code>DogController</code> (pohja tiedostossa <code>app/controllers/dog_controller.js</code>), joka näyttää polussa <code>#/koirat/ROTU</code> polkuparametrin <code>ROTU</code>-arvonana annetun koirarodun tiedot samaan tapaan kuin kissojen kanssa. <code>$routeProvider</code>-komponenttiin liittyvät konfiguraatiot kannattaa tehdä tiedostossa <code>app/app.js</code> ja näkymätiedostot voi sijoittaa vaikkapa kansioon <code>app/views</code>. 
+  </p>
+  <p>
+    Jos käyttäjä yrittää mennä kissa- tai koirarodun sivulle, jota ei löydy, ohjaa hänet takaisin etusivulle käyttäen <code><a href="https://docs.angularjs.org/api/ng/service/$location" target="_blank">$location</a></code>-palvelua.
+  </p>
+  <p>
+    Kun tehtävä on tehty, voit vaikappa katsoa upen koko perheen elokuvan <a href="http://www.imdb.com/title/tt0239395/" target="_blank">Kuin kissat ja koirat</a>.
+  </p>
+</div>
+<h2>Kehitystyökalut</h2>
+<p>
+  JavaScriptiin on toteutettu parin viime vuoden aikana tolkuttoman monta eri kehitystyökaluja ja trendit niiden käytön kanssa vaihtelevat melkein kuukausittain. Käymme seuraavaksi läpi vain pari tärkeintä työkalua, jotka ovat luultavasti joidenkin hipsterien mielestä jo todella vanhanaikaisia.
+</p>
+<h3>Järkevää riippuvuuksien hallintaa: Bower</h3>
+<p>
+  JavaScript sovellukset ja kirjastot ovat nykyään yhä enemmän riippuvaisia toisista kirjastoista, jotka ovat edelleen riippuvaisia toisista kirjastoista. Riippuvuuksien hallinta oli ennen hankalaa, sillä kirjastojen dokumentaatiossa piti erikseen mainita, mitä riippuvuuksia niissä on ja ohjelmoijan piti itse etsiä riippuvuuksien lähdekoodi ja linkittää ne sovellukseen. Nykyään riippuvuuksien hallinta on onneksi todella helppoa, kiitos <a href="http://bower.io/" target="_blank">Bowerin</a>.
+</p>
+<p>
+  Bower etsii ja asentaa tarvitsemasi kirjastot puolestasi. Lisäksi se pitää kirjaa sovelluksesi riippuvuuksista <code>bower.json</code>-tiedostossa, jotta muut voivat tarvittaessa asentaa sovelluksesi käyttämät riippuvuudet, kun he haluavat käyttää sovellustasi. Aloitetaan hieman tarkempi tutustuminen siihen ja katsotaan, miten voimme käyttää sitä NetBeansissa. Bower vaatii toimiakseen <a href="http://git-scm.com/" target="_blank">Gitin</a> ja <a href="http://nodejs.org/" target="_blank">Noden</a>. Jos asensit molemmat viime viikolla testaamisen yhteydessä, olet jo valmis. Jos ne on vielä asentamatta lue asentamisohjeet kohdasta Testien suorittaminen.
+</p>
+
+<h4>Kirjastojen asentaminen</h4>
+<p>
+  Avataan edellisen tehtävän <code>KuinKissatJaKoirat</code>-projekti NetBeansissa ja katsotaan, mitä riippuvuuksia sillä on avaamalla <code>bower.json</code>-tiedosto kansiosta <code>Important Files</code>. Sen sisältö on seuraava:
+</p>
+<pre class="sh_javascript_dom">
+{
+  "name": "weso",
+  "version": "0.0.0",
+  "authors": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-route": "~1.3.13"
+  }
+}
+</pre>
+<p>
+  Tiedostoston alku koostuu sovelluksemme perustiedoista, kuten sen nimestä, versiosta ja lisenssistä. Sen jälkeen kerrotaan, mitä riippuvuuksia sovelluksessamme on, ne ovat <code>angular</code> ja reititykseen käyttämämme <code>angular-route</code>. Numerosarja riippuvuuden nimerän jälkeen on sen versionumero. Asennetaan seuraavaksi pari riippuvuutta, vaikkapa jQuery ja Mustache. Jokaisella kirjastolla on Bowerin rekistereissä oma nimensä, mutta en ole aivan varma, millä nimellä jQuery ja Mustache löytyvät. Voin tarkastaa asian helposti <a href="http://bower.io/search/" target="_blank">täältä</a>. Ilmeisesti jQuery löytyy nimellä <code>jquery</code> ja Mustache nimellä <code>mustache</code> (yllätys, yllätys!). Määritellään <code>bower.json</code>-tiedostoon kenttä <code>dependencies</code> ja määritellään siihen, että haluamme asentaa sovellukseemme viimeisimmät versiot <code>jquery</code>- ja <code>mustache</code>-kirjastoista: 
+</p>
+<pre class="sh_javascript_dom">
+{
+  "name": "weso",
+  "version": "0.0.0",
+  "authors": [],
+  "license": "MIT"
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-route": "~1.3.13"
+    "jquery": "latest",
+    "mustache": "latest"
+  }
+}
+</pre>
+<p>
+  Lisäämällä <code>dependencies</code>-kentän sisältävään objektiin kentät <code>jquery</code> ja <code>mutache</code>, joiden arvo on "latest", saamme asennettua niiden viimeisimmät versiot Bowerin rekistereistä. Riippuvuuksien määrittely on nyt valmis, seuraava vaihe on niiden asentaminen. Se on NetBeansissa helppoa, painetaan vain projektimme nimen päällä hiiren oikeaa painiketta ja valitaan "Npm install", joka asentaa Bowerin ja sen jälkeen valitsemalla "Bower install", joka asentaa asettamamme riippuvuudet <code>jquery</code> ja <code>mustache</code>. Jos käytät laitoksen konetta, suorita terminaalissa NetBeans-projektin juuressa ensin komento <code>npm install</code> ja sen jälkeen komento <code>./node_modules/bower/bin/bower install</code>. Kommennon suorittamisen jälkeen <code>bower_components</code>-kansioon ilmestyy kansiot <code>mustache</code> ja <code>jquery</code>, joista löytyy tarvitsemamme riippuvuudet, joita voimme nyt käyttää sovelluksessamme.
+</p>
+<h3>Väsymätön työnsankari: Grunt</h3>
+<p>
+  Ohjelmoijalla on sovellusta kehittäessä usein monta pientä tehävää, jotka pitää toistaa tiuhaan tahtiin. Tehtävät voivat olla joko, skripti- tai tyylitiedostojen yhdistämistä ja pakkaamista, testien automaattista suorittamista, tai lähdekoodin auttomaattista siirtämistä versionhallinta. Kaikki näistä tehtävistä ovat melko työläitä, etenkin kun ne pitää suorittaa manuaalisesti tiuhaan tahtiin. Ratkaisu ongelmaan on JavaScriptin ikioma tehtäviensuorittaja, <a href="http://gruntjs.com/" target="_blank">Grunt</a>, joka suorittaa määrittämiäsi tehtäviä puolestasi aina, kun haluat.
+</p>
+<h4>Töihin siitä, Grunt!</h4>
+<p>
+  Grunttiin on toteutettu monta <a href="http://gruntjs.com/plugins" target="_blank">pluginia</a>, joiden avulla sille voi määritellä eri tehtäviä eli "taskeja". Taskien määrittely tapahtuu projektin juuressa sijaitsevassa <code>Gruntfile.js</code>-tiedostossa, jossa pluginit ladataan ja niiden tarjoamat taskit konfiguroidaan tarpeidesi mukaisiksi. Tässä esimerkki <code>Gruntfile.js</code>-tiedostosta, jossa käytetään <a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank">grunt-contrib-uglify</a>-pluginia minimoimaan kasa JavaScript-tiedostoja yhdeksi kompaktiksi tiedostoksi, josta ne kaikki löytyvät pakatusssa muodossa:
+</p>
+<pre class="sh_javascript_dom">
+module.exports = function(grunt) {
+
+  // Konfiguroidaan taskit
+  grunt.initConfig({
+    // uglify-plugini
+    uglify: {
+      build: {
+        src: ['app/app.js', 'app/services/*.js', 'app/controllers/*.js'],
+        dest: 'app/app.min.js'
+      }
+    }
+  });
+
+  // Ladataan plugini "grunt-contrib-uglify", joka tarjoaa taskin "uglify"
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // Asetetaan suoritettava oletustaski, joka on tässä tapauksessa "uglify"
+  grunt.registerTask('default', ['uglify']);
+};
+</pre>
+<p>
+  Annamme <code>initConfig</code>-funktiolla parametriksi objektin, jossa määrittelemme taskiemme konfiguraatiot. <code>grunt-contrib-uglify</code>-plugin tarjoaa taskin <code>uglify</code>, jonka avulla pystymme minimoimaan JavaScript-tiedostoja. Se on kätevää, koska sivunlataus nopetuu huomattavasti, jos <code>script</code>-tageja on sivulla monen sijaan yksi. <code>uglify</code>-taskin konfiguroinnissa kerromme, että haluamme minimoida tiedoston <code>app/app.js</code> ja kaikki <code>js</code>-tiedostot kansioista <code>app/services</code> ja <code>app/controllers</code> tiedostoon <code>app/app.min.js</code>. Konfiguroinnin jälkeen lataamma pluginit käyttöömme ja asetamme gruntin oletus taskit. Tässä tapauksessa, kun Grunt aloittaa työn projektimme parissa komennolla <code>grunt</code>, suoritetaan vain taski <code>uglify</code>.
+</p>
+<p>
+  Voimme suorittaa samaan aikaan monta taskia. Otetaan vielä käyttöön <a href="https://www.npmjs.com/package/grunt-contrib-jshint" target="_blank">grunt-contrib-jshint</a>-plugini, joka tarjoaa taskin <code>jshint</code>, joka validoi JavaScript-koodia ja ilmoittaa meille löytämänsä syntaksivirheet:
+</p>
+<pre class="sh_javascript_dom">
+module.exports = function(grunt) {
+
+  // Konfiguroidaan taskit
+  grunt.initConfig({
+    // uglify-plugini
+    uglify: {
+      build: {
+        src: ['app/app.js', 'app/services/*.js', 'app/controllers/*.js'],
+        dest: 'app/app.min.js'
+      }
+    }
+    jshint: {
+      src: ['app/**/**.js']
+    }
+  });
+
+  // Ladataan plugini "grunt-contrib-uglify", joka tarjoaa taskin "uglify"
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+
+  // Asetetaan suoritettavat oletustaskit, jotka ovat "jshint" ja "uglify"
+  grunt.registerTask('default', ['jshint', 'uglify']);
+
+  // Asetetaan "hint"-ryhmässä suoritettavat taski
+  grunt.registerTask('hint', ['jshint']);
+};
+</pre>
+<p>
+  Otimme siis käyttöömme taskin <code>jshint</code>, joka etsii syntaksivirheitä kaikista <code>app</code>-kansion alakansioista sijaitsevista <code>js</code>-tiedostoista. Määritimme myös, että <code>jshint</code>-taski suoritetaan oletustaskina ja lisäksi, että sen voi suorittaa ilman erikseen komennolla <code>grunt hint</code>.
+</p>
+<p>
+  Seuraavassa tehtävässä pääset käyttämään Grunttia. Jos et asentanut testaamisen yhteydessä Node.js:ssää ja Git:iä, tee se nyt. Ohjeet löytyvät osiosta Testien suorittaminen. Kun asennus on tehty, avaa NetBeans ja siinä tämän viikon tehtävistä tehtävä <code>GruntToihin</code>. Klikkaa projektin nimen päällä hiiren oikeaa painiketta ja valitse "Npm install", se asentaa tarvitsemasi riippuvuudet, mukaan lukien Gruntin. Sen jälkeen paina taas projektisi nimen päällä hiiren oikeaa painiketta ja valitse "Properties" ja siirry avautuvasta ikkunasta "Grunt"-kategoriaan. Voit valita, milloin Gruntin taskit suoritetaan valitsemalla jonkun kolmesta vaihtoehdosta ja syöttämällä sen viereiseen tekstikenttään, minkä ryhmän taskit suoritetaan (esimerkiksi "default"). Jos käytät laitoksen konetta, voit suorittaa Gruntin taskit terminaalissa NetBeansin-projektin juuressa suorittamalla ensin komennon <code>npm install</code> ja sen jälkeen komennon <code>node -e "require('grunt').cli();"</code>.
+</p>
+<div class="tehtavat">
+<h3>Laitetaan Grunt töihin</h3>
+<p>
+  Arto on toteuttanut eeppisen kokeisen sovelluksen, mutta hänellä on sen kanssa pari pientä ongelmaa. Ensinäkin, Matti valitti, että Arton sovellus lataa palvelimelta aivan turhan monta <code>js</code>-tiedostoa ja antoikin vinkiksi, että Gruntilla JavaScript tiedostot voi yhdistää yhdeksi kompaktiksi <code>js</code>-tiedostoksi käyttäen <a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank">grunt-contrib-uglify</a>-pluginia. Sama ongelmalla Artolla on <code>css</code>-tiedostojen kanssa. Siihen soveltuu Matin mukaan <a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank">grunt-contrib-cssmin</a>-plugini. Lisäksi Artolla on koodissaan syntaksivirhe, jota hän ei millään löydä. Hän tietää, että sen löytämiseen voi käyttää <a href="https://www.npmjs.com/package/grunt-contrib-jshint" target="_blank">grunt-contrib-jshint</a>, mutta hän tarvitsee apua sen konfigurointiin. Voitko auttaa artoa?
+</p>
+<p>
+  Tehtäväpohjan mukana <code>Important Files</code>-kansiosta löytyy pohja <code>Gruntfile.js</code>-tiedostolle, johon sinun täytyy tehdä tarvittavat muutokset. Aloita suorittamalla komento <code>npm install</code> joko NetBeansissa tai terminaalissa projektisi juuressa, joka asentaa Gruntin. Kun Grunt on asennettu, siirry klikkaa projektisi nimen päällä hiiren oikeaa painiketta ja valitse "Properties". Siirry avautuvasta ikkunasta vasemmalta kohtaan "Grunt" ja valitse checkboxi "Build Project" ja kirjoita sen vieressä olevaan tekstikenttään "default" (ilman lainausmerkkejä). Nyt Grunt ajaa projektin buildaamisen yhteydessä kaikki taskit ryhmässä <code>default</code>, jotka määritellään <code>Gruntfile.js</code>-tiedostossa. Laitoksen koneella voit ajaa Gruntin suorittamalla terminaalissa NetBeans-projektisi juuressa komennon <code>node -e "require('grunt').cli();"</code>. Toteuta <code>Gruntfile.js</code>-tiedosto, niin, että Grunt suorittaa taskit <code>uglify</code>, <code>cssmin</code> ja <code>jshint</code> seuraavasti:
+  <ul>
+    <li>
+      <code>jshint</code>-taski etsii syntaksivirheitä kaikista <code>app/controllers</code> kansiosta sijaitsevista <code>js</code>-tiedostoista. Löydä siis Arton tekemät syntaksivirheet ja korjaa se niin, että <code>jshint</code> on tyytyväinen.
+    </li>
+    <li>
+      <code>uglify</code>-taski yhdistää tiedoston <code>app/app.js</code> sekä kaikki <code>js</code>-tiedostot kansioista <code>app/controllers</code>, <code>app/services</code> ja <code>app/directives</code> tiedostoon <code>app/app.min.js</code>.
+    </li>
+    <li>
+      <code>cssmin</code>-taski yhdistää kaikki <code>css</code>-tiedostot kansiosta <code>css/common</code> tiedostoon <code>css/app.min.css</code>
+    </li>  
+  <ul>
+</p>
+</div>
 </section>
 <section class="week">
   <header>
     <a name="viikko6"></a>
     <h1 data-week-id="6">Viikko 6</h1>
   </header>
-  
 </section>
 <section class="week">
   <header>
