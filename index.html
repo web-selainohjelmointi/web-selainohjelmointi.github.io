@@ -143,8 +143,6 @@
 
     <p>Ohjelmien debuggaaminen on oleellinen taito. Selainohjelmistot pyörivät selaimessa, joten luonnollinen paikka niiden debuggaamiseen on selaimessa. Esimerkiksi google chrome ja mozilla firefox tarjoavat debuggausympäristöt, joilla voi tutkia sivuja. Debuggausympäristöt aukeavat yleensä nappia f12-painamalla. Oleellisin osio lienee konsoli, mistä näkee esimerkiksi JavaScript-suorituksessa tapahtuvat virheviestit.</p>
 
-    <p>Omiin sovelluksiin voi myös lisätä debuggauskomentoja. Esimerkiksi komento <code>console.log("viesti");</code> osana JavaScript-kutsua lisää konsoliin viestin "viesti". Sovelluksen debuggaus viestien avulla on hyvä aloituskohta rikkinäisten sovellusten korjaamiselle..</p>
-
     <p>Tutustu Chrome Developer Toolseihin osoitteessa <a href="https://developers.google.com/chrome-developer-tools/" target="_blank">https://developers.google.com/chrome-developer-tools/</a></p>
 
     <h3>NetBeans</h3>
@@ -152,6 +150,7 @@
     <p>Kurssilla käytetään oletuksena NetBeans-ohjelmointiympäristöä. Laitoksen koneille on asennettuna versio 7.2, mutta versiossa 7.3 tulee vielä parempi tuki HTML5:lle. Kurssin tehtävät palautetaan myös TMC:n kautta. Jos et halua käyttää NetBeansia, tehtävät voi palauttaa myös TMC:n webbisivuilta.</p>
 
     <p>Huom! Toisin kuin aiemmalla web-palvelinohjelmointi -kurssilla, tällä kurssilla TMC <em>ei</em> tarkasta tehtävien oikeellisuutta. Palauttaessasi tehtävän lupaat sen olevan oikein.</p>
+	      <p>Etsi omaan tilanteeseesi sopiva ohje osoitteesta <a href="https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide" target="_blank">https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide</a>, rekisteröidy tarvittaessa TMChen ja asenna tarvittaessa NetBeans ja TMC koneellesi. Valitse TMC NetBeansin asetuksista palvelimeksi <code>https://tmc.mooc.fi/hy</code> ja kurssiksi <code>k2015-weso</code>.</p>
 
     <div class="tehtavat">
       <NEXTWEEK></NEXTWEEK>
@@ -368,7 +367,7 @@
 
     <h3>Linkit toisille sivuille</h3>
 
-    <p>Elementin <code>a</code> (<em>anchor</em>) avulla voi luoda linkin sivulta toiselle. Sivu, jolle käyttäjä siirtyy, merkitään elementin <code>a</code> attribuutin <code>href</code> arvolla. Jos sovelluksessasi on kaksi sivua, <code>index.html</code> ja <code>oma.html</code>, voi sivulta <code>oma.html</code> luoda linkin sivulle <code>index.html</code> komennolla &lt;a href="index.html"&gt;index.html&lt;/a&gt;. Sivulta voi lisätä myös linkin täysin toiselle sivulle. Alla olevassa esimerkissä on linkki <code>YouTube</code>-sivustolle.</p>
+    <p>Elementin <code>a</code> (<em>anchor</em>) avulla voi luoda linkin sivulta toiselle. Sivu, jolle käyttäjä siirtyy, merkitään elementin <code>a</code> attribuutin <code>href</code> arvolla. Jos sovelluksessasi on kaksi sivua, <code>index.html</code> ja <code>oma.html</code>, voi sivulta <code>oma.html</code> luoda linkin sivulle <code>index.html</code> komennolla <code>&lt;a href="index.html"&gt;index.html&lt;/a&gt;</code>. Sivulta voi lisätä myös linkin täysin toiselle sivulle. Alla olevassa esimerkissä on linkki <code>YouTube</code>-sivustolle.</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -2038,7 +2037,7 @@ alert(mikke.vaimo.nimi + " on syntynyt vuonna " + mikke.vaimo.syntymavuosi);
 
       <p>Palataan web-maailmaan. JavaScriptiä käytetään ennenkaikkea dynaamisen toiminnallisuuden lisäämiseksi web-sivuille. Esimerkiksi web-sivuilla oleviin elementteihin tulee pystyä asettamaan arvoja. JavaScriptissä pääsee käsiksi dokumentissa oleviin elementteihin komennolla <code>document.getElementById("tunnus")</code>, joka palauttaa elementin, jonka <code>id</code>-attribuutti on "tunnus".</p>
 
-      <p>Alla olevassa esimerkissä on luotu tekstikenttä, jonka HTML-koodi on <code>&lt;input type="text" id="tekstikentta"&gt;&lt;/input&gt;</code>. Kentän tunnus on siis <code>tekstikentta</code>. Javascriptillä on komento <code>document.getElementById("tunnus")</code>, jonka avulla voidaan hakea tietyn nimistä elementtiä. Tekstikenttäelementillä on attribuutti <code>value</code>, joka voidaan tulostaa.</p>
+      <p>Alla olevassa esimerkissä on luotu tekstikenttä, jonka HTML-koodi on <code>&lt;input type="text" id="tekstikentta"/&gt;</code>. Kentän tunnus on siis <code>tekstikentta</code>. Javascriptillä on komento <code>document.getElementById("tunnus")</code>, jonka avulla voidaan hakea tietyn nimistä elementtiä. Tekstikenttäelementillä on attribuutti <code>value</code>, joka voidaan tulostaa.</p>
 
 
 <div class="test-js">
