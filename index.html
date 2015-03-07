@@ -7715,7 +7715,7 @@ App.controller('HelloController', function($scope){
 <div class="tehtavat">
   <h3>PerusMOOC reiteillä</h3>
   <p>
-    Tehtäväpohjan mukana tulee viikolla 1 toteutetun PerusMOOC-tehtävän runko ja sivupohjat sivuille "PerusMOOC", "Materiaali" ja "Oma etenemiseni". Muokkaa tehtäväpohjaa niin, että etusivun sisältönä (polussa <code>#/</code>) näytetään "PerusMOOC"-sivupohja, polussa <code>#/materiaali</code> "Materiaali"-sivupohja ja polussa <code>#/oma-etenemiseni</code> "Oma etenemiseni"-sivupohja. Muista injektoida <code>ngroute</code>-moduuli omaan moduulisi, jotta pääset määrittämään sovelluksesi reitit konfiguroimalla <code>$routeProvider</code>-komponenttia. Tee <code>$routeProvider</code>-komponenttiin liittyvät konfiguraatiot tiedostossa <code>app/app.js</code>, jossa itse moduuli sijaitsee. Tarvittavat kontrollerit voit luoda <code>app/controllers</code> kansioon. <strong>Muista linkittää luomasi <code>js</code>-tiedostot <code>index.html</code>-näkymässä <code>script</code>-tagien avulla!</strong>. Näkymätiedostot <code>etusivu.html</code>, <code>materiaali.html</code> ja <code>etenemiseni.html</code> löytyvät kansiosta <code>app/views</code>. 
+    Tehtäväpohjan mukana tulee viikolla 1 toteutetun PerusMOOC-tehtävän runko ja sivupohjat sivuille "PerusMOOC", "Materiaali" ja "Oma etenemiseni". Muokkaa tehtäväpohjaa niin, että etusivun sisältönä (polussa <code>#/</code>) näytetään "PerusMOOC"-sivupohja, polussa <code>#/materiaali</code> "Materiaali"-sivupohja ja polussa <code>#/oma-etenemiseni</code> "Oma etenemiseni"-sivupohja. Muista injektoida <code>ngroute</code>-moduuli omaan moduulisi, jotta pääset määrittämään sovelluksesi reitit konfiguroimalla <code>$routeProvider</code>-komponenttia. Tee <code>$routeProvider</code>-komponenttiin liittyvät konfiguraatiot tiedostossa <code>app/app.js</code>, jossa itse moduuli sijaitsee. Tarvittavat kontrollerit voit luoda <code>app/controllers</code> kansioon. <strong>Muista linkittää luomasi <code>js</code>-tiedostot <code>index.html</code>-näkymässä <code>script</code>-tagien avulla!</strong>. Kun reitit on toteutettu, muokkaa vielä navigaatiopalkin linkkejä niin, että ne osoittavat oikeisiin paikkoihin. Näkymätiedostot <code>etusivu.html</code>, <code>materiaali.html</code> ja <code>etenemiseni.html</code> löytyvät kansiosta <code>app/views</code>. Muista, että <code>templateUrl</code>-kentässä määritellyn näkymätiedostopolun juuri on projektisi <code>src</code>-kansio.
   </p>
 </div>
 <h4>Polkujen parametrit</h4>
@@ -8108,8 +8108,6 @@ describe('MyController', function(){
       return {
         addMessage: function(message){
           messages.push(message);
-          // Koska Firebase synkronoi myös kontrollerissa sijaitsevan muuttujan datan, joudumme tekemään mockkin kautta muutoksia scope-muuttujaan.
-          scope.messages.push(message);
         },
         
         getMessages: function(){
@@ -8128,8 +8126,6 @@ describe('MyController', function(){
         removeMessage: function(message){
           // Valitaan kaikki viestit, paitsi poistettava viesti
           messages = messages.filter(function(m){ m.text != message.text });
-          // Päivitetään viestit kontrolleriin
-          scope.messages = messages;
         }
       }
 
@@ -8171,7 +8167,7 @@ describe('MyController', function(){
 });
 </pre>
 <p>
-  Toteutamme siis kaikki <code>FirebaseService</code>-palvelun tarjoamat funktiot <code>FirebaseServiceMock</code>-mockkiimme, jossa palautamme funktiot objektina. Nyt tiedämme, mitä dataa <code>FirebaseService</code>-palvelu palauttaa kutsuttaessa ja miten se muokkaa sitä, joten voimme keskittyä pelkän kontrollerin testaamiseen. Huomaa, että joudumme tässä tapauksessa käyttämään mockatussa palvelussamme <code>scope</code>-muuttujaa, jotta voimme muokata kontrollerin näkyvyysalueen muuttujia. Tämä johtuu siitä, että Firebase synkronoi automaattisesti kontrollerissa määritellyn taulukon lisäämisen, muokkaamisen ja poistamisen yhteydessä. Nyt testeissä kontrolleriin injektoidaan <code>FirebaseService</code>-palvelun sijaan testissä määrittämäämme mockki <code>FirebaseServiceMock</code>, kuten <code>$controller</code>-funktion kutsusta näkee.
+  Toteutamme siis kaikki <code>FirebaseService</code>-palvelun tarjoamat funktiot <code>FirebaseServiceMock</code>-mockkiimme, jossa palautamme funktiot objektina. Nyt tiedämme, mitä dataa <code>FirebaseService</code>-palvelu palauttaa kutsuttaessa ja miten se muokkaa sitä, joten voimme keskittyä pelkän kontrollerin testaamiseen. Mockatussa palvelussa tarjoamme täysin samat palvelut kuin oikeassa palvelussamme, mutta sen sijaan, että viestimme olisivat oikeasti tietokannassa, ne ovat pelkästään taulukossa. Tätä kontrolleri ei kuitenkaan tiedä, koska sen käyttämä rajapinta pysyy täysin samana. Nyt testeissä kontrolleriin injektoidaan <code>FirebaseService</code>-palvelun sijaan testissä määrittämäämme mockki <code>FirebaseServiceMock</code>, kuten <code>$controller</code>-funktion kutsusta näkee.
 </p>
 <h4>Funktiokutsujen vakoilu</h4>
 <p>
