@@ -1,189 +1,182 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Web-selainohjelmointi</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/sh_style.css">
-        <link rel="stylesheet" href="css/weso.css">
-        <script src="js/jquery.js"></script>
-        <script src="js/mustache.min.js"></script>
-        <script src="js/material.js"></script>
-
-
-      <script type="text/javascript" src="js/sh_main.js"></script>
-      <script type="text/javascript" src="js/sh_java.js"></script>
-      <script type="text/javascript" src="js/sh_xml.js"></script>
-      <script type="text/javascript" src="js/sh_html.js"></script>
-      <script type="text/javascript" src="js/sh_css.js"></script>
-      <script type="text/javascript" src="js/sh_javascript_dom.js"></script>
-      <script>
-        jQuery(document).ready(function() {
-          Material.createContentList();
-          Material.createExerciseList();
-          sh_highlightDocument();
-        });
-      </script>
-    </head>
-    <body>
-
-        <!-- BEGIN NAV -->
-        <header role="navigation">
-            <h1>
-                <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a href="http://www.cs.helsinki.fi/"><img src="img/header_tktl.png" alt="CS Dept. Univ. Helsinki"></a>
-            </h1>
-            <nav class="collapse bs-navbar-collapse" role="navigation">
-                <ul>
-                    <li class="active">
-                        <a href="#">Web-selainohjelmointi</a>
-                    </li>
-                    <li>
-                        <a href="#viikko1">Viikko 1</a>
-                    </li>
-                    <li>
-                        <a href="#viikko2">Viikko 2</a>
-                    </li>
-                    <li>
-                        <a href="#viikko3">Viikko 3</a>
-                    </li>
-                    <li>
-                        <a href="#viikko4">Viikko 4</a>
-                    </li>
-                    <li>
-                        <a href="#viikko5">Viikko 5</a>
-                    </li>
-                    <li>
-                        <a href="#viikko6">Viikko 6</a>
-                    </li>
-                    <li>
-                        <a href="#viikko7">Viikko 7</a>
-                    </li>
-                </ul>
-            </nav>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Web-selainohjelmointi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/sh_style.css">
+    <link rel="stylesheet" href="css/weso.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/material.js"></script>
+    
+    
+    <script type="text/javascript" src="js/sh_main.js"></script>
+    <script type="text/javascript" src="js/sh_java.js"></script>
+    <script type="text/javascript" src="js/sh_xml.js"></script>
+    <script type="text/javascript" src="js/sh_html.js"></script>
+    <script type="text/javascript" src="js/sh_css.js"></script>
+    <script type="text/javascript" src="js/sh_javascript_dom.js"></script>
+    <script>
+      jQuery(document).ready(function() {
+      Material.createContentList();
+      Material.createExerciseList();
+      sh_highlightDocument();
+      });
+    </script>
+  </head>
+  <body>
+    
+    <!-- BEGIN NAV -->
+    <header role="navigation">
+      <h1>
+        <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+	
+        <a href="http://www.cs.helsinki.fi/"><img src="img/header_tktl.png" alt="CS Dept. Univ. Helsinki"></a>
+      </h1>
+      <nav class="collapse bs-navbar-collapse" role="navigation">
+        <ul>
+          <li class="active">
+            <a href="#">Web-selainohjelmointi</a>
+          </li>
+          <li>
+            <a href="#viikko1">Viikko 1</a>
+          </li>
+          <li>
+            <a href="#viikko2">Viikko 2</a>
+          </li>
+          <li>
+            <a href="#viikko3">Viikko 3</a>
+          </li>
+          <li>
+            <a href="#viikko4">Viikko 4</a>
+          </li>
+          <li>
+            <a href="#viikko5">Viikko 5</a>
+          </li>
+          <li>
+            <a href="#viikko6">Viikko 6</a>
+          </li>
+          <li>
+            <a href="#viikko7">Viikko 7</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <article>
+      <section>
+        <header>
+          <h1 data-week-id="1">Lukijalle</h1>
         </header>
-        <article>
-          <section>
-            <header>
-              <h1 data-week-id="1">Lukijalle</h1>
-            </header>
-                <p>Tämä materiaali on tarkoitettu Helsingin yliopiston
-            tietojenkäsittelytieteen laitoksen syksyn 2012 kurssille
-            web-selainohjelmointi. Materiaalin kirjoittajat ovat Kalle Ilves ja Arto Vihavainen ja sen
-             syntyyn ovat vaikuttaneet useat tahot, joista tärkein on Mikael
-            Nousiainen. Iso kiitos kuuluu myös Kasper Hirvikoskelle. Kurssia
-            web-selainohjelmointi on edeltänyt aiemmin järjestetty kurssi
-            Digitaalisen Median tekniikat, jonka tämä kurssi korvaa. "DiMe"-kurssin
-            viimeisten vetäjien Samuli Kaipiaisen ja Matti Paksulan henki kuitenkin
-            elää kurssilla. </p>
+        <p>Tämä materiaali on tarkoitettu Helsingin yliopiston
+          tietojenkäsittelytieteen laitoksen syksyn 2012 kurssille
+          web-selainohjelmointi. Materiaalin kirjoittajat ovat Kalle Ilves ja Arto Vihavainen ja sen
+          syntyyn ovat vaikuttaneet useat tahot, joista tärkein on Mikael
+          Nousiainen. Iso kiitos kuuluu myös Kasper Hirvikoskelle. Kurssia
+          web-selainohjelmointi on edeltänyt aiemmin järjestetty kurssi
+          Digitaalisen Median tekniikat, jonka tämä kurssi korvaa. "DiMe"-kurssin
+          viimeisten vetäjien Samuli Kaipiaisen ja Matti Paksulan henki kuitenkin
+          elää kurssilla. </p>
+	
+<!--
+        <p>Materiaali päivittyy kurssin edetessä. Osa tehtävistä on osana
+          materiaalia, osa taas linkkeinä omille sivuilleen. Tehtävien lisäksi
+          materiaali sisältää kysymysmerkillä merkittyjä <em>pohdi</em>-kohtia,
+          joissa pääsee pohtimaan juuri tutuksi tullutta asiaa esimerkin kautta.
+          Lampuilla merkityt kohdat taas sisältävät mm. arvokkaita vinkkejä
+          erilaisista työkaluista.</p>
+-->
+	
+        <p>Materiaali päivittyy kurssin edetessä. Lue materiaalia siten, että teet samalla itse kaikki lukemasi
+          esimerkit. Esimerkkeihin kannattaa tehdä pieniä muutoksia ja tarkkailla,
+          miten muutokset vaikuttavat ohjelman toimintaan. Äkkiseltään voisi
+          luulla, että esimerkkien tekeminen ja muokkaaminen hidastaa opiskelua.
+          Tämä ei kuitenkaan pidä ollenkaan paikkansa. Oppiminen perustuu
+          oleellisesti aktiiviseen tekemiseen ja rutiinin kasvattamiseen.
+          Esimerkkien ja erityisesti omien kokeilujen tekeminen on parhaita tapoja
+          sisäistää luettua. Muista että copy-paste ei ole oppimisen kannalta
+          yhtä tehokasta kuin itse kirjoittaminen.</p>
+	
+        <p>Pyri tekemään tai ainakin yrittämään tehtäviä sitä mukaa kuin
+          luet tekstiä. Jos et osaa heti tehdä jotain tehtävää, älä masennu, sillä
+          saat ohjausaikoina neuvoja tehtävien tekemiseen.</p>
+	
+        <p>Tekstiä ei ole tarkoitettu vain kertaalleen luettavaksi. Joudut
+          varmasti myöhemmin palaamaan aiemmin lukemiisi kohtiin tai aiemmin
+          tekemiisi tehtäviin. Tämä materiaali ei sisällä kaikkea oleellista
+          web-selainohjelmointiin liittyvää. Tällä hetkellä ei ole oikeastaan
+          mitään kirjaa josta löytyisi kaikki oleellinen. Joudut kurssin aikana ja
+          urallasi etsimään tietoa myös omatoimisesti. Harjoitukset ja materiaali
+          sisältävät jo jonkin verran ohjeita, mistä suunnista tietoa kannattaa
+          lähteä hakemaan.</p>
+	
+        <p>Jos (ja kun) materiaalista löytyy esimerkiksi kirjoitusvirheitä,
+          korjaa tilanne, ja tee pull-request osoitteessa <a href="https://github.com/web-selainohjelmointi/web-selainohjelmointi.github.io" target="_blank">https://github.com/web-selainohjelmointi/web-selainohjelmointi.github.io</a>. Kiitos bugien ja
+          ongelmien korjauksesta kuuluu jo nyt seuraaville nimimerkeille: pro_,
+          gleant, BiQ, Absor, Rase, jombo, BearGrylls, Marko, _jumi_, Semilia ja
+          mluukkai.</p>
+	
+        <div style="display: table">
+          <div style="display: table-cell">
+            <h2>Sisältö</h2>
+            <div id="materiaali-sisalto"></div>
+          </div>
+          <div style="display: table-cell; padding-left: 35px">
+            <h2>Tehtävät</h2>
+            <div id="tehtava-sisalto"></div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="week">
+        <header>
+          <a name="viikko1"></a>
+          <h1 data-week-id="1">Viikko 1</h1>
+        </header>
+	
+	<h2>Tools of the trade</h2>
+	
+	<p>Käydään läpi pikaisesti oleellisia työkaluja.</p>
+	
+	<h3>Web-selainten tarjoamat kehittäjien työkalut</h3>
+	
+	<p>Ohjelmien debuggaaminen on oleellinen taito. Selainohjelmistot pyörivät selaimessa, joten luonnollinen paikka niiden debuggaamiseen on selaimessa. Esimerkiksi google chrome ja mozilla firefox tarjoavat debuggausympäristöt, joilla voi tutkia sivuja. Debuggausympäristöt aukeavat yleensä nappia f12-painamalla. Oleellisin osio lienee konsoli, mistä näkee esimerkiksi JavaScript-suorituksessa tapahtuvat virheviestit.</p>
+	
+	<p>Tutustu Chrome Developer Toolseihin osoitteessa <a href="https://developers.google.com/chrome-developer-tools/" target="_blank">https://developers.google.com/chrome-developer-tools/</a></p>
+	
+	<h3>NetBeans</h3>
+	
+	<p>Kurssilla käytetään oletuksena NetBeans-ohjelmointiympäristön uusinta versiota (tätä kirjoitettaessa 8.0.2). Kurssin tehtävät palautetaan TMC:n kautta. Kaikille avointen verkkokurssien mooc.fi -sivusto tarjoaa hyvät <a href="http://mooc.fi/courses/general/ohjelmointi/asentaminen/" target="_blank">asennusohjeet NetBeansille ja TMC:lle</a>. Jos et halua käyttää NetBeansia, tehtävät voi palauttaa myös TMC:n <a href="https://tmc.mooc.fi/hy" target="_blank">web-sivujen</a> kautta.</p>
+	
+	<p>Huom! Toisin kuin kurssilla web-palvelinohjelmointi, TMC <em>ei</em> tarkasta tehtävien oikeellisuutta. Palauttaessasi tehtävän lupaat sen olevan oikein.</p>
+	
+	<p>Seuraa <a href="http://mooc.fi/courses/general/ohjelmointi/asentaminen/" target="_blank">asennusohjeita</a> ja asenna tarvitsemasi työvälineet. Valitse TMC NetBeansin asetuksista palvelimeksi <code>https://tmc.mooc.fi/hy</code> ja kurssiksi <code>k2015-weso</code>.</p>
+	
+	
+	<h3>Internet</h3>
+	
+	<p>Web on täynnä selainohjelmointiin liittyviä artikkeleita. Oikeasti! Googlehaku lauseella "html5 introduction" palauttaa hieman yli 30000 sivua. Jos avainsanat ovat erikseen, tuloksia on lähes neljä miljoonaa. Kun teet kurssin tehtäviä, käytä googlea avuksi. Tätä materiaalia ei yritetäkään rakentaa kaiken kattavaksi, vaan joudut etsimään tietoa myös internetistä. </p>
+	
+	<p>Jos mietit että miten vaikkapa <code>article</code>-elementille asetetaan reunat, voit googlettaa esimerkiksi avainsanoilla "html5 article css border". Ensimmäisen kymmenen artikkelin joukossa on (lähes) varmasti sinua auttava artikkeli. Itseasiassa, informaation hakeminen netistä on taito siinä missä ohjelmointikin -- sitä kannattaa ja pitää harjoitella.</p>
+	
 
-                <p>Materiaali päivittyy kurssin edetessä. Osa tehtävistä on osana
-            materiaalia, osa taas linkkeinä omille sivuilleen. Tehtävien lisäksi
-            materiaali sisältää kysymysmerkillä merkittyjä <em>pohdi</em>-kohtia,
-            joissa pääsee pohtimaan juuri tutuksi tullutta asiaa esimerkin kautta.
-            Lampuilla merkityt kohdat taas sisältävät mm. arvokkaita vinkkejä
-            erilaisista työkaluista.</p>
+	<h2>HTML</h2>
 
-                <p>Lue materiaalia siten, että teet samalla itse kaikki lukemasi
-            esimerkit. Esimerkkeihin kannattaa tehdä pieniä muutoksia ja tarkkailla,
-             miten muutokset vaikuttavat ohjelman toimintaan. Äkkiseltään voisi
-            luulla, että esimerkkien tekeminen ja muokkaaminen hidastaa opiskelua.
-            Tämä ei kuitenkaan pidä ollenkaan paikkansa. Oppiminen perustuu
-            oleellisesti aktiiviseen tekemiseen ja rutiinin kasvattamiseen.
-            Esimerkkien ja erityisesti omien kokeilujen tekeminen on parhaita tapoja
-             sisäistää luettua. Muista että copy-paste ei ole oppimisen kannalta
-            yhtä tehokasta kuin itse kirjoittaminen.</p>
+	<p>HTML on kieli web-sivustojen luomiseen. HTML ei ole ohjelmointikieli, vaan kuvauskieli, jonka avulla kuvataan sekä web-sivun rakenne että sivun sisältämä teksti. HTML-sivujen rakenne määritellään HTML-kielessä määritellyillä elementeillä, ja yksittäinen HTML-dokumentti koostuu sisäkkäin ja peräkkäin olevista elementeistä.</p>
 
-                <p>Pyri tekemään tai ainakin yrittämään tehtäviä sitä mukaa kuin
-            luet tekstiä. Jos et osaa heti tehdä jotain tehtävää, älä masennu, sillä
-             saat ohjausaikoina neuvoja tehtävien tekemiseen.</p>
-
-                <p>Tekstiä ei ole tarkoitettu vain kertaalleen luettavaksi. Joudut
-            varmasti myöhemmin palaamaan aiemmin lukemiisi kohtiin tai aiemmin
-            tekemiisi tehtäviin. Tämä materiaali ei sisällä kaikkea oleellista
-            web-selainohjelmointiin liittyvää. Tällä hetkellä ei ole oikeastaan
-            mitään kirjaa josta löytyisi kaikki oleellinen. Joudut kurssin aikana ja
-             urallasi etsimään tietoa myös omatoimisesti. Harjoitukset ja materiaali
-             sisältävät jo jonkin verran ohjeita, mistä suunnista tietoa kannattaa
-            lähteä hakemaan.</p>
-
-                <p>Jos (ja kun) materiaalista löytyy esimerkiksi kirjoitusvirheitä,
-            raportoikaa niistä esimerkiksi kurssikanavalla. Kiitos bugien ja
-            ongelmien korjauksesta kuuluu jo nyt seuraaville nimimerkeille: pro_,
-            gleant, BiQ, Absor, Rase, jombo, BearGrylls, Marko, _jumi_, Semilia ja
-            mluukkai.</p>
-            <div style="display: table">
-              <div style="display: table-cell">
-                <h2>Sisältö</h2>
-                <div id="materiaali-sisalto"></div>
-              </div>
-              <div style="display: table-cell; padding-left: 35px">
-                <h2>Tehtävät</h2>
-                <div id="tehtava-sisalto"></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="week">
-            <header>
-              <a name="viikko1"></a>
-              <h1 data-week-id="1">Viikko 1</h1>
-            </header>
-<h2>Tools of the trade</h2>
-
-    <p>Käydään läpi pikaisesti oleellisia työkaluja.</p>
-
-    <h3>Web-selainten tarjoamat kehittäjien työkalut</h3>
-
-    <p>Ohjelmien debuggaaminen on oleellinen taito. Selainohjelmistot pyörivät selaimessa, joten luonnollinen paikka niiden debuggaamiseen on selaimessa. Esimerkiksi google chrome ja mozilla firefox tarjoavat debuggausympäristöt, joilla voi tutkia sivuja. Debuggausympäristöt aukeavat yleensä nappia f12-painamalla. Oleellisin osio lienee konsoli, mistä näkee esimerkiksi JavaScript-suorituksessa tapahtuvat virheviestit.</p>
-
-    <p>Tutustu Chrome Developer Toolseihin osoitteessa <a href="https://developers.google.com/chrome-developer-tools/" target="_blank">https://developers.google.com/chrome-developer-tools/</a></p>
-
-    <h3>NetBeans</h3>
-
-    <p>Kurssilla käytetään oletuksena NetBeans-ohjelmointiympäristöä. Laitoksen koneille on asennettuna versio 7.2, mutta versiossa 7.3 tulee vielä parempi tuki HTML5:lle. Kurssin tehtävät palautetaan myös TMC:n kautta. Jos et halua käyttää NetBeansia, tehtävät voi palauttaa myös TMC:n webbisivuilta.</p>
-
-    <p>Huom! Toisin kuin aiemmalla web-palvelinohjelmointi -kurssilla, tällä kurssilla TMC <em>ei</em> tarkasta tehtävien oikeellisuutta. Palauttaessasi tehtävän lupaat sen olevan oikein.</p>
-	      <p>Etsi omaan tilanteeseesi sopiva ohje osoitteesta <a href="https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide" target="_blank">https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide</a>, rekisteröidy tarvittaessa TMChen ja asenna tarvittaessa NetBeans ja TMC koneellesi. Valitse TMC NetBeansin asetuksista palvelimeksi <code>https://tmc.mooc.fi/hy</code> ja kurssiksi <code>k2015-weso</code>.</p>
-
-    <div class="tehtavat">
-      <NEXTWEEK></NEXTWEEK>
-
-      <h3>Another easy start..</h3>
-
-      <p>Huom! Tässä kurssiversiossa TMC <em>ei</em> tarkasta tehtävien oikeellisuutta. Palauttamalla tämän tehtävän <strong><em>vakuutat ja vannot</em></strong> että jatkossa palauttamasi tehtävät ovat parhaan ymmärryksesi mukaan ratkaistu oikein, ja ne toimivat kuten tehtävänannoissa on pyydetty.</p>
-
-      <p>Lue osoitteessa <a href="http://www.cs.helsinki.fi/group/java/s12-wepa/#w1e1" target="_blank">http://www.cs.helsinki.fi/group/java/s12-wepa/#w1e1</a> oleva tehtävä "NetBeansin ja TMCn asennus". Jos et ole jo asentanut NetBeansia ja TMC:tä, asenna ne, ja rekisteröidy TMC:hen. Kurssille rekisteröityminen tapahtuu kun palautat tämän tehtävän.</p>
-
-      <p>Huom! Valitse TMC:ssä kurssiksi <strong>s2012-weso</strong>.</p>
-
-      <p>Huom, aiemman toisto! Tässä kurssiversiossa TMC <em>ei</em> tarkasta tehtävien oikeellisuutta. Palauttamalla tämän tehtävän <strong><em>vakuutat ja vannot</em></strong> että jatkossa palauttamasi tehtävät ovat parhaan ymmärryksesi mukaan ratkaistu oikein, ja ne toimivat kuten tehtävänannoissa on pyydetty.</p>
-    </div>
-
-    <h3>Internet</h3>
-
-    <p>Web on täynnä selainohjelmointiin liittyviä artikkeleita. Oikeasti! Haku lauseella "html5 introduction" palauttaa hieman yli 17000 sivua. Jos avainsanat ovat erikseen, tuloksia on yli 10 miljoonaa. Kun teet kurssin tehtäviä, käytä googlea avuksi. Tätä materiaalia ei yritetäkään rakentaa kaiken kattavaksi, vaan joudut etsimään tietoa myös internetistä. </p>
-
-    <p>Jos mietit että miten vaikkapa <code>article</code>-elementille asetetaan reunat, voit googlettaa esimerkiksi avainsanoilla "html5 article css border". Ensimmäisen kymmenen artikkelin joukossa on (lähes) varmasti sinua auttava artikkeli. Itseasiassa, informaation hakeminen netistä on taito siinä missä ohjelmointikin -- sitä kannattaa ja pitää harjoitella.</p>
+	<p>Sivujen rakenteen määrittelevät elementit erotellaan pienempi kuin (&lt;) ja suurempi kuin (&gt;) -merkeillä. Elementti avataan elementin nimen sisältävällä pienempi kuin -merkillä alkavalla ja suurempi kuin -merkkiin loppuvalla merkkijonolla, esim. <code>&lt;html&gt;</code>, ja suljetaan merkkijonolla jossa elementin pienempi kuin -merkin jälkeen on vinoviiva, esim <code>&lt;/html&gt;</code>. Yksittäisen elementin sisälle voi laittaa muita elementtejä, ja elementti tulee sulkea aina lopuksi. Jos elementti ei sisällä muita elementtejä tai tekstiä, voi sen avata ja sulkea yksittäisellä komennolla, esim. <code>&lt;br/&gt;</code>.</p>
 
 
-    <h2>HTML</h2>
-
-    <p>HTML on kieli web-sivustojen luomiseen. HTML ei ole ohjelmointikieli, vaan kuvauskieli, jonka avulla kuvataan sekä web-sivun rakenne että sivun sisältämä teksti. HTML-sivujen rakenne määritellään HTML-kielessä määritellyillä elementeillä, ja yksittäinen HTML-dokumentti koostuu sisäkkäin ja peräkkäin olevista elementeistä.</p>
-
-    <p>Sivujen rakenteen määrittelevät elementit erotellaan normaalista tekstistä pienempi kuin (&lt;) ja suurempi kuin (&gt;) -merkeillä. Elementti avataan elementin nimen sisältävällä pienempi kuin -merkillä alkavalla ja suurempi kuin -merkkiin loppuvalla merkkijonolla, esim. <code>&lt;html&gt;</code>, ja suljetaan merkkijonolla jossa elementin pienempi kuin -merkin jälkeen on vinoviiva, esim <code>&lt;/html&gt;</code>. Yksittäisen elementin sisälle voi laittaa muita elementtejä, ja elementti tulee sulkea aina lopuksi. Jos elementti ei sisällä muita elementtejä tai tekstiä, voi sen avata ja sulkea yksittäisellä komennolla, esim. <code>&lt;br/&gt;</code>.</p>
+	<h3>HTML-dokumentin runko</h3>
 
 
-    <h3>HTML-dokumentin runko</h3>
-
-
-    <p>Tyypillisen HTML-dokumentin runko näyttää seuraavalta:</p>
+	<p>Tyypillisen HTML-dokumentin runko näyttää seuraavalta:</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -202,31 +195,34 @@
 &lt;/html&gt;
 </pre>
 
-    <p>Yllä olevassa HTML-dokumentissa on dokumentin tyypin kertova erikoiselementti <code>&lt;!DOCTYPE html&gt;</code>, joka kertoo dokumentin olevan HTML-sivu. Tätä seuraa elementti <code>&lt;html&gt;</code>, joka aloittaa HTML-dokumentin. Elementti <code>&lt;html&gt;</code> sisältää yleensä kaksi elementtiä, elementit <code>&lt;head&gt;</code> ja <code>&lt;body&gt;</code>. Elementti <code>&lt;head&gt;</code> sisältää sivun otsaketiedot, eli esimerkiksi sivun käyttämän merkistön <code>&lt;meta charset="utf-8" /&gt;</code> ja otsikon <code>&lt;title&gt;</code>. Elementti <code>&lt;body&gt;</code> sisältää selaimessa näytettävän sivun rungon. Ylläolevalla sivulla on ensimmäisen tason otsake-elementti <code>h1</code> (<em>header 1</em>) ja tekstielementti <code>p</code> (<em>paragraph</em>).</p>
+	<p>Yllä olevassa HTML-dokumentissa on dokumentin tyypin kertova erikoiselementti <code>&lt;!DOCTYPE html&gt;</code>, joka kertoo dokumentin olevan HTML-sivu. Tätä seuraa elementti <code>&lt;html&gt;</code>, joka aloittaa HTML-dokumentin. Elementti <code>&lt;html&gt;</code> sisältää yleensä kaksi elementtiä, elementit <code>&lt;head&gt;</code> ja <code>&lt;body&gt;</code>. Elementti <code>&lt;head&gt;</code> sisältää sivun otsaketiedot, eli esimerkiksi sivun käyttämän merkistön <code>&lt;meta charset="utf-8" /&gt;</code> ja otsikon <code>&lt;title&gt;</code>. Elementti <code>&lt;body&gt;</code> sisältää selaimessa näytettävän sivun rungon. Ylläolevalla sivulla on ensimmäisen tason otsake-elementti <code>h1</code> (<em>header 1</em>) ja tekstielementti <code>p</code> (<em>paragraph</em>).</p>
 
-    <p>Elementit voivat sisältää attribuutteja ja attribuuttien arvoja. Yllä olevassa HTML-dokumentissa elementille <code>meta</code> on määritelty erillinen attribuutti <code>charset</code>, joka kertoo dokumentissa käytettävän merkistön: "utf-8". Attribuuttien lisäksi elementit voivat sisältää <em>tekstisolmun</em>. Esimerkiksi yllä olevat elementit <code>title</code>, <code>h1</code> ja <code>p</code> kukin sisältävät oman tekstisolmun. Tekstisolmulle ei ole erillistä elementtiä tai määrettä, vaan se näkyy tekstinä.</p>
+	<p>Elementit voivat sisältää attribuutteja, joilla voi olla yksi tai useampi arvo. Yllä olevassa HTML-dokumentissa elementille <code>meta</code> on määritelty erillinen attribuutti <code>charset</code>, joka kertoo dokumentissa käytettävän merkistön: "utf-8". Attribuuttien lisäksi elementit voivat sisältää <em>tekstisolmun</em>. Esimerkiksi yllä olevat elementit <code>title</code>, <code>h1</code> ja <code>p</code> kukin sisältävät tekstisolmun eli tekstiä. Tekstisolmulle ei ole erillistä elementtiä tai määrettä, vaan se näkyy tekstinä.</p>
 
-    <p>Puhe tekstisolmuista antaa viitettä jonkinlaisesta puurakenteesta. HTML-dokumentit, aivan kuten XML-dokumentit, ovat rakenteellisia dokumentteja, joiden rakenne on usein helppo ymmärtää puumaisena kaaviona. Ylläolevan web-sivun voi esittää esimerkiksi seuraavanlaisena puuna (attribuutit ja dokumentin tyyppi on jätetty merkitsemättä).</p>
+	<p>Puhe tekstisolmuista antaa viitettä jonkinlaisesta puurakenteesta. HTML-dokumentit, aivan kuten XML-dokumentit, ovat rakenteellisia dokumentteja, joiden rakenne on usein helppo ymmärtää puumaisena kaaviona. Ylläolevan web-sivun voi esittää esimerkiksi seuraavanlaisena puuna (attribuutit ja dokumentin tyyppi on jätetty merkitsemättä).</p>
 
 <pre>
-                       html
-                   /          \
-                 /              \
-              head              body
-            /       \         /      \
-         meta       title     h1      p
-                     :        :       :
-                  tekstiä  tekstiä tekstiä
+                   html
+               /          \
+             /              \
+          head              body
+        /       \         /      \
+     meta       title     h1      p
+                 :        :       :
+              tekstiä  tekstiä tekstiä
 </pre>
 
-    <p>Koska HTML-dokumentti on rakenteellinen dokumentti, on elementtien sulkemisjärjestyksellä väliä. Elementit tulee sulkea samassa järjestyksessä kuin ne on avattu. Esimerkiksi, järjestys <code>&lt;body&gt;&lt;p&gt;whoa, minttutee!&lt/body&gt;&lt;/p&gt;</code> on väärä, kun taas järjestys <code>&lt;body&gt;&lt;p&gt;whoa, minttutee!&lt;/p&gt;&lt/body&gt;</code> on oikea.</p>
+	<p>Koska HTML-dokumentti on rakenteellinen dokumentti, on elementtien sulkemisjärjestyksellä väliä. Elementit tulee sulkea samassa järjestyksessä kuin ne on avattu. Esimerkiksi, järjestys <code>&lt;body&gt;&lt;p&gt;whoa, minttutee!&lt/body&gt;&lt;/p&gt;</code> on väärä, kun taas järjestys <code>&lt;body&gt;&lt;p&gt;whoa, minttutee!&lt;/p&gt;&lt/body&gt;</code> on oikea.</p>
 
-<div class="pohdi">
-  <p><strong>Web-sivujen läpikäynti</strong></p>
+	<p>Kaikki elementit eivät kuitenkaan sisällä tekstisolmua, eikä niitä suljeta erikseen. Yksi näistä poikkeuksista on <a href="http://www.w3schools.com/tags/tag_link.asp" target="_blank">link</a>-elementti.</p>
 
-  <p>Kun selaimet lataavat HTML-dokumenttia, ne käyvät sen läpi ylhäältä alas, vasemmalta oikealle. Kun selain kohtaa elementin, se luo sille uuden solmun. Seuraavista elementeistä luodut solmut menevät aiemmin luodun solmun alle kunnes aiemmin kohdattu elementti suljetaan. Aina kun elementti suljetaan, puussa palataan ylöspäin edelliselle tasolle.</p>
+	<p>Kun selaimet lataavat HTML-dokumenttia, ne käyvät sen läpi ylhäältä alas, vasemmalta oikealle. Kun selain kohtaa elementin, se luo sille uuden solmun. Seuraavista elementeistä luodut solmut menevät aiemmin luodun solmun alle kunnes aiemmin kohdattu elementti suljetaan. Aina kun elementti suljetaan, puussa palataan ylöspäin edelliselle tasolle.</p>
 
-  <p>Miltä seuraavaa HTML-dokumenttia kuvaava puu näyttää?</p>
+
+<aside class="pohdi">
+    <p><strong>Web-sivujen läpikäynti</strong></p>
+
+    <p>Miltä seuraavaa HTML-dokumenttia kuvaava puu näyttää?</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -237,14 +233,14 @@
     &lt;body&gt;
 
         &lt;p&gt;"Gangnam Style" is a single by South Korean rapper PSY, that has been viewed
-        over 500 million times on &lt;a href="http://www.youtube.com"&gt;YouTube&lt;/a&gt;&lt;/p&gt;
+        over 2 billion times on &lt;a href="http://www.youtube.com"&gt;YouTube&lt;/a&gt;&lt;/p&gt;
 
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
 
 
-  <p>Entä seuraavalla HTML-dokumentilla?</p>
+    <p>Entä seuraavalla HTML-dokumentilla?</p>
 
 
 <pre class="sh_html">
@@ -255,13 +251,13 @@
     &lt;body&gt;
 
         &lt;p&gt;"Gangnam Style" is a single by South Korean rapper PSY, that has been viewed
-        over 500 million times on &lt;a href="http://www.youtube.com"&gt;YouTube&lt;/p&gt;
+        over 2 billion times on &lt;a href="http://www.youtube.com"&gt;YouTube&lt;/p&gt;
 
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
 
-</div>
+</aside>
 
 
 <div class="tehtavat">
@@ -269,7 +265,7 @@
 
   <p>Tehtäväpohjassa olevassa kansiossa <code>src/main/webapp/</code> (tai NetBeansissa <code>Web Pages</code>) on dokumentti <code>index.html</code>. Muokkaa dokumenttia siten, että se sisältää seuraavannäköisen ASCII-taideteoksen (käytettävän fontin ei tarvitse olla sama).</p>
 
-  <div><img src="img/ascii-artist.png"/></div>
+  <div><img src="img/ascii-artist.png" alt="käytä pre-elementtiä tekstimuotoisen taideteoksen luomiseen"/></div>
 
   <p>Koska taideteos on ASCII-taidetta, et luonnollisestikaan saa käyttää sivussa kuvaa. Vinkki taideteoksen tekemiseen on yllä olevassa kuvassa. Kun taideteoksesi toimii Chromessa, palauta tehtävä TMC:lle.</p>
 
@@ -277,8 +273,7 @@
 
 
     <h3>Listaelementit</h3>
-
-
+    
     <p>Sivuille voi lisätä listoja mm. <code>ol</code> (<em>ordered list</em>) ja <code>ul</code> (<em>unordered list</em>) -elementtien avulla. Elementeillä <code>ol</code> tai <code>ul</code> aloitetaan lista, ja listan sisälle asetettavat yksittäisiin listaelementteihin käytetään <code>li</code> (<em>list item</em>)-elementtiä. Yksittäiset listaelementit voivat taas sisältää esimerkiksi tekstisolmun tai lisää html-elementtejä.</p>
 
 
@@ -318,8 +313,8 @@
   </p>
 </div>
 
-    <h3>Kuvien lisääminen</h3>
 
+    <h3>Kuvien lisääminen</h3>
 
     <p>Jokaisen web-sivuja rakentavan ihmisen tulee ainakin kerran elämässään lisätä kuva web-sivuilleen. Sivuille saa lisättyä kuvia elementillä <code>img</code>, jolla on attribuutti <code>src</code>, jonka arvona on kuvan sijainti. Kuvan sijainti riippuu kuvan näyttävän html-tiedoston sijainnista. Jos kuva on samassa kansiossa <code>html</code>-dokumentin kanssa, tarvitsee <code>img</code>-elementin <code>src</code>-attribuutin arvoksi asettaa vain kuvan nimi.</p>
 
@@ -364,6 +359,30 @@
     <p>Netissä olevat kuvat ja tiedostot eivät ole vapaasti kaikkien käytettävissä. Jos teet sivuja itsellesi, tutuille tai kavereille, ja käytät niissä netistä löytynyttä materiaalia, muista varmistaa että käyttämäsi kuvat ovat laillisesti käytettäviä. Kuvien käyttöoikeuksien varmistaminen ei ole aina helppoa tai edes mahdollista -- kannattaakin käyttää vain sivustoja, joiden oikeuksista on varmuus.</p>
 
     <p>Esimerkiksi flickr-sivustolla on erillinen <code>creative commons</code>-osio, joka listaa kuvia, joiden käyttö on sallittua <em>tietyin ehdoin</em>. Löydät eri ehdot ja kuvia osoitteesta <a href="http://www.flickr.com/creativecommons/" target="_blank">http://www.flickr.com/creativecommons/</a>. On myös sivuja, jotka tarkoituksella keräävät materiaalia tiettyihin aiheisiin liittyen. Esimerkiksi sivusto <a href="http://opengameart.org/" target="_blank">OpenGameArt</a> tarjoaa vapaasti peleissä käytettäviä materiaaleja.</p>
+
+    <h4>Kuvat ja käytettävyys</h4>
+
+    <p>Riippuen käytössä olevasta laitteesta, sen asetuksista, ja lukijasta, kuvat eivät näy aina toivotulla tavalla. Sivuston käytettävyyttä voi helpottaa huomattavasti lisäämällä kuvaelementteihin <code>alt</code>-attribuutti, millä kerrotaan tekstuaalisesti mitä kuvassa on.</p>
+
+    <p>Tällöin, jos kuvat eivät näy käyttäjälle, voi hän kuitenkin lukea kuvaan liittyvän kuvauksen, mikä mahdollisesti selkiyttää sivun ymmärrettävyyttä.</p>
+
+<pre class="sh_html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;Selaimen palkissa ja suosikeissa näkyvä otsikko&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;p&gt;...&lt;/p&gt;
+
+        &lt;img src="img/lamppu.png" alt="Kuva lampusta" /&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
 
     <h3>Linkit toisille sivuille</h3>
 
@@ -513,13 +532,14 @@
 
     <p>Huomannet että ero on käytännössä hyvin pieni. Oleellisinta on loogisten osakokonaisuuksien erottelu toisistaan. HTML5 tarjoaa siihen työvälineet, joita kannattaa käyttää.</p>
 
+
 <div class="tehtavat">
   <h3>Kampuskuoro</h3>
-
+  
   <p>Luo tehtäväpohjassa olevaan kansioon <code>src/main/webapp/</code> uusi sivu <code>index.html</code>. Muokkaa sivua siten, että se näyttää seuraavalta selaimessa:</p>
-
+  
   <div class="naytto">
-    <img src="img/w1e3-kampuskuoro.png" />
+    <img src="img/kampuskuoro.png" />
   </div>
 
   <p>Otsikon tulee olla <code>header</code>-elementin sisällä, kuvaus ja laululista omien <code>article</code>-elementtien sisällä. Ei haittaa jos tekstin leveys on eri kuin yllä olevassa kuvassa! Kun olet valmis, ja sivusi näyttää oikealta Chromessa, palauta tehtävä TMC:lle.</p>
@@ -528,37 +548,29 @@
 
     <h3>Lomakkeet</h3>
 
-    <p>Lomakkeita käytetään tiedon syöttämiseen web-sivuille. Tietoa voi lähettää joko erilliselle palvelimelle, tai käsitellä osana sivustoa JavaScript-kielen avulla. Lomakkeet aloitetaan HTML-elementillä <code>&lt;form&gt;</code>. Lomake-elementin sisälle voi asettaa useita erilaisia kenttiä. Palvelimelle dataa lähetettäessä jokaisella kentällä tulee olla attribuutti <code>name</code>, jota käytetään palvelimella tiedon identifiointiin.</p>
-
-
-    <p>Erilaisia lomakekenttiä on useita:</p>
-
-    <ul>
-      <li>tekstikenttä: <br/><input type="text" name="kentan_nimi" />
-    <pre class="sh_html">
-      &lt;input type="text" /&gt;
-      </pre></li>
+	<p>Lomakkeita käytetään tiedon syöttämiseen web-sivuille. Tietoa voi lähettää joko erilliselle palvelimelle, tai käsitellä osana sivustoa JavaScript-kielen avulla. Lomakkeet aloitetaan HTML-elementillä <code>&lt;form&gt;</code>. Lomake-elementin sisälle voi asettaa useita erilaisia kenttiä. Palvelimelle dataa lähetettäessä jokaisella kentällä tulee olla attribuutti <code>name</code>, jota käytetään palvelimella tiedon identifiointiin.</p>
+	
+    
+	<p>Erilaisia lomakekenttiä on useita:</p>
+	
+	<ul>
+	  <li>tekstikenttä: <br/><input type="text" name="kentan_nimi" />
+    <pre class="sh_html">&lt;input type="text" /&gt;</pre></li>
 
       <li>salasanakenttä: <br/><input type="password" name="kentan_nimi" />
-    <pre class="sh_html">
-      &lt;input type="password" /&gt;
-      </pre></li>
+    <pre class="sh_html">&lt;input type="password" /&gt;</pre></li>
 
       <li>tekstialue: <br/><textarea name="tekstialue"></textarea><br/>Toisin kuin monet muut lomakkeen kenttäelementit, tekstialue tulee sulkea erillisellä elementillä.
-    <pre class="sh_html">
-      &lt;textarea name="tekstialue"&gt;&lt/textarea&gt;
-      </pre></li>
+    <pre class="sh_html">&lt;textarea name="tekstialue"&gt;&lt/textarea&gt;</pre></li>
 
       <li>valintaruutu: <br/>
     <input type="checkbox" name="porkkanaa" /> Porkkanaa<br/>
     <input type="checkbox" name="naurista" /> Naurista<br/>
     <input type="checkbox" name="kaalia" /> Kaalia<br/>
     Selaimesta riippuen valintaruudun tiedot lähetetään lomakkeen mukana vain kentän ollessa valittuna.
-    <pre class="sh_html">
-      &lt;input type="checkbox" name="porkkanaa" /&gt; Porkkanaa &lt;br/&gt;
-      &lt;input type="checkbox" name="naurista" /&gt; Naurista &lt;br/&gt;
-      &lt;input type="checkbox" name="kaalia" /&gt; Kaalia &lt;br/&gt;
-    </pre>
+    <pre class="sh_html">&lt;input type="checkbox" name="porkkanaa" /&gt; Porkkanaa &lt;br/&gt;
+&lt;input type="checkbox" name="naurista" /&gt; Naurista &lt;br/&gt;
+&lt;input type="checkbox" name="kaalia" /&gt; Kaalia &lt;br/&gt;</pre>
       </li>
 
       <li>valintanappi:<br/>
@@ -566,40 +578,35 @@
     <input type="radio" name="valinta" value="naurista"/> Naurista<br/>
     <input type="radio" name="valinta" value="kaalia"/> Kaalia<br/>
     Valintanappia käytettäessä vain yksi saman name-attribuutin omistava radio-tyyppinen input-elementti voi olla valittuna. Lomaketta lähetettäessä valitun elementin attribuutin <code>value</code> arvo lähetetään <code>name</code> attribuutin arvona.
-    <pre class="sh_html">
-      &lt;input type="radio" name="valinta" value="porkkanaa"/&gt; Porkkanaa&lt;br/&gt;
-      &lt;input type="radio" name="valinta" value="naurista"/&gt; Naurista&lt;br/&gt;
-      &lt;input type="radio" name="valinta" value="kaalia"/&gt; Kaalia&lt;br/&gt;
-      </pre></li>
+    <pre class="sh_html">&lt;input type="radio" name="valinta" value="porkkanaa"/&gt; Porkkanaa&lt;br/&gt;
+&lt;input type="radio" name="valinta" value="naurista"/&gt; Naurista&lt;br/&gt;
+&lt;input type="radio" name="valinta" value="kaalia"/&gt; Kaalia&lt;br/&gt;</pre></li>
 
 
       <li>painettava nappi:<br/>
     <input type="button" value="Painettava nappi" /><br/>
     Painettavaa nappia painettaessa mitään ei tapahdu, ellei siihen ole erikseen lisätty toiminnallisuutta esimerkiksi javascript-kielellä.
-    <pre class="sh_html">
-      &lt;input type="button" value="Painettava nappi" /&gt;
-      </pre></li>
+    <pre class="sh_html">&lt;input type="button" value="Painettava nappi" /&gt;</pre></li>
 
       <li>lähetysnappi:<br/>
     <input type="submit" value="Lähetä" /><br/>
     Lähetysnappia painettaessa lomakkeen tiedot lähetetään lomake-elementissä määriteltyyn osoitteeseen (lomake-elementin <code>action</code> -attribuutin arvo) valitulla lähestytavalla (lomake-elementin <code>method</code>-attribuutin arvo).
-    <pre class="sh_html">
-      &lt;input type="submit" value="Lähetä" /&gt;
-      </pre></li>
+    <pre class="sh_html">&lt;input type="submit" value="Lähetä" /&gt;</pre></li>
 
     </ul>
 
 
     <h4>Lomakkeen lähettäminen</h4>
 
+    <p>Kun lomake lähetetään selain ohjaa käyttäjän <code>form</code>-elementissä olevan <code>action</code>-attribuutin määrittelemään osoitteeseen. Pyynnössä lähetetään lomakkeeseen kirjoitetut tiedot. Jos lomakkeen lähetystapa on <code>GET</code>, liitetään lomakkeen tiedot osaksi osoitetta. Lähetystavassa <code>POST</code> arvot tulevat osana pyynnön runkoa.</p>
 
-    <p>Kun lomake lähetetään selain ohjaa käyttäjän kohdeosoitteeseen siten, että lähetettävän lomakkeen tiedot ovat mukana selaimen tekemässä pyynnössä. Jos lomakkeen lähetystapa on <code>GET</code>, on lomakkeen tiedot osana osoitetta. Lähetystavassa <code>POST</code> arvot tulevat osana pyynnön runkoa.</p>
+    <p><a href="http://www.w3schools.com/tags/ref_httpmethods.asp" target="_blank">Lisätietoa..</a></p>
 
-    <p>Alla on lomake jolla voi visualisoida tietojen lähettämistä palvelimelle. Lomakkeet lähetetään osoitteeseen <a href="http://t-avihavai.users.cs.helsinki.fi/lets/See" target="_blank">http://t-avihavai.users.cs.helsinki.fi/lets/See</a>), jossa on pyynnössä saadut tiedot tulostava web-palvelu.</p>
+    <p>Alla oleva lomake lähettää lomakkeen tiedot <em>tälle</em> sivulle GET-pyyntönä, eli pyynnön tiedot lisätään osaksi haettavaa osoitetta.</p>
 
     <div class="naytto">
       <p>
-    <form method="POST" action="http://t-avihavai.users.cs.helsinki.fi/lets/See">
+    <form method="GET" action="index.html">
       <label>Käyttäjätunnus: <input type="text" name="tunnus" /></label>
       <label>Salasana: <input type="password" name="salasana" /></label>
       <input type="submit" />
@@ -608,27 +615,32 @@
     </div>
 
 <pre class="sh_html">
-&lt;form method="POST" action="http://t-avihavai.users.cs.helsinki.fi/lets/See"&gt;
+&lt;form method="GET" action="index.html"&gt;
     &lt;label&gt;Käyttäjätunnus: &lt;input type="text" name="tunnus" /&gt;&lt;/label&gt;
     &lt;label&gt;Salasana: &lt;input type="password" name="salasana" /&gt;&lt;/label&gt;
     &lt;input type="submit" /&gt;
 &lt;/form&gt;
 </pre>
 
-<div class="extra">
-  <p><strong>Lisää informaatiota</strong></p>
+
+<aside class="extra">
+  <p><strong>Moarr!</strong></p>
 
   <p>Mikään yksittäinen HTML-opas ei itsessään kata kaikkea HTMLään liittyvää. Tässäkin dokumentissa tehtiin pieni pintaraapaisu HTMLn ominaisuuksiin. Erityisesti selainsovelluksia rakennettaessa uusinta informaatiota jaetaan mm. blogeissa ja muissa webissä julkaistavissa artikkeleissa. Web on täynnä timanttisia sivustoja kuten <a href="http://www.html5rocks.com/" target="_blank">http://www.html5rocks.com/</a>, <a href="http://html5-demos.appspot.com/" target="_blank">http://html5-demos.appspot.com/</a>, ... </p>
 
-  <p>Kuten yllä olevista linkeistä huomaat, "puhekielessä" HTML5 sisältää HTML-syntaksin lisäksi CSSn ja JavaScriptin. Avain onneen on pienestä liikkeelle lähteminen: toteutta joku webissä oleva hieno sivu itse sivun lähdekoodia seuraten. Muokkaile lähdekoodia, ja ota selvää mitä eri komennot tekevät. Kun joku komento on epäselvä, <a href="http://lmgtfy.com/?q=Ep%C3%A4selv%C3%A4t+avainsanat" target="_blank"><em>google auttaa</em></a>.</p>
-</div>
+  <p>Kuten yllä olevista linkeistä huomaat, "puhekielessä" HTML5 sisältää HTML-syntaksin lisäksi CSSn ja JavaScriptin. Avain onneen on pienestä liikkeelle lähteminen: toteutta joku webissä oleva hieno sivu itse sivun lähdekoodia seuraten. Muokkaile lähdekoodia, ja ota selvää mitä eri komennot tekevät. Kun joku komento on epäselvä, <a href="http://lmgtfy.com/?q=Ep%C3%A4selv%C3%A4t+avainsanat" target="_blank"><em>google auttaa</em></a> -- myös esimerkiksi <a href="http://www.w3schools.com/" target="_blank">W3Schools</a> on kätevä.</p>
+</aside>
 
 
     <h2>CSS</h2>
 
-    <p>CSS (<em>cascading style sheets</em>)-tyylitiedostot ovat tiedostoja, joissa määritellään miten web-sivun elementit tulee näyttää käyttäjälle. HTML-kuvauskielellä määritellään web-sivun rakenne ja sisältö, tyylitiedostoilla sen ulkoasu.</p>
 
-    <p>Tyylitiedostoilla voi tehdä <em>ison</em> eron siihen, miltä sivu näyttää. Lähdetään kuitenkin pienestä liikkeelle. Tyylitiedosto on HTML-dokumentista erillinen tiedosto, joka sisältää erilaisia tyylimäärittelyjä. Tyylitiedostoja voi olla useita. Jotta HTML-dokumentti saa tyylitiedoston käyttöönsä, tulee tyylitiedoston sijainti määritellä <code>head</code>-elementin sisälle tyylitiedoston lataavaan elementtiin <code>link</code>.</p>
+    <p>CSS (<em>cascading style sheets</em>)-tyylitiedostot ovat tiedostoja, joissa määritellään <em>miten web-sivun elementit tulee näyttää käyttäjälle</em>. HTML-kuvauskielellä määritellään web-sivun rakenne ja sisältö, tyylitiedostoilla sen ulkoasu.</p>
+
+
+    <p>Tyylitiedostoilla voi tehdä <em>ison</em> eron siihen, miltä sivu näyttää. Voit kokeilla tätä itse avaamalla minkä tahansa mielestäsi hienolta näyttävän sivun, avata selaimen Developer Tools-työvälineet (painamalla F12), valitsemalla elements-välilehti, ja poistamalla kaikki css-tiedostoviittaukset. Tiedostoviittaukset voi poistaa elements-välilehdeltä klikkailemalla niitä oikealla hiirennapilla ja valitsemalla delete.</p>
+
+    <p>Lähdetään kuitenkin pienestä liikkeelle. Tyylitiedosto on HTML-dokumentista erillinen tiedosto, joka sisältää erilaisia tyylimäärittelyjä. Tyylitiedostoja voi olla useita. Jotta HTML-dokumentti saa tyylitiedoston käyttöönsä, tulee tyylitiedoston sijainti määritellä <code>head</code>-elementin sisälle tyylitiedoston lataavaan elementtiin <code>link</code>.</p>
 
 
 <pre class="sh_html">
@@ -636,7 +648,7 @@
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
-        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css"&gt;
         &lt;title&gt;Sivun otsikko (näkyy selaimen palkissa)&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -652,7 +664,7 @@
 
     <h3>Tyylitiedosto</h3>
 
-    <p>Tyylitiedosto on erillinen tiedosto HTML-dokumentista. Luodaan esimerkiksi tiedosto <code>style.css</code>, jonka sisältö on seuraavanlainen:</p>
+    <p>Tyylitiedosto on tyypillisesti erillinen tiedosto. Luodaan tiedosto <code>style.css</code>, jonka sisältö on seuraavanlainen:</p>
 
 <pre class="sh_css">
 body {
@@ -685,7 +697,6 @@ body {
 
     <p>Valitsimia voi käyttää myös lasten valintaa, esimerkiksi seuraavassa valitaan ensimmäisen valitsimen joukosta toisen valitsimen tyyppinen lapsi.</p>
 
-
 <pre class="sh_css">
 <em>valitsin</em> &gt; <em>valitsin2</em> {
     <em>tyylin-nimi</em>: <em>tyylin-arvo</em>;
@@ -695,7 +706,6 @@ body {
 
 
     <h3>Valitsimet</h3>
-
 
     <p>Jokaiselle sivun elementille voidaan määritellä oma tyyli. Jos halutaan että sama tyyli esiintyy kaikissa elementeissä, voidaan valitsimena käyttää elementin nimeä. Esimerkiksi seuraava tyylitiedosto muuttaa kaikkien <code>p</code>-elementtien tekstin värin punaiseksi.</p>
 
@@ -723,7 +733,7 @@ p {
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
-        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" &gt;
         &lt;title&gt;Sivun otsikko (näkyy selaimen palkissa)&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -753,17 +763,15 @@ p {
 
 
 <div class="naytto">
+  
+  <h1>Sivulla näkyvä otsikko</h1>
 
-        <h1>Sivulla näkyvä otsikko</h1>
-
-        <p>Sivuilla näytettävä normaali teksti on p-elementin sisällä.</p>
-        <p class="blue-esim-luokka-attr">Kuten edellinen elementti, mutta tällä on luokka-attribuutti, jonka arvo on "blue".</p>
-
+  <p>Sivuilla näytettävä normaali teksti on p-elementin sisällä.</p>
+  <p class="blue-esim-luokka-attr">Kuten edellinen elementti, mutta tällä on luokka-attribuutti, jonka arvo on "blue".</p>
+  
 </div>
 
-
     <h4>Tunnus-attribuutti</h4>
-
 
     <p>Luokka-attribuuttia käytetään joukolle tyylejä. Yksittäisiä elementtejä tyyliteltäessä tapana on käyttää erillistä tunnus-attribuuttia, joka määritellään nimellä <code>id</code>. Kuten luokka-attribuutille, myös tunnus-attribuutille asetetaan arvo. Tunnus-attribuuttiin pääsee käsiksi tyylitiedostossa risuaita (<code>#</code>) -etuliitteellä. Luodaan sivu, jossa on useampia artikkeleita, joista yhtä halutaan korostaa.</p>
 
@@ -772,7 +780,7 @@ p {
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
-        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" &gt;
         &lt;title&gt;Sivun otsikko (näkyy selaimen palkissa)&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -870,7 +878,6 @@ article {
 </div>
 
 
-
     <h3>Tyylien vaikutus elementteihin</h3>
 
     <p>Edellä olevassa esimerkissä tyyli <code>#highlighted-article</code> ei sisältänyt reunojen pyöristystä, mutta silti korostetun artikkelin reunat pyöristettiin silti. Miksi?</p>
@@ -882,13 +889,12 @@ article {
     <p>Kaikki tyylit eivät kuitenkaan periydy. Tutustu tarkemmin tyylimäärittelyihin ja standardiin osoitteessa <a href="http://www.w3.org/TR/CSS/#properties" target="_blank">http://www.w3.org/TR/CSS/#properties</a>.</p>
 
 
-
     <div class="tehtavat">
-      <h3>Css Askeleet</h3>
+      <h3>CSS Askeleet</h3>
 
       <p>Luo tehtäväpohjan kansioon <code>src/main/webapp/</code> tyylitiedosto <code>style.css</code>, ja viittaa siihen tiedostosta <code>index.html</code>. Muokkaa tyylitiedostoa <code>style.css</code> siten, että sivu <code>index.html</code> näyttää seuraavanlaiselta.</p>
 
-      <div><img src="img/w1e04-css-askeleet.png" /></div>
+      <div><img src="img/css-askeleet.png" /></div>
 
       <p>Tässä muutama hyödyllinen väri:</p>
 
@@ -1106,7 +1112,7 @@ article {
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
-        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" &gt;
         &lt;title&gt;Sivun otsikko (näkyy selaimen palkissa)&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -1541,7 +1547,7 @@ header nav ul li a:hover {
 
       <p>Tehtäväpohjassa on lista suosikkeja. Tehtävänäsi on lisätä sivulle tyyli, joka tekee sivusta seuraavannäköisen. Huomaa, että sivun artikkeli-elementtien tulee kääntyä hieman kun hiiri viedään niiden päälle.</p>
 
-      <img src="img/w1e05-suosikit.png" />
+      <img src="img/suosikit.png" />
 
       <p>Edellisessä tehtävässä määrittelemistäsi tyyleistä on hyötyä tässä tehtävässä. Kun olet valmis, ja sivusi näyttää oikealta Chromessa, palauta tehtävä TMC:lle.</p>
 
@@ -1549,19 +1555,19 @@ header nav ul li a:hover {
 
 
 
-<div class="extra">
-  <p><strong>Lisää informaatiota</strong></p>
+<aside class="extra">
+  <p><strong>Moar!</strong></p>
 
   <p>Web on pullollaan myös CSSään liittyviä sivuja; <a href="http://www.css3.com/" target="_blank">http://www.css3.com/</a>, <a href="http://www.smashingmagazine.com/learning-css3-useful-reference-guide/" target="_blank">http://www.smashingmagazine.com/learning-css3-useful-reference-guide/</a>, ...</p>
 
-  <p>Viimeisin versio löytyy osoitteesta <a href="http://www.w3.org/Style/CSS/current-work" target="_blank">http://www.w3.org/Style/CSS/current-work</a> -- CSS3 on jatkuvasti päivittyvä standardi.</p>
-</div>
-
+  <p>Viimeisin versio löytyy osoitteesta <a href="http://www.w3.org/Style/CSS/current-work" target="_blank">http://www.w3.org/Style/CSS/current-work</a> -- kyseessä on jatkuvasti päivittyvä standardi.</p>
+</aside>
 
 
 
 
     <h2>JavaScript</h2>
+
 
     <p>Siinä missä HTML on kuvauskieli web-sivujen rakenteen ja sisällön luomiseen, ja CSS on kieli web-sivustojen tyylin määrittelyyn, JavaScript on kieli dynaamisen toiminnan lisäämiselle. Suomen kielioppia ajatellen HTML:ää voi ajatella substantiiveina, CSS:ää adjektiiveina, ja JavaScriptiä verbeinä. Käytännössä JavaScript on ohjelmakoodia, jota suoritetaan tarvittaessa komento kerrallaan -- ylhäältä alas, vasemmalta oikealle.</p>
 
@@ -1581,24 +1587,30 @@ function evalElementContent(elementId) {
 
     <p>Ohjelmakoodia suoritettaessa selain käy läpi laatikossa olevat komennot yksi kerrallaan ylhäältä alas, vasemmalta oikealle, ja toimii niiden mukaan. JavaScript-koodi suoritetaan siis omalla koneellasi omassa selaimessasi. Kukin komento loppuu puolipisteeseen (<code>;</code>), ja komentoja voi olla useampia. Mitä käy jos muutat <code>alert</code>-komennossa olevaa tekstiä, tai lisäät useamman <code>alert</code>-komennon?</p>
 
-<div class="extra">
-  <p>Vaikkakin käytämme komentoa <code>alert</code> hyvin intensiivisesti, se ei ole osa JavaScript-spesifikaatiota. </p>
+    <p>Komennon <code>alert</code> yhteydessä on hyvä kertoa heti komennosta <code>console.log</code>, minkä avulla voidaan kirjoittaa selaimen JavaScript-konsoliin viestejä. Käynnistä selaimen debug-työvälineet (F12) ja valitse käyttöön Console. Kirjoita tämän jälkeen yllä olevaan laatikkoon komento <code>console.log("hello world");</code> ja paina "Suorita koodi!"-nappia. Komennolle <code>console.log</code> annettu teksti ilmestyy konsoliin tarkasteltavaksi -- tätä voi käyttää mm. oman koodin debuggauksessa. </p>
+
+
+<aside class="extra">
+  <p>Vaikkakin käytämmekin komentoja <code>alert</code> ja <code>console.log</code> melko intensiivisesti, eivät ne ole osa JavaScript-spesifikaatiota. </p>
   <p>&nbsp;</p>
-  <p>&nbsp;</p>
-</div>
+</aside>
+
+
+
 
     <h3>Funktiot</h3>
 
-    <p>Jos ylläoleva koodi asetetaan lähdekooditiedostoon, se suoritetaan <em>heti</em> kun selain lataa tiedoston. Haluamme kuitenkin usein siirtää koodin suoritusta tulevaisuuteen, johonkin tiettyyn tapahtumaan. Tätä varten on olemassa funktiot. Funktioilla määritellään ohjelmakoodia, joka suoritetaan myöhemmin.</p>
 
-    <p>Funktio määritellään merkkijonolla <code>function funktionNimi() { <em>suoritettava koodi</em>}</code>. Ensin avainsana <code>function</code>, joka kertoo että seuraavaksi on tulossa funktion määrittely. Tätä seuraa funktion nimi, ja sulut, joita seuraa aukeava aaltosulku <code>{</code>. Aaltosulun jälkeen tulee funktiota kutsuttaessa suoritettava ohjelmakoodi, jonka jälkeen tulee sulkeva aaltosulku <code>}</code>.</p>
+    <p>Jos ylläoleva koodi asetetaan lähdekooditiedostoon, se suoritetaan <em>heti</em> kun selain lataa tiedoston. Haluamme kuitenkin usein siirtää koodin suoritusta tulevaisuuteen, ja kiinnittää se esimerkiksi johonkin tiettyyn tapahtumaan. Tätä varten on olemassa funktiot. Funktioilla määritellään ohjelmakoodia, joka suoritetaan myöhemmin.</p>
 
-    <p>Alla on määritelty funktio, joka kysyy käyttäjältä nimeä, tallentaa nimen muuttujaan <code>nimi</code>, ja lopulta käyttää funktiota <code>alert</code> nimen tulostamiseen.</p>
+    <p>Funktio määritellään merkkijonolla <code>function funktionNimi() { <em>suoritettava koodi</em>}</code>. Ensin avainsana <code>function</code>, joka kertoo että seuraavaksi on tulossa funktion määrittely. Tätä seuraa funktion nimi ja sulut, joita seuraa aukeava aaltosulku <code>{</code>. Aaltosulun jälkeen tulee funktiota kutsuttaessa suoritettava ohjelmakoodi, jonka jälkeen tulee sulkeva aaltosulku <code>}</code>.</p>
+
+    <p>Alla on määritelty funktio, joka kysyy käyttäjältä nimeä, tallentaa nimen muuttujaan <code>nimi</code>, ja lopulta käyttää funktiota <code>console.log</code> nimen tulostamiseen selaimen JavaScript-konsoliin.</p>
 
     <div class="test-js">
       <p><textarea id="js-kysynimi-funktio" rows="6" cols="80">function kysyNimiJaTervehdi() {
     var nimi = prompt("Mikä on nimesi?");
-    alert(nimi);
+    console.log(nimi);
 }
       </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-kysynimi-funktio')" value="Suorita koodi!"></input></p>
@@ -1609,7 +1621,7 @@ function evalElementContent(elementId) {
       <div class="js-test">
       <p><textarea id="js-kysynimi-funktio-ja-kutsu" rows="8" cols="80">function kysyNimiJaTervehdi() {
     var nimi = prompt("Mikä on nimesi?");
-    alert(nimi);
+    console.log(nimi);
 }
 
 kysyNimiJaTervehdi();</textarea></p>
@@ -1626,12 +1638,12 @@ kysyNimiJaTervehdi();</textarea></p>
 
       <p>Hyvä käytäntö JavaScript-lähdekoodien lataamiseen on ladata ne juuri ennen niiden tarvitsemista. Jos lähdekoodia ei tarvita kuin vasta sivun ollessa kokonaan latautunut, kannattaa lähdekoodien hakeminen asettaa sivun loppuun. Tämä johtuu mm. siitä, että selaimen kohdatessa JavaScript-tiedoston, se lähtee hakemaan tiedostoa ja asettaa kaikki muut toiminnot odottamaan. Kun lähdekooditiedosto ladataan vasta sivun lopussa, käyttäjä <em>näkee</em> sivun sisältöä jo ennen lähdekoodin latautumista: tämä luo tunteen nopeammin reagoivista sivuista.</p>
 
-      <p>Luodaan kansioon <code>javascript</code> lähdekooditiedosto <code>code.js</code>. Tiedostossa <code>code.js</code> on funktio <code>sayHello</code>, joka näyttää käyttäjälle viestin "BAD = browser application development".</p>
+      <p>Luodaan kansioon <code>javascript</code> lähdekooditiedosto <code>code.js</code>. Tiedostossa <code>code.js</code> on funktio <code>sayHello</code>, joka tulostaa konsoliin viestin "BAD = browser application development".</p>
 
 
 <pre class="sh_javascript_dom">
 function sayHello() {
-    alert("BAD = browser application development");
+    console.log("BAD = browser application development");
 }
 </pre>
 
@@ -1642,7 +1654,7 @@ function sayHello() {
 &lt;html&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
-        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="stylesheets/style.css"&gt;
         &lt;title&gt;Sivun otsikko (näkyy selaimen palkissa)&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
@@ -1678,7 +1690,7 @@ function sayHello() {
         <!-- funktio määritelty osana sivua, ei hyvä! pitäisi oikeasti ladata tiedostosta! -->
         <script>
 function sayHello() {
-    alert("BAD = browser application development");
+    console.log("BAD = browser application development");
 }
         </script>
 </div>
@@ -1693,6 +1705,7 @@ function sayHello() {
       <p>Varmista sivusi toiminnallisuus. Kun olet valmis, palauta tehtävä TMC:lle.</p>
     </div>
 
+
       <h3>JavaScriptin alkeita</h3>
 
       <p>Tässä osiossa käydään pikaisesti läpi JavaScriptin alkeita.</p>
@@ -1701,12 +1714,12 @@ function sayHello() {
 
       <p>Jotta sama tieto olisi käytössä useammassa paikassa, tarvitsemme jonkun tavan tallentaa tietoa. Javascriptissä, kuten lähes kaikissa muissakin ohjelmointikieliessä, tähän käytetään muuttujia. Muuttujat esitellään sanomalla <code>var muuttujanNimi</code>, eli ensin sana <code>var</code>, jota seuraa nimi muuttujalle. Tämän jälkeen seuraa yhtäsuuruusmerkki, jota seuraa muuttujaan asetettava arvo, esimerkiksi <code>var vitonen = 5;</code>. Edellinen komento luo muuttujan <code>vitonen</code>, ja asettaa siihen arvon <code>5</code>.</p>
 
-      <p>Alla olevassa koodissa asetamme ensin muuttujaan <code>kolme</code> arvon <code>3</code>, ja kutsumme aiemmin näkemäämme <code>alert</code>-komentoa siten, että <code>alert</code>-komento saa parametrina muuttujassa <code>kolme</code> olevan arvon.</p>
+      <p>Alla olevassa koodissa asetamme ensin muuttujaan <code>kolme</code> arvon <code>3</code>, ja kutsumme aiemmin näkemäämme <code>console.log</code>-komentoa siten, että <code>console.log</code>-komento saa parametrina muuttujassa <code>kolme</code> olevan arvon.</p>
 
       <div class="test-js">
       <p><textarea id="js-muuttuja-ja-alert" rows="5" cols="80">var kolme = 3;
-alert(kolme);
-alert(kolme);</textarea></p>
+console.log(kolme);
+console.log(kolme);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-muuttuja-ja-alert')" value="Suorita koodi!"></input></p>
       </div>
 
@@ -1714,9 +1727,9 @@ alert(kolme);</textarea></p>
 
       <div class="test-js">
       <p><textarea id="js-muuttuva-muuttuja-ja-alert" rows="6" cols="80">var kolme = 3;
-alert(kolme);
+console.log(kolme);
 kolme = 4;
-alert(kolme);</textarea></p>
+console.log(kolme);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-muuttuva-muuttuja-ja-alert')" value="Suorita koodi!"></input></p>
       </div>
 
@@ -1727,7 +1740,7 @@ alert(kolme);</textarea></p>
       <p><textarea id="js-muuttujien-yhteenlasku-ja-alert" rows="6" cols="80">var kolme = 3;
 var nelja = 4;
 var seitseman = kolme + nelja;
-alert(seitseman);</textarea></p>
+console.log(seitseman);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-muuttujien-yhteenlasku-ja-alert')" value="Suorita koodi!"></input></p>
       </div>
 
@@ -1741,7 +1754,7 @@ alert(seitseman);</textarea></p>
 
       <div class="test-js">
       <p><textarea id="js-merkkijono-muuttujassa-alert" rows="4" cols="80">var teksti = "Silloin kun minä olin nuori, koodattiin basicilla";
-alert(teksti);</textarea></p>
+console.log(teksti);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-merkkijono-muuttujassa-alert')" value="Suorita koodi!"></input></p>
       </div>
 
@@ -1751,7 +1764,7 @@ alert(teksti);</textarea></p>
       <p><textarea id="js-merkkijonojen-katenointi-alert" rows="6" cols="80">var eka = "2";
 var toka = "3";
 var summa = eka + toka;
-alert(summa);</textarea></p>
+console.log(summa);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-merkkijonojen-katenointi-alert')" value="Suorita koodi!"></input></p>
       </div>
 
@@ -1763,7 +1776,7 @@ alert(summa);</textarea></p>
       <p><textarea id="js-merkkijonojen-katenointi-parseint-alert" rows="6" cols="80">var eka = "2";
 var toka = "3";
 var summa = parseInt(eka) + parseInt(toka);
-alert(summa);</textarea></p>
+console.log(summa);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-merkkijonojen-katenointi-parseint-alert')" value="Suorita koodi!"></input></p>
       </div>
 
@@ -1777,7 +1790,7 @@ alert(summa);</textarea></p>
 numero = parseInt(numero);
 
 if (numero == 5) {
-    alert("Oikein meni!");
+    console.log("Oikein meni!");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-kysyluku-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
@@ -1790,9 +1803,9 @@ if (numero == 5) {
 numero = parseInt(numero);
 
 if (numero == 5) {
-    alert("Oikein meni!");
+    console.log("Oikein meni!");
 } else if (numero == 7) {
-    alert("Oikein meni!");
+    console.log("Oikein meni!");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-kysyluku-viisi-tai-seitseman-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
@@ -1805,7 +1818,7 @@ if (numero == 5) {
 numero = parseInt(numero);
 
 if (numero == 5 || numero == 7) {
-    alert("Oikein meni!");
+    console.log("Oikein meni!");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-kysyluku-joku-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
@@ -1818,9 +1831,9 @@ if (numero == 5 || numero == 7) {
 numero = parseInt(numero);
 
 if (numero == 5 || numero == 7) {
-    alert("Oikein meni!");
+    console.log("Oikein meni!");
 } else {
-    alert("Ei onnistunut :(");
+    console.log("Ei onnistunut :(");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-kysyluku-elsella-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
@@ -1834,9 +1847,9 @@ if (numero == 5 || numero == 7) {
 ika = parseInt(ika);
 
 if (ika < 0 || ika > 120) {
-    alert("Huijaat!");
+    console.log("Huijaat!");
 } else {
-    alert("Et huijannut!");
+    console.log("Et huijannut!");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('kysyika-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
@@ -1848,7 +1861,7 @@ if (ika < 0 || ika > 120) {
       <p><textarea id="js-vertailun-tyyppi" rows="7" cols="80">var auton_merkki = "";
 
 if(auton_merkki == false) {
-    alert("Ehdottomasti totta!");
+    console.log("Ehdottomasti totta!");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-vertailun-tyyppi')" value="Suorita koodi!"></input></p>
@@ -1860,9 +1873,9 @@ if(auton_merkki == false) {
       <p><textarea id="js-vertailun-tyyppi-tyypilla" rows="9" cols="80">var auton_merkki = "";
 
 if(auton_merkki === false) {
-    alert("Ehdottomasti totta!");
+    console.log("Ehdottomasti totta!");
 } else {
-    alert("Makes sense!");
+    console.log("Makes sense!");
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-vertailun-tyyppi-tyypilla')" value="Suorita koodi!"></input></p>
@@ -1877,7 +1890,7 @@ if(auton_merkki === false) {
 
       <div class="test-js">
       <p><textarea id="js-for" rows="5" cols="80">for (var i = 0; i < 5; i++) {
-    alert(i);
+    console.log(i);
 }
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-for')" value="Suorita koodi!"></input></p>
@@ -1887,7 +1900,7 @@ if(auton_merkki === false) {
       <p><textarea id="js-while" rows="8" cols="80">var i = 0;
 
 while(i < 5) {
-    alert(i);
+    console.log(i);
     i++;
 }
 </textarea></p>
@@ -1902,29 +1915,34 @@ while(i < 5) {
 
 <pre class="sh_javascript_dom">
 function tulostaViesti(viesti) {
-    alert(viesti);
+    console.log(viesti);
 }
 </pre>
 
-      <p>Kun ylläolevaa funktiota kutsutaan, sille tulee antaa parametri. Parametrille luodaan funktiokutsussa oma muuttuja <code>viesti</code>, johon parametrin arvo kopioidaan. Funktiota <code>tulostaViesti</code> suoritettaessa funktiolle <code>alert</code> annetaan aina sen arvon kopio, jonka funktio <code>tulostaViesti</code> saa parametrina.</p>
 
-      <p>Funktiot voivat myös palauttaa arvon. Arvo palautetaan komennolla <code>return</code>, jota seuraa palautettava arvo. Seuraavassa esimerkissä on funktio <code>kysyNumeroJaTarkita</code> kutsuu komentoa <code>return</code> jos käyttäjän syöttämä arvo ei ole numero. Jos komennolle <code>return</code> ei anna palautettavaa arvoa, funktiokutsusta poistutaan ilman arvon palauttamista.</p>
+      <p>Kun ylläolevaa funktiota kutsutaan, sille tulee antaa parametri. Parametrille luodaan funktiokutsussa oma muuttuja <code>viesti</code>, johon parametrin arvo kopioidaan. Funktiota <code>tulostaViesti</code> suoritettaessa funktiolle <code>console.log</code> annetaan aina sen arvon kopio, jonka funktio <code>tulostaViesti</code> saa parametrina.</p>
+
+      <p>Funktiot voivat myös palauttaa arvon. Arvo palautetaan komennolla <code>return</code>, jota seuraa palautettava arvo. Seuraavassa esimerkissä on funktio <code>kysyNumeroJaTarkista</code> kutsuu komentoa <code>return</code> ja palauttaa arvon -1 jos käyttäjän syöttämä arvo ei ole numero, muulloin palautetaan luettu arvo.</p>
 
 <pre class="sh_javascript_dom">function kysyNumeroJaTarkista() {
     var syote = prompt("Kirjoita numero");
 
     if(isNaN(Number(syote))) {
-        alert("Et kirjoittanut numeroa!");
-        return;
+        console.log("Et kirjoittanut numeroa!");
+        return -1;
     }
 
     numero = parseInt(syote);
 
     if (numero == 5 || numero == 7) {
-        alert("Oikein meni!");
+        console.log("Oikein meni!");
     }
+
+    return numero;
 }
 </pre>
+
+    <p>Jos komennolle <code>return</code> ei anna palautettavaa arvoa, funktiokutsusta poistutaan ilman arvon palauttamista.</p>
 
       <h4>Muuttujien näkyvyys</h4>
 
@@ -1940,7 +1958,7 @@ function tulostaViesti(viesti) {
 summa = 100;
 var tulos = summaa(25, 10);
 
-alert(summa);
+console.log(summa);
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-varscope')" value="Suorita koodi!"></input></p>
       </div>
@@ -1954,12 +1972,16 @@ alert(summa);
 summa = 100;
 var tulos = summaa(25, 10);
 
-alert(summa);
+console.log(summa);
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-varscope-proper')" value="Suorita koodi!"></input></p>
       </div>
 
-      <p>Käytä avainsanaa <code>var</code> <strong>aina</strong> kun esittelet muuttujan.</p>
+<aside class="extra">
+  <p>Mitä ylläolevissa esimerkeissä oikein tapahtuu? Miksi?</p>
+</aside>
+
+      <p>Käytä avainsanaa <code>var</code> <strong>aina</strong> kun esittelet muuttujan -- kunnes toisin sanotaan.</p>
 
 
       <h4>Taulukot</h4>
@@ -1985,6 +2007,7 @@ var salasanat = new Array("salasana", "alasanas", "lasanasa");
 <pre class="sh_javascript_dom">
 var tiedot = new Array("Mikke", 1984);
 </pre>
+
 
       <h4>Oliot</h4>
 
@@ -2012,8 +2035,8 @@ var kate = {nimi: "Kate", syntymavuosi: new Date().getFullYear() - 21};
 
 mikke.vaimo = kate;
 
-/* nyt voimme kysyä miken vaimon nimeä seuraavasti */
-alert(mikke.vaimo.nimi);
+/* nyt voimme selvittää miken vaimon nimen seuraavasti */
+console.log(mikke.vaimo.nimi);
 </pre>
 
 
@@ -2026,7 +2049,7 @@ var kate = {nimi: "Kate", syntymavuosi: new Date().getFullYear() - 25};
 mikke.vaimo = kate;
 
 /* nyt voimme kysyä miken vaimon nimeä seuraavasti */
-alert(mikke.vaimo.nimi + " on syntynyt vuonna " + mikke.vaimo.syntymavuosi);
+console.log(mikke.vaimo.nimi + " on syntynyt vuonna " + mikke.vaimo.syntymavuosi);
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-mikke-ja-kate')" value="Suorita koodi!"></input></p>
       </div>
@@ -2044,7 +2067,7 @@ alert(mikke.vaimo.nimi + " on syntynyt vuonna " + mikke.vaimo.syntymavuosi);
       <p><input type="text" id="tekstikentta"/></p>
 
       <p><textarea id="js-tulosta-tekstikentan-arvo" rows="4" cols="80">var arvo = document.getElementById("tekstikentta").value;
-alert("Tekstikentän arvo oli " + arvo);
+console.log("Tekstikentän arvo oli " + arvo);
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-tulosta-tekstikentan-arvo')" value="Suorita koodi!"></input></p>
 </div>
@@ -2266,7 +2289,7 @@ ajasta();
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body onload="init();" &gt;
         &lt;header&gt;
@@ -2371,12 +2394,7 @@ function displayArticle(index) {
       <p>Kun olet valmis, ja sivusi näyttää oikealta Chromessa, palauta tehtävä TMC:lle.</p>
 
     </div>
-</section>
-<section class="week">
-    <header>
-        <a name="viikko1"></a>
-        <h1 data-week-id="2">Viikko 2</h1>
-    </header>
+
 
     <h2>DOM</h2>
 
@@ -2396,12 +2414,12 @@ function displayArticle(index) {
 
     <p>W3C työskentelee tällä hetkellä (1.11.2012) tason 4 spesifikaation kanssa. <a href="http://www.w3.org/TR/domcore/" target="_blank">Taso 4</a> tulee olemaan laajennus aiempiin tasoihin, joka tarjoaa mm. selvennyksiä tapahtumien käsittelyyn ja lisätoiminnallisuuksia dokumentin identifiointiin.</p>
 
-    <div class="extra">
+    <aside class="extra">
       <p><strong>Selaintuki</strong></p>
 
       <p>Uusimpien DOM-spesifikaatioiden ja lisäosien tuki on rikkinäinen osassa selaimia. Selainvalmistajat eivät usein kiinnitä huomiota vanhempiin selainversioihin, jolloin uudet ominaisuudet ovat käytössä vasta uudemmissa selaimissa. Sivusto "Can I Use..." (<a href="http://caniuse.com" target="_blank">http://caniuse.com</a> on yksi monista sivustoista, jotka tarjoavat spesifikaatioiden ja lisäosien yhteensopivuuslistauksia eri selaimille.</p>
 
-    </div>
+    </aside>
 
 
 <!--
@@ -2555,7 +2573,6 @@ document.getElementById("dom-esim-4").appendChild(artikkeli);
     </div>
 
     <div class="tehtavat">
-      <NEXTWEEK></NEXTWEEK>
 
       <h3>DOM Walker</h3>
 
@@ -2607,6 +2624,18 @@ SCRIPT
 
 
     </div>
+
+</section>
+
+    <h1>Päivitysraja, tästä alaspäin lukeminen omalla vastuulla...</h1>
+
+
+<section class="week">
+    <header>
+        <a name="viikko1"></a>
+        <h1 data-week-id="2">Viikko 2</h1>
+    </header>
+
 
 <!--
 elementtien lisääminen ja poistaminen js:llä
@@ -2662,7 +2691,7 @@ poistettava.parentNode.removeChild(poistettava);
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body onload="init();" &gt;
         &lt;header&gt;
@@ -2719,7 +2748,7 @@ function init() {
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body onload="init();" &gt;
         &lt;header&gt;
@@ -2802,6 +2831,8 @@ function init() {
 
 
     <div class="tehtavat">
+      <NEXTWEEK></NEXTWEEK>
+
       <h3>PerusMOOC, jatkoa</h3>
 
       <p>Tehtäväpohjassa on viime viikon loppupuolelta alustava PerusMOOC-sivu. Sivulla on kuitenkin vielä ongelma: html-sivu sisältää JavaScriptiä enemmän kuin on sallittu.</p>
@@ -5354,7 +5385,7 @@ elementit.removeClass("jquery-dom-2-hidden");</textarea></p>
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;Kindler&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body onload="init();"&gt;
         &lt;header&gt;
@@ -5553,7 +5584,7 @@ function displayArticle(index) {
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;Kindler&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body&gt;
 
@@ -5688,7 +5719,7 @@ $.ajax({
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body&gt;
     &lt;section id="view"&gt;

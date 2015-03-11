@@ -163,6 +163,12 @@ input[type="search"]::-webkit-search-decoration {
   padding: 0px 15px 15px 15px;
 }
 
+
+.tehtavat > img {
+  border: 2px solid #000;
+  margin: 10px;
+}
+
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
