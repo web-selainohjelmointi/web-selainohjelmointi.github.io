@@ -2632,9 +2632,6 @@ SCRIPT
 
 </section>
 
-    <h1>Päivitysraja, tästä alaspäin lukeminen omalla vastuulla...</h1>
-
-
 <section class="week">
     <header>
         <a name="viikko1"></a>
@@ -2651,13 +2648,13 @@ elementtien lapset ja niiden läpikäynti
 
     <p>Dokumentin puumaisen rakenteen takia elementin lisääminen tapahtuu elementin vanhempaan liittyvällä <code>appendChild</code>-metodilla. Koska elementin vanhempi pitää kirjaa kaikista sen lapsista, tulee elementti myös poistaa sen vanhemman kautta.</p>
 
+
     <p>DOM-puun elementtien toteuttamat <a href="https://developer.mozilla.org/en-US/docs/DOM/element#Methods" target="_blank">metodit</a> sisältävät metodin <code><a href="https://developer.mozilla.org/en-US/docs/DOM/Node.removeChild" target="_blank">removeChild</a></code>, jota voi käyttää lapsielementin poistamiseen. Alla olevassa esimerkissä haluamme poistaa elementin, jonka tunnus on "poistettava".</p>
 
 <pre class="sh_javascript_dom">
 // myös document.getElementById("poistettava") käy
 var poistettava = document.querySelector("#poistettava");
-poistettava.parentNode.removeChild(poistettava);
-</pre>
+poistettava.parentNode.removeChild(poistettava);</pre>
 
 
 <pre class="sh_html">
@@ -2665,15 +2662,13 @@ poistettava.parentNode.removeChild(poistettava);
     &lt;article id="poistettava"&gt;
         &lt;p&gt;Lorem Ipsum jne..&lt;/p&gt;
     &lt;/article&gt;
-&lt;!-- .. dokumentin loppuosa .. --&gt;
-</pre>
+&lt;!-- .. dokumentin loppuosa .. --&gt;</pre>
 
 <div class="naytto">
   <article id="poistettava">
     <p>Lorem Ipsum jne..</p>
   </article>
 </div>
-
 
     <div class="test-js">
       <p><textarea id="dom-esim-5-js" rows="3" cols="80">var poistettava = document.querySelector("#poistettava");
@@ -2688,7 +2683,9 @@ poistettava.parentNode.removeChild(poistettava);
 
     <p>Tason 2 DOM-spesifikaatiossa määriteltiin tuki tapahtumien käsittelylle, kts. <a href="http://www.w3.org/TR/DOM-Level-2-Events/" target="_blank">http://www.w3.org/TR/DOM-Level-2-Events/</a>. Tason 3 spesifikaatio ei ole vielä valmis, mutta sen viimeisin versio löytyy <a href="http://www.w3.org/TR/DOM-Level-3-Events/" target="_blank">täältä</a>).</p>
 
-    <p>Jokaisella tapahtumalla on kohde, johon se liittyy. Kun sivuilla tapahtuu tapahtuma, esimerkiksi hiirellä klikataan nappia, DOM-toteutus ohjaa tapahtuman napin tapahtumankuuntelijalle. Jos napille on rekisteröity tapahtumankuuntelija, suoritetaan tapahtumankuuntelijan koodi. Tapahtumien käsittelyä varten sivuille tulee määritellä funktioita. Olemme aiemmin määritelleet tapahtumien sattuessa kutsuttavat osana HTML-dokumenttia seuraavasti.</p>
+    <p>Käytännössä tapahtumien käsittely toimii tapahtumaohjatusti. Jokaisella toiminnolla on kohde, johon se liittyy. Kun sivuilla esimerkiksi klikataan hiiren nappia, DOM-toteutus ohjaa tapahtuman nappiin mahdollisesti liitetylle tapahtumankuuntelijalle. Jos napille on rekisteröity tapahtumankuuntelija, suoritetaan tapahtumankuuntelijan koodi.</p>
+
+    <p>Tapahtumien käsittelyä varten sivuille tulee määritellä funktioita. Olemme aiemmin määritelleet tapahtumien sattuessa kutsuttavat funktiot osaksi HTML-dokumenttia seuraavasti.</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -2716,9 +2713,9 @@ poistettava.parentNode.removeChild(poistettava);
 &lt;/html&gt;
 </pre>
 
-    <p>Vastuiden erottamisen näkökulmasta yllä oleva lähestymistapa on väärä. Haluamme eriyttää sovelluslogiikan käyttöliittymästä. Ainoa HTML-dokumentissa sallittu JavaScript-kutsu on <code>body</code>-elementin <code>onload</code>-attribuutille määriteltävä kutsu, joka suoritetaan kun sisältö on ladattu.</p>
+    <p>Vastuiden erottamisen näkökulmasta yllä oleva lähestymistapa on huono, ja haluamme eriyttää sovelluslogiikan käyttöliittymästä. Äärinäkökulmasta katsottuna ainoa HTML-dokumentissa sallittu JavaScript-kutsu on <code>body</code>-elementin <code>onload</code>-attribuutille määriteltävä kutsu, joka suoritetaan kun sisältö on ladattu.</p>
 
-    <p>Yksi tapa poistaa ylläolevassa dokumentissa olevat JavaScript-kutsut on lisätä init-metodiin tapahtumankäsittelijöiden lisääminen. Käytetään aiemmin oppimaamme <code>querySelector</code>-toteutusta siihen, että lisäämme tapahtumankäsittelijät vain menuvalikon linkkeihin. Jotta saisimme tapahtumankäsittelijän toimimaan oikein <code>a</code>-elementissä, meidän tulee myös kieltää linkin seuraaminen. Tämä onnistuu tapahtumaan liittyvällä kutsulla <code>preventDefault()</code>.</p>
+    <p>Yksi tapa poistaa ylläolevassa dokumentissa olevat JavaScript-kutsut on lisätä init-metodiin tapahtumankäsittelijöiden lisääminen. Käytetään aiemmin oppimaamme <code>querySelector</code>-toteutusta siten, että lisäämme tapahtumankäsittelijät vain menuvalikon linkkeihin. Jotta saisimme tapahtumankäsittelijän toimimaan oikein <code>a</code>-elementissä, meidän tulee myös kieltää linkin seuraaminen. Tämä onnistuu tapahtumaan liittyvällä kutsulla <code>preventDefault()</code>.</p>
 
 <pre class="sh_javascript_dom">
 function init() {
@@ -2769,8 +2766,7 @@ function init() {
 
         &lt;!-- lähdekooditiedostojen lataus --&gt;
     &lt;/body&gt;
-&lt;/html&gt;
-</pre>
+&lt;/html&gt;</pre>
 
     <p>Oikeastaan yllä käyttämämme lähestymistapa on myös hieman hölmö. Kun määrittelemme <code>onclick</code>-funktion, korvaamme aiemman funktion. Fiksumpaa olisi lisätä uusi funktio aiempien lisäksi. Tämä onnistuu elementteihin liittyvällä metodilla <code>addEventListener</code>. Metodille <code>addEventListener</code> määritellään tapahtuman nimi (esim <code>click</code>, huomaa ero!), funktio jota kutsutaan (joko funktion nimi tai konkreettinen toteutus), ja totuusarvoinen muuttuja, jolla kerrotaan tuleeko muun dokumentin reagoida tapahtumaan. Tällöinkin tapahtumaan reagoivat vain elementit, jotka ovat tapahtuman laukaisevan elementin vanhempia.</p>
 
@@ -2843,6 +2839,7 @@ function init() {
       <p>Tehtäväpohjassa on viime viikon loppupuolelta alustava PerusMOOC-sivu. Sivulla on kuitenkin vielä ongelma: html-sivu sisältää JavaScriptiä enemmän kuin on sallittu.</p>
 
       <p>Muuta sivustoa siten, että ainoa <code>index.html</code>-sivun JavaScript-kutsu on <code>body</code>-elementin <code>onload</code>-attribuutille asetettu <code>init();</code>-funktiokutsu. Sivun toiminnallisuuden tulee pysyä ennallaan.</p>
+
       <p>Varaudu myös siihen, että linkeille saatetaan asettaa myöhemmin toteutettavissa koodeissa uusia tapahtumankäsittelijöitä.</p>
 
       <p>Kun sovellus toimii toivotusti, palauta se TMC:lle.</p>
@@ -2916,29 +2913,29 @@ var mikke = new Object();
 mikke.nimi = "Michael Knight";
 mikke.ika = 17;
 
-alert(mikke.nimi);
+console.log(mikke.nimi);
 </pre>
 
     <p>Ylläoleva ohjelmakoodi vastaa allaolevaa olion luomista.</p>
 
 <pre class="sh_javascript_dom">
 var mikke = {nimi: "Michael Knight", ika: 17};
-alert(mikke.nimi);
+console.log(mikke.nimi);
 </pre>
 
     <p>Olion muuttujiin pääsee käsiksi myös seuraavanlaisen notaation avulla. Notaatio saattaa olla tuttu mikäli on aiemmin ohjelmoinut esimerkiksi PHP:llä tai perlillä.</p>
 
 <pre class="sh_javascript_dom">
 var mikke = {nimi: "Michael Knight", ika: 17};
-alert(mikke["nimi"]);
+console.log(mikke["nimi"]);
 </pre>
 
     <p>Käytännössä oliot JavaScriptissä ovat kokoelmia avain-arvo -pareja. Jokaisella oliolla voi olla omanlaisensa avaimet ja niiden arvot. Kaikki JavaScriptin oliot laajentavat valmista <code>Object</code>-oliota.</p>
 
 
-    <h4>Omien olioiden luonti</h4>
+    <h4>Omien olioiden tai "luokkien" luonti</h4>
 
-    <p>Omien olioiden luonti tapahtuu funktioiden avulla. Huomaa heti alkuun hyvä nimeämiskäytäntö: funktiot, joita käytetään olioiden luomiseen nimetään isolla alkukirjaimella. Luodaan funktio <code>Opiskelija</code>, jota käytetään opiskelija-olioiden luomiseen. Opiskelijalla on kaksi attribuuttia: nimi ja opintopisteet.</p>
+    <p>Omien olioiden luonti tapahtuu funktioiden avulla. Huomaa heti alkuun hyvä nimeämiskäytäntö: funktiot, joita käytetään olioiden luomiseen nimetään isolla alkukirjaimella. Luodaan funktio <code>Opiskelija</code>, jota käytetään opiskelija-olioiden luomiseen (Javalla ohjelmoineet voivat ajatella allaolevaa myös luokkana). Opiskelijalla on kaksi attribuuttia: nimi ja opintopisteet.</p>
 
 <pre class="sh_javascript_dom">
 function Opiskelija(nimi) {
@@ -2954,11 +2951,11 @@ var mikke = new Opiskelija("Michael");
 var kasper = new Opiskelija("Casper");
 kasper.opintopisteet = 400;
 
-alert("Nimi " + mikke.nimi + ", noppia: " + mikke.opintopisteet);
-alert("Nimi " + kasper.nimi + ", noppia: " + kasper.opintopisteet);
+console.log("Nimi " + mikke.nimi + ", noppia: " + mikke.opintopisteet);
+console.log("Nimi " + kasper.nimi + ", noppia: " + kasper.opintopisteet);
 </pre>
 
-    <p>Ohjelma näyttää pop-up -ikkunat, joissa on viestit</p>
+    <p>Ohjelma tuottaa konsoliin seuraavan tekstin</p>
 
 <pre>
 Nimi Michael, noppia: 0
@@ -2982,11 +2979,11 @@ kasper.opintopisteet = 400;
 
 mikke.opiskeleYksin();
 
-alert("Nimi " + mikke.nimi + ", noppia: " + mikke.opintopisteet);
-alert("Nimi " + kasper.nimi + ", noppia: " + kasper.opintopisteet);
+console.log("Nimi " + mikke.nimi + ", noppia: " + mikke.opintopisteet);
+console.log("Nimi " + kasper.nimi + ", noppia: " + kasper.opintopisteet);
 </pre>
 
-    <p>Nyt näemme ylläolevalla koodilla pop-up -ikkunat, joissa on viestit</p>
+    <p>Nyt näemme viestit</p>
 
 <pre>
 Nimi Michael, noppia: 1
@@ -3017,8 +3014,8 @@ mikke.opiskeleYhdessa(kasper);
 
 mikke.opiskeleYhdessa("porkkana");
 
-alert("Nimi " + mikke.nimi + ", noppia: " + mikke.opintopisteet);
-alert("Nimi " + kasper.nimi + ", noppia: " + kasper.opintopisteet);
+console.log("Nimi " + mikke.nimi + ", noppia: " + mikke.opintopisteet);
+console.log("Nimi " + kasper.nimi + ", noppia: " + kasper.opintopisteet);
 </pre>
 
 <pre>
@@ -3164,30 +3161,28 @@ var schenker = new Ruuma(15);
 
 
 laukku.lisaa(kivi);
-alert("laukun paino, pitäisi olla 3: " + laukku.paino());
+console.log("laukun paino, pitäisi olla 3: " + laukku.paino());
 laukku.lisaa(kivi); // virhe: "Tavara lisätty jo, ei onnistu!"
 
 laukku.lisaa(kirja);
-alert("laukun paino, pitäisi olla 10: " + laukku.paino());
+console.log("laukun paino, pitäisi olla 10: " + laukku.paino());
 
 laukku.lisaa(pumpuli); // virhe: "Liian painava, ei pysty!"
 
-alert("laukun paino, pitäisi olla 10: " + laukku.paino());
+console.log("laukun paino, pitäisi olla 10: " + laukku.paino());
 
 
 schenker.lisaa(laukku);
 schenker.lisaa(pumpuli); // virhe: Vääränlainen esine, ei onnistu!
 
-alert("Ruuman paino, pitäisi olla 10: " + schenker.paino());
+console.log("Ruuman paino, pitäisi olla 10: " + schenker.paino());
 
 vuitton.lisaa(pumpuli);
 schenker.lisaa(vuitton);
-alert("Ruuman paino, pitäisi olla noin 10.001: " + schenker.paino());
+console.log("Ruuman paino, pitäisi olla noin 10.001: " + schenker.paino());
 
 pumpuli.paino = 300;
-alert("Ruuman paino, pitäisi olla 310: " + schenker.paino()); // hups!</pre>
-
-
+console.log("Ruuman paino, pitäisi olla 310: " + schenker.paino()); // hups!</pre>
 
       <p>Palauta tehtävä TMC:lle kun se toimii toivotusti.</p>
 
@@ -3230,7 +3225,7 @@ var lopputulos = (function(alku, loppu) {
                       return summa;
                   })(1, 3);
 
-alert(lopputulos); // 3
+console.log(lopputulos); // 3
 </pre>
 
 
@@ -3254,7 +3249,7 @@ function rajoitettuSumma(alku, loppu) {
 
 <pre class="sh_javascript_dom">
 var tulos = rajoitettuSumma(1, 2);
-alert(tulos); // 1
+console.log(tulos); // 1
 </pre>
 
     <p>Koska JavaScriptissä muuttujat voivat olla funktioita, voimme palauttaa funktiosta toisen funktion.</p>
@@ -3276,7 +3271,7 @@ function pankki() {
 
 <pre class="sh_javascript_dom">
 var funktio = pankki();
-alert(funktio(1, 2)); // 1
+console.log(funktio(1, 2)); // 1
 </pre>
 
     <p>Oikeastaan, funktion <code>pankki</code> sisälle voi luoda muuttujan <code>rajoitettuSumma</code>, jonka voimme palauttaa.</p>
@@ -3338,10 +3333,10 @@ function pankki() {
 
 <pre class="sh_javascript_dom">
 var funktio = pankki();
-alert(funktio(1)); // tulostaa 1
-alert(funktio(1)); // tulostaa 3
-alert(funktio(1)); // tulostaa 6
-alert(funktio(1)); // tulostaa 10
+console.log(funktio(1)); // tulostaa 1
+console.log(funktio(1)); // tulostaa 3
+console.log(funktio(1)); // tulostaa 6
+console.log(funktio(1)); // tulostaa 10
 </pre>
 
     <p>Voimme palauttaa pankista olion. Alla olevassa esimerkissä palautamme olion, jonka attribuutti <code>alhaaltaRajoitettuSumma</code> käyttää funktiota <code>rajoitettuSumma</code>.</p>
@@ -3371,13 +3366,13 @@ function pankki() {
 
 <pre class="sh_javascript_dom">
 var funktio = pankki();
-alert(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 1
-alert(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 3
-alert(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 6
-alert(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 10
+console.log(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 1
+console.log(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 3
+console.log(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 6
+console.log(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 10
 
 // MUTTA!
-alert(funktio.rajoitettuSumma(1)); // ei onnistu!
+console.log(funktio.rajoitettuSumma(1)); // ei onnistu!
 </pre>
 
     <p>Funktioon <code>rajoitettuSumma</code> ei kuitenkaan pääse suoraan käsiksi!</p>
@@ -3411,10 +3406,10 @@ function pankki() {
 
 <pre class="sh_javascript_dom">
 var funktio = pankki();
-alert(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 1
+console.log(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 1
 
 funktio.asetaLoppu(4);
-alert(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 10
+console.log(funktio.alhaaltaRajoitettuSumma(1)); // tulostaa 10
 </pre>
 
     <p>Yllä olevat funktiot voidaan kirjoittaa myös siten, että niille määritellään nimi osana funktiomäärittelyä. Tällöin erilliselle muuttujalle ei ole tarvetta.</p>
@@ -3446,9 +3441,19 @@ function pankki() {
 
 
 
+<aside class="pohdi">
+  <p><strong>So Not?</strong></p>
+
+  <p>Tutustu myös Mozillan artikkeliin <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank">teemasta</a>.</p>
+
+  <p>Mitä hyötyä edellä esitetystä tekniikasta on käytännössä?</p>
+</aside>
+
+
+
     <h4>Moduulit</h4>
 
-    <p>Module Pattern hyödyntää sekä anonyymejä funktioita että sulkeumia sovelluksen toimintalogiikan kapselointiin. Ajatuksena on luoda ensin nimiavaruudessa käytettävä muuttuja, jonka kautta sovelluksen eri osia käytetään. Luodaan olio <code>hallinta</code>, johon lisätään kirjanpitotoiminnallisuus.</p>
+    <p><a href="http://en.wikipedia.org/wiki/Module_pattern" target="_blank">Module Pattern</a> hyödyntää sekä anonyymejä funktioita että sulkeumia sovelluksen toimintalogiikan kapselointiin. Ajatuksena on luoda ensin nimiavaruudessa käytettävä muuttuja, jonka kautta sovelluksen eri osia käytetään. Luodaan olio <code>hallinta</code>, johon lisätään kirjanpitotoiminnallisuus.</p>
 
 <pre class="sh_javascript_dom">
 // huom! luodaan tyhjä olio, jolle voi lisätä attribuutteja
@@ -3525,14 +3530,12 @@ var mikke = new Opiskelija("Michael");
 hallinta.kirjanpito.lisaaSuoritus(weso, mikke, 1);
 </pre>
 
-<div class="pohdi">
+<aside class="pohdi">
   <p><strong>Module Pattern ja Oliot</strong></p>
 
   <p>Miten module pattern liittyy olioihin? Voiko module patternia käytettäessä samasta moduulista luoda useampia olioita?</p>
 
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-</div>
+</aside>
 
     <div class="tehtavat">
       <h3>Kapseloitu laskuri</h3>
@@ -3544,11 +3547,11 @@ hallinta.kirjanpito.lisaaSuoritus(weso, mikke, 1);
       <p>Palauta sovelluksesi TMC:lle kun se toimii toivotusti.</p>
 
 
-      <h3>PersonManager</h3>
+      <h3>Henkilolista</h3>
 
       <p>Tehtäväpohjaan on hahmoteltu henkilöiden hallintaan sopivan sovelluksen rakennetta. Tehtäväsi on jatkaa sitä eteenpäin siten, että henkilöiden lisääminen sovellukseen onnistuu.</p>
 
-      <img src="img/w2e06-personmanager.png" border=1/>
+      <img src="img/personmanager.png" border=1/>
 
       <p>Tehtävänäsi on toteuttaa:</p>
 
@@ -3607,19 +3610,19 @@ var mikkeData = '{"nimi": "Mikke", "syntymavuosi": 1984}';
 <pre class="sh_javascript_dom">
 var mikkeData = '{"nimi": "Mikke", "syntymavuosi": 1984}';
 var mikke = JSON.parse(mikkeData);
-alert(mikke.nimi);
+console.log(mikke.nimi);
 
 var mikkeKlooni = JSON.stringify(mikke);
-alert(mikkeKlooni);
+console.log(mikkeKlooni);
 </pre>
 
     <div class="test-js">
       <p><textarea id="js-json-muunnos" rows="7" cols="80">var mikkeData = '{"nimi": "Mikke", "syntymavuosi": 1984}';
 var mikke = JSON.parse(mikkeData);
-alert(mikke.nimi);
+console.log(mikke.nimi);
 
 var mikkeKlooni = JSON.stringify(mikke);
-alert(mikkeKlooni);
+console.log(mikkeKlooni);
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-json-muunnos')" value="Suorita koodi!"></input></p>
     </div>
@@ -3641,18 +3644,18 @@ var req = new XMLHttpRequest();
 req.onreadystatechange = function() {
     // jos tila ei ole 4 (valmis), ei käsitellä
     if (req.readyState !== 4) {
-        alert("state " + req.readyState);
+        console.log("state " + req.readyState);
         return false;
     }
 
     // jos statuskoodi ei ole 200 (ok), ei käsitellä
     if (req.status !== 200) {
-        alert("status " + req.status);
+        console.log("status " + req.status);
         return false;
     }
 
     // näytetään vastaus
-    alert(req.responseText);
+    console.log(req.responseText);
 }
 
 req.open("GET", "data.json", true);
@@ -3661,7 +3664,7 @@ req.send("");
 
     <p>Tutkitaan yllä olevaa koodia hieman tarkemmin. Palvelin voi palauttaa XMLHttpRequest-pyyntöön useamman vastauksen. Attribuutti <code>readyState</code> sisältää arvon väliltä [0, 4], missä 4 tarkoittaa pyynnön olevan valmis. Jos attribuutin <code>readyState</code> arvo ei ole neljä, odotamme lopullista vastausta. Attribuutti <code>status</code> kertoo HTTP-pyynnön statuskoodin. Statuskoodi 200 kertoo pyynnön onnistuneen. Lisää tietoa statuskoodeista löytyy esimerkiksi googlella ja <a href="http://httpstatuscats.com/" target="_blank">täältä</a>.</p>
 
-    <p>Ylläolevassa esimerkiksi vastaus näytetään <code>alert</code>-komennon avulla. Käytännössä JSON-dataa sisältävän vastauksen voisi muuttaa <code>JSON.parse</code>-funktiolla olioksi.</p>
+    <p>Ylläolevassa esimerkiksi vastaus näytetään <code>console.log</code>-komennon avulla. Käytännössä JSON-dataa sisältävän vastauksen voisi muuttaa <code>JSON.parse</code>-funktiolla olioksi.</p>
 
     <p>Tärkeä osa liittyy pyynnön avaamiseen. Komento <code>req.open("GET", "data.json", true);</code> avaa GET-tyyppisen HTTP-yhteyden <em>nykyiseen sivustoon</em> liittyvään osoitteeseen <code>data.json</code>. Koska viimeinen parametri on <code>true</code>, on pyyntötyyppi asynkroninen, eikä selain jää odottamaan vastausta. Vastaukseen reagoidaan kun vastaus saapuu.</p>
 
@@ -3670,7 +3673,7 @@ req.send("");
       <p><textarea id="js-xmlhttpreq-haku" rows="9" cols="80">var req = new XMLHttpRequest();
 
 req.onreadystatechange = function() {
-    alert(req.readyState + ", " + req.status + ", " + req.responseText);
+    console.log(req.readyState + ", " + req.status + ", " + req.responseText);
 }
 
 req.open("GET", "data.json", true);
@@ -3696,6 +3699,23 @@ req.send("");
   <p>Osa selaimista kieltää pyyntöjen tekemisen suoraan tiedostojärjestelmään. Voit kiertää tämän esimerkiksi chromessa käynnistämällä chromen parametrilla "--disable-web-security".</p>
 </div>
 
+
+    <div class="tehtavat">
+      <h3>Chuckles</h3>
+
+      <p>Tutustu <a href="http://www.icndb.com/" target="_blank">ICNDb.com</a>-osoitteessa olevaan <a href="http://www.icndb.com/api/" target="_blank">JSON-apiin</a> ja toteuta toiminnallisuus, jonka avulla voit hakea satunnaisia viestejä.</p>
+
+      <p>Käytä osoitetta <code>http://api.icndb.com/jokes/random/3</code> testaamiseen.</p>
+
+      <p>Yllä olevalla osoitteella sivun tulee näyttää esimerkiksi seuraavalta.</p>
+      
+      <img src="img/chuckles.png" border=1 />
+
+      <p>Kun sovelluksesi toimii, ja näet viestit <code>index.html</code>-sivulla, palauta se TMC:lle.</p>
+
+    </div>
+
+
     <h4>JSONP</h4>
 
     <p>JSONP (<em>JSON with padding</em>) hyödyntää tietoa siitä, että <code>script</code>-elementin osoite, eli paikka josta JavaScript-lähdekoodi haetaan, ei ole rajoitettu. Data haetaan asettamalla JavaScriptillä luotavalle <code>script</code>-elementille <code>src</code>-attribuutti, johon asetetaan JSONP-muotoista dataa tarjoavan palvelimen osoite.</p>
@@ -3705,7 +3725,7 @@ req.send("");
 <pre class="sh_javascript_dom">
 // aiemmin määritelty funktio handleResponse
 function handleResponse(content) {
-    alert(content);
+    console.log(content);
 }
 </pre>
 
@@ -3727,7 +3747,7 @@ handleResponse({"nimi":"mikke", "ika":17})
 
 <script>
 function handleResponse(data) {
-    alert(data);
+    console.log(data);
 }
 </script>
 
@@ -3739,27 +3759,6 @@ document.body.appendChild(script);
       <p><input type="button" onclick="evalElementContent('js-jsonp-haku')" value="Suorita koodi!"></input></p>
     </div>
 
-
-    <div class="tehtavat">
-      <h3>TweetTweet</h3>
-
-      <p><a href="http://www.twitter.com" target="_blank">Twitter</a> tarjoaa JSONP-apin, jonka avulla pääsemme käsiksi twitter-viesteihin. Tässä tehtävässä toteutat osan twitter-viestien lataamiseen ja näyttämiseen tarkoitetusta palvelusta. Tehtävänäsi on toteuttaa viestien palvelimelta lukemiseen liittyvä toiminnallisuus.</p>
-
-      <p>Toteuta tehtäväpohjassa olevaan moduuliin <code>tweet.data</code> funktiot <code>load</code>, <code>parse</code>, ja <code>list</code>. Funktiolle <code>load</code> annetaan parametrina osoite, josta viestit ladataan. Funktiota <code>parse</code> kutsutaan kun viestien lataaminen on valmis, ja funktio <code>list</code> palauttaa ladatut viestit. Kutsu funktion <code>parse</code> lopussa funktiota <code>displayHook</code>, jolloin haettu data näytetään käyttäjälle.</p>
-
-      <p>Käytä osoitetta <code>http://api.twitter.com/1/statuses/user_timeline/rageresearch.json?count=4</code> testaamiseen. Saat callback-funktioksi funktion <code>tweet.data.parse</code> esimerkiksi seuraavalla osoitteella:</p>
-
-<pre>
-http://api.twitter.com/1/statuses/user_timeline/rageresearch.json?count=4&callback=tweet.data.parse
-</pre>
-
-      <p>Yllä olevalla osoitteella sivun tulee näyttää seuraavalta.</p>
-
-<img src="img/w2e07-tweettweet.png" border=1 />
-
-      <p>Kun sovelluksesi toimii, ja näet twitter-viestit <code>index.html</code>-sivulla, palauta se TMC:lle.</p>
-
-    </div>
 
 
     <h3>Datan lähettäminen palvelimelle</h3>
@@ -3816,17 +3815,15 @@ req.send(data);
 
       <h3>Chat-chat (4p)</h3>
 
-      <p>Tämä on avoin tehtävä, jonka tekemisestä saa 4 pistettä. Tehtävästä saa pisteet vain jos sovellus toimii kokonaisuudessaan.</p>
+      <p>Tämä on avoin tehtävä, jonka tekemisestä saa 4 pistettä. Kannattaa varata tehtävän tekemiseen reilusti aikaa -- voit mahdollisesti myös tehdä tätä tehtävää ennen seuraavan tehtävän.</p>
 
       <p>Osoitteessa <a href="http://bad.herokuapp.com/app/" target="_blank">http://bad.herokuapp.com/app/</a> toimii chat-sovelluksen backend-toiminnallisuus. Tässä tehtävässä rakennetaan chatille selainpuolen toiminnallisuus.</p>
-
-      <p><strong>Huom!</strong> Käytä tehtävässä vain yhtä HTML-dokumenttia. Tehtäväpohjassa on mukana tiedosto <code>index.html</code>, jonka sisään toiminnallisuutta voi toteuttaa. Toteuta chatin logiikka luonnollisesti erillisinä JavaScript-tiedostoina.</p>
 
       <h4>Sisäänkirjautuminen</h4>
 
       <p>Kun käyttäjä avaa chat-sivun, näytetään hänelle login-näkymä, joka näyttää seuraavalta.</p>
 
-      <p><img src="img/w2e09-chat-login.png" border="1" /></p>
+      <p><img src="img/chat-login.png" border="1" /></p>
 
       <p>Kun käyttäjä kirjoittaa käyttäjätunnuksen ja painaa Login-nappia, selainsovellus lähettää palvelimelle JSON-merkkijonon, joka on muotoa <code>{ "nickname": nick }</code>, missä <code>nick</code> on käyttäjän kirjoittama käyttäjätunnus. Kirjautumispyyntö tehdään HTTP POST-pyyntönä osoitteeseen <code>http://bad.herokuapp.com/app/auth</code>. Jos kirjautuminen onnistuu, palvelin palauttaa statuskoodin 200, muuten statuskoodi on jokin muu. Ilman kirjautumista palvelimelle ei voi lähettää viestejä.</p>
 
@@ -3834,7 +3831,7 @@ req.send(data);
 
       <p>Kirjautumisen onnistuessa käyttäjälle näytetään chat-näkymä, joka näyttää tyhjänä seuraavalta:</p>
 
-      <p><img src="img/w2e09-chat-1.png" border="1" /></p>
+      <p><img src="img/chat-1.png" border="1" /></p>
 
       <p>Kirjautumisen yhteydessä palvelimelta tulee myös hakea lista viimeisimmistä viesteistä, jotka näytetään näkymässä. Viestit saa haettua HTTP GET-pyynnöllä osoitteesta <code>http://bad.herokuapp.com/app/messages</code>. Jos viestien hakeminen onnistuu, palvelin palauttaa statuskoodin 200, muuten statuskoodi on jokin muu.</p>
 
@@ -3853,7 +3850,7 @@ req.send(data);
 
       <p>Jos palvelimelle on jo lähetetty aiemmin viestejä, kirjautumisen jälkeen chat-näkymä näyttää esimerkiksi seuraavalta:</p>
 
-      <p><img src="img/w2e09-chat-2.png" border="1" /></p>
+      <p><img src="img/chat-2.png" border="1" /></p>
 
       <h4>Viestin lähetys</h4>
 
@@ -3874,15 +3871,9 @@ req.send(data);
 
       <p>Toteuta chat-näkymän Logout-napin toiminnallisuus. Napin painalluksen tulee piilottaa chat-näkymä ja palauttaa login-näkymä sivulle, jotta chattiin voi kirjautua uudella nimimerkillä. Nimimerkille varatun tekstikentän tulee olla tyhjä. Samoin uudelleen kirjauduttaessa sisään chat-näkymän viestille varatun tekstikentän tulee olla tyhjä.</p>
 
-      <p>Kun olet valmis, lähetä toteutuksesi TMC:lle. Tehtävän ratkaisuehdotus käyttää hieman erilaista lähestymistapaa, jossa module patternia käytetään olioiden luomiseen. Palaamme siihen seuraavalla viikolla.</p>
+      <p>Kun olet valmis, lähetä toteutuksesi TMC:lle.</p>
     </div>
 
-</section>
-    <section class="week">
-      <header>
-        <a name="viikko1"></a>
-        <h1 data-week-id="3">Viikko 3</h1>
-      </header>
 
     <h2>Oliot ja Moduulit</h2>
 
@@ -3911,7 +3902,7 @@ function Kirja(nimi, julkaisuvuosi) {
 }
 
 Kirja.prototype.tulostaNimi = function() {
-    alert(this.nimi);
+    console.log(this.nimi);
 }
 
 // funktiosta luodaan olio new-operaattorilla
@@ -3934,7 +3925,7 @@ function Kirja(nimi, julkaisuvuosi) {
 }
 
 Kirja.prototype.tulostaNimi = function() {
-    alert(this.nimi);
+    console.log(this.nimi);
 }
 
 // funktiosta luodaan olio new-operaattorilla
@@ -3951,7 +3942,6 @@ kalevala.tulostaNimi(); // Valekala
 
 
 <div class="tehtavat">
-<NEXTWEEK></NEXTWEEK>
 
     <h3>Puhelinmuistio</h3>
 
@@ -3965,20 +3955,44 @@ kalevala.tulostaNimi(); // Valekala
 muistio = new Puhelinmuistio();
 muistio.lisaaNumero("mikke", "044-33669933");
 muistio.lisaaNumero("mikke", "044-33669933");
-alert(muistio.annaNumerot("mikke")); // numero 044-33669933 vain kerran
+console.log(muistio.annaNumerot("mikke")); // numero 044-33669933 vain kerran
 
 muistio.lisaaNumero("mikke", "231");
-alert(muistio.annaNumerot("mikke")); // numerot 044-33669933 ja 231
+console.log(muistio.annaNumerot("mikke")); // numerot 044-33669933 ja 231
 
-alert(muistio.annaNumerot("matti")); // tyhjä lista
+console.log(muistio.annaNumerot("matti")); // tyhjä lista
 muistio.lisaaNumero("matti", "1111");
-alert(muistio.annaNumerot("matti")); // numero 1111
+console.log(muistio.annaNumerot("matti")); // numero 1111
 
-alert(muistio.annaNumerot("mikke")); // numerot 044-33669933 ja 231
+console.log(muistio.annaNumerot("mikke")); // numerot 044-33669933 ja 231
 </pre>
 
 
 </div>
+
+
+
+
+</section>
+
+
+<h1>Päivitysraja</h1>
+
+<div>
+<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
+</div>
+<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
+
+
+
+
+<section class="week">
+
+
+  <header>
+    <a name="viikko1"></a>
+    <h1 data-week-id="3">Viikko 3</h1>
+  </header>
 
 
     <h3>Moduulit</h3>
@@ -4027,7 +4041,7 @@ kauppa.ostoskori = (function() {
 kauppa.ostoskori.lisaa("keksi");
 kauppa.ostoskori.lisaa("keksi");
 kauppa.ostoskori.lisaa("omena");
-alert(kauppa.ostoskori.tuotteidenLukumaara()); // 3
+console.log(kauppa.ostoskori.tuotteidenLukumaara()); // 3
 </pre>
 
     <p>Anonyymille funktiolle voi antaa parametreja. Luodaan hinnastomoduuli, joka palauttaa tuotteen nimen perusteella sen hinnan. Vaikka hinnastomoduulimme palauttaa kaikkien tuotteiden hinnaksi 3, voisi sen toteutus myös hakea hinnat esimerkiksi erilliseltä palvelimelta.</p>
@@ -4091,6 +4105,9 @@ kauppa.ostoskori = (function(hinnasto) {
     <p>Huomaa miten riippuvuus hinnastoon nimetään moduulin sisällä uudestaan anonyymin funktion parametrien kautta. Moduulin sisällä hinnastoon viitataan muuttujalla <code>hinnasto</code>.</p>
 
 <div class="tehtavat">
+  <NEXTWEEK></NEXTWEEK>
+
+
   <h3>Ostoskorin tilaaminen ja varasto</h3>
 
   <p>Jatkokehitetään yllä olevaa esimerkkiä. Tehtävänäsi on luoda varastokirjanpitoa varten moduuli <code>kauppa.varasto</code>, joka tarjoaa seuraavat funktiot:</p>
@@ -4110,25 +4127,25 @@ kauppa.ostoskori = (function(hinnasto) {
 kauppa.ostoskori.lisaa("kivi");
 kauppa.ostoskori.lisaa("kivi");
 kauppa.ostoskori.lisaa("kivi");
-alert(kauppa.ostoskori.tuotteidenLukumaara()); // 3
-alert(kauppa.varasto.saldo("kivi")); // 0
+console.log(kauppa.ostoskori.tuotteidenLukumaara()); // 3
+console.log(kauppa.varasto.saldo("kivi")); // 0
 
 kauppa.ostoskori.tilaa();
-alert(kauppa.ostoskori.tuotteidenLukumaara()); // 0
-alert(kauppa.varasto.saldo("kivi")); // -3
+console.log(kauppa.ostoskori.tuotteidenLukumaara()); // 0
+console.log(kauppa.varasto.saldo("kivi")); // -3
 
-alert(kauppa.varasto.saldo("paperi")); // 0
+console.log(kauppa.varasto.saldo("paperi")); // 0
 
 kauppa.ostoskori.lisaa("kivi");
 kauppa.ostoskori.lisaa("kivi");
 kauppa.ostoskori.lisaa("paperi");
 
 kauppa.ostoskori.tilaa();
-alert(kauppa.varasto.saldo("kivi")); // -5
-alert(kauppa.varasto.saldo("paperi")); // -1
+console.log(kauppa.varasto.saldo("kivi")); // -5
+console.log(kauppa.varasto.saldo("paperi")); // -1
 
 kauppa.varasto.lisaa("kivi", 7);
-alert(kauppa.varasto.saldo("kivi")); // 2
+console.log(kauppa.varasto.saldo("kivi")); // 2
 </pre>
 
   <p>Tilaamisen tulee vain vähentää tavarat varastosta ja tyhjentää ostoskori, muuta toiminnallisuutta ei vielä tarvitse.</p>
@@ -4138,7 +4155,9 @@ alert(kauppa.varasto.saldo("kivi")); // 2
     <p><em>Moduulista ei voi tehdä olioita, joten ostoskoreja voi olla vain yksi. Tämä ei kuitenkaan ole toivottavaa.</em></p>
 
 
-    <h3>Olioiden tila ja new</h3>
+  
+
+  <h3>Olioiden tila ja new</h3>
 
 
     <p>Operaatiota <code>new</code> kutsuttaessa funktiosta luodaan kopio, jolloin käytännössä varataan tilaa oliolle ja sen <code>this</code>-operaattorilla merkatuille muuttujille. Uusi, juuri luotava olio, on käytännössä joukko avain-arvo -pareja, jossa arvo voi olla funktio, muuttuja, tai olio. Koska muuttujat voivat olla funktioita, voi <code>this</code>-operaattorilla viitata funktioon.</p>

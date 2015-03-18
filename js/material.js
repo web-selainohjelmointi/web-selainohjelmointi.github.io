@@ -1,3 +1,6 @@
+var exerciseCounter = 0;
+
+
 var Material = (function(){
   var self = {};
 
@@ -50,20 +53,22 @@ var Material = (function(){
   }
 
   self.createExerciseList = function(){
-    exerciseId = 0;
+
     var data = { exercises: [] };
     
     $('section.week').each(function(){
       var weekId = $(this).find('header h1').attr('data-week-id');
       $(this).find('.tehtavat h3:not(.ignore)').each(function(index){
-        exerciseId++;
+        exerciseCounter++;
+        exerciseId = exerciseCounter;
 
         data.exercises.push({
-          title: 'Viikko ' + weekId + ', Tehtävä ' + (index+1) + ': ' +  $(this).text(),
+          title: 'Viikko ' + weekId + ', Tehtävä ' + exerciseId + ': ' +  $(this).text(),
           anchor: '#vk-' + weekId + '-t' + exerciseId
         });
 
-        $(this).prepend('<a name="vk-' + weekId + '-t' + exerciseId + '"></a>Viikko ' + weekId + ', Tehtävä ' + (index+1) + ': ');
+//        $(this).prepend('<a name="vk-' + weekId + '-t' + exerciseId + '"></a>Viikko ' + weekId + ', Tehtävä ' + (index+1) + ': ');
+        $(this).prepend('<a name="vk-' + weekId + '-t' + exerciseId + '"></a>Viikko ' + weekId + ', Tehtävä ' + exerciseId + ': ');
       });
     });
 
