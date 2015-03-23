@@ -3780,8 +3780,6 @@ var data = "nimi=mikke&ika=17";
 req.open("POST", "dataprocessor.html", true);
 
 req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-req.setRequestHeader("Content-Length", data.length);
-req.setRequestHeader("Connection", "close");
 
 req.send(data);
 </pre>
@@ -3796,8 +3794,6 @@ var req = new XMLHttpRequest();
 req.open("POST", "jsonprocessor.html", true);
 
 req.setRequestHeader("Content-Type","application/json");
-req.setRequestHeader("Content-Length", data.length);
-req.setRequestHeader("Connection", "close");
 
 req.send(data);
 </pre>
