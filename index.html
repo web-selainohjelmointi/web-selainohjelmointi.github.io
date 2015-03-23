@@ -3641,8 +3641,8 @@ var req = new XMLHttpRequest();
 
 // mitä tehdään kun saadaan vastaus (vastauksia voi olla useita)
 req.onreadystatechange = function() {
-    // jos tila ei ole 4 (valmis), ei käsitellä
-    if (req.readyState !== 4) {
+    // jos tila ei ole valmis, ei käsitellä
+    if (req.readyState !== this.DONE) {
         console.log("state " + req.readyState);
         return false;
     }
@@ -3658,14 +3658,14 @@ req.onreadystatechange = function() {
 }
 
 req.open("GET", "data.json", true);
-req.send("");
+req.send();
 </pre>
 
-    <p>Tutkitaan yllä olevaa koodia hieman tarkemmin. Palvelin voi palauttaa XMLHttpRequest-pyyntöön useamman vastauksen. Attribuutti <code>readyState</code> sisältää arvon väliltä [0, 4], missä 4 tarkoittaa pyynnön olevan valmis. Jos attribuutin <code>readyState</code> arvo ei ole neljä, odotamme lopullista vastausta. Attribuutti <code>status</code> kertoo HTTP-pyynnön statuskoodin. Statuskoodi 200 kertoo pyynnön onnistuneen. Lisää tietoa statuskoodeista löytyy esimerkiksi googlella ja <a href="http://httpstatuscats.com/" target="_blank">täältä</a>.</p>
+    <p>Tutkitaan yllä olevaa koodia hieman tarkemmin. Palvelin voi palauttaa XMLHttpRequest-pyyntöön useamman vastauksen. Attribuutti <code>readyState</code> sisältää arvon väliltä [0, 4], missä 4 tarkoittaa pyynnön olevan valmis. Numeroarvoja vastaavat vakiot (pienimmästä suurimpaan) <code>UNSENT</code>, <code>OPENED</code>, <code>HEADERS_RECEIVED</code>, <code>LOADING</code> sekä <code>DONE</code> joihin päästään käsiksi <code>this</code>:n kautta. Jos attribuutin <code>readyState</code> arvo ei ole neljä (<code>DONE</code>), odotamme lopullista vastausta. Attribuutti <code>status</code> kertoo HTTP-pyynnön statuskoodin. Statuskoodi 200 kertoo pyynnön onnistuneen. Lisää tietoa statuskoodeista löytyy esimerkiksi googlella ja <a href="http://httpstatuscats.com/" target="_blank">täältä</a>.</p>
 
     <p>Ylläolevassa esimerkiksi vastaus näytetään <code>console.log</code>-komennon avulla. Käytännössä JSON-dataa sisältävän vastauksen voisi muuttaa <code>JSON.parse</code>-funktiolla olioksi.</p>
 
-    <p>Tärkeä osa liittyy pyynnön avaamiseen. Komento <code>req.open("GET", "data.json", true);</code> avaa GET-tyyppisen HTTP-yhteyden <em>nykyiseen sivustoon</em> liittyvään osoitteeseen <code>data.json</code>. Koska viimeinen parametri on <code>true</code>, on pyyntötyyppi asynkroninen, eikä selain jää odottamaan vastausta. Vastaukseen reagoidaan kun vastaus saapuu.</p>
+    <p>Tärkeä osa liittyy pyynnön avaamiseen. Komento <code>req.open("GET", "data.json", true);</code> avaa GET-tyyppisen HTTP-yhteyden <em>nykyiseen sivustoon</em> liittyvään osoitteeseen <code>data.json</code>. Koska viimeinen parametri on <code>true</code>, on pyyntötyyppi asynkroninen, eikä selain jää odottamaan vastausta. Vastaukseen reagoidaan kun vastaus saapuu. Asynkronisuuden määrittävä boolenia ei kuitenkaan vaadita ja pyyntö on oletusarvoisesti asynkroninen jollei toisin määritetä. Täten parametri täytyy erikseen asettaa vain jos sen arvoksi haluaa <code>false</code>.</p>
 
 
     <div class="test-js">
@@ -3675,8 +3675,8 @@ req.onreadystatechange = function() {
     console.log(req.readyState + ", " + req.status + ", " + req.responseText);
 }
 
-req.open("GET", "data.json", true);
-req.send("");
+req.open("GET", "data.json");
+req.send();
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-xmlhttpreq-haku')" value="Suorita koodi!"></input></p>
     </div>
@@ -3768,8 +3768,8 @@ document.body.appendChild(script);
 // pyyntöolion luonti
 var req = new XMLHttpRequest();
 var parametrit = "nimi=mikke&ika=17";
-req.open("GET", "dataprocessor.html?" + parametrit, true);
-req.send("");
+req.open("GET", "dataprocessor.html?" + parametrit);
+req.send();
 </pre>
 
     <p>GET-pyyntö on hieman huono siinä mielessä, että lähetettävä data näkyy kaikkialle. Esimerkiksi jos pyyntö kulkee useamman reitittimen läpi ennen pääsyä palvelimelle, jokainen reititin näkee parametrit. Toinen vaihtoehto on POST-pyyntö, jossa data lähetetään osana pyynnön runkoa. Tällöin pyynnölle tulee myös määritellä lähetettävän datan muoto. Allaolevassa esimerkissä sanomme datan olevan lomakkeelta.</p>
@@ -3777,11 +3777,9 @@ req.send("");
 <pre class="sh_javascript_dom">
 var req = new XMLHttpRequest();
 var data = "nimi=mikke&ika=17";
-req.open("POST", "dataprocessor.html", true);
+req.open("POST", "dataprocessor.html");
 
 req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-req.setRequestHeader("Content-Length", data.length);
-req.setRequestHeader("Connection", "close");
 
 req.send(data);
 </pre>
@@ -3793,11 +3791,9 @@ var mikke = {nimi: "Michael", ika: 17};
 var data = JSON.stringify(mikke);
 
 var req = new XMLHttpRequest();
-req.open("POST", "jsonprocessor.html", true);
+req.open("POST", "jsonprocessor.html");
 
 req.setRequestHeader("Content-Type","application/json");
-req.setRequestHeader("Content-Length", data.length);
-req.setRequestHeader("Connection", "close");
 
 req.send(data);
 </pre>
