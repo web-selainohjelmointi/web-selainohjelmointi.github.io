@@ -3665,7 +3665,7 @@ req.send();
 
     <p>Ylläolevassa esimerkiksi vastaus näytetään <code>console.log</code>-komennon avulla. Käytännössä JSON-dataa sisältävän vastauksen voisi muuttaa <code>JSON.parse</code>-funktiolla olioksi.</p>
 
-    <p>Tärkeä osa liittyy pyynnön avaamiseen. Komento <code>req.open("GET", "data.json", true);</code> avaa GET-tyyppisen HTTP-yhteyden <em>nykyiseen sivustoon</em> liittyvään osoitteeseen <code>data.json</code>. Koska viimeinen parametri on <code>true</code>, on pyyntötyyppi asynkroninen, eikä selain jää odottamaan vastausta. Vastaukseen reagoidaan kun vastaus saapuu.</p>
+    <p>Tärkeä osa liittyy pyynnön avaamiseen. Komento <code>req.open("GET", "data.json", true);</code> avaa GET-tyyppisen HTTP-yhteyden <em>nykyiseen sivustoon</em> liittyvään osoitteeseen <code>data.json</code>. Koska viimeinen parametri on <code>true</code>, on pyyntötyyppi asynkroninen, eikä selain jää odottamaan vastausta. Vastaukseen reagoidaan kun vastaus saapuu. Asynkronisuuden määrittävä boolenia ei kuitenkaan vaadita ja pyyntö on oletusarvoisesti asynkroninen jollei toisin määritetä. Täten parametri täytyy erikseen asettaa vain jos sen arvoksi haluaa <code>false</code>.</p>
 
 
     <div class="test-js">
@@ -3675,7 +3675,7 @@ req.onreadystatechange = function() {
     console.log(req.readyState + ", " + req.status + ", " + req.responseText);
 }
 
-req.open("GET", "data.json", true);
+req.open("GET", "data.json");
 req.send();
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-xmlhttpreq-haku')" value="Suorita koodi!"></input></p>
@@ -3768,7 +3768,7 @@ document.body.appendChild(script);
 // pyyntöolion luonti
 var req = new XMLHttpRequest();
 var parametrit = "nimi=mikke&ika=17";
-req.open("GET", "dataprocessor.html?" + parametrit, true);
+req.open("GET", "dataprocessor.html?" + parametrit);
 req.send();
 </pre>
 
@@ -3777,7 +3777,7 @@ req.send();
 <pre class="sh_javascript_dom">
 var req = new XMLHttpRequest();
 var data = "nimi=mikke&ika=17";
-req.open("POST", "dataprocessor.html", true);
+req.open("POST", "dataprocessor.html");
 
 req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
@@ -3791,7 +3791,7 @@ var mikke = {nimi: "Michael", ika: 17};
 var data = JSON.stringify(mikke);
 
 var req = new XMLHttpRequest();
-req.open("POST", "jsonprocessor.html", true);
+req.open("POST", "jsonprocessor.html");
 
 req.setRequestHeader("Content-Type","application/json");
 
