@@ -3676,7 +3676,7 @@ req.onreadystatechange = function() {
 }
 
 req.open("GET", "data.json", true);
-req.send("");
+req.send();
 </textarea></p>
       <p><input type="button" onclick="evalElementContent('js-xmlhttpreq-haku')" value="Suorita koodi!"></input></p>
     </div>
@@ -3769,7 +3769,7 @@ document.body.appendChild(script);
 var req = new XMLHttpRequest();
 var parametrit = "nimi=mikke&ika=17";
 req.open("GET", "dataprocessor.html?" + parametrit, true);
-req.send("");
+req.send();
 </pre>
 
     <p>GET-pyyntö on hieman huono siinä mielessä, että lähetettävä data näkyy kaikkialle. Esimerkiksi jos pyyntö kulkee useamman reitittimen läpi ennen pääsyä palvelimelle, jokainen reititin näkee parametrit. Toinen vaihtoehto on POST-pyyntö, jossa data lähetetään osana pyynnön runkoa. Tällöin pyynnölle tulee myös määritellä lähetettävän datan muoto. Allaolevassa esimerkissä sanomme datan olevan lomakkeelta.</p>
