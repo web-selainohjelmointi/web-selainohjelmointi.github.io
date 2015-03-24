@@ -3964,26 +3964,11 @@ console.log(muistio.annaNumerot("mikke")); // numerot 044-33669933 ja 231
 
 
 </div>
-
-
-
-
 </section>
-
-
-<h1>Päivitysraja</h1>
-
-<div>
-<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
-</div>
-<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
-
 
 
 
 <section class="week">
-
-
   <header>
     <a name="viikko3"></a>
     <h1 data-week-id="3">Viikko 3</h1>
@@ -3992,8 +3977,7 @@ console.log(muistio.annaNumerot("mikke")); // numerot 044-33669933 ja 231
 
     <h3>Moduulit</h3>
 
-
-    <p>Moduulit toteutetaan anonyymin funktion avulla. Muuttujien funktionäkyvyyden takia muuttujat voidaan kapseloida anonyymin funktion sisään, jolloin niihin ei pääse käsiksi funktion ulkopuolelta. Anonyymin funktion sisälle määritellyt funktiot pääsevät käsiksi muuttujiin, jolloin sisäfunktioissa voidaan muokata muuttujien arvoja.  Moduuli palauttaa moduulissa määritellyn rajapinnan, jossa on viittaukset sisäfunktioihin.</p>
+    <p>Moduulit toteutetaan anonyymien funktioiden avulla. Muuttujien funktionäkyvyyden takia muuttujat voidaan kapseloida anonyymin funktion sisään, jolloin niihin ei pääse käsiksi funktion ulkopuolelta. Anonyymin funktion sisälle määritellyt funktiot pääsevät käsiksi muuttujiin, jolloin sisäfunktioissa voidaan muokata muuttujien arvoja.  Moduuli palauttaa moduulissa määritellyn rajapinnan, jossa on viittaukset sisäfunktioihin.</p>
 
     <p>Hahmotellaan kaupan hallinnointiin tarvittavaa järjestelmää. Luodaan ostoskorimoduuli, joka tarjoaa julkisen rajapinnan tuotteiden lisäämiseen ja tuotteiden lukumäärän laskemiseen.</p>
 
@@ -4096,16 +4080,17 @@ kauppa.ostoskori = (function(hinnasto) {
 })(kauppa.hinnasto);
 </pre>
 
-
     <p>Huomaa miten riippuvuus hinnastoon nimetään moduulin sisällä uudestaan anonyymin funktion parametrien kautta. Moduulin sisällä hinnastoon viitataan muuttujalla <code>hinnasto</code>.</p>
+
 
 <div class="tehtavat">
   <NEXTWEEK></NEXTWEEK>
 
-
   <h3>Ostoskorin tilaaminen ja varasto</h3>
 
+
   <p>Jatkokehitetään yllä olevaa esimerkkiä. Tehtävänäsi on luoda varastokirjanpitoa varten moduuli <code>kauppa.varasto</code>, joka tarjoaa seuraavat funktiot:</p>
+
   <ol>
     <li><code>lisaa(tuote, lukumaara)</code> lisää annetun lukumärään tuotteita varastoon.</li>
     <li><code>ota(tuote, lukumaara)</code> ottaa varastosta tuotteita halutun lukumäärän.</li>
@@ -4147,10 +4132,8 @@ console.log(kauppa.varasto.saldo("kivi")); // 2
 
 </div>
 
-    <p><em>Moduulista ei voi tehdä olioita, joten ostoskoreja voi olla vain yksi. Tämä ei kuitenkaan ole toivottavaa.</em></p>
+    <p><em>Edellä esitellystä moduulista ei voi tehdä olioita, joten ostoskoreja voi olla vain yksi. Tämä ei kuitenkaan aina ole toivottavaa.</em></p>
 
-
-  
 
   <h3>Olioiden tila ja new</h3>
 
@@ -4165,7 +4148,7 @@ function Laskuri() {
 }
 </pre>
 
-    <p>Ylläolevaa funktiota voi kutsua sekä <code>new</code>-operaation avulla tai ilman. Jos funktiota kutsutaan ilman <code>new</code>- kutsua, kutsu on normaali funktiokutsuna. Toisaalta, jos funkitiota kutsutaan <code>new</code>-operaation kanssa, funktiosta luodaan uusi olio.</p>
+    <p>Ylläolevaa funktiota voi kutsua sekä <code>new</code>-operaation avulla että ilman. Jos funktiota kutsutaan ilman <code>new</code>- kutsua, kutsu on normaali funktiokutsu. Toisaalta, jos funktiota kutsutaan <code>new</code>-operaation kanssa, luodaan uusi olio.</p>
 
 <pre class="sh_javascript_dom">
 Laskuri(); // suorittaa funktion sisällä olevan koodin
@@ -4173,7 +4156,7 @@ Laskuri(); // suorittaa funktion sisällä olevan koodin
 var olio = new Laskuri(); // suorittaa funktion sisällä olevan koodin, luo olion, ja palauttaa sen erilliseen muuttujaan
 </pre>
 
-    <p>Yllä olio on <em>kopio</em> Laskuri-funktion sisäisestä tilasta. Tilaan ei kuitenkaan pääse mitenkään käsiksi.</p>
+    <p>Yllä luotu olio on <em>kopio</em> Laskuri-funktion sisäisestä tilasta. Tilaan ei kuitenkaan pääse mitenkään käsiksi.</p>
 
     <p>Lisätään funktioon <code>Laskuri</code> kaksi <code>this</code>-operaatiolla määriteltyä funktiota. Koska operaatiolla <code>this</code> määritellyt muuttujat ovat oliokohtaisia, ovat myös funktiot oliokohtaisia.</p>
 
@@ -4186,7 +4169,7 @@ function Laskuri() {
     }
 
     this.tulosta = function() {
-        alert(luku);
+        console.log(luku);
     }
 }
 </pre>
@@ -4197,7 +4180,7 @@ function Laskuri() {
 Laskuri(); // yrittää suorittaa funktion sisällä olevan koodin, ei toimi
 </pre>
 
-    <p>Kun funktiota <code>Laskuri</code> kutsutaan ilman <code>new</code>-operaatiota, näemme virheen "Cannot set property 'kasvata' of undefined". Tämä johtuu siitä, että <code>this</code>-operaatio liittyy aina olioon. Käytännössä yritämme lisätä oliolle uutta muuttujaa <code>kasvata</code>. Tämä epäonnistuu, sillä oliota, mille muuttujaa yritetään asettaa ei ole.</p>
+    <p>Kun funktiota <code>Laskuri</code> kutsutaan ilman <code>new</code>-operaatiota, näemme virheen "Cannot set property 'kasvata' of undefined". Tämä johtuu siitä, että <code>this</code> liittyy aina olioon. Käytännössä yritämme lisätä oliolle uutta muuttujaa <code>kasvata</code>. Yllä tämä epäonnistuu, sillä oliota, mille muuttujaa yritetään asettaa ei ole olemassa.</p>
 
     <p>Kutsutaan seuraavaksi funktiota <code>Laskuri</code> <code>new</code>-operaation kanssa, eli luodaan siitä olio.</p>
 
@@ -4221,7 +4204,7 @@ laskin.tulosta(); // 2
 toinen.tulosta(); // 0
 </pre>
 
-    <p>Palataan ihan alkuun. Javascriptiin tutustuessa huomasimme, että uusia JavaScript-olioita voi luoda aaltosulkujen avulla. Oikeastaan, operaatio <code>this</code>-lisää oliolle uusia muuttujia aivan kuten aaltosulkunotaatiolla luotavalle oliolle lisätään uusia muuttujia. Yllä olevan laskurin voi toteuttaa myös seuraavasti:</p>
+    <p>Javascriptiin tutustuessa huomasimme, että uusia JavaScript-olioita voi luoda aaltosulkujen avulla. Oikeastaan, operaatio <code>this</code>-lisää oliolle uusia muuttujia aivan kuten aaltosulkunotaatiolla luotavalle oliolle lisätään uusia muuttujia. Yllä olevan laskurin voi toteuttaa myös seuraavasti:</p>
 
 <pre class="sh_javascript_dom">
 function Laskuri() {
@@ -4232,7 +4215,7 @@ function Laskuri() {
             luku++;
         },
         tulosta: function() {
-            alert(luku);
+            console.log(luku);
         }
     };
 }
@@ -4249,7 +4232,7 @@ function Laskuri() {
     }
 
     function tulosta() {
-        alert(luku);
+        console.log(luku);
     }
 
     return {
@@ -4262,45 +4245,18 @@ function Laskuri() {
 
     <p>Oleellista on se, että Kutsu <code>new Laskuri()</code> palauttaa uuden olion. Uudella oliolla on funktion Laskuri kapseloima muuttuja <code>luku</code>, sekä luodun olion tarjoamat julkiset funktiot <code>kasvata</code> ja <code>tulosta</code>. Huomaa että kutsu <code>{}</code> luo uuden <em>Object</em>-tyyppisen olion -- yllä olevan olion tyyppi ei siis ole Laskin!</p>
 
-<div class="extra">
+<aside class="extra">
   <p><strong>Monta tapaa sanoa sama asia</strong></p>
 
   <p>JavaScriptiä on monimuotoisuutensa takia helposti hyvin vaikea ymmärtää. Yhden asian voi helposti sanoa viidelläkin eri tavalla, joka voi johtaa väärinkäsityksiin tai väärinymmärryksiin. Oleellista on kuitenkin ymmärtää että oliot ovat avain-arvo -pareja, joilla jokaisella voi olla <em>erilaiset</em> sisällöt. Arvot voivat olla funktioita, jotka muokkaavat toisia arvoja.</p>
 
   <p>Funktionäkyvyys mahdollistaa tiedon kapseloinnin. Sulkeumien takia sisäfunktioilla on pääsy niiden kapseloivan funktion sisältämiin muuttujiin, myös silloin kun kapseloivan funktion suoritus on ohi.</p>
 
-</div>
+</aside>
 
 <div class="tehtavat">
-<!--
-    <h3>OstoskoriOlio</h3>
 
-    <p>Muokkaa tehtäväpohjassa tulevaa ostoskoria siten, että ostoskoreja voi luoda useita. Tehtäväpohjan ostoskorin lähdekoodi on osion 9.2. esimerkistä. Anna jokaiselle ostoskorille parametrina hinnasto, jota ostoskori käyttää yhteishinnan laskemiseen.</p>
-
-    <p>Kun ohjelmasi toimii alla olevalla esimerkillä, palauta se TMC:lle. Voit hyvin toteuttaa ostoskorin yllä esitetyillä tekniikoilla. Myöhemmin esitetty esimerkki voi olla tarpeettoman monimutkainen.</p>
-
-<pre class="sh_javascript_dom">
-var kori = new kauppa.Ostoskori(kauppa.hinnasto);
-kori.lisaa("kivi");
-kori.lisaa("kivi");
-kori.lisaa("kivi");
-kori.lisaa("parsa");
-
-alert(kori.tuotteidenLukumaara()); // 4
-alert(kori.yhteishinta()); // 12
-
-var vuitton = new kauppa.Ostoskori(kauppa.hinnasto);
-vuitton.lisaa("pumpuli");
-
-alert(vuitton.tuotteidenLukumaara()); // 1
-alert(vuitton.yhteishinta()); // 3
-
-alert(kori.tuotteidenLukumaara()); // 4
-alert(kori.yhteishinta()); // 12
-</pre>
--->
-
-  <h3>Tavara ja Matkalaukku</h3>
+    <h3>Tavara ja Matkalaukku</h3>
 
     <p>Muokataan viime viikolla ollutta tehtävää siten, että käytetään edellä esitettyä olioiden esitystapaa. Muokkaa tehtäväpohjassa olevia konstruktorifunktiota <code>Tavara</code> ja <code>Matkalaukku</code> siten, että konstruktorifunktiot sisältävät luotaviin olioihin liitettävät metodit. Muokkaa ohjelmaa siten, että se toimii alla olevalla esimerkillä.</p>
 
@@ -4315,25 +4271,26 @@ var laukku = new Matkalaukku(10);
 var vuitton = new Matkalaukku(3);
 
 laukku.lisaa(kivi);
-alert("laukun paino, pitäisi olla 3: " + laukku.paino());
+console.log("laukun paino, pitäisi olla 3: " + laukku.paino());
 laukku.lisaa(kivi); // virhe: "Tavara lisätty jo, ei onnistu!"
 
 laukku.lisaa(kirja);
-alert("laukun paino, pitäisi olla 10: " + laukku.paino());
+console.log("laukun paino, pitäisi olla 10: " + laukku.paino());
 
 laukku.lisaa(pumpuli); // virhe: "Liian painava, ei pysty!"
 
-alert("laukun paino, pitäisi olla 10: " + laukku.paino());
+console.log("laukun paino, pitäisi olla 10: " + laukku.paino());
 
 vuitton.lisaa(pumpuli);
-alert("vuittonin paino, pitäisi olla 0.001: " + vuitton.paino());
+console.log("vuittonin paino, pitäisi olla 0.001: " + vuitton.paino());
 
 // seuraavien komentojen ei pitäisi ainakaan muuttaa vuittonin painoa
 pumpuli.paino = 300; // jos tavaralla on metodi paino, hajottaa ohjelman seuraavassa, muuten ei
-alert("vuittonin paino, pitäisi olla vieläkin 0.001: " + vuitton.paino()); // paino ei ole muuttunut
+console.log("vuittonin paino, pitäisi olla vieläkin 0.001: " + vuitton.paino()); // paino ei ole muuttunut
 </pre>
 
 </div>
+
 
 
   <h3>Moduulien ja olioiden yhdistäminen</h3>
@@ -4411,11 +4368,11 @@ kauppa.Ostoskori = function() {
 var a = new kauppa.Ostoskori();
 a.lisaa("kekseja");
 a.lisaa("kekseja");
-alert(a.tuotteita()); // 2
+console.log(a.tuotteita()); // 2
 
 var b = new kauppa.Ostoskori();
-alert(b.tuotteita()); // 0
-alert(a.tuotteita()); // 2
+console.log(b.tuotteita()); // 0
+console.log(a.tuotteita()); // 2
 </pre>
 
     <p>Aiemmassa esimerkissämme ostoskorilla oli tiedossa hinnasto, jota ei ylläolevassa esimerkissä ole. Hinnaston lisääminen jokaisen ostoskorin konstruktorikutsun yhteydessä ei ole miellyttävää, joten muokataan edellisestä ostoskorista moduuli, joka kapseloi hinnaston. Haluamme myös säilyttää mahdollisuuden useamman ostoskorin luomiseen. Muokataan ensin ostoskoritoteutusta siten, että se on kapseloitu moduulin sisälle. Luodaan moduuli <code>Ostoskori</code>, joka funktiokutsun yhteydessä <em>palauttaa</em> moduulin kapseloiman konstruktorifunktion nimeltä <code>Kori</code>.</p>
@@ -4461,11 +4418,11 @@ kauppa.Ostoskori = (function() {
 var kori = new kauppa.Ostoskori();
 kori.lisaa("kekseja");
 kori.lisaa("kekseja");
-alert(kori.tuotteidenLukumaara()); // 2
+console.log(kori.tuotteidenLukumaara()); // 2
 
 var laukku = new kauppa.Ostoskori();
-alert(laukku.tuotteidenLukumaara()); // 0
-alert(laukku.tuotteidenLukumaara()); // 2
+console.log(laukku.tuotteidenLukumaara()); // 0
+console.log(laukku.tuotteidenLukumaara()); // 2
 </pre>
 
     <p>Lisätään ostoskorille hinnasto. Käytämme hinnaston toteutuksena aiemmin luomaamme seuraavanlaista hinnastoa.</p>
@@ -4569,15 +4526,15 @@ kauppa.Ostoskori = (function(hinnasto) {
 var kori = new kauppa.Ostoskori();
 kori.lisaa("kekseja");
 kori.lisaa("kekseja");
-alert(kori.tuotteidenLukumaara()); // 2
-alert(kori.yhteishinta()); // 6
+console.log(kori.tuotteidenLukumaara()); // 2
+console.log(kori.yhteishinta()); // 6
 
 var laukku = new kauppa.Ostoskori();
-alert(laukku.tuotteidenLukumaara()); // 0
-alert(laukku.yhteishinta()); // 0
+console.log(laukku.tuotteidenLukumaara()); // 0
+console.log(laukku.yhteishinta()); // 0
 
-alert(kori.tuotteidenLukumaara()); // 2
-alert(kori.yhteishinta()); // 6
+console.log(kori.tuotteidenLukumaara()); // 2
+console.log(kori.yhteishinta()); // 6
 </pre>
 
     <p>Ylläolevassa esimerkissä käytetään moduulille parametrina annettua hinnastoa hintojen laskemiseen. Itseasiassa, koska hinnasto on moduulin parametrina, on se käytössä myös moduulin sisällä. Moduuli ei siis tarvitse erillistä <code>hinnat</code>-muuttujaa.</p>
@@ -4628,15 +4585,15 @@ kauppa.Ostoskori = (function(hinnasto) {
 var kori = new kauppa.Ostoskori();
 kori.lisaa("kekseja");
 kori.lisaa("kekseja");
-alert(kori.tuotteidenLukumaara()); // 2
-alert(kori.yhteishinta()); // 6
+console.log(kori.tuotteidenLukumaara()); // 2
+console.log(kori.yhteishinta()); // 6
 
 var laukku = new kauppa.Ostoskori();
-alert(laukku.tuotteidenLukumaara()); // 0
-alert(laukku.yhteishinta()); // 0
+console.log(laukku.tuotteidenLukumaara()); // 0
+console.log(laukku.yhteishinta()); // 0
 
-alert(kori.tuotteidenLukumaara()); // 2
-alert(kori.yhteishinta()); // 6
+console.log(kori.tuotteidenLukumaara()); // 2
+console.log(kori.yhteishinta()); // 6
 </pre>
 
 
@@ -4649,6 +4606,49 @@ alert(kori.yhteishinta()); // 6
 </div>
 -->
 
+
+<div class="tehtavat">
+  <NEXTWEEK></NEXTWEEK>
+
+  <h3>Ostoskorin tilaaminen ja varasto, osa 2</h3>
+
+  <p>Yhdistä tehtävän 18 ratkaisusi edellä olevaan esimerkkiin siten, että ostoskoreja voi luoda useampia, ja että jokaisen voi tilata erikseen. Kun sovelluksesi toimii oikein, palauta se TMC:lle -- voit käyttää allaolevaa koodia avuksi ohjelman testaamiseen.</p>
+
+<pre class="sh_javascript_dom">
+var kori = new kauppa.Ostoskori();
+kori.lisaa("kivi");
+kori.lisaa("kivi");
+kori.lisaa("kivi");
+console.log(kori.tuotteidenLukumaara()); // 3
+console.log(kauppa.varasto.saldo("kivi")); // 0
+
+kori.tilaa();
+console.log(kori.tuotteidenLukumaara()); // 0
+console.log(kauppa.varasto.saldo("kivi")); // -3
+
+console.log(kauppa.varasto.saldo("paperi")); // 0
+
+kori.lisaa("kivi");
+
+var uusikori = new kauppa.Ostoskori();
+
+uusikori.lisaa("kivi");
+uusikori.lisaa("paperi");
+
+console.log(kori.tuotteidenLukumaara()); // 1
+console.log(uusikori.tuotteidenLukumaara()); // 2
+
+kori.tilaa();
+uusikori.tilaa();
+
+console.log(kauppa.varasto.saldo("kivi")); // -5
+console.log(kauppa.varasto.saldo("paperi")); // -1
+
+kauppa.varasto.lisaa("kivi", 7);
+console.log(kauppa.varasto.saldo("kivi")); // 2
+</pre>
+
+</div>
 
 
     <h2>MV* ja Web-sovelluksen rakenne</h2>
@@ -4684,13 +4684,13 @@ var muistutus = {};
     &lt;body onload="muistutus.init();" &gt;
 
         &lt;section id="tapahtumat"&gt;
-    &lt;/section&gt;
+        &lt;/section&gt;
 
         &lt;section id="uusitapahtuma"&gt;
             &lt;label&gt;Nimi: &lt;input type="text" id="nimi" /&gt;&lt;/label&gt;
             &lt;label&gt;Aika (vvvv-kk-pp): &lt;input type="text" id="aika" /&gt;&lt;/label&gt;
             &lt;input type="button" id="lisaa" /&gt;
-    &lt;/section&gt;
+        &lt;/section&gt;
 
 
         &lt;script src="muistutus.js"&gt;&lt;/script&gt;
@@ -4740,7 +4740,7 @@ muistutus.view.Listaus = function(elementti) {
 }
 </pre>
 
-    <p>Huomaa, että ylläoleva näkymässä aiheutuviin tapahtumiin liittyvää koodia ei sisällytetä näkymän koodiin. Jätetään ne kontrollerille. Koska elementti, johon tapahtumat lisätään, annetaan konstruktorifunktiolle parametrina, on se käytössä myös olion metodeissa.</p>
+    <p>Huomaa, että näkymässä aiheutuviin tapahtumiin liittyvää koodia ei sisällytetä näkymän koodiin, vaan ne jätetään kontrollerille. Koska elementti, johon tapahtumat lisätään, annetaan konstruktorifunktiolle parametrina, on se käytössä myös olion metodeissa.</p>
 
     <h4>Model</h4>
 
@@ -4840,14 +4840,13 @@ muistutus.init = function() {
     <p>Toimii! Sovellusta voisi esimerkiksi jatkokehittää siten, että se sisältäisi datan lähettämisen erilliselle palvelinkomponentille. Tämän lisäksi tapahtumia tulisi pystyä poistamaan.</p>
 
 
-
 <div class="tehtavat">
 
   <h3>Validointi</h3>
 
   <p>Tehtäväpohjan mukana tulee edellä käsitelty muistutussovellus. Jatkokehitä sovellusta siten, että sovelluksessa on validointitoiminnallisuus. Kun käyttäjä yrittää lisätä tapahtumaa, tulee tapahtuman tiedot validoida.</p>
 
-  <p>Toteuta validointitoiminnallisuus siten, että kontrolleriin voi lisätä validoijia. Kun käyttäjä lisää tapahtumaa, kaikki validoijat käydään läpi yksitellen siten, että data annetaan kullekin validoijalle vuorollaan. Jos validoijan palauttama viesti ei ole tyhjä, eli validoijalla on jotain valitettavaa, viesti tulostetaan <code>alert</code>-komennolla ja validointi lopetetaan. Tällöin tapahtuman lisääminen keskeytetään. Toteuta validoijat tehtäväpohjassa annetun Validoija-konstruktorin pohjalta siten, että kukin validoija on olio, jolla on validoitavan kentän nimen lisäksi validointifunktio, jota kontrollerin tulee kutsua dataa validoitaessa. Validoijan sisältämälle funktiolle annetaan parametrina kentän arvo, ja se palauttaa merkkijonon.</p>
+  <p>Toteuta validointitoiminnallisuus siten, että kontrolleriin voi lisätä validoijia. Kun käyttäjä lisää tapahtumaa, kaikki validoijat käydään läpi yksitellen siten, että data annetaan kullekin validoijalle vuorollaan. Jos validoijan palauttama viesti ei ole tyhjä, eli validoijalla on jotain valitettavaa, viesti näytetään käyttäjälle ja validointi sekä tapahtuman lisääminen lopetetaan. Toteuta validoijat tehtäväpohjassa annetun Validoija-konstruktorin pohjalta siten, että kukin validoija on olio, jolla on validoitavan kentän nimen lisäksi validointifunktio, jota kontrollerin tulee kutsua dataa validoitaessa. Validoijan sisältämälle funktiolle annetaan parametrina kentän arvo, ja se palauttaa merkkijonon.</p>
 
   <p>Esimerkki validoijaoliosta:</p>
 
@@ -4859,7 +4858,6 @@ var validoija = new Validoija("nimi", function(data) {
 
     return "";
 });
-
 </pre>
 
   <p>Jos ylläoleva validoija on lisätty kontrollerille, datan lisäyksen ei tule toimia jos nimikenttä on tyhjä.</p>
@@ -4867,15 +4865,12 @@ var validoija = new Validoija("nimi", function(data) {
   <p>Kun kontrolleri tukee validoijien lisäämistä, lisää sinne yllä oleva validoija. Luo myös validoija , joka tarkastaa että aika on muotoa <code>yyyy-MM-dd</code>, esimerkiksi 2012-12-24. Kukin numero saa olla mitä tahansa numeroiden 0 ja 9 välillä. Kannattaa tutustua säännöllisiin lausekkeisiin (google esim.  "javascript regular expressions date").</p>
 
   <p>Kun sovelluksesi toimii kuten haluttu, palauta se TMC:lle.</p>
-
 </div>
 
 
     <h3>Kontrollerin rooli selainohjelmistoissa</h3>
 
-
     <p>Yllä olevaa sovellusta luodessa huomaamme, että kontrollerin rooli ei ole kovin selkeä. Muistutus-esimerkissä sovelluksessa kontrolleri toimi elementtien rekisterinä siihen asti, kunnes käyttäjä painoi käyttöliittymän nappia. Napin painalluksenkin rekisteröinti tapahtui kontrollerin ulkopuolella. Sovelluksen voi toteuttaa myös ilman kontrolleria siten, että kontrollerin toiminnallisuus sisällytettäisiin alustukseen.</p>
-
 
 <pre class="sh_javascript_dom">
 muistutus.init = function() {
@@ -4903,7 +4898,6 @@ muistutus.init = function() {
 
     <p>Jos sovelluksessa on useampia näkymiä, joiden välillä haluaisimme siirtyä, kontrollerista on hyötyä. Pienessä sovelluksessa erillisen kontrollerin käyttö saattaa kuitenkin monimutkaistaa sovelluksen rakennetta -- esimerkiksi yllä kontrollerin toiminnallisuuden pystyi lisäämään osaksi init-funktiota. Kontrollereita käytetään myös erityisesti käyttäjän ohjaamiseen useamman näkymän välillä.</p>
 
-
     <h3>Esimerkki: Spoilaaja</h3>
 
     <p>Toteutetaan seuraavaksi sovellus, jossa ei ole eksplisiittistä kontrolleria. Sovelluksessa näkymässä tapahtuvat päivitykset siirtyvät mallille näkymään liitettyjen tapahtumankäsittelijöiden kautta. Tapahtumankäsittelijät luodaan sovelluksen alustusvaiheessa, jolloin tapahtumankäsittelijät toimivat siltana mallin ja näkymän välillä. Käytännössä näkymä ei tiedä mallista, eikä malli näkymästä.</p>
@@ -4917,7 +4911,6 @@ muistutus.init = function() {
 VIEW LISTENER --- päivitä --&gt;    MODEL
 
 </pre>
-
 
     <p>Sovelluksen aihepiiri on spoilaaja, eli sillä näytetään kirjoihin liittyviä spoilauksia. Hahmotellaan ensin sovelluksen käyttöliittymä. HTML-dokumentin rakenne näyttää seuraavalta:</p>
 
@@ -5094,32 +5087,33 @@ spoilaaja.init = function() {
       <p>Kun näkymässä on toiminnallisuus mallin päivittämiseen, kutsutaan näkymän <code>render</code>-metodia. Metodi <code>render</code> luo näkymän annetun datan pohjalta.</p>
 
 <pre class="sh_javascript_dom">
-    view.render(model.getAll(), false, false);
+view.render(model.getAll(), false, false);
 </pre>
 
       <p>Lisätään vielä tapahtumankuuntelija modelille. Nyt jos modelissa tapahtuu muutos, se päivitetään myös näkymälle. Tällöin näkymä saa tietoonsa muutokset, jotka tapahtuvat muualla. Luotava tapahtumankuuntelija ja kuuntelijan käsittelyn toteutus mallissa aiheuttaa käytännössä sen, että näkymä saa tietoonsa mallin muutokset.</p>
 
 <pre class="sh_javascript_dom">
-    model.setListener(function(key, value) {
-        view.render(false, key, value);
-    });
+model.setListener(function(key, value) {
+    view.render(false, key, value);
+});
 </pre>
 
       <p>Kytketään lopuksi käyttöliittymässä olevaan nappiin spoilauksen lisäystoiminnallisuus.</p>
 
 <pre class="sh_javascript_dom">
-    // kytketään nappi toimimaan
-    var nappi = document.querySelector("#input #button");
-    nappi.addEventListener("click", function(eventInformation) {
-        var kirja = document.querySelector("#input #kirja").value;
-        if(!kirja) {
-            return;
-        }
-        var spoilaus = document.querySelector("#input #spoilaus").value;
+// kytketään nappi toimimaan
+var nappi = document.querySelector("#input #button");
 
-        model.update(kirja, spoilaus);
-    }, false);
-}
+nappi.addEventListener("click", function(eventInformation) {
+    var kirja = document.querySelector("#input #kirja").value;
+    if(!kirja) {
+        return;
+    }
+
+    var spoilaus = document.querySelector("#input #spoilaus").value;
+    model.update(kirja, spoilaus);
+
+}, false);
 </pre>
 
 
@@ -5133,7 +5127,7 @@ spoilaaja.init = function() {
 <div class="tehtavat">
     <h3>Spoilaajan Backend (2p)</h3>
 
-    <p>Muistellaan taas JSON-kyselyjen tekemistä palvelimelle. Käy kertaamassa kappale 8 ennen tätä tehtävää. Tehtävänäsi on tässä lisätä edellä esitettyyn ohjelmaan backend-toiminnallisuus. Backend-toiminnallisuuden tehtävänä on sovelluksen käynnistyessä hakea olemassaolevat spoilaukset palvelimelta, sekä lähettää palvelimelle mahdolliset muutokset.</p>
+    <p>Muistellaan taas JSON-kyselyjen tekemistä palvelimelle. Käy kertaamassa kappale 8 ennen tätä tehtävää. Tehtävänäsi on tässä lisätä edellä esitettyyn ohjelmaan backend-kytkös. Backend-kytköksen tehtävänä on sovelluksen käynnistyessä hakea olemassaolevat spoilaukset palvelimelta, sekä lähettää palvelimelle mahdolliset muutokset.</p>
 
     <p>Spoilausten tallentamiseen käytetty palvelinsovellus toimii osoitteessa <a href="http://bad.herokuapp.com/app/" target="_blank">http://bad.herokuapp.com/app/</a>. Kannattaa tehdä kysely palvelimelle selaimella ennen tehtävän tekemistä, jotta palvelin on varmasti käynnissä. Palvelin tarjoaa osoitteessa <code>http://bad.herokuapp.com/app/spoilers/</code> toimivan rajapinnan. Kun rajapintaan tehdään GET-kysely, palvelin palauttaa kaikki tallennetut spoilaukset.</p>
 
@@ -5146,7 +5140,7 @@ var lahetettava = {
 };
 </pre>
 
-    <p>Toteuta sovellus aluksi niin, että toteutat vain Backend-komponentin, joka tallettaa dataa. Kun saat sovelluksen kommunikoimaan backend-komponentin kanssa, lisää backendille viestien lähetys ja vastaanottaminen palvelimelle. Tässä kohdassa voi olla hyödyllistä tutustua synkronoituihin XMLHttpRequest-pyyntöihin (google esim. "synchronous xmlhttprequest send").</p>
+    <p>Toteuta sovellus aluksi niin, että toteutat vain komponentin, jonka tehtävänä on kommunikoida palvelimen kanssa -- mutta -- älä toteuta itse kommunikointia vielä. Kun saat sovelluksen kommunikoimaan backend-komponentin kanssa, lisää backendille viestien lähetys ja vastaanottaminen palvelimelle. Tässä kohdassa voi olla hyödyllistä tutustua synkronoituihin XMLHttpRequest-pyyntöihin (google esim. "synchronous xmlhttprequest send").</p>
 
 </div>
 
@@ -5169,6 +5163,7 @@ var lahetettava = {
 </pre>
 
    <p>Kaksi viime aikoina päätänsä nostanutta MVC-varianttia ovat MVP (<em>Model, View, Presenter</em>) ja MVVM (<em>Model, View, ViewModel</em>). Tutustutaan niihin pikaisesti.</p>
+
 
    <h4>MVP</h4>
 
@@ -5199,7 +5194,9 @@ var lahetettava = {
    <p>Voimme muokata aiemmin tekemäämme muistutussovellusta seuraamaan MVP-mallia poistamalla mallilta riippuvuuden näkymään, ja lisäämällä kontrolleriin päivityksen tekemisen näkymälle. Käytännössä Presenter-oliolle tulisi lisätä myös tapahtumankuuntelija, jota model voisi kutsua tarvittaessa.</p>
 
 
+
    <h4>MVVM</h4>
+
 
    <p>MVVM on muunnos MVP:hen, jossa ViewModel on mallista valittua näkymää varten muokattu esitys käytössä olevasta datasta. ViewModel on kytkeytynyt näkymään näkymän tarjoaman funktion kautta. Kun ViewModelissa oleva data muuttuu, se kutsuu näkymän tarjoamaa funktiota siten, että näkymä päivittää itsensä ViewModel-olion pohjalta.</p>
 
@@ -5227,30 +5224,15 @@ var lahetettava = {
 </pre>
 
 
-<!--
-<div class="tehtavat">
-  <h3>TBA</h3>
-
-  <h3>MV?</h3>
-
-  <p>Sovelluksen mukana tulee Model ja View. Toteuta liima, joka yhdistää ne keskenään.</p>
-
-</div>
--->
-
-
-
     <h2>Valmiit JavaScript-kirjastot</h2>
-
 
     <p>Osa aiemmin toteuttamistamme ohjelmista ei toimi kaikilla nykyaikaisilla selaimilla. Osassa taas toistetaan samoja asioita uudestaan ja uudestaan. Yhteensopivuusongelmat johtuvat suurelta osin selainvalmistajien heikosta standardien seuraamisesta, ja innottomuudesta vanhempien selainten päivittämiseen. Selainohjelmistoja kehitettäessä tulee huomioida myös vanhempien selainten käyttäjät -- sovelluksen tilaajan määrittelemään pisteeseen asti.</p>
 
     <p>Selainohjelmistojen tekemiseen on huomattava määrä valmiita kirjastoja, joiden yksi tarkoitus on poistaa joidenkin selainten tietynlaiset JavaScript-syntaksin vaatimukset. Kirjastot tarjoavat myös apufunktioita toistuvan koodin ja toiminnallisuuden vähentämiseen. Mielenkiintoista JavaScript-kirjastojen ilmentymisessä on se, että JS-yhteisössä on havaittavissa samanlaista käyttäytymistä kuin palvelinpuolen yhteisöissä muutamia vuosia sitten.</p>
 
-    <p><em>Kyllähän se kirjasto <strong>xxx</strong> on parempi kun se tekee tän yhdellä rivillä, sun sovelluskehyksellä menee seitsemän!</em></p>
+    <p><em>Kyllähän se kirjasto <strong>xxx</strong> on parempi kun se tekee tän yhdellä rivillä, sun softalla siihen menee seitsemän!</em> -- <em>hyi kun toi <strong>xxx</strong> näyttää raskaalta ja vaikealta käyttää, miksi siinä on noita tommosia turhia komentoja!</em></p>
 
-   <p>Aivan kuten ohjelmointikielten tapauksessa, tietyt ohjelmistokirjastot sopivat joihinkin asioihin paremmin, toiset toisiin. Tutustutaan seuraavaksi tällä hetkellä ehkäpä eniten käytettyyn JavaScript-kirjastoon, <a href="http://jquery.com/" target="_blank">jQueryyn</a>.</p>
-
+   <p>Aivan kuten ohjelmointikielten tapauksessa, tietyt ohjelmistokirjastot sopivat joihinkin asioihin paremmin, toiset toisiin. Tutustutaan seuraavaksi tällä hetkellä -- vieläkin --  ehkäpä eniten käytettyyn JavaScript-kirjastoon, <a href="http://jquery.com/" target="_blank">jQueryyn</a>.</p>
 
     <h3>jQuery</h3>
 
@@ -5269,7 +5251,7 @@ var lahetettava = {
 
         &lt;!-- sivun sisältö --&gt;
 
-        &lt;script src="javascript/jquery-1.8.2.min.js"&gt;&lt;/script&gt;
+        &lt;script src="javascript/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
         &lt;script src="javascript/koodi.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -5317,12 +5299,13 @@ for(var i = 0; i < elementit.length; i++) {
 
     <p>Huomaa, että koodi toimii, sillä jQuery on ladattu osaksi tätä sivua. Huomaa myös, että ylläolevan koodin voi tehdä huomattavasti tehokkaammin.</p>
 
-<div class="extra">
+<aside class="extra">
   <p><strong>jQueryn valitsimet</strong></p>
 
   <p>Tarkempi kuvaus jQueryn valitsimista löytyy osoitteesta <a href="http://api.jquery.com/category/selectors/" target="_blank">http://api.jquery.com/category/selectors/</a>.</p>
   <p>&nbsp;</p>
-</div>
+</aside>
+
 
     <h4>DOM-puun muokkaus</h4>
 
@@ -5383,15 +5366,16 @@ elementit.removeClass("jquery-dom-2-hidden");</textarea></p>
       <p><input type="button" onclick="evalElementContent('jquery-dom-4-js')" value="Suorita koodi!"></input></p>
     </div>
 
-    <p>Jos klikkaat ylläolevaa nappia, joutunet muokkaamaan koodia jotta saat sivun takaisin näkyville.</p>
+    <p>Jos klikkaat ylläolevaa nappia, joutunet lataamaan sivun uudestaan tai muokkaamaan sivua konsolista, jotta saat sivun takaisin näkyville.</p>
 
 
-<div class="extra">
+<aside class="extra">
   <p><strong>DOM-puun muokkaus</strong></p>
 
   <p>Tarkempi kuvaus operaatioista DOM-puun muokkaamiseen löytyy osoitteesta <a href="http://api.jquery.com/category/Manipulation/" target="_blank">http://api.jquery.com/category/Manipulation/</a>.</p>
   <p>&nbsp;</p>
-</div>
+
+</aside>
 
 
     <h4>Tapahtumien käsittely</h4>
@@ -5417,28 +5401,28 @@ elementit.removeClass("jquery-dom-2-hidden");</textarea></p>
             &lt;/nav&gt;
         &lt;/header&gt;
 
-    &lt;section&gt;
+        &lt;section&gt;
           &lt;article&gt;
-        &lt;h1&gt;Eka artikkeli&lt;/h1&gt;
+            &lt;h1&gt;Eka artikkeli&lt;/h1&gt;
 
-        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
-      &lt;/article&gt;
-
-          &lt;article&gt;
-        &lt;h1&gt;Toka artikkeli&lt;/h1&gt;
-
-        &lt;p&gt;Morbi a elit enim, sit amet iaculis massa. Vivamus blandit...&lt;/p&gt;
-      &lt;/article&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+          &lt;/article&gt;
 
           &lt;article&gt;
-        &lt;h1&gt;Kolmas artikkeli&lt;/h1&gt;
+            &lt;h1&gt;Toka artikkeli&lt;/h1&gt;
 
-        &lt;p&gt;Now that we know who you are, I know who I am. I'm...&lt;/p&gt;
-      &lt;/article&gt;
-    &lt;/section&gt;
+            &lt;p&gt;Morbi a elit enim, sit amet iaculis massa. Vivamus blandit...&lt;/p&gt;
+          &lt;/article&gt;
+
+          &lt;article&gt;
+            &lt;h1&gt;Kolmas artikkeli&lt;/h1&gt;
+
+            &lt;p&gt;Now that we know who you are, I know who I am. I'm...&lt;/p&gt;
+          &lt;/article&gt;
+        &lt;/section&gt;
 
         &lt;!-- lähdekooditiedostojen lataus --&gt;
-    &lt;script type="text/javascript" src="javascripts/jquery-1.8.2.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="javascripts/koodit.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -5532,45 +5516,45 @@ function displayArticle(index) {
     <p>Luodaan ensin toiminnallisuus, jolla linkkeihin asetetaan tunnus-attribuutit. JQueryssä on kätevä kokoelman iterointiin tarkoitettu <code><a href="http://api.jquery.com/each/" target="_blank">each</a></code>-komento, joka saa JQueryltä parametrinaan iteroitavan elementin indeksin. Muuttuja <code>$(this)</code> viittaa kyseisellä hetkellä läpikäytävään muuttujaan. Allaoleva komento käy läpi jokaisen linkki-elementin, ja kutsuu kullekin <code>each</code>-komennolle parametrina antamaamme funktiota. Komento <code>attr</code> asettaa (tai hakee jos toista parametria ei määritellä) elementin komennossa määritellyn attribuutin.</p>
 
 <pre class="sh_javascript_dom">
-    $("header nav a").each(function(index) {
-        $(this).attr("id", index);
-    });
+$("header nav a").each(function(index) {
+    $(this).attr("id", index);
+});
 </pre>
 
 
     <p>Lisätään seuraavaksi jokaiselle linkille tapahtumankäsittelijä. Komento <code><a href="http://api.jquery.com/click/" target="_blank">click</a></code> auttaa tässä huomattavasti. Voimme hyödyntää myös aiemmin huomaamaamme <code>each</code>-komentoa. Alla lisäämme jokaiseen linkkiin funktion, joka kuuntelee klikkausta. Funktion sisältö lienee tuttu.</p>
 
 <pre class="sh_javascript_dom">
-    $("header nav a").each(function(index) {
-        $(this).click(function(eventInformation) {
-            displayArticle(eventInformation.target.id);
-            eventInformation.preventDefault();
-        });
+$("header nav a").each(function(index) {
+    $(this).click(function(eventInformation) {
+        displayArticle(eventInformation.target.id);
+        eventInformation.preventDefault();
     });
+});
 </pre>
 
 
     <p>Each-komento tarjoaa meille indeksin, joten muokataan edellistä vielä hieman. Käytetään suoraan each-komennon tarjoamaa indeksiä artikkelin näyttämiseen.</p>
 
 <pre class="sh_javascript_dom">
-    $("header nav a").each(function(index) {
-        $(this).click(function(eventInformation) {
-            displayArticle(index);
-            eventInformation.preventDefault();
-        });
+$("header nav a").each(function(index) {
+    $(this).click(function(eventInformation) {
+        displayArticle(index);
+        eventInformation.preventDefault();
     });
+});
 </pre>
 
     <p>Huomaamme vielä, että voimme yhdistää linkin tunnuksen lisäämisen ja tapahtumankäsittelyn lisäämisen saman <code>each</code>-komennon sisään.</p>
 
 <pre class="sh_javascript_dom">
-    $("header nav a").each(function(index) {
-        $(this).attr("id", index);
-        $(this).click(function(eventInformation) {
-            displayArticle(index);
-            eventInformation.preventDefault();
-        });
+$("header nav a").each(function(index) {
+    $(this).attr("id", index);
+    $(this).click(function(eventInformation) {
+        displayArticle(index);
+        eventInformation.preventDefault();
     });
+});
 </pre>
 
 
@@ -5609,20 +5593,24 @@ function displayArticle(index) {
 
         &lt;!-- sama sisältö kuin aiemminkin --&gt;
 
-    &lt;script type="text/javascript" src="javascripts/jquery-1.8.2.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="javascripts/koodit.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
 
+
 <div class="tehtavat">
   <h3>JQueryMOOC</h3>
 
-  <p>Muokkaa tehtäväpohjan mukana tulevaa tehtävistä W1E08 ja W2E02 tuttua MOOC-sivua siten, että elementtien näyttäminen ja piilottaminen toteutetaan JQueryn tarjoamien apuvälineiden avulla.</p>
+  <p>Muokkaa tehtäväpohjan mukana tulevaa MOOC-sivua siten, että elementtien näyttäminen ja piilottaminen toteutetaan JQueryn tarjoamien apuvälineiden avulla.</p>
 
   <p>Poista lopulta myös turhaksi tullut myös turha body-elementin onload-attribuutti.</p>
 
   <p>Kun olet vaihtanut toteutuksen JQueryksi, ja toteutuksen toiminnallisuus on ennallaan, palauta tehtävä TMC:lle.</p>
+
+  <p>Joudut myös hakemaan jQueryn -- joko käsin jQueryn sivuilta, tai ottamalla selvää siitä, miten NetBeansin avulla lisätään kirjastoja projektiin.</p>
+
 </div>
 
 
@@ -5630,39 +5618,39 @@ function displayArticle(index) {
 
     <p>JQuery tarjoaa myös tuen kyselyjen tekemiseen erilliselle palvelinkomponentille.</p>
 
-    <p><strong>JSONP</strong></p>
+    <p>Kyselyt hoituvat kätevästi JQueryn <code><a href="http://api.jquery.com/jQuery.getJSON/" target="_blank">$.getJSON</a></code>-funktiolla. Alla olevassa esimerkissä haemme <a href="http://www.icndb.com/" target="_blank">ICNDb.com</a>ista oleellista dataa.</p>
 
-    <p>JSONP-kyselyt, eli kyselyt, joissa vastauksena tulee selaimessa evaluoitavaa JavaScript-koodia hoituvat kätevästi JQueryn <code><a href="http://api.jquery.com/jQuery.getJSON/" target="_blank">$.getJSON</a></code>-funktiolla. Alla olevassa esimerkissä haemme Twitterin JSONP-apista rageresearch-tunnuksen lähettämiä viestejä. JQuery määrittelee callback-funktion itse, ja asettaa sen osoitteeseen jätettävän kysymysmerkin kohdalle.</p>
-
-    <p>Kyselyn palauttama data ohjataan <code>$.getJSON</code>-funktion toisena parametrina määriteltävään funktioon. Alla olevassa esimerkissä kutsumme vain <code>alert</code>-komentoa.</p>
+    <p>Kyselyn palauttama data ohjataan <code>$.getJSON</code>-funktion toisena parametrina määriteltävään funktioon. Alla olevassa esimerkissä kutsumme vain <code>console.log</code>-komentoa kaikelle palautettavalle datalle.</p>
 
 <pre class="sh_javascript_dom">
-$.getJSON("http://api.twitter.com/1/statuses/user_timeline/rageresearch.json?count=4&callback=?",
+$.getJSON("http://api.icndb.com/jokes/random/5",
     function(data) {
-        alert(data);
+        console.log(data);
     }
 );
 </pre>
 
-    <p>Ylläoleva esimerkki palauttaa listan olioita. Käytetään JQueryn <code>each</code>-komentoa listassa olevien elementtien iterointiin. Komennolle <code>each</code> voi antaa parametrina iteroitavan listan, sekä funktion, jota kutsutaan jokaisella listassa olevalla oliolla.</p>
+    <p>Ylläoleva esimerkki tulostaa vastaukset konsoliin -- huomaa, että jQuery muuntaa merkkijonomuotoiset vastaukset automaattisest JSON-olioksi. Käytetään JQueryn <code>each</code>-komentoa listassa olevien elementtien iterointiin. Komennolle <code>each</code> voi antaa parametrina iteroitavan listan, sekä funktion, jota kutsutaan jokaisella listassa olevalla oliolla.</p>
 
 <pre class="sh_javascript_dom">
-$.getJSON("http://api.twitter.com/1/statuses/user_timeline/rageresearch.json?count=4&callback=?",
+$.getJSON("http://api.icndb.com/jokes/random/5",
     function(data) {
-        $.each(data, function(i, item) {
-            alert(i + ": " + item);
+        $.each(data.value, function(i, item) {
+            console.log(i);
+            console.log(item);
+            console.log("-----");
         });
     }
 );
 </pre>
 
-    <p>Nyt ylläoleva komento tulostaa oliot yksitellen. Oletetaan, että käytössämme on elementti, jonka tunnus on "viestit". JQuery tarjoaa myös mahdollisuuden nopeaan tekstielementtien luontiin komennolla <code>$("&lt;p/&gt")</code>. Elementteihin voi asettaa tekstin <code>text</code>-komennolla, ja elementin voi lisätä tietyllä tunnuksella määriteltyyn elementtiin komennolla <code>appendTo("#<em>tunnus</em>")</code>.</p>
+    <p>Nyt ylläoleva komento tulostaa vastauksen value-kentässä olevat oliot yksitellen. Oletetaan, että käytössämme on elementti, jonka tunnus on "vitsit". JQuery tarjoaa myös mahdollisuuden nopeaan tekstielementtien luontiin komennolla <code>$("&lt;p/&gt")</code>. Elementteihin voi asettaa tekstin <code>text</code>-komennolla, ja elementin voi lisätä tietyllä tunnuksella määriteltyyn elementtiin komennolla <code>appendTo("#<em>tunnus</em>")</code>.</p>
 
 <pre class="sh_javascript_dom">
-$.getJSON("http://api.twitter.com/1/statuses/user_timeline/rageresearch.json?count=4&callback=?",
+$.getJSON("http://api.icndb.com/jokes/random/5",
     function(data) {
-        $.each(data, function(i, item) {
-            $("&lt;p/&gt;").text(item.text).appendTo("#viestit");
+        $.each(data.value, function(i, item) {
+            $("&lt;p/&gt;").text(item.joke).appendTo("#viestit");
         });
     }
 );
@@ -5713,22 +5701,31 @@ $.ajax({
 });
 </pre>
 
-
-    <p>Pyynnössä voi myös sekä lähettää, että vastaanottaa dataa. Attribuutin <code>success</code> asettaminen ylläolevaan pyyntöön aiheuttaa success-attribuutin arvona olevan funktion kutsun kun pyyntö on onnistunut.</p>
+    <p>Pyynnössä voi sekä lähettää että vastaanottaa dataa. Attribuutin <code>success</code> asettaminen ylläolevaan pyyntöön aiheuttaa success-attribuutin arvona olevan funktion kutsun kun pyyntö on onnistunut.</p>
 
 <div class="tehtavat">
   <h3>JQuerySpoilaajanBackend</h3>
 
-  <p>Toteuta Spoilaajan Backend-tehtävä tässä JQueryn avulla. Jos hyödynsit aiemmin synkronisia kutsuja, kannattaa hyödyntää niitä myös tässä. Vinkki: <code>$.ajax</code>-komennolle asettaa attribuutin <code>async: false</code>, jolloin tulee myös määritellä <code>success</code>-attribuutille funktio, jota kutsutaan kun data on noudettu.</p>
+  <p>Toteuta Spoilaajan Backend-tehtävä tässä JQueryn avulla. Jos hyödynsit aiemmin synkronisia kutsuja, kannattaa hyödyntää niitä myös tässä. Vinkki: <code>$.ajax</code>-komennolle voi asettaa attribuutin <code>async: false</code>, jolloin tulee määritellä <code>success</code>-attribuutille funktio, jota kutsutaan kun data on noudettu.</p>
+
+  <p>Joudut myös hakemaan jQueryn -- kannattanee viimeistään tässä vaiheessa ottaa selvää siitä, miten NetBeansin avulla lisätään kirjastoja projektiin.</p>
 
 </div>
+
+<h1>Päivitysraja</h1>
+
+<div>
+<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
+</div>
+<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
+
 
 
     <h3>Näkymätemplatet ja Mustache.js</h3>
 
     <p>Selainohjelmistojen rakennetta suunniteltaessa yksi huolenaihe on sivun eri näkymien järkevä hallinta. Aiemmin näkemässämme esimerkissä sivun osia piilotetaan ja näytetään dynaamisesti. Toinen pulma liittyy HTML-koodin generointiin datan pohjalta: generointi on auttamatta työlästä.</p>
 
-    <p>Näkymätemplatet ovat HTML-koodipätkiä, jotka sisältävät halutun HTML-rakenteen sekä paikat datalle. Eräs projekti näkymätemplatejen generointiin on <p><a href="https://github.com/janl/mustache.js" target="_blank">Mustache.js</a>, joka on <a href="http://mustache.github.com/" target="_blank">mustache</a>-projektin osa.</p>
+    <p>Näkymätemplatet ovat HTML-koodipätkiä, jotka sisältävät halutun HTML-rakenteen sekä paikat datalle. Eräs projekti näkymätemplatejen generointiin on <a href="https://github.com/janl/mustache.js" target="_blank">Mustache.js</a>, joka on <a href="http://mustache.github.com/" target="_blank">mustache</a>-projektin osa.</p>
 
     <p>Käytännössä näkymätemplatejen käyttö toimii siten, että HTML-dokumenttiin piilotetaan osa, joka sisältää kaikki HTML-templatet. Kun käyttäjä esimerkiksi klikkaa linkkiä, renderöidään näkyvälle alueelle templaten ja datan pohjalta uusi sisältö. Tutkitaan alla olevaa esimerkkiä, jossa on erillinen osio tunnuksella "view", ja toinen piilotettu osio, joka sisältää templatet.</p>
 
@@ -5741,20 +5738,18 @@ $.ajax({
         &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body&gt;
-    &lt;section id="view"&gt;
-    &lt;/section&gt;
 
-    &lt;div class="hidden"&gt;
-        &lt;div id="template"&gt;
+        &lt;section id="view"&gt;&lt;/section&gt;
+
+        &lt;script id="template" type="text/html"&gt;
             &lt;article&gt;
                 &lt;h2&gt;{{nimi}} {{ika}}&lt;/h2&gt;
-                &lt;/article&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+            &lt;/article&gt;
+        &lt;/script&gt;
 
         &lt;!-- lähdekooditiedostojen lataus, käytössä vain mustache.js --&gt;
-    &lt;script type="text/javascript" src="javascripts/jquery-1.8.2.min.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="javascripts/mustache.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="javascripts/mustache.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="javascripts/koodi.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
