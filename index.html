@@ -5712,22 +5712,14 @@ $.ajax({
 
 </div>
 
-<h1>Päivitysraja</h1>
-
-<div>
-<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
-</div>
-<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
-
-
 
     <h3>Näkymätemplatet ja Mustache.js</h3>
 
-    <p>Selainohjelmistojen rakennetta suunniteltaessa yksi huolenaihe on sivun eri näkymien järkevä hallinta. Aiemmin näkemässämme esimerkissä sivun osia piilotetaan ja näytetään dynaamisesti. Toinen pulma liittyy HTML-koodin generointiin datan pohjalta: generointi on auttamatta työlästä.</p>
+    <p>Selainohjelmistojen rakennetta suunniteltaessa yksi huolenaihe on sivun näkymien järkevä hallinta. Aiemmin näkemässämme esimerkissä sivun osia piilotetaan ja näytetään dynaamisesti, toisaalta, olemme myös generoineet HTML-koodia Javascriptin sisältä. Tässä olemme huomanneet että generointi on auttamatta työlästä.</p>
 
     <p>Näkymätemplatet ovat HTML-koodipätkiä, jotka sisältävät halutun HTML-rakenteen sekä paikat datalle. Eräs projekti näkymätemplatejen generointiin on <a href="https://github.com/janl/mustache.js" target="_blank">Mustache.js</a>, joka on <a href="http://mustache.github.com/" target="_blank">mustache</a>-projektin osa.</p>
 
-    <p>Käytännössä näkymätemplatejen käyttö toimii siten, että HTML-dokumenttiin piilotetaan osa, joka sisältää kaikki HTML-templatet. Kun käyttäjä esimerkiksi klikkaa linkkiä, renderöidään näkyvälle alueelle templaten ja datan pohjalta uusi sisältö. Tutkitaan alla olevaa esimerkkiä, jossa on erillinen osio tunnuksella "view", ja toinen piilotettu osio, joka sisältää templatet.</p>
+    <p>Käytännössä näkymätemplatejen käyttö toimii siten, että HTML-dokumenttiin piilotetaan osa, joka sisältää kaikki HTML-templatet. Kun käyttäjä esimerkiksi klikkaa linkkiä, renderöidään näkyvälle alueelle templaten ja datan pohjalta uusi sisältö. Tutkitaan alla olevaa esimerkkiä, jossa on osio tunnuksella "view", ja toinen <em>script</em>-tägillä merkitty osio, joka sisältää templatet. Script-tägillä merkityt osiot eivät renderöidy selaimelle.</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -5735,7 +5727,6 @@ $.ajax({
     &lt;head&gt;
         &lt;meta charset="utf-8" &gt;&lt;/meta&gt;
         &lt;title&gt;&lt;/title&gt;
-        &lt;link rel="stylesheet" href="style.css" type="text/css" &gt;
     &lt;/head&gt;
     &lt;body&gt;
 
@@ -5747,20 +5738,12 @@ $.ajax({
             &lt;/article&gt;
         &lt;/script&gt;
 
-        &lt;!-- lähdekooditiedostojen lataus, käytössä vain mustache.js --&gt;
+        &lt;!-- lähdekooditiedostojen lataus --&gt;
         &lt;script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="javascripts/mustache.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="javascripts/koodi.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</pre>
-
-    <p>Tyylitiedosto <code>style.css</code> sisältää vain yhden määrittelyn.</p>
-
-<pre class="sh_css">
-.hidden {
-    display: none;
-}
 </pre>
 
     <p>Lähdekooditiedosto <code>koodi.js</code> sisältää seuraavanlaisen lähdekoodin.</p>
@@ -5779,9 +5762,9 @@ $(document).ready(function() {
 });
 </pre>
 
-    <p>Tutkitaan koodia hieman tarkemmin. Komennolla <code>$(document).ready(function() { ... });</code> määritellään toiminnallisuus, joka suoritetaan kun sivu on latautunut. Toiminnallisuus sisältää olion luomisen. Luomme olion, jolla on attribuutit nimi (arvo "Bob"), ja ika (arvo funktion palauttama arvo).</p>
+    <p>Tutkitaan koodia hieman tarkemmin. Komennolla <code>$(document).ready(function() { ... });</code> määritellään toiminnallisuus, joka suoritetaan kun sivu on latautunut. Toiminnallisuus sisältää <code>data</code>-olion luomisen, jolla on attribuutit nimi (arvo "Bob") ja ika (funktion palauttama arvo).</p>
 
-    <p>Tämän jälkeen oleva koodi ei olekaan vielä tuttua. JQuery tarjoaa pääsyn elementin html-koodiin komennolla <code><a href="http://api.jquery.com/html/" target="_blank">html</a></code>, eli komento <code>$("#template").html()</code> palauttaa tunnuksella "template" merkityn elementin sisältämän HTML-koodin. Tämä koodi annetaan Mustachen <code>render</code>-komennolle yhdessä data-olion kanssa. Mustachen <code>render</code>-komento asettaa olion data sisällön HTML-koodissa merkityille paikoille, ja palauttaa uuden merkkijonon. Merkkijono sisältää HTML-koodin, jossa merkityt kohdat sisältävät nyt datasta saadut arvot.</p>
+    <p>Tämän jälkeen oleva koodi ei olekaan vielä tuttua. JQuery tarjoaa pääsyn elementin html-koodiin komennolla <code><a href="http://api.jquery.com/html/" target="_blank">html</a></code>, eli komento <code>$("#template").html()</code> palauttaa tunnuksella "template" merkityn elementin sisältämän HTML-koodin. Tämä koodi annetaan Mustachen <code>render</code>-komennolle yhdessä data-olion kanssa. Mustachen <code>render</code>-komento asettaa olion datan sisällön HTML-koodissa <code>{{avain}}</code>-notaatiolla merkityille paikoille, ja palauttaa uuden merkkijonon. Merkkijono sisältää HTML-koodin, jossa merkittyihin kohtiin on asetettu datasta saadut arvot.</p>
 
       <p>Lopuksi html-koodi asetetaan tunnuksella "view" määritellyn elementin sisään.</p>
 
@@ -5790,15 +5773,13 @@ $(document).ready(function() {
       <p>Listojen läpikäynti onnistuu {{#<em>muuttuja</em>}}-operaattorilla, joka aloittaa läpikäynnin. Läpikäynnin lopetus tapahtuu {{/<em>muuttuja</em>}}-operaattorilla. Esimerkiksi alla on määritelty <code>messages</code>-attribuutissa olevien olioiden läpikäynti siten, että jokaiselta oliolta kutsutaan attribuuttia <code>nickname</code> ja <code>message</code>.</p>
 
 <pre class="sh_html">
-    &lt;div class="hidden"&gt;
-        &lt;div id="template"&gt;
-                &lt;article&gt;
-                    {{#messages}}
-                        &lt;p&gt;&lt;strong&gt;{{nickname}}:&lt;/strong&gt; {{message}}&lt;/p&gt;
-                    {{/messages}}
-               &lt;/article&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+&lt;script id="template"&gt;
+     &lt;article&gt;
+         {{#messages}}
+             &lt;p&gt;&lt;strong&gt;{{nickname}}:&lt;/strong&gt; {{message}}&lt;/p&gt;
+         {{/messages}}
+    &lt;/article&gt;
+&lt;/script&gt;
 </pre>
 
     <p>Voimme kytkeä ylläolevan templaten helposti Chat-chat -tehtävän viestit hakevaan palveluun.</p>
@@ -5825,34 +5806,14 @@ $(document).ready(function() {
     <p>Ehkäpä tärkein muistettava ylläolevassa esimerkissä on se, että data tulee antaa Mustachelle olion sisällä. Jos render-komentoa kutsutaan suoraan messages-oliolla, joka sisältää listan chat-viestejä, ei Mustache tiedä miten toimia.</p>
 
 <div class="tehtavat">
-  <h3>Movember (2p)</h3>
+
+  <h3>Movemberia odoteltaessa (2p)</h3>
 
   <p>Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että näkymä generoidaan tarvittaessa HTML-templateista. Tiedostossa <code>code.js</code> olevaan muuttujaan <code>data</code> on asetettu valmiiksi HTML-dokumentissa tällä hetkellä olevat sisällöt. Tehtävänäsi on muokata tiedostoa <code>index.html</code> siten, että se sisältää template-elementin, jonka pohjalta sivun näkymiä (perusmooc, materiaali, ...) voidaan luoda. </p>
 
   <p>Muokkaa myös tiedostoa <code>code.js</code> siten, että kukin näkymä generoidaan aina linkkiä klikattaessa. Generoitu näkymä tulee asettaa osaksi näkymäaluetta, jonka joudut myös luomaan. Kannattaa hyödyntää aiemmin tekemääsi JQueryMOOC-pohjaa.</p>
 
-  <p>Lykkyä tykö!</p>
 </div>
-
-
-<div class="extra">
-  <p><strong>Templatet piiloon script-elementin sisään!</strong></p>
-
-  <p>Piilotimme templatet aiemmin <code>div</code>-elementin sisään siten, että <code>div</code>-elementille oli asetettu tyyli, joka piilottaa sen sisällön. Tyypillisempi lähestymistapa templatejen piilottamiseen liittyy selainten käyttäytymisen <code>script</code>-elementin kanssa hyödyntämiseen. Jos selain ei tunne <code>script</code>-elementille annettavaa tyyppiä, ei se myöskään yritä tulkata elementin sisältöä. Templaten voi asettaa myös <code>script</code>-elementin sisälle seuraavasti:</p>
-
-<pre class="sh_html">
-    &lt;script id="template" type="text/html"&gt;
-        &lt;article&gt;
-            {{#messages}}
-                &lt;p&gt;&lt;strong&gt;{{nickname}}:&lt;/strong&gt; {{message}}&lt;/p&gt;
-            {{/messages}}
-       &lt;/article&gt;
-    &lt;/script&gt;
-</pre>
-
-  <p>Tämä mahdollistaa myös paremman kuvaelementtien sisällyttämisen templateihin. Kun selain ei yritä tulkita templatea, se ei myöskään yritä hakea templatessa mahdollisesti olevaa kuvaviitettä.</p>
-</div>
-
 
     <h4>Case: Henkilötiedot</h4>
 
@@ -5876,21 +5837,21 @@ var data = [{ "id": 1, "name": "homer", "age": 44 },
     <p>Jotta henkilöä voi etsiä, tulee sovelluksessa olla tekstikenttä nimen täyttämiseen, sekä alue henkilöiden näyttämiseen. Luodaan sovellukselle elementit etsimiseen ja tulosten listaamiseen.</p>
 
 <pre class="sh_html">
-  &lt;section&gt;
+&lt;section&gt;
     &lt;input type="text" id="searchbox"/&gt;
-  &lt;/section&gt;
+&lt;/section&gt;
 
-  &lt;section id="resultview"&gt;&lt;/section&gt;
+&lt;section id="resultview"&gt;&lt;/section&gt;
 </pre>
 
     <p>Tunnuksella <code>searchbox</code> merkittyä elementtiä käytetään tekstin syöttämiseen, ja tunnuksella <code>resultview</code> merkittyä elementtiä tulosten näyttämiseen. Luodaan aivan ensin toiminnallisuus datajoukon näyttämiseen osana tuloslistaa. Käytetään tähän templatea.</p>
 
 <pre class="sh_html">
-  &lt;script id="searchresulttemplate" type="text/html"&gt;
+&lt;script id="searchresulttemplate" type="text/html"&gt;
     {{#list}}
     &lt;p&gt;{{name}}&lt;/p&gt;
     {{/list}}
-  &lt;/script&gt;
+&lt;/script&gt;
 </pre>
 
     <p>Yllä oleva template käy listan nimeltä <code>list</code> läpi siten, että se tulostaa jokaisen listalla olevan elementin attribuutin <code>name</code> <code>p</code>-elementin sisään. Käytännössä sille tulee siis antaa olio, jolla on attribuutti <code>list</code>, jotta se voi tulostaa alkiot.</p>
@@ -5969,14 +5930,26 @@ function showdata() {
 }
 </pre>
 
-<div class="extra">
+
+<aside class="extra">
   <p><strong>Cannot call method 'search' of undefined</strong></p>
 
   <p>Jos Mustache näyttää virheen "Uncaught TypeError: Cannot call method 'search' of undefined", tarkista aivan ensin että olet asettanut templatejen tunnukset oikein. Virhe "TypeError: this.tail.search is not a function" viittaa taas usein käytettävän templaten sisällön ja datan sisällön epäjohdonmukaisuuteen -- tarkista tässä myös että annat <em>oikeasti</em> html:ää Mustachelle..</p>
 
   <p>&nbsp;</p>
-</div>
+</aside>
 </section>
+
+
+<h1>Päivitysraja</h1>
+
+<div>
+<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
+</div>
+<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
+
+
+
 <section class="week">
   <header>
     <a name="viikko4"></a>
