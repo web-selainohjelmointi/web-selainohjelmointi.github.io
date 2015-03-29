@@ -5975,6 +5975,17 @@ function showdata() {
     <h1 data-week-id="4">Viikko 4</h1>
   </header>
 
+  <h2>Debuggerin käyttö Chromessa</h2>
+  <p>JavaScript-koodia voi debugata monella eri tavalla, esim. tulostamalla muuttujien arvoja console.log() komennolla selaimen konsoliin. Tämä tapa on hyvä ja toimiva, mutta voi monesti olla hieman raskasta kirjoitella usealle eri muuttujalle eri puolille sovellusta omia logituksia.</p>
+  <p>Eräs toinen tapa on käyttää debuggeria. Sen käyttö on hyvin yksinkertaista. JavaScript-koodiin kirjoitetaan haluttuun kohtaan <code>debugger;</code>. Kun selain suorittaa kyseisen rivin koodista, koodin suorittaminen keskeytyy.</p>
+  <p>Kun suoritus on keskeytynyt, voidaan konsolissa tutkailla sillä hetkellä näkyvissä olevien muuttujien arvoja. Oletuksena Chrome avaa debuggeriin törmätessään dev-työkaluissa <code>Sources</code>-välilehden ja korostaa rivin, jolla <code>debugger;</code> pysäytti koodin suorittamisen:</p>
+  <img src="img/chrome-source.png" style="width: 800px; height: auto" />
+  <p>Avaamalla <code>Console</code>-välilehden, voi kyseisen for-loopin muuttujien arvoja tutkia kirjoittamalla muuttujien nimiä aktiivisena olevalle tekstikentälle konsolin alaosassa:</p>
+  <img src="img/chrome-console.png" style="width: 600px; height: auto" />
+  <p>Mikäli edellä mainitussa for-loopissa ensimmäisen kierroksen arvot eivät ole debuggauksen kannalta oleellisia, voi koodia suorittaa askel askeleelta eteenpäin kunnes ollaan sellaisessa tilassa, josta arvoja halutaan tarkastella:</p>
+  <img src="img/chrome-debugger.png" style="width: 200px; height: auto" />
+  <p>Kuvan vasemman puoleinen nappi jatkaa koodin suorittamista normaaliin tapaan ja oikean puolinen nappi mahdollistaa koodin suorituksen askel kerrallaan eteenpäin.</p>
+
   <h2>Sovelluksen rakenteen hallinta: AngularJS</h2>
   <p>Olemme tähän mennessä onnistuneesti pystyneet esittämään sovelluksemme dataa käyttöliittymässä ja jopa välittämään käyttöliittymästä tehtyjä muutoksia sovelluslogiikkaan. Mustache tekee datan esittämisestä näkymässä melko helppoa, mutta kuten olet ehkä huomannut, datan muokkaaminen näkymän kautta ei ole aivan niin helppoa. Ongelmat ilmenevät etenkin sovelluksen kasvaessa, jolloin sen rakenteesta tulee aina vain sekavampi. Rakennetta selkeyttää huomattavasti käyttöliittymän erottaminen sovelluksen datasta, johon jo mainittu MVC-arkkitehtuuri pyrkiikin. Selkeän MVC-arkkitehtuurin aikaansaaminen on kuitenkin yllättävän vaikeaa, jos työkalut eivät ole oikeat.</p>
   <p>
