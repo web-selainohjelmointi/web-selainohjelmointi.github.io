@@ -1,7 +1,7 @@
 # Node
 curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
-nvm install 0.10
-echo 'nvm use 0.10' >> ~/.bashrc 
+nvm install 0.12
+echo 'nvm use 0.12' >> ~/.bashrc 
 
 # Npm
 echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
