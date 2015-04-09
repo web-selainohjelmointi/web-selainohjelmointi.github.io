@@ -5650,7 +5650,7 @@ $.getJSON("http://api.icndb.com/jokes/random/5",
 $.getJSON("http://api.icndb.com/jokes/random/5",
     function(data) {
         $.each(data.value, function(i, item) {
-            $("&lt;p/&gt;").text(item.joke).appendTo("#viestit");
+            $("&lt;p/&gt;").text(item.joke).appendTo("#vitsit");
         });
     }
 );
@@ -5658,12 +5658,12 @@ $.getJSON("http://api.icndb.com/jokes/random/5",
 
     <p><strong>XMLHttpRequest</strong></p>
 
-    <p>Jos tiedämme, että palvelu palauttaa JSON-dataa, voimme käyttää yllä käsiteltyä lähestymistapaa. Esimerkiksi viestien noutaminen Chat-chat -tehtävän viestipalvelimelta onnistuu seuraavalla komennolla. Tässä tapauksessa lisäämme jokaiseen viestiin liittyvän <code>message</code>-attribuutin "viestit" -tunnuksella määriteltyyn elementtiin.</p>
+    <p>Jos tiedämme, että palvelu palauttaa JSON-dataa, voimme käyttää yllä käsiteltyä lähestymistapaa. Esimerkiksi viestien noutaminen Chat-chat -tehtävän viestipalvelimelta onnistuu seuraavalla komennolla. Tässä tapauksessa lisäämme jokaiseen viestiin liittyvän <code>message</code>-attribuutin "vitsit"-tunnuksella määriteltyyn elementtiin.</p>
 
 <pre class="sh_javascript_dom">
 $.getJSON("http://bad.herokuapp.com/app/messages", function(data) {
     $.each(data, function(i, item) {
-        $("&lt;p/&gt;").text(item.message).appendTo("#viestit");
+        $("&lt;p/&gt;").text(item.message).appendTo("#vitsit");
     });
 });
 </pre>
@@ -5679,7 +5679,7 @@ $.ajax({
 
 function parseMessages(messages) {
     $.each(messages, function(i, item) {
-        $("&lt;p/&gt;").text(item.message).appendTo("#viestit");
+        $("&lt;p/&gt;").text(item.message).appendTo("#vitsit");
     });
 }
 </pre>
