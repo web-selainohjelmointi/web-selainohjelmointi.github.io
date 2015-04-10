@@ -6152,7 +6152,7 @@ function ExampleController($scope){
 &lt;/ul&gt;
 </pre>
 <p>
-  Koska taulukko sisältää merkkijonoja, ei <code>orderBy</code>-filtterille tarvitse antaa parametreja. Jos <code>friend</code>-muuttuja olisi ollut objekti, jolla on kenttä <code>name</code> olisi filtterin pitänyt olla <code>orderBy: friend.name</code>.
+  Koska taulukko sisältää merkkijonoja, ei <code>orderBy</code>-filtterille tarvitse antaa parametreja. Jos <code>friend</code>-muuttuja olisi ollut objekti, jolla on kenttä <code>name</code> olisi filtterin pitänyt olla <code>orderBy: 'name'</code>. Jos haluaa järjestää ystävät nimen mukaan käänteisessä järjestyksessä filtteri olisi taas <code>orderBy: '-name'</code>.
 </p>
 <p>
   Tustustutaan vielä lopuksi filtteriin <code><a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">filter</a></code>, joka toistaa vain alkiot, jotka toteuttavat annetun ehdon, esimerkiksi sisältävät kirjaimen "a":
