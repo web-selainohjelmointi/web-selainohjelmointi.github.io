@@ -6131,24 +6131,24 @@ function ExampleController($scope){
   &lt;span ng-if="person.happy">:)&lt;/span&gt;
   &lt;span ng-if="!person.happy">:(&lt;/span&gt;
 &lt;/p&gt;
-&lt;ul ng-repeat="friend in person.friends"&gt;
-  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;ul&gt;
+  &lt;li ng-repeat="friend in person.friends"&gt;{{friend}}&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
 <p>
   Toisto siis onnistuu lisäämällä attribuutti <code><a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank">ng-repeat</a></code> elementtiin, jonka sisältöä halutaan toistaa. Attribuutin arvo on muotoa <code>iteroitavaAlkio in lista</code>. Toistojen määrää voi rajoittaa lisäämällä <code>ng-repeat</code>-attribuuttiin <code><a href="https://docs.angularjs.org/api/ng/filter/limitTo" target="_blank">limitTo</a></code> filtteri seuraavasti:
 </p>
 <pre class="sh_html">
-&lt;ul ng-repeat="friend in person.friends | limitTo: 5"&gt;
-  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;ul&gt;
+  &lt;li ng-repeat="friend in person.friends | limitTo: 5"&gt;{{friend}}&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
 <p>
   Yllä olevassa esimerkissä tulostetaan vain viisi ensimmäistä kaveria, koska limitTo filtterille on annettu parametriksi kokonaisluku 5, joka kertoo rajan toistettaville alkioille. Toinen hyödillinen filtteri on <code><a href="https://docs.angularjs.org/api/ng/filter/orderBy" target="_blank">orderBy</a></code>, joka toistaa taulukon alkiot tietyssä järjestyksessä, esimerkiksi nimen perusteella: 
 </p>
 <pre class="sh_html">
-&lt;ul ng-repeat="friend in person.friends | orderBy"&gt;
-  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;ul&gt;
+  &lt;li ng-repeat="friend in person.friends | orderBy"&gt;{{friend}}&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
 <p>
@@ -6158,8 +6158,8 @@ function ExampleController($scope){
   Tustustutaan vielä lopuksi filtteriin <code><a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">filter</a></code>, joka toistaa vain alkiot, jotka toteuttavat annetun ehdon, esimerkiksi sisältävät kirjaimen "a":
 </p>
 <pre class="sh_html">
-&lt;ul ng-repeat="friend in person.friends | filter: 'a'"&gt;
-  &lt;li&gt;{{friend}}&lt;/li&gt;
+&lt;ul&gt;
+  &lt;li ng-repeat="friend in person.friends | filter: 'a'"&gt;{{friend}}&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
 <p>
