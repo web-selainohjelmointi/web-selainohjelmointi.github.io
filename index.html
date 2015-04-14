@@ -6335,7 +6335,7 @@ function ExampleController($scope){
 &lt;/p&gt;
 </pre>
 <p>
-  Nyt puhelinnumerossa täytyy olla vähintään yhdeksän numeroa ja sähköpostiosoite on muotoa jotain@jotain.jotain. Huomaa, että säännöllinen lauseke, tulee sijoittaa merkkien <code>/^</code> ja <code>$/</code> väliin.
+  Nyt puhelinnumerossa täytyy olla vähintään yhdeksän numeroa ja sähköpostiosoite on muotoa jotain@jotain.jotain. Huomaa, että säännöllinen lauseke tulee sijoittaa merkkien <code>/^</code> ja <code>$/</code> väliin.
 </p>
 <p>
   Seuraavaksi käyttäjälle pitäisi näyttää virheilmoitukset, jos hän on täyttänyt lomakkeet väärin. Lisätään jokaisen kentän alle virheilmoitus, jos se ei ole validi:
@@ -6395,7 +6395,7 @@ function ExampleController($scope){
       Käyttäjätunnus on vähintään kolme merkkiä pitkä.
     </li>
     <li>
-      Käyttäjän salasanan pituus on vähintään kahdeksan merkkiä ja sisältää vähintään yhden numero ja ison kirjaimen.
+      Käyttäjän salasanan pituus on vähintään kahdeksan merkkiä ja sisältää vähintään yhden numeron ja ison kirjaimen.
     </li>
     <li>
       Käyttäjän antama salasana ja sen vahvistus vastaavat toisiaan. Käytetään tähän Angulariin toteutettua direktiiviä, jonka käyttöön löydät ohjeet <a href="https://github.com/TheSharpieOne/angular-input-match#usage" target="_blank">täältä</a>. Asennus on jo tehty, tutustu vain lyhyesti käyttöohjeisiin.
@@ -6409,7 +6409,7 @@ function ExampleController($scope){
     </li>
   </ul>
 </p>
-  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi kenttiin kohdistuvat virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon. Yksittäisen validaattorin virheitä ei tarvitse, näyttää, riittää ilmoittaa, jos kenttä ei ole validi jonkin validaattorin perusteella. Muista sitoa jokainen kenttä jonkin muuttujan arvoon <code>ng-model</code>-attribuutin avulla, muuten validointi ei toimi.
+  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi kenttiin kohdistuvat virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon. Yksittäisen validaattorin virheitä ei tarvitse näyttää, riittää ilmoittaa, jos kenttä ei ole validi jonkin validaattorin perusteella. Muista sitoa jokainen kenttä jonkin muuttujan arvoon <code>ng-model</code>-attribuutin avulla, muuten validointi ei toimi.
 </p>
 </div>
 <h3>Tapahtumat</h3>
