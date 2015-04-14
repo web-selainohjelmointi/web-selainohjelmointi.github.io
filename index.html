@@ -6868,7 +6868,10 @@ App.directive('counter', function(){
 <div class="tehtavat">
   <h3>Slider-direktiivi</h3>
   <p>
-    Tehtävänäsi on toteuttaa jQueryn <a href="http://jqueryui.com/slider/" target="_blank">slider</a>-widgetti <code>slider</code>-nimisenä direktiivinä. Tarkoitus on, että kun käyttäjä muuttaa sliderin arvoa, myös siihen <code>ng-model</code>-direktiivin avulla sidotun muuttujan arvo muuttuu. Sliderin alkuarvon tulee olla sama, kuin siihen sidotun muuttujan arvo. Voit olettaa etta <code>ng-model</code>-direktiivissä sidottu muuttuja on kokonaisluku. Sliderin <a href="http://jqueryui.com/slider/#steps" target="_blank">stepin</a> (kuinka paljon sliderin arvo muuttuu liikutuksesta) voit päätää itse. Näkymässä esimerkiksi <code>div</code>-elementtiin sidottu <code>slider</code>-direktiivi näyttäisi tältä:  
+    <iframe width="100%" height="200" src="http://jsfiddle.net/5TTm4/2852/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  </p>
+  <p>
+    Tehtävänäsi on toteuttaa jQueryn <a href="http://jqueryui.com/slider/" target="_blank">slider</a>-widgetti (katso yllä oleva jsFiddle) <code>slider</code>-nimisenä direktiivinä. Tarkoitus on, että kun käyttäjä muuttaa sliderin arvoa, myös siihen <code>ng-model</code>-direktiivin avulla sidotun muuttujan arvo muuttuu. Sliderin alkuarvon tulee olla sama, kuin siihen sidotun muuttujan arvo. Voit olettaa etta <code>ng-model</code>-direktiivissä sidottu muuttuja on kokonaisluku. Sliderin <a href="http://jqueryui.com/slider/#steps" target="_blank">stepin</a> (kuinka paljon sliderin arvo muuttuu liikutuksesta) voit päätää itse. Näkymässä esimerkiksi <code>div</code>-elementtiin sidottu <code>slider</code>-direktiivi näyttäisi tältä:  
   </p>
 <pre class="sh_html">
 &lt;div slider ng-model="number"&gt;&lt;/div&gt;
