@@ -6298,7 +6298,7 @@ function ExampleController($scope){
 &lt;/form&gt;
 </pre>
 <p>
-  Haluasin, että yllä oleva lomake validoitaisiin seuraavasti:
+  Haluaisin, että yllä oleva lomake validoitaisiin seuraavasti:
   <ul>
     <li>Etunimi, eikä sukunimi saa olla tyhjä ja molempien pituuden tulee olla vähintään kaksi merkkiä</li>
     <li>Puhelinnumeron pitää koostua numeroista ja olla vähintään yhdeksän merkkiä pitkä</li>
@@ -6403,7 +6403,7 @@ function ExampleController($scope){
     <li>
       Sekä etu-, että sukunimi on pituudeltaan vähintään kaksi merkkiä ja koostuvat pelkistä kirjaimista.
     </li>
-    <li>Henkilötunnus on <a href="http://fi.wikipedia.org/wiki/Henkil%C3%B6tunnus#Tunnuksen_muoto" target="_blank">täällä</a> määriteltyä mutoa.</li>
+    <li>Henkilötunnus on <a href="http://fi.wikipedia.org/wiki/Henkil%C3%B6tunnus#Tunnuksen_muoto" target="_blank">täällä</a> määriteltyä muotoa.</li>
     <li>
       Käyttäjä on hyväksynyt käyttöehdot (checkboxi on valittu).
     </li>
@@ -6450,7 +6450,7 @@ function NotificationController($scope){
   Kuten jo puhuimme, näkymään voi välittää myös funktion, jonka nyt teimme lisäämällä <code>$scope</code>-objektiin kentän <code>notify</code>, jonka arvona on funktio.
 </p>
 <p>
-  Palataan hetkeksi <code>ExampleController</code>-funktion pariin, jonka kanssa töyskentelimme vähän aikaa sitten. Toteutetaan siihen toiminto, jonka avulla henkilön ystäviä voi lisätä ja poistaa:
+  Palataan hetkeksi <code>ExampleController</code>-funktion pariin, jonka kanssa työskentelimme vähän aikaa sitten. Toteutetaan siihen toiminto, jonka avulla henkilön ystäviä voi lisätä ja poistaa:
 </p>
 <pre class="sh_javascript_dom">
 function ExampleController($scope){
@@ -9645,7 +9645,7 @@ router.post('/', function(req, res, next) {
     <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät <code>Foorumi</code>-kansioon! Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
   <p>
-    Toteuta <code>routes/topics.js</code>-tiedosta määritellyt reitit <code>routes.get('/', ...)</code>, <code>routes.get('/:id', ...)</code> ja <code>routes.post('/', ...)</code> niin, että aihealueita pystyy hakemaan ja lisäämään. Hae reiteistä ensimmäisessä kaikki aihealueet (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>) ja palauta ne JSON-muotoisina. Toisessa reitissä hae aihealue id:llä, joka on määritelty muuttujassa <code>topicId</code> (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>) ja palauta se JSON-muotoisena. Kolmannessa reitissä tallenna muuttujaan <code>topicToAdd</code> talletettu objekti (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#createvalues-options-promiseinstance" target="_blank">create</a></code>). Kun aihealue on lisätty, lähetä selaimelle vastauksena lisätty aihealue JSON-mutoisena. Älä välitä neljännestä reitistä, sitä ei tarvitse vielä toteuttaa.
+    Toteuta <code>routes/topics.js</code>-tiedosta määritellyt reitit <code>routes.get('/', ...)</code>, <code>routes.get('/:id', ...)</code> ja <code>routes.post('/', ...)</code> niin, että aihealueita pystyy hakemaan ja lisäämään. Hae reiteistä ensimmäisessä kaikki aihealueet (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>) ja palauta ne JSON-muotoisina. Toisessa reitissä hae aihealue id:llä, joka on määritelty muuttujassa <code>topicId</code> (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>) ja palauta se JSON-muotoisena. Kolmannessa reitissä tallenna muuttujaan <code>topicToAdd</code> talletettu objekti (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#createvalues-options-promiseinstance" target="_blank">create</a></code>). Kun aihealue on lisätty, lähetä selaimelle vastauksena lisätty aihealue JSON-muotoisena. Älä välitä neljännestä reitistä, sitä ei tarvitse vielä toteuttaa.
   </p>
   <p>
     Pääset käyttämään Sequelizen operaatioita <code>topics.js</code>-tiedostossa määritellyn <code>Models</code>-muuttujan kautta. Voit esimerkiksi hakea kaikki aihealueet seuraavasti:
