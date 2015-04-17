@@ -124,7 +124,7 @@
         <p>Jos (ja kun) materiaalista löytyy esimerkiksi kirjoitusvirheitä,
           korjaa tilanne, ja tee pull-request osoitteessa <a href="https://github.com/web-selainohjelmointi/web-selainohjelmointi.github.io" target="_blank">https://github.com/web-selainohjelmointi/web-selainohjelmointi.github.io</a>. Kiitos bugien ja
           ongelmien korjauksesta kuuluu jo nyt seuraaville nimimerkeille: pro_,
-          gleant, BiQ, Absor, Rase, jombo, BearGrylls, Marko, _jumi_, jykke, Semilia, Walther, Loezi, doge ja
+          gleant, BiQ, Absor, Rase, jombo, BearGrylls, Marko, _jumi_, jykke, Semilia, Walther, Loezi, happosade, doge ja
           mluukkai.</p>
           
         <h2>Aikataulu</h2>
@@ -5127,7 +5127,7 @@ nappi.addEventListener("click", function(eventInformation) {
 <div class="tehtavat">
     <h3>Spoilaajan Backend (2p)</h3>
 
-    <p>Muistellaan taas JSON-kyselyjen tekemistä palvelimelle. Käy kertaamassa kappale 8 ennen tätä tehtävää. Tehtävänäsi on tässä lisätä edellä esitettyyn ohjelmaan backend-kytkös. Backend-kytköksen tehtävänä on sovelluksen käynnistyessä hakea olemassaolevat spoilaukset palvelimelta, sekä lähettää palvelimelle mahdolliset muutokset.</p>
+    <p>Muistellaan taas JSON-kyselyjen tekemistä palvelimelle. Käy kertaamassa kappale 7 ennen tätä tehtävää. Tehtävänäsi on tässä lisätä edellä esitettyyn ohjelmaan backend-kytkös. Backend-kytköksen tehtävänä on sovelluksen käynnistyessä hakea olemassaolevat spoilaukset palvelimelta, sekä lähettää palvelimelle mahdolliset muutokset.</p>
 
     <p>Spoilausten tallentamiseen käytetty palvelinsovellus toimii osoitteessa <a href="http://bad.herokuapp.com/app/" target="_blank">http://bad.herokuapp.com/app/</a>. Kannattaa tehdä kysely palvelimelle selaimella ennen tehtävän tekemistä, jotta palvelin on varmasti käynnissä. Palvelin tarjoaa osoitteessa <code>http://bad.herokuapp.com/app/spoilers/</code> toimivan rajapinnan. Kun rajapintaan tehdään GET-kysely, palvelin palauttaa kaikki tallennetut spoilaukset.</p>
 
@@ -6090,7 +6090,7 @@ function ExampleController($scope){
 &lt;/html&gt;
 </pre>
 <p>
-  Näkymässä ei tapahtu mitään kovin kummallista, siihen upotetaan arvot <code>person.age</code> ja <code>person.name</code> syntaksilla <code>{{muuttujan}}</code>, joka on jo ennestään tuttu Mustachen kanssa. Näkymään ilmestyy siis otsikko, jonka sisältö on "Kalle, 22 vuotta vanha".
+  Näkymässä ei tapahdu mitään kovin kummallista, siihen upotetaan arvot <code>person.age</code> ja <code>person.name</code> syntaksilla <code>{{muuttuja}}</code>, joka on jo ennestään tuttu Mustachen kanssa. Näkymään ilmestyy siis otsikko, jonka sisältö on "Kalle, 22 vuotta vanha".
 </p>
 <h4>Ehtolauseet ja DOM-elementtien muokkaus ehtojen perusteella</h4>
 <p>
@@ -6298,7 +6298,7 @@ function ExampleController($scope){
 &lt;/form&gt;
 </pre>
 <p>
-  Haluasin, että yllä oleva lomake validoitaisiin seuraavasti:
+  Haluaisin, että yllä oleva lomake validoitaisiin seuraavasti:
   <ul>
     <li>Etunimi, eikä sukunimi saa olla tyhjä ja molempien pituuden tulee olla vähintään kaksi merkkiä</li>
     <li>Puhelinnumeron pitää koostua numeroista ja olla vähintään yhdeksän merkkiä pitkä</li>
@@ -6326,16 +6326,16 @@ function ExampleController($scope){
 </p>
 <pre class="sh_html">
 &lt;p&gt;
-  &lt;label&gt;Etunimi&lt;/label&gt;
-  &lt;input name="firstName" type="text" ng-model="firstName" ng-pattern="/^[0-9]{9,}$/"&gt;
+  &lt;label&gt;Puhelinnumero&lt;/label&gt;
+  &lt;input name="phoneNumber" type="text" ng-model="phoneNumber" ng-pattern="/^[0-9]{9,}$/"&gt;
 &lt;/p&gt;
 &lt;p&gt;
-  &lt;label&gt;Sukunimi&lt;/label&gt;
-  &lt;input name="lastName" type="text" ng-model="lastName" ng-pattern="/^.+@.+\..+$/"&gt;
+  &lt;label&gt;Sähköpostiosoite&lt;/label&gt;
+  &lt;input name="emailAddress" type="text" ng-model="emailAddress" ng-pattern="/^.+@.+\..+$/"&gt;
 &lt;/p&gt;
 </pre>
 <p>
-  Nyt puhelinnumerossa täytyy olla vähintään yhdeksän numeroa ja sähköpostiosoite on muotoa jotain@jotain.jotain. Huomaa, että säännöllinen lauseke, tulee sijoittaa merkkien <code>/^</code> ja <code>$/</code> väliin.
+  Nyt puhelinnumerossa täytyy olla vähintään yhdeksän numeroa ja sähköpostiosoite on muotoa jotain@jotain.jotain. Huomaa, että säännöllinen lauseke tulee sijoittaa merkkien <code>/^</code> ja <code>$/</code> väliin.
 </p>
 <p>
   Seuraavaksi käyttäjälle pitäisi näyttää virheilmoitukset, jos hän on täyttänyt lomakkeet väärin. Lisätään jokaisen kentän alle virheilmoitus, jos se ei ole validi:
@@ -6395,7 +6395,7 @@ function ExampleController($scope){
       Käyttäjätunnus on vähintään kolme merkkiä pitkä.
     </li>
     <li>
-      Käyttäjän salasanan pituus on vähintään kahdeksan merkkiä ja sisältää vähintään yhden numero ja ison kirjaimen.
+      Käyttäjän salasanan pituus on vähintään kahdeksan merkkiä ja sisältää vähintään yhden numeron ja ison kirjaimen.
     </li>
     <li>
       Käyttäjän antama salasana ja sen vahvistus vastaavat toisiaan. Käytetään tähän Angulariin toteutettua direktiiviä, jonka käyttöön löydät ohjeet <a href="https://github.com/TheSharpieOne/angular-input-match#usage" target="_blank">täältä</a>. Asennus on jo tehty, tutustu vain lyhyesti käyttöohjeisiin.
@@ -6403,13 +6403,13 @@ function ExampleController($scope){
     <li>
       Sekä etu-, että sukunimi on pituudeltaan vähintään kaksi merkkiä ja koostuvat pelkistä kirjaimista.
     </li>
-    <li>Henkilötunnus on <a href="http://fi.wikipedia.org/wiki/Henkil%C3%B6tunnus#Tunnuksen_muoto" target="_blank">täällä</a> määriteltyä mutoa.</li>
+    <li>Henkilötunnus on <a href="http://fi.wikipedia.org/wiki/Henkil%C3%B6tunnus#Tunnuksen_muoto" target="_blank">täällä</a> määriteltyä muotoa.</li>
     <li>
       Käyttäjä on hyväksynyt käyttöehdot (checkboxi on valittu).
     </li>
   </ul>
 </p>
-  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi kenttiin kohdistuvat virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon. Yksittäisen validaattorin virheitä ei tarvitse, näyttää, riittää ilmoittaa, jos kenttä ei ole validi jonkin validaattorin perusteella. Muista sitoa jokainen kenttä jonkin muuttujan arvoon <code>ng-model</code>-attribuutin avulla, muuten validointi ei toimi.
+  Poista lomakkeen lähetyspainike käytöstä, kunnes lomake on validi (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngDisabled" target="_blank">ng-disabled</a></code>). Näytä lisäksi kenttiin kohdistuvat virheilmoitukset, jos niille on tarvetta, kunhan käyttäjä on ehtinyt syöttää kenttään arvon. Yksittäisen validaattorin virheitä ei tarvitse näyttää, riittää ilmoittaa, jos kenttä ei ole validi jonkin validaattorin perusteella. Muista sitoa jokainen kenttä jonkin muuttujan arvoon <code>ng-model</code>-attribuutin avulla, muuten validointi ei toimi.
 </p>
 </div>
 <h3>Tapahtumat</h3>
@@ -6450,7 +6450,7 @@ function NotificationController($scope){
   Kuten jo puhuimme, näkymään voi välittää myös funktion, jonka nyt teimme lisäämällä <code>$scope</code>-objektiin kentän <code>notify</code>, jonka arvona on funktio.
 </p>
 <p>
-  Palataan hetkeksi <code>ExampleController</code>-funktion pariin, jonka kanssa töyskentelimme vähän aikaa sitten. Toteutetaan siihen toiminto, jonka avulla henkilön ystäviä voi lisätä ja poistaa:
+  Palataan hetkeksi <code>ExampleController</code>-funktion pariin, jonka kanssa työskentelimme vähän aikaa sitten. Toteutetaan siihen toiminto, jonka avulla henkilön ystäviä voi lisätä ja poistaa:
 </p>
 <pre class="sh_javascript_dom">
 function ExampleController($scope){
@@ -6519,7 +6519,7 @@ function ExampleController($scope){
   Tulee usein tilanne, jossa haluamme tarkkailla muutosta mallissa. Esimerkiksi, jos henkilön nimeä muuttaa, hänen ystävän poistetaan, koska henkilö ei ole enää sama kuin ennen, joten hänellä ei ole myöskään samoja ystäviä.
 </p>
 <p>
-  Toteutetaan kuitenkin hieman yksinkertaisempi esimerkki, jossa käyttäjä syöttää nimensä tekstikenttään ja jos sen arvo on "James Bond", näytetään alert-ikkuna "I've been expecting you, mr. Bond". Aloitetaan luomalla luomalla näkymä, joka sisältyy <code>BondController</code>-kontrollerin näkyvyysalueeseen:
+  Toteutetaan kuitenkin hieman yksinkertaisempi esimerkki, jossa käyttäjä syöttää nimensä tekstikenttään ja jos sen arvo on "James Bond", näytetään alert-ikkuna "I've been expecting you, mr. Bond". Aloitetaan luomalla näkymä, joka sisältyy <code>BondController</code>-kontrollerin näkyvyysalueeseen:
 </p>
 <pre class="sh_html">
 &lt;div ng-controller="BondController"&gt;
@@ -6550,7 +6550,7 @@ function BondController($scope){
 </p>
 <h3>Riippuvuuksien injektointi</h3>
 <p>
-  Riippuvuuksien injektointi (<a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a>) on suosittu suunnittelumalli sovelluskehityksessä, johon myös Angular hyvin vahvasti nojautuu. Dependency Injection suunnittelumallin suosio perustuu siihen, että se vähentää sovelluksen sisäisiä riippuvuuksia (tekee "<a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsible Principle</a>"-periaatteen noudattamisesta helpompaa) ja tekee koodista uudelleenkäytettävämpää sekä helpommin testattavaa. 
+  Riippuvuuksien injektointi (<a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a>) on suosittu suunnittelumalli sovelluskehityksessä, johon myös Angular hyvin vahvasti nojautuu. Dependency Injection suunnittelumallin suosio perustuu siihen, että se vähentää sovelluksen sisäisiä riippuvuuksia (tekee "<a href="http://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a>"-periaatteen noudattamisesta helpompaa) ja tekee koodista uudelleenkäytettävämpää sekä helpommin testattavaa. 
 </p>
 <p>
   Katsotaan, miten riippuvuuksien injektointi on toteutettu Angularissa. Tähän mennessä olemme määritelleet kontrollerimme tähän tapaan:
@@ -6561,7 +6561,7 @@ function MyController($scope){
 }
 </pre>
 <p>
-  Tavassa ei periaatteessa ole mitään vikaa, mutta tulevaisuudessamme haluamme käyttää muita komponentteja kontrollereissamme, jolloin meidän täytyy injektoida ne kontrolleriimme. Jotta riippuvuuksien injektointi olisi helpompaa, määrittelemme kontrollerimme tulevaisuudessa seuraavanlaisesti:
+  Tavassa ei periaatteessa ole mitään vikaa, mutta tulevaisuudessa haluamme käyttää muita komponentteja kontrollereissamme, jolloin meidän täytyy injektoida ne kontrolleriimme. Jotta riippuvuuksien injektointi olisi helpompaa, määrittelemme kontrollerimme tulevaisuudessa seuraavanlaisesti:
 </p>
 <pre class="sh_javascript_dom">
 var App = angular.module('MyApp', []);
@@ -6571,7 +6571,7 @@ App.controller('MyController', function($scope){
 });
 </pre>
 <p>
-  Toteutimme siis moduulin nimeltä <code>MyApp</code> ja sille kontrollerin <code>MyController</code>, johon injektoin muuttujan <code>$scope</code>. Huomaa, että tyhjä taulukko <code>angular.module</code>-kutsun toisena parametrina tarkoittaa sitä, etten injektoi moduuliini toisia moduuleja. Tulemme kuitenkin tekemään niin tulevaisuudessa. Moduuli on Angularissa pelkästään laatikko, joka sisältää sovelluksemme konponentit, kuten kontrollerit. Se on siis tapa organisoida sovelluksen eri osia. Moduulin käyttö lähtee liikkeelle näkymästä, jossa se otetaan käyttöön lisäämällä se <code>ng-app</code>-attribuutin arvoksi:
+  Toteutimme siis moduulin nimeltä <code>MyApp</code> ja sille kontrollerin <code>MyController</code>, johon injektoin muuttujan <code>$scope</code>. Huomaa, että tyhjä taulukko <code>angular.module</code>-kutsun toisena parametrina tarkoittaa sitä, etten injektoi moduuliini toisia moduuleja. Tulemme kuitenkin tekemään niin tulevaisuudessa. Moduuli on Angularissa pelkästään laatikko, joka sisältää sovelluksemme komponentit, kuten kontrollerit. Se on siis tapa organisoida sovelluksen eri osia. Moduulin käyttö lähtee liikkeelle näkymästä, jossa se otetaan käyttöön lisäämällä se <code>ng-app</code>-attribuutin arvoksi:
 </p>
 <pre class="sh_html">
 &lt;html&gt;
@@ -6597,15 +6597,15 @@ App.controller('MyController', function($scope, $interval){
 });
 </pre>
 <p>
-  Käytän injektoitua <code>$interval</code>-funktiota vähentääkseni muuttujan <code>message</code> arvoa joka sekuntti (sekuntti on 1000 millisekunttia).
+  Käytän injektoitua <code>$interval</code>-funktiota vähentääkseni muuttujan <code>message</code> arvoa joka sekunti (sekunti on 1000 millisekuntia).
 </p>
 <div class="tehtavat">
   <h3>Pikakirjoitus</h3>
   <p>
-    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi testata pikakirjoitustaitojaan. Pikakirjoituspelin tulee toimia niin, että käyttäjä näkee sivulla pitkän "Lorem ipsum dolor sit amet..."-tekstin, jonka sisältö löytyy muuttujasta <code>text</code>. Kun käyttäjä painaa "Aloita!"-painiketta, hänen täytyy alkaa kirjoittamaan näkeemäänsä tekstiä tekstikenttään niin nopeasti kuin mahdollista. Käyttäjällä on aikaa kirjoittaa tekstiä 15 sekunttia. Varmista, ettei käyttäjä tee kirjoitusvirhettä niin, ettet hyväksy tekstikenttään virheellisiä merkkejä. Samaan aikaan, kun käyttäjä kirjoittaa, sivulla näkyvän laskurin arvo vähenee joka sekuntti. Kun laskurin arvo on 0, tulee käyttäjälle ilmoittaa alert-ikkunan kautta, kuinka monta merkkiä hän onnistui kirjoittamaan. Pelin uudelleen aloittamiseksi riittää, että käyttäjä päivittää sivun, mutta voit halutessasi alustaa pelin uudelleen, kun laskurin arvo on 0.
+    Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi testata pikakirjoitustaitojaan. Pikakirjoituspelin tulee toimia niin, että käyttäjä näkee sivulla pitkän "Lorem ipsum dolor sit amet..."-tekstin, jonka sisältö löytyy muuttujasta <code>text</code>. Kun käyttäjä painaa "Aloita!"-painiketta, hänen täytyy alkaa kirjoittamaan näkeemäänsä tekstiä tekstikenttään niin nopeasti kuin mahdollista. Käyttäjällä on aikaa kirjoittaa tekstiä 15 sekuntia. Varmista, ettei käyttäjä tee kirjoitusvirhettä niin, ettet hyväksy tekstikenttään virheellisiä merkkejä. Samaan aikaan, kun käyttäjä kirjoittaa, sivulla näkyvän laskurin arvo vähenee joka sekunti. Kun laskurin arvo on 0, tulee käyttäjälle ilmoittaa alert-ikkunan kautta, kuinka monta merkkiä hän onnistui kirjoittamaan. Pelin uudelleen aloittamiseksi riittää, että käyttäjä päivittää sivun, mutta voit halutessasi alustaa pelin uudelleen, kun laskurin arvo on 0.
   </p>
   <p>
-    Toteuta pikakirjoituspeli käyttämällä <code>$watch</code>-funktiota tarkkailemaan esimerkiksi <code>timeLeft</code> (kuinka paljon laskurissa on aikaa) ja <code>userText</code> nimisten muuttujien (käyttäjän kirjoittama teksti) arvoja. Kun <code>timeLeft</code> muuttujan arvo on 0, ilmoita käyttäjälle, kuinka monta merkkiä hän onnistui kirjoittamaan oikein (esim. "Onnistuit kirjoittamaan 30 merkkiä!"). Tarkkaile <code>userText</code>-muuttuja kirjoitusvirheiden varalta esimerkiksi seuraavasti: 
+    Toteuta pikakirjoituspeli käyttämällä <code>$watch</code>-funktiota tarkkailemaan esimerkiksi <code>timeLeft</code> (kuinka paljon laskurissa on aikaa) ja <code>userText</code> nimisten muuttujien (käyttäjän kirjoittama teksti) arvoja. Kun <code>timeLeft</code> muuttujan arvo on 0, ilmoita käyttäjälle, kuinka monta merkkiä hän onnistui kirjoittamaan oikein (esim. "Onnistuit kirjoittamaan 30 merkkiä!"). Tarkkaile <code>userText</code>-muuttujaa kirjoitusvirheiden varalta esimerkiksi seuraavasti: 
 <pre class="sh_javascript_dom">
 var lastChar = newVal.charAt(newVal.length - 1);
 
@@ -6730,7 +6730,7 @@ if(lastChar != $scope.text.charAt(newVal.length - 1)){
         Käyttäjä voi poistaa kaikki tehtävät klikkaamalla "Poista kaikki"-painiketta. Varmista painikkeen klikkaamisen jälkeen, että käyttäjä haluaa varmasti poistaa kaikki tehtävät (vinkki: <code><a href="http://www.w3schools.com/jsref/met_win_confirm.asp" target="_blank">confirm</a></code>). 
       </li>
       <li>
-        Tehtävään liittyy prioriteetti. Jokaiselle tehtävälle lisätään sen lisäämisen yhteydessä prioriteetti <code>1</code>. Sitä pienempi prioriteetti on, sitä tärkeämpi tehtävä on. Käyttäjä voi muokata tehtävän prioriteettia vaihtamalla sen vieressä olevan tekstikentän arvoa. Järjestä tehtävät prioriteetin mukaan niin, että tärkeimmät tehtävät ovat listan yläpäässä (vinkki: liitä prioriteetin sisältävään tekstikenttään <code><a href="https://docs.angularjs.org/api/ng/directive/ngBlur" target="_blank">ng-blur</a></code>-kuuntelija ja järjestä tehtävien taulukko prioriteetin mukaan, kun kenttä menettää fokuksen käyttämällä <code><a href="http://www.w3schools.com/jsref/jsref_sort.asp" target="_blank">sort</a></code>-funktiota).
+        Tehtävään liittyy prioriteetti. Jokaiselle tehtävälle lisätään sen lisäämisen yhteydessä prioriteetti <code>1</code>. Mitä pienempi prioriteetti on, sitä tärkeämpi tehtävä on. Käyttäjä voi muokata tehtävän prioriteettia vaihtamalla sen vieressä olevan tekstikentän arvoa. Järjestä tehtävät prioriteetin mukaan niin, että tärkeimmät tehtävät ovat listan yläpäässä (vinkki: liitä prioriteetin sisältävään tekstikenttään <code><a href="https://docs.angularjs.org/api/ng/directive/ngBlur" target="_blank">ng-blur</a></code>-kuuntelija ja järjestä tehtävien taulukko prioriteetin mukaan, kun kenttä menettää fokuksen käyttämällä <code><a href="http://www.w3schools.com/jsref/jsref_sort.asp" target="_blank">sort</a></code>-funktiota).
       </li>
       <li>
         Käyttäjä voi nähdä muistilistan alalaidasta, kuinka monta tehtävää hän on tehnyt ja kuinka monta on vielä tekemättä. Käytä selkeää suomen kieltä, jolloin "1 tehtävä tehty" on oikein ja "1 tehtävää tehty" on väärin (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngPluralize" target="_blank">ng-pluralize</a></code>). Voit toteuttaa toiminnon käyttämällä <code><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch" target="_blank">$watch</a></code>-funktiota niin, että seuraat tehtävät sisältävää taulukkoa ja päivittää esimerkiksi muuttujien <code>todosDone</code> ja <code>todosRemaining</code> arvot aina, kun taulukossa tapahtuu muutoksia. <strong>Muista lisätä <code>$watch</code>-funktiokutsun viimeiseksi parametriksi <code>true</code>, niin Angular tarkastaa onko taulukossa tapahtunut muutoksia sen sisällön, eikä pelkän viitteen perusteella</strong>. 
@@ -6746,7 +6746,7 @@ if(lastChar != $scope.text.charAt(newVal.length - 1)){
   Jos olemme tarkkoja, emme ole puhuneet asioista täysin niiden oikeilla nimillä. Olemme puhuneet mm. <code>ng-repeat</code>, <code>ng-if</code> ja <code>ng-controller</code> yhteydessä pelkistä attribuuteista, joita annetaan DOM-elementeille. Toisaalta ne ovat sitä, mutta Angularin yhteydessä niillä on toinen nimi, <a href="https://docs.angularjs.org/guide/directive" target="_blank">direktiivi</a> (directive). Direktiivit ovat yksinkertaisesti tunnuksia (yleensä juuri attribuutteja) DOM-elementeissä, jotka kertovat Angularin HTML-kääntäjälle, että niihin pitää liittää erityisiä ominaisuuksia tai muuttaa elementtiä ja sen lapsielementtejä esimerkiksi lisäämällä niiden sisään toisia DOM-elementtejä tai muokkaamalla olemassaolevien elementtien esitystä.
 </p>
 <p>
-  Sovellusta toteuttaessa tulee usein vastaan tilanne, jossa valmista direktiiviä ei löydy, jolloin se pitää joko toteuttaa itse, tai etsiä muualta. Angulariin on toteuttu lukuisia ulkopuolisia direktiivejä, mutta toteutetaan harjoituksen vuoski yksi itse. Oman direktiivin luonti tapahtuu seuraavasti: 
+  Sovellusta toteuttaessa tulee usein vastaan tilanne, jossa valmista direktiiviä ei löydy, jolloin se pitää joko toteuttaa itse, tai etsiä muualta. Angulariin on toteuttu lukuisia ulkopuolisia direktiivejä, mutta toteutetaan harjoituksen vuoksi yksi itse. Oman direktiivin luonti tapahtuu seuraavasti: 
 </p>
 <pre class="sh_javascript_dom">
 var App = angular.module('MyApp', []);
@@ -6779,7 +6779,7 @@ App.directive('counter', function(){
   Direktiivin ominaisuudet liitetään objektiin, jonka toisena parametrina annettu anonyymifunktio palauttaa. Voimme liittää palautettuun objektiin kentän <code>link</code>, joka sisältää funktion, joka ottaa parametreikseen näkyvyysalueen, jossa direktiivi sijaitsee (<code>scope</code>), elementin, johon direktiivi on liitetty (<code>elem</code>) ja attribuutit, mikä kyseiseen elementtiin liittyy (<code>attrs</code>). Funktion avulla voimme manipuloida DOM-elementtiä, johon direktiivimme on liitetty, kuten liittää siihen tapahtumankuuntelijan. Voimme lisäksi funktiossa päästä käsiksi koko kontrollerin näkyvyysalueeseen, jonka sisällä direktiivimme sijaitsee <code>scope</code>-parametrin avulla. Nyt kun käyttäjä klikkaa "Kasvata"-painiketta, johon <code>counter</code>-direktiivi on liitetty, ilmestyy alert-ikkuna "Klikkasit!". 
 </p>
 <p>
-  <code>link</code>-kentässä määritellyn funktion ensimmäisen parametrin, <code>scope</code> avulla pääsemme käsiksi koko direktiivin näkyvyysalueeseen, joka on koko direktiivin ulkoinen näkyvyysalue. Usein haluamme kuitenkin määrittää direktiivillemme nk. eristetyn näkyvyysalueen, jonka avulla voimme kuvata direktiivin ulkoisen näkyvyysalueen sen sisäiseksi näkyvyysalueeksi. Se on kätevää, koska silloin direktiivinen toteutuksen ei tarvitse riippua siitä, minkä kontrollerin sisällä se on käytössä. Eristetyn näkyvyysaluuen toteuttaminen onnistuu määrittelemällä palautettavaan objektiin kenttä <code>scope</code>, johon määrittelemme direktiivin näkyvyysalueen. Käytännössä voimme esimerkiksi käyttää <code>ng-model</code>-direktiivissä määriteltyä muuttujaa direktiivissämme seuraavasti:
+  <code>link</code>-kentässä määritellyn funktion ensimmäisen parametrin, <code>scope</code> avulla pääsemme käsiksi koko direktiivin näkyvyysalueeseen, joka on koko direktiivin ulkoinen näkyvyysalue. Usein haluamme kuitenkin määrittää direktiivillemme nk. eristetyn näkyvyysalueen, jonka avulla voimme kuvata direktiivin ulkoisen näkyvyysalueen sen sisäiseksi näkyvyysalueeksi. Se on kätevää, koska silloin direktiivinen toteutuksen ei tarvitse riippua siitä, minkä kontrollerin sisällä se on käytössä. Eristetyn näkyvyysalueen toteuttaminen onnistuu määrittelemällä palautettavaan objektiin kenttä <code>scope</code>, johon määrittelemme direktiivin näkyvyysalueen. Käytännössä voimme esimerkiksi käyttää <code>ng-model</code>-direktiivissä määriteltyä muuttujaa direktiivissämme seuraavasti:
 </p>
 <pre class="sh_javascript_dom">
 App.directive('counter', function(){
@@ -6803,7 +6803,7 @@ Laskurin arvo on: {{value}}
 &lt;button counter ng-model="value"&gt;Kasvata&lt;/button&gt;
 </pre>
 <p>
-  Koska muuttujan <code>value</code> arvoa ei ole vielä asetettua, "Kasvata"-painikkeen klikkaamisesta ilmestyvän alert-ikkunan sisältö on "undefined". Muokataan direktiiviämme vielä niin, että painikkeen klikkaaminen kasvattaa <code>ng-model</code>-direktiivissä määriteltyä arvoa:
+  Koska muuttujan <code>value</code> arvoa ei ole vielä asetettu, "Kasvata"-painikkeen klikkaamisesta ilmestyvän alert-ikkunan sisältö on "undefined". Muokataan direktiiviämme vielä niin, että painikkeen klikkaaminen kasvattaa <code>ng-model</code>-direktiivissä määriteltyä arvoa:
 </p>
 <pre class="sh_javascript_dom">
 App.directive('counter', function(){
@@ -6868,7 +6868,24 @@ App.directive('counter', function(){
 <div class="tehtavat">
   <h3>Slider-direktiivi</h3>
   <p>
-    Tehtävänäsi on toteuttaa jQueryn <a href="http://jqueryui.com/slider/" target="_blank">slider</a>-widgetti <code>slider</code>-nimisenä direktiivinä. Tarkoitus on, että kun käyttäjä muuttaa sliderin arvoa, myös siihen <code>ng-model</code>-direktiivin avulla sidotun muuttujan arvo muuttuu. Sliderin alkuarvon tulee olla sama, kuin siihen sidotun muuttujan arvo. Voit olettaa etta <code>ng-model</code>-direktiivissä sidottu muuttuja on kokonaisluku. Sliderin <a href="http://jqueryui.com/slider/#steps" target="_blank">stepin</a> (kuinka paljon sliderin arvo muuttuu liikutuksesta) voit päätää itse. Näkymässä esimerkiksi <code>div</code>-elementtiin sidottu <code>slider</code>-direktiivi näyttäisi tältä:  
+    <iframe width="100%" height="200" src="http://jsfiddle.net/5TTm4/2852/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  </p>
+  <p>
+    Tehtävänäsi on toteuttaa jQueryn <a href="http://jqueryui.com/slider/" target="_blank">slider</a>-widgetti (katso yllä oleva jsFiddle) <code>slider</code>-nimisenä direktiivinä, joka käyttää hyväksi jQueryn tarjoamaa <code>slider</code>-funktiota, jonka avulla sliderin voi luoda esimerkiksi seuraavasti:
+</p>
+<pre class="sh_javascript_dom">
+$("#slider").slider({
+  value: 10,
+  slide: function(event, ui){
+    console.log('Liikutit slideria!')
+  }
+});
+</pre>
+<p>
+  Lue lisää <code>slider</code>-funktion parametreista <a href="http://api.jqueryui.com/slider/" target="_blank">täältä</a>.
+</p>
+<p>
+    Tarkoitus on, että kun käyttäjä muuttaa sliderin arvoa, myös siihen <code>ng-model</code>-direktiivin avulla sidotun muuttujan arvo muuttuu. Sliderin alkuarvon tulee olla sama, kuin siihen sidotun muuttujan arvo. Voit olettaa etta <code>ng-model</code>-direktiivissä sidottu muuttuja on kokonaisluku. Sliderin <a href="http://jqueryui.com/slider/#steps" target="_blank">stepin</a> (kuinka paljon sliderin arvo muuttuu liikutuksesta) voit päätää itse. Näkymässä esimerkiksi <code>div</code>-elementtiin sidottu <code>slider</code>-direktiivi näyttäisi tältä:  
   </p>
 <pre class="sh_html">
 &lt;div slider ng-model="number"&gt;&lt;/div&gt;
@@ -6884,14 +6901,6 @@ App.directive('counter', function(){
 </pre>
 </div>
 </section>
-
-
-<h1>Päivitysraja</h1>
-
-<div>
-<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
-</div>
-<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
 
 
 
@@ -7337,7 +7346,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
 });
 </pre>
 <p>
-  Kontrollerissa ei tapahtu mitään kovin kummallista, <code>removeMessage</code>-funktiossa kutsutaan vain <code>FirebaseService</code>-palvelun tarjoamaa <code>removeMessage</code>-funktiota. Lisätään vielä näkymään panike, jonka painallus kutsuu toteuttamaamme funktiota:
+  Kontrollerissa ei tapahdu mitään kovin kummallista, <code>removeMessage</code>-funktiossa kutsutaan vain <code>FirebaseService</code>-palvelun tarjoamaa <code>removeMessage</code>-funktiota. Lisätään vielä näkymään panike, jonka painallus kutsuu toteuttamaamme funktiota:
 </p>
 <pre class="sh_html">
 &lt;html&gt;
@@ -8034,6 +8043,17 @@ module.exports = function(grunt) {
 </p>
 </div>
 </section>
+
+
+<h1>Päivitysraja</h1>
+
+<div>
+<img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
+</div>
+<a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
+
+
+
 <section class="week">
   <header>
     <a name="viikko6"></a>
@@ -9628,7 +9648,7 @@ router.post('/', function(req, res, next) {
     <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät <code>Foorumi</code>-kansioon! Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
   <p>
-    Toteuta <code>routes/topics.js</code>-tiedosta määritellyt reitit <code>routes.get('/', ...)</code>, <code>routes.get('/:id', ...)</code> ja <code>routes.post('/', ...)</code> niin, että aihealueita pystyy hakemaan ja lisäämään. Hae reiteistä ensimmäisessä kaikki aihealueet (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>) ja palauta ne JSON-muotoisina. Toisessa reitissä hae aihealue id:llä, joka on määritelty muuttujassa <code>topicId</code> (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>) ja palauta se JSON-muotoisena. Kolmannessa reitissä tallenna muuttujaan <code>topicToAdd</code> talletettu objekti (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#createvalues-options-promiseinstance" target="_blank">create</a></code>). Kun aihealue on lisätty, lähetä selaimelle vastauksena lisätty aihealue JSON-mutoisena. Älä välitä neljännestä reitistä, sitä ei tarvitse vielä toteuttaa.
+    Toteuta <code>routes/topics.js</code>-tiedosta määritellyt reitit <code>routes.get('/', ...)</code>, <code>routes.get('/:id', ...)</code> ja <code>routes.post('/', ...)</code> niin, että aihealueita pystyy hakemaan ja lisäämään. Hae reiteistä ensimmäisessä kaikki aihealueet (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>) ja palauta ne JSON-muotoisina. Toisessa reitissä hae aihealue id:llä, joka on määritelty muuttujassa <code>topicId</code> (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>) ja palauta se JSON-muotoisena. Kolmannessa reitissä tallenna muuttujaan <code>topicToAdd</code> talletettu objekti (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#createvalues-options-promiseinstance" target="_blank">create</a></code>). Kun aihealue on lisätty, lähetä selaimelle vastauksena lisätty aihealue JSON-muotoisena. Älä välitä neljännestä reitistä, sitä ei tarvitse vielä toteuttaa.
   </p>
   <p>
     Pääset käyttämään Sequelizen operaatioita <code>topics.js</code>-tiedostossa määritellyn <code>Models</code>-muuttujan kautta. Voit esimerkiksi hakea kaikki aihealueet seuraavasti:
