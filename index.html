@@ -6905,7 +6905,7 @@ App.directive('counter', function(){
       Viime viikolla kehitimme upean muistilistasovelluksen (tehtävä TodoApp), johon pystyi lisäämään muistettavia asioita ja merkkaamaan niitä tehdyiksi. Tylsä puoli sovelluksessa oli se, ettei se tallettanut lisäämiämme muistutuksia mihinkään. Korjaamme sen puolen sovelluksestamme tällä viikolla ottamalla käyttöön <a href="https://www.firebase.com/">Firebasen</a>, jonka avulla voimme tallettaa ja muuttaa dataa reaaliajassa. Kuulostaa siistiltä!  
     </p>
     <p>
-      Aoita rekisteröitymällä Firebaseen <a href="https://www.firebase.com/signup/">täältä</a>. Kun olet rekisteröitynyt sinut ohjataan käyttäjäsi dashboardille, jossa ensimmäinen sovelluksesi on jo alustettu puolestasi nimellä "My first app". Olemme siis jo periaatteessa valmiita, katsotaan seuraavaksi hieman, miten saamme kytkettyä Firebasen Angular-sovellukseemme. 
+      Aloita rekisteröitymällä Firebaseen <a href="https://www.firebase.com/signup/">täältä</a>. Kun olet rekisteröitynyt sinut ohjataan käyttäjäsi dashboardille, jossa ensimmäinen sovelluksesi on jo alustettu puolestasi nimellä "My first app". Olemme siis jo periaatteessa valmiita, katsotaan seuraavaksi hieman, miten saamme kytkettyä Firebasen Angular-sovellukseemme. 
     </p>
     <h3>Firebase ja Angular</h3>
     <p>
@@ -7028,7 +7028,7 @@ MyApp.service('FirebaseService', function($firebase){
 
 <img src="img/firebase_data_url.png" style="float: left; width: 300px; margin-right: 15px;">
 <p>
-  Käydään läpi, mitä <code>FirebaseService</code>-palvelussa oikein tapahtuu. Talletan aluksi <code>firebaseRef</code>-muuttujaan <code>Firebase</code>-olion, joka ottaa parametrikseen sovelluksemme datasäilön sijainnin (joudut vaihtamaan kohtaan <code>OMA_FIREBASE</code> oman datasi sijainnin, joka löytyy dashboardiltasi kuvan osoittamasta paikasta). Sen jälkeen lisään palveluuni funktion <code>fetchData</code> kontrollerin käyttöä varten. Funktiossa talletan referenssin dataani kutsumalla injektoimaani <code>$firebase</code>-funktiota omalla <code>Firebase</code>-oliollani. Sen jälkeen voin hakea sovellukseni datan kutsumalla referenssille funktiota <code>$asObject()</code>. Otetaan seuraavaksi palvelu käyttöön kontrollerissa:
+  Käydään läpi, mitä <code>FirebaseService</code>-palvelussa oikein tapahtuu. Talletan aluksi <code>firebaseRef</code>-muuttujaan <code>Firebase</code>-olion, joka ottaa parametrikseen sovelluksemme datasäilön sijainnin (joudut vaihtamaan kohtaan <code>OMA_FIREBASE</code> oman datasi sijainnin, joka löytyy dashboardiltasi kuvan osoittamasta paikasta). Datasi sijainti on muotoa <code>https://FIREBASE_KAYTTAJANI.firebaseio.com</code>. Sen jälkeen lisään palveluuni funktion <code>fetchData</code> kontrollerin käyttöä varten. Funktiossa talletan referenssin dataani kutsumalla injektoimaani <code>$firebase</code>-funktiota omalla <code>Firebase</code>-oliollani. Sen jälkeen voin hakea sovellukseni datan kutsumalla referenssille funktiota <code>$asObject()</code>. Otetaan seuraavaksi palvelu käyttöön kontrollerissa:
 </p>
 <pre class="sh_javascript_dom">
 MyApp.controller('MyController', function($scope, FirebaseService){
