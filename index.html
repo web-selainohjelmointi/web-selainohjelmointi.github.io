@@ -7041,8 +7041,7 @@ MyApp.service('FirebaseService', function($firebase){
 </p>
 <pre class="sh_javascript_dom">
 MyApp.controller('MyController', function($scope, FirebaseService){
-  var data = FirebaseService.fetchData();
-  $scope.message = data.message;
+  $scope.message = FirebaseService.fetchData();
 });
 </pre>
 <p>
@@ -7054,7 +7053,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   &lt;/head&gt;
   &lt;body ng-app="MyApp"&gt;
     &lt;div ng-controller="MyController"&gt;
-      &lt;h1&gt;{{message}}&lt;/h1&gt;
+      &lt;h1&gt;{{data.message}}&lt;/h1&gt;
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
