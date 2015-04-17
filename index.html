@@ -7115,7 +7115,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   &lt;/head&gt;
   &lt;body ng-app="MyApp"&gt;
     &lt;div ng-controller="MyController"&gt;
-      &lt;textarea ng-model="newMessage"&gt;&lt;/textarea&gt;
+      &lt;textarea ng-model="newText"&gt;&lt;/textarea&gt;
       &lt;button ng-click="addMessage()"&gt;Lisää viesti&lt;/button&gt;
     &lt;/div&gt;
   &lt;/body&gt;
@@ -7168,8 +7168,8 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   &lt;/head&gt;
   &lt;body ng-app="MyApp"&gt;
     &lt;div ng-controller="MyController"&gt;
-      &lt;ul ng-repeat="message in messages"&gt;
-        &lt;li&gt;{{messages.text}}&lt;/li&gt;
+      &lt;ul&gt;
+        &lt;li ng-repeat="message in messages"&gt;{{messages.text}}&lt;/li&gt;
       &lt;/ul&gt;
       &lt;textarea ng-model="newText"&gt;&lt;/textarea&gt;
       &lt;button ng-click="addMessage()"&gt;Lisää viesti&lt;/button&gt;
