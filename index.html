@@ -7627,13 +7627,20 @@ describe('FriendListController', function(){
 </p>
 <h4>Node.js laitoksen koneille</h4>
 <p>
-  Laitoksen koneilla Git:in pitäisi olla valmiina asennettuna, mutta Noden asennuksen kanssa ongelma on se, ettei sinulla ole pääkäyttäjän oikeuksia, joka tekee asioista hieman vaikeampaa. Noden asennus onnistuu kuitenkin suorittamalla terminaalissa seuraavan komennon:
+  Laitoksen koneilla Git:in pitäisi olla valmiina asennettuna, mutta Noden asennuksen kanssa ongelma on se, ettei sinulla ole pääkäyttäjän oikeuksia, joka tekee asioista hieman vaikeampaa. Noden asennus onnistuu kuitenkin suorittamalla terminaalissa seuraava komento:
 </p>
 <pre class="sh_javascript_dom">
-curl http://web-selainohjelmointi.github.io/node-install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
 </pre>
 <p>
-  Komennon suorittaminen kestää jonkin aikaan. Kun se on valmis suorita terminaalissa komento <code>node --version</code>, jonka jälkeen terminaaliin pitäisi ilmestyä jokin versionumero, kuten <code>v0.10.29</code>. Tämä tarkoittaa sitä, että Node on asennettu. <strong>Laitoksen koneilla Node.js komentojen ajaminen NetBeansin kautta ei kuitenkaan onnistu, mutta samat komennot voit ajaa terminaalissa NetBeans-projektien jureessa</strong>.
+  Komennon suorittamisen jälkeen käynnistä terminaali uudelleen ja suorita vielä seuraavat komennot:
+</p>
+<pre class="sh_javascript_dom">
+nvm install 0.12
+echo 'nvm use 0.12' >> ~/.bashrc 
+</pre>
+<p>
+  Kun komennot on suoritettu, suorita terminaalissa komento <code>node --version</code>, jonka jälkeen terminaaliin pitäisi ilmestyä jokin versionumero, kuten <code>v0.10.29</code>. Tämä tarkoittaa sitä, että Node on asennettu. <strong>Laitoksen koneilla Node.js komentojen ajaminen NetBeansin kautta ei kuitenkaan onnistu, mutta samat komennot voit ajaa terminaalissa NetBeans-projektien jureessa</strong>.
 </p>
 <h4>Testien ajaminen NetBeansissa</h4>
 <p>
