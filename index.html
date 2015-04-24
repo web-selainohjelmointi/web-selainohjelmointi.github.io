@@ -8136,6 +8136,9 @@ README.md
     <p>
       Jos forkkasit <code>Elokuvakirjasto</code>-repon ennen 24.4 klo 15:00, siinä on tapahtunut pieni korjaus. Siirrä <code>web/app</code>-kansiossa sijaitseva <code>index.html</code>-tiedosto kansioon <code>web</code> ja korvaa <code>web</code>-kansiossa oleva <code>index.php</code>-tiedosto <a href="https://raw.githubusercontent.com/web-selainohjelmointi/Elokuvakirjasto/master/web/index.php" target="_blank">tällä</a> <code>index.php</code>-tiedostolla.
     </p>
+    <p>
+      Jos sinulla on vaikeuksia sovelluksen kehittämisessä NetBeansissa, lue <a href="#17.1.3-Muutosten-julkaiseminen-Herokussa">tämä</a> ohje.
+    </p>
     <h3>Look Mama, I'm in Heroku!</h3>
     <p>
       Noudata yllä olevia ohjeita ja julkaise <code>Elokuvakirjasto</code>-projektin pohja Herokussa. Harjoittele lisäksi hieman muutosten julkaisemista tekemällä jokin pieni muutos sovellukseesi (esimerkiksi etusivun otsikon vaihtaminen) ja julkaise muutettu sovellus. Kun olet saanut sovelluksesi pohjan Herokuun ja osaat julkaista muutoksia, voit palauttaa tehtävän lisäämällä <code>index.html</code>-tiedostoon linkin Herokussa sijaitsevaan sovellukseesi.
@@ -8347,6 +8350,13 @@ MyApp.controller('MyController', function($scope, $routeParams, FirebaseService)
   Tässä kontrollerissa haettavan objektin avain otetaan polkuparametrista, jolloin käyttäjän siirtyessä esimerkiksi polkuun <code>#/data/-JifGkiMM_GDi6fiZbyk</code>, haetaan Firebasesta objekti avaimella <code>-JifGkiMM_GDi6fiZbyk</code>. 
 </p>
   <div class="tehtavat">
+    <h2 class="ignore">Huom, huom!</h2>
+    <p>
+      Jos forkkasit <code>Elokuvakirjasto</code>-repon ennen 24.4 klo 15:00, siinä on tapahtunut pieni korjaus. Siirrä <code>web/app</code>-kansiossa sijaitseva <code>index.html</code>-tiedosto kansioon <code>web</code> ja korvaa <code>web</code>-kansiossa oleva <code>index.php</code>-tiedosto <a href="https://raw.githubusercontent.com/web-selainohjelmointi/Elokuvakirjasto/master/web/index.php" target="_blank">tällä</a> <code>index.php</code>-tiedostolla.
+    </p>
+    <p>
+      Jos sinulla on vaikeuksia sovelluksen kehittämisessä NetBeansissa, lue <a href="#17.1.3-Muutosten-julkaiseminen-Herokussa">tämä</a> ohje.
+    </p>
     <p style="padding-top: 10px">
       Kaikki näistä tehtävistä palautetaan Herokuun, joten tehtäpohjien palautuksessa riittää laittaa linkki Heroku-sovellukseesi tehtäväpohjien <code>index.html</code>-tiedostoon. Tehtävien tekoon kannattaa kuitenkin käyttää forkkaamasi <code>Elokuvakirjasto</code>-repon pohjaa, jotta voit helposti julkaista tekemäsi muutokset Herokuun. Pystyt avaamaan sen NetBeansissa valitsemalla File > New Project > HTML5 > HTML5 Application with Existing Sources ja valitsemalla kansioksi <code>Elokuvakirjasto</code>-kansion. Muista asentaa riippuvuudet klikkaamalla hiiren oikeaa painiketta projektin nimen päällä ja valitsemalla "Npm install" ja "Bower install". Jos käytät laitoksen konetta, suorita terminaalissa projektisi juuressa komennot <code>npm install</code> ja <code>./node_modules/bower/bin/bower install</code>, jotka tekevät täysin saman asian. 
     </p>
