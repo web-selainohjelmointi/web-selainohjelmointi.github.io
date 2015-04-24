@@ -7288,7 +7288,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
 &lt;/html&gt;
 </pre>
 <p>
-  Lisäsin jokaisin viestin alle sen muokkauslomakkeen, joka näytetään vain, jos sen <code>editing</code>-kentän arvo on <code>true</code>. Muokkauslomakkeen avaaminen onnistuu klikkaamalla "Muokkaa"-painiketta, jonka klikkaaminen kutsuu <code>showEditForm</code>-funktiota. Muokkauslomakkeesta "Lähetä"-painikkeen painallus taas kutsuu <code>editMessage</code>-funktiota, joka muokkaa viestin sisältöä painikkeen yllä olevan tekstikentän perusteella, joka on sidottu muuttujan <code>editText</code> arvoon.
+  Lisäsin jokaisen viestin alle sen muokkauslomakkeen, joka näytetään vain, jos sen <code>editing</code>-kentän arvo on <code>true</code>. Muokkauslomakkeen avaaminen onnistuu klikkaamalla "Muokkaa"-painiketta, jonka klikkaaminen kutsuu <code>showEditForm</code>-funktiota. Muokkauslomakkeesta "Lähetä"-painikkeen painallus taas kutsuu <code>editMessage</code>-funktiota, joka muokkaa viestin sisältöä painikkeen yllä olevan tekstikentän perusteella, joka on sidottu muuttujan <code>editText</code> arvoon.
 </p>
 <p>
   Kun olemme päässeet vauhtiin, toteutetaan vielä viestin poistotoiminto. Palataan takaisin <code>FirebaseService</code>-palvelun pariin ja lisätään sinne funktio <code>removeMessage</code>, joka poistaa parametrina annetun pelin Firebasesta:
@@ -7317,7 +7317,7 @@ MyApp.service('FirebaseService', function($firebase){
 });
 </pre>
 <p>
-  Saatoit jo melkein arvata, miten <code>removeMessage</code>-funktio toteutetaan. Kuten ennenkin, selviämme yhdellä rivillä koodi, tällä kertaa kutsumme <code>messages</code>-resurssille funktiota <code>$remove</code>, joka poistaa parametrina annetun alkion Firebasesta. Toteutetaan vielä kontrolleriin <code>removeMessage</code>-metodi:
+  Saatoit jo melkein arvata, miten <code>removeMessage</code>-funktio toteutetaan. Kuten ennenkin, selviämme yhdellä rivillä koodia, tällä kertaa kutsumme <code>messages</code>-resurssille funktiota <code>$remove</code>, joka poistaa parametrina annetun alkion Firebasesta. Toteutetaan vielä kontrolleriin <code>removeMessage</code>-metodi:
 </p>
 <pre class="sh_javascript_dom">
 MyApp.controller('MyController', function($scope, FirebaseService){
@@ -7395,7 +7395,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
 </div>
     <h2>Testaaminen</h2>
   <p>
-    Yksi Angularin käytön hyvä puoli on se, että se on helposti testattava, kunhan käytettävät työkalut on oikeat. Ensimmäiseksi tarvitaan työkalu, joka käytännössä ajaa testit. Tähän tehtävään käytetään usein Angularin kanssa <a href="http://karma-runner.github.io/0.12/index.html" target="_blank">Karmaa</a>. Se on komentorivi työkalu, jonka avulla voimme muodostaa tilapäisen web-palvelimen, joka lataa sovelluksesi lähdekoodit ja ajaa testisi ja kertoo, mitkä niistä läpäistiin ja mitkä ei. Karman lisäksi tarvitsemme testaamista varten kehitetyn sovelluskehyksen, jota käyttäen voimme toteuttaa sovelluksellemme testit. Sitä varten on kehitetty <a href="http://jasmine.github.io/1.3/introduction.html" target="_blank">Jasmine</a>, joka on "<a href="http://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank">Behavior-driven</a>"-sovelluskehitykseen (BDD) toteutettu sovelluskehys JavaScript-koodin testaamiseen.
+    Yksi Angularin käytön hyvä puoli on se, että se on helposti testattava, kunhan käytettävät työkalut on oikeat. Ensimmäiseksi tarvitaan työkalu, joka käytännössä ajaa testit. Tähän tehtävään käytetään usein Angularin kanssa <a href="http://karma-runner.github.io/0.12/index.html" target="_blank">Karmaa</a>. Se on komentorivityökalu, jonka avulla voimme muodostaa tilapäisen web-palvelimen, joka lataa sovelluksesi lähdekoodit ja ajaa testisi ja kertoo, mitkä niistä läpäistiin ja mitkä ei. Karman lisäksi tarvitsemme testaamista varten kehitetyn sovelluskehyksen, jota käyttäen voimme toteuttaa sovelluksellemme testit. Sitä varten on kehitetty <a href="http://jasmine.github.io/1.3/introduction.html" target="_blank">Jasmine</a>, joka on "<a href="http://en.wikipedia.org/wiki/Behavior-driven_development" target="_blank">Behavior-driven</a>"-sovelluskehitykseen (BDD) toteutettu sovelluskehys JavaScript-koodin testaamiseen.
   </p>
 <h3>Testaaminen Jasminella</h3>
 <p>
