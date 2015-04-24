@@ -8292,7 +8292,7 @@ describe('MyController', function(){
   });
 
   it('should initially call getMessages-function', function(){
-    // Kutsutaan toBecalled-funktiota, jolloin oletamme, että getMessages funktiota on kutsuttu
+    // Kutsutaan toHaveBeenCalled-funktiota, jolloin oletamme, että getMessages funktiota on kutsuttu
     expect(FirebaseServiceMock.getMessages).toHaveBeenCalled();
   });
 
@@ -8384,7 +8384,7 @@ MyApp.service('FirebaseService', function($firebase){
       Kun kontrollerit on toteutettu, toteuta sovellukseesi reititys, jossa näkymä elokuvien listaamiselle löytyy sekä polusta <code>#/movies</code>, että polusta <code>#/</code> (etusivu) ja näkymä elokuvan lisäämiselle löytyy polusta <code>#/moviews/new</code>. Näkymien ei tarvitse olla nättejä, riittää että elokuvien listassa löytyy elokuvat niiden nimillä ja elokuvien lisäyksessä elokuvan pystyy lisäämään sen nimellä, ohjaajalla, julkaisuvuodella ja kuvauksella sopivan lomakkeen kautta.
     </p>
     <p>
-      Elokuvien listaamiselle ja lisäämiselle löytyy pari testiä <code>test</code>-kansiota. Elokuvien listaamisen testit löytyvät kansiosta <code>test/movie_list_test.js</code> ja elokuvien lisäämisen testit kansiosta <code>test/add_movie_test.js</code>. Testaa mollemmissa teisteissä kuvattuja toimintoja. Muista mockata Firebasen kanssa keskuteleva palvelusi niin, että tiedät, mitä dataa kontrollerien pitäisi saada. Testaa lisäksi, että Firebasea käyttävän palvelun funktiota kutsutaan kontrollereissa lisäämällä funktioihin vakoilijat <code>spyOn</code>-funktiolla ja lisäämällä <code>toBeCalled</code>-oletukset funktioihin, joita pitäisi kutsua. Muista muokata tarvittaessa <code>Elokuvakirjasto</code>-kansion juuressa sijaitsevaa <code>karma.conf.js</code>-tiedostoa, niin että testattavat tiedostot ladataan selaimeen, joka onnistui lisäämällä niiden polut tiedostossa määriteltyyn <code>files</code>-taulukkoon.
+      Elokuvien listaamiselle ja lisäämiselle löytyy pari testiä <code>test</code>-kansiota. Elokuvien listaamisen testit löytyvät kansiosta <code>test/movie_list_test.js</code> ja elokuvien lisäämisen testit kansiosta <code>test/add_movie_test.js</code>. Testaa mollemmissa teisteissä kuvattuja toimintoja. Muista mockata Firebasen kanssa keskuteleva palvelusi niin, että tiedät, mitä dataa kontrollerien pitäisi saada. Testaa lisäksi, että Firebasea käyttävän palvelun funktiota kutsutaan kontrollereissa lisäämällä funktioihin vakoilijat <code>spyOn</code>-funktiolla ja lisäämällä <code>toHaveBeenCalled</code>-oletukset funktioihin, joita pitäisi kutsua. Muista muokata tarvittaessa <code>Elokuvakirjasto</code>-kansion juuressa sijaitsevaa <code>karma.conf.js</code>-tiedostoa, niin että testattavat tiedostot ladataan selaimeen, joka onnistui lisäämällä niiden polut tiedostossa määriteltyyn <code>files</code>-taulukkoon.
     </p>
     <h3>Elokuvien esittäminen, muokkaaminen ja poistaminen (2p)</h3>
     <p>
@@ -8459,7 +8459,7 @@ FirebaseServiceMock = (function(){
 });
 </pre>
 <p>
-  Testaa lisäksi, että Firebasea käyttävän palvelusta kutsutaan oikeita funktioita lisäämällä niihin vakoojat <code>spyOn</code>-funktion avulla ja lisäämällä <code>toBeCalled</code>-oletukset funktioihin, joita pitäisi kutsua.
+  Testaa lisäksi, että Firebasea käyttävän palvelusta kutsutaan oikeita funktioita lisäämällä niihin vakoojat <code>spyOn</code>-funktion avulla ja lisäämällä <code>toHaveBeenCalled</code>-oletukset funktioihin, joita pitäisi kutsua.
 </p>
 <p>
    Muista muokata tarvittaessa <code>Elokuvakirjasto</code>-kansion juuressa sijaitsevaa <code>karma.conf.js</code>-tiedostoa, niin että testattavat tiedostot ladataan selaimeen, joka onnistui lisäämällä niiden polut tiedostossa määriteltyyn <code>files</code>-taulukkoon.
