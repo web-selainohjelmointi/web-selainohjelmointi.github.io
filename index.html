@@ -8276,6 +8276,12 @@ describe('MyController', function(){
 
     FirebaseServiceMock = // ...
 
+    // Laitetaan vakoilijat tositoimeen
+    spyOn(FirebaseServiceMock, 'addMessage').and.callThrough();
+    spyOn(FirebaseServiceMock, 'getMessages').and.callThrough();
+    spyOn(FirebaseServiceMock, 'editMessage').and.callThrough();
+    spyOn(FirebaseServiceMock, 'removeMessage').and.callThrough();
+
     inject(function($controller, $rootScope) {
       scope = $rootScope.$new();
       controller = $controller('MyController', {
@@ -8283,28 +8289,22 @@ describe('MyController', function(){
         FirebaseService: FirebaseServiceMock
       });
     });
-
-    // Laitetaan vakoilijat tositoimeen
-    spyOn(FirebaseServiceMock, 'addMessage');
-    spyOn(FirebaseServiceMock, 'getMessages');
-    spyOn(FirebaseServiceMock, 'editMessage');
-    spyOn(FirebaseServiceMock, 'removeMessage');
   });
 
   it('should initially call getMessages-function', function(){
     // Kutsutaan toBecalled-funktiota, jolloin oletamme, että getMessages funktiota on kutsuttu
-    expect(FirebaseServiceMock.getMessages).toBeCalled();
+    expect(FirebaseServiceMock.getMessages).toHaveBeenCalled();
   });
 
   it('should call addMessage-function when adding a message', function(){
     scope.newText = 'Viestiä pukkaa!';
     scope.addMessage();
-    expect(FirebaseServiceMock.addMessage).toBeCalled();
+    expect(FirebaseServiceMock.addMessage).toHaveBeenCalled();
   });
 });
 </pre>
 <p>
-  Lisäsimme funktoille vakoilijat kutsumalla <code>spyOn</code>-funktiota, joka ottaa ensimmäiseksi parametrikseen objektin, jonka funktiota halutaan vakoilla ja toiseksi parametriksi itse tarkkailtavan funktion nimen. Kun vakoilija on asetettu, voimme testeissä olettaa, että jotain funktiota on kutsutta <code>toBeCalled</code>-oletuksen avulla. Usein halutaan myös varmistaa, että jotain funktiota ei kutsuta, se onnistuu <code>not.toBeCalled</code>-oletuksella.
+  Lisäsimme funktoille vakoilijat kutsumalla <code>spyOn</code>-funktiota, joka ottaa ensimmäiseksi parametrikseen objektin, jonka funktiota halutaan vakoilla ja toiseksi parametriksi itse tarkkailtavan funktion nimen. Ketjutamme funktiokutsun perään vielä kutsun <code>and.callTrough()</code>. Kun vakoilija on asetettu, voimme testeissä olettaa, että jotain funktiota, kuten <code>FirebaseService</code>-palvelun <code>addMessage</code>-funktiota, on kutsuttu <code>toHaveBeenCalled</code>-oletuksen avulla. Usein halutaan myös varmistaa, että jotain funktiota ei kutsuta, se onnistuu <code>not.toHaveBeenCalled</code>-oletuksella.
 </p>
 <h3>Lisää Firebasea: yksittäisen objektin haku</h3>
 <p>
