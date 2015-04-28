@@ -9446,13 +9446,14 @@ background: linear-gradient(red, blue); /* Standardi */
 </section>
 
 
+<!--
 <h1>Päivitysraja</h1>
 
 <div>
 <img src="img/gandalf___you_shall_not_pass______by_killmeromantic.jpg"/>
 </div>
 <a href="http://killmeromantic.deviantart.com/art/Gandalf-quot-YOU-SHALL-NOT-PASS-quot-286365167" target="_blank">source</a>
-
+-->
 
 <div>
   <h1 style="text-align: center" id="epic-heading" class="ignore">$$$ EXTRA CREDIT!!! $$$</h1>
@@ -9476,21 +9477,23 @@ background: linear-gradient(red, blue); /* Standardi */
     <h1 data-week-id="7">Viikko 7</h1>
   </header>
   <p>
-    Olemme tähän mennessä tehneet selainpuolen sovelluksissamme AJAX-kyselyitä moniin lähteisiin ottammatta kovinkaan paljon kantaa, mitä palvelimella kulissien takana tapahtuu. Mitä esimerkiksi viikon kolme JQuerySpoilaajanBackend tehtävässä spoilauksen lisäämisen yhteydessä palvelimen puolella tapahtuu. 
+    Olemme tähän mennessä tehneet selainpuolen sovelluksissamme AJAX-kyselyitä moniin lähteisiin ottammatta kovinkaan paljon kantaa siihen, mitä palvelimella kulissien takana tapahtuu.<!-- Mitä esimerkiksi viikon kolme JQuerySpoilaajanBackend tehtävässä spoilauksen lisäämisen yhteydessä palvelimen puolella tapahtuu.-->
   </p>
   <p>
-    Viimeisen viikon kunniaksi otamma mukaan hieman palvelinpuolen ohjelmointia, mutta pysymme silti tutussa ja turvallisessa ohjelmointikielessä - JavaScriptissä. Vaikka palvelinpuolen toteutus saattaa kuulostaa hankalalta, tulemme pian huomaan, että se ei ole sitä, kunhan olemme valinneet hyvät työkalut.
+    Viimeisen viikon kunniaksi otamme mukaan hieman palvelinpuolen ohjelmointia, mutta pysymme silti kurssin aikana tutuksi tulleessa ohjelmointikielessä - JavaScriptissä. Lisää palvelinohjelmointikokemusta saat kursseilta <em>Web-palvelinohjelmointi: Java</em> sekä <em>Web-palvelinohjelmointi: Ruby on Rails</em>.<!-- Vaikka palvelinpuolen toteutus saattaa kuulostaa hankalalta, tulemme pian huomaan, että se ei ole sitä, kunhan olemme valinneet hyvät työkalut.-->
   </p>
+
   <h2>Palvelinohjelmointia JavaScriptillä - Node.js ja Express</h2>
   <p>
-    Olemme edeltävillä viikoilla jo tehneet pienen pintaraapaisun Node.js:ään <code>npm</code>:n yhteydessä, mutta ei ole välttämättä vielä täysin selvää, mistä siinä on kyse. Node.js on Googlen kehittämän <a href="https://code.google.com/p/v8/" target="_blank">V8 JavaScript moottorin</a> päälle rakennettu alusta nopeiden ja skaalautuvien web-sovellusten toteuttamiseen. 
+    Olemme edeltävillä viikoilla jo tehneet pienen pintaraapaisun Node.js:ään <code>npm</code>:n yhteydessä, mutta vielä ei ole välttämättä täysin selvää, mistä Node.js:ssä. Node.js on Googlen kehittämän <a href="https://code.google.com/p/v8/" target="_blank">V8 JavaScript moottorin</a> päälle rakennettu alusta nopeiden ja skaalautuvien web-sovellusten toteuttamiseen. 
   </p>
   <p>
     Node.js-palvelimen toimii tapahtumapohjaisesti, jossa jokaista tapahtumaa käsittelee yksi säie. Jokainen palvelimelle tekemämme kysely, esimerkiksi spoilausten haku, on yksi tapahtuma. Palvelin alkaa käsitellä tapahtumaa (esimerkiksi pyyntöämme) niin, että se ei jää odottamaan, että tapahtuman käsittely on valmis, vaan rekisteröi funktion, jota kutsutaan, kun tapahtuman käsittely on valmis ja ottaa heti toisen tapahtuman (esimerkiksi toisen pyynnön) käsiteltäväksi. Tätä kutsutaan ei-blokkaavaksi I/O-malliksi.
   </p>
   <p>
-    Tekniset löpinät sikseen, miten tämä käytännössä toimii? Node.js-palvelimen toteuttaminen on erittäin helppoa, tässä pieni esimerkki web-palvelimen toteuttamiseksi, joka kuuntelee porttia <code>3000</code>:
+    Tekniset löpinät sikseen, miten tämä käytännössä toimii? Node.js-palvelimen toteuttaminen olemassaolevia kirjastoja käyttäen on erittäin suoraviivaista, tässä pieni esimerkki porttia <code>3000</code> kuuntelevasta web-palvelimesta:
   </p>
+
 <pre class="sh_javascript_dom">
 var http = require('http');
 
@@ -9501,21 +9504,26 @@ http.createServer(function (req, res) {
 
 console.log('Palvelin odottaa pyyntöäsi osoitteessa http://127.0.0.1:3000');
 </pre>
+
   <p>
-    Lisää tämä koodi esimerkiksi työpöydällesi tiedostoon <code>palvelin.js</code> ja suorita terminaalissa työpöydälläsi komento <code>node palvelin.js</code>. Terminaaliin pitäisi ilmestyä viesti <code>Palvelin odottaa pyyntöäsi osoitteessa http://127.0.0.1:3000</code>. Parasta tehdä, kuten käsketään ja siirtyä selaimessa osoitteeseen <code>http://127.0.0.1:3000</code>. Kuten jo varmasti arvasit, sivulle ilmestyy teksti "Hello World". Hetkinen, toteutimme siis yksinkertaisen web-palvelimen, näin pienellä määrällä koodia? Kuulostaa hullulta, mutta näin on. Vaikkakin web-palvelimen toteutus on melko korkeatasoista, on suuremman sovelluksen kehittäminen tältä pohjalta vielä hieman turhan työlästä. Tutustutaan sen vuoksi yhteen Node.js:än suosituimmista web-sovelluskehyksistä, <a href="http://expressjs.com/" target="_blank">Express</a>:iin
+    Lisää tämä koodi esimerkiksi työpöydällesi tiedostoon <code>palvelin.js</code> ja suorita terminaalissa työpöydälläsi komento <code>node palvelin.js</code>. Nyt terminaaliin pitäisi ilmestyä viesti <code>Palvelin odottaa pyyntöäsi osoitteessa http://127.0.0.1:3000</code>. Parasta tehdä, kuten käsketään ja siirtyä selaimessa osoitteeseen <code>http://127.0.0.1:3000</code>. Kuten jo varmasti arvasit, sivulle ilmestyy teksti "Hello World".</p>
+
+  <p>Hetkinen, toteutimme siis yksinkertaisen web-palvelimen käynnistävän sovelluksen näin pienellä määrällä koodia? Kuulostaa hullulta, mutta näin on. Vaikkakin edellinen toteutus oli suoraviivainen, on suuremman sovelluksen kehittäminen tältä pohjalta hieman työlästä. Tutustutaan sen vuoksi yhteen Node.js:än suosituimmista web-sovelluskehyksistä, <a href="http://expressjs.com/" target="_blank">Express</a>:iin
   </p>
+
   <h3>Express - nopea ja minimalistinen web-sovelluskehys Node.js:lle</h3>
+
   <p>
-    Tällä viikolla toteutamme pienen keskustelualuesovelluksen Express-sovelluskehyksellä ja mukana on tutun selainpuolen totetutuksen lisäksi hieman palvelinpuolen toteutusta. Ennen kuin ryhdymme tositoimiin, puhutaan hieman, mihin palvelinpuolen sovelluksen toiminta perustuu.
+    Tällä viikolla toteutamme pienen keskustelualuesovelluksen Express-sovelluskehyksellä, ja tutun selainpuolen totetutuksen lisäksi mukana on hieman palvelinohjelmointia. Ennen kuin ryhdymme tositoimiin, puhutaan hieman, mihin palvelinpuolen sovelluksen toiminta perustuu.
   </p>
   <p>
-    Kuten jo edellisillä viikoilla on kerrottu, selaimen ja palvelimen välinen kommunikointi perustuu HTTP-protokollaan, jonka avulla palvelin vastaanottaa pyyntöjä selaimelta ja lähettää vastauksen. Olemme tähän mennessä tottuneet samaan palvelimelta GET-pyyntöihimme pääasiassa JSON-muotoisia vastauksia, jonka otsakkeissa on (ainakin toivottavasti) ollut statuskoodi 200, jonka perusteella selain tietää, että pyyntö on kunnossa. GET-pyyntöjen lisäksi olemme tehneet palvelimelle POST-pyyntöjä, johon liitämme jotain dataa, esimerkiksi JQuerySpoilaajanBackend tehtävässä spoilauksen JSON-muodossa. 
+    Kuten jo edellisillä viikoilla on kerrottu, selaimen ja palvelimen välinen kommunikointi perustuu HTTP-protokollaan, jonka avulla palvelin vastaanottaa pyyntöjä selaimelta ja lähettää vastauksen. Olemme tähän mennessä tottuneet samaan palvelimelta GET-pyyntöihimme pääasiassa JSON-muotoisia vastauksia, jonka otsakkeissa on (ainakin toivottavasti) ollut statuskoodi 200, jonka perusteella selain tietää, että pyyntö on kunnossa. GET-pyyntöjen lisäksi olemme tehneet palvelimelle POST-pyyntöjä, joihin olemme tyypillisesti liittäneet jonkinlaista dataa, esimerkiksi JQuerySpoilaajanBackend tehtävässä spoilauksen JSON-muodossa. 
   </p>
   <p>
-    Pyynnöt kohdistuvat aina johonkin palvelimella sijaitsevaan polkuun. Kun esimerkiksi tehdään GET-pyyntö osoitteeseen <code>http://bad.herokuapp.com/app/spoilers</code>, täytyy palvelimella <code>http://bad.herokuapp.com</code> päättää, miten pyyntö polkuun <code>app/spoilers</code> käsitellään. Käytännössä se käsitellään niin, että haetaan kaikki spoilaukset tietokannasta ja lähetetään käyttäjälle ne vastauksena JSON-muodossa.
+    Pyynnöt kohdistuvat aina johonkin palvelimella sijaitsevaan polkuun. Kun esimerkiksi tehdään GET-pyyntö osoitteeseen <code>http://bad.herokuapp.com/app/spoilers</code>, täytyy osoitteessa <code>http://bad.herokuapp.com</code> olevan palvelinohjelmiston päättää, miten pyyntö polkuun <code>app/spoilers</code> käsitellään. Käytännössä kyseisessä sovelluksessa haetaan kaikki spoilaukset tietokannasta ja lähetetään ne käyttäjälle JSON-muotoon renderöitynä vastauksena.
   </p>
   <p>
-    Mitä Express tarjoaa, on vaivattoman tavan toteuttaa palvelimelle rajapinnan, jonka kautta selainpuolen sovellus voi erilaisten HTTP-pyyntöjen avulla tehdä muutoksia tietokantaamme. Tämä tapahtuu yksinkertaisesti määrittelemällä sovellukseen polkuja, joihin voi määrittää eri HTTP-pyyntöjä. Voimme esimerkiksi määrittää, että GET-pyyntöön sovelluksemme polkuun <code>/hello</code> lähettää selaimelle vastauksena tekstin "Hello World":
+    Express tarjoaa erään tavan toteuttaa palvelinrajapinnan, jonka kautta selainpuolen sovellus voi erilaisten HTTP-pyyntöjen avulla tehdä muutoksia tietokantaamme. Tämä tapahtuu yksinkertaisesti määrittelemällä sovellukseen polkuja, joihin voi määrittää eri HTTP-pyyntöjä. Voimme esimerkiksi määrittää, että GET-pyyntöön sovelluksemme polkuun <code>/hello</code> lähettää selaimelle vastauksena tekstin "Hello World":
   </p>
 
 <pre class="sh_javascript_dom">
@@ -9528,10 +9536,10 @@ app.get('/hello', function(req, res) {
 </pre>
 
   <p>
-    Esimerkissä ladataan <code>express</code>-moduuli <code>require</code>-funktion avulla, joka on Node.js:än tapa ladata moduuleja. Sen jälkeen voimme <code>get</code>-funktiokutsun avulla määrittää, että GET-pyyntö parametrina annettuun polkuun aiheuttaa toisena parametrina annettun funktion kutsumisen. Toisena parametrina annettu funktio tarvitsee kaksi parametria, joista <code>req</code> sisältöö pyyntöön liittyvät tiedot ja <code>res</code>-parametria käytetään vastauksen muodostamiseen. Tässä esimerkissä anna selaimelle vastauksena pelkkää testiä <code>send</code>-funktion avulla. Olisimme yhtähyvin voinut antaa selaimelle vastauksena pelkän statuskoodin 200 kutsulla <code>res.send(200)</code>, tai JSON-muotoisen objektin kutsulla <code>res.json({ message: 'Hello world' })</code>.
+    Esimerkissä ladataan <code>express</code>-moduuli <code>require</code>-funktion avulla, joka on Node.js:än tapa ladata moduuleja. Sen jälkeen voimme <code>get</code>-funktiokutsun avulla määrittää, että GET-pyyntö parametrina annettuun polkuun aiheuttaa toisena parametrina annettun funktion kutsumisen. Toisena parametrina annettu funktio tarvitsee kaksi parametria, joista <code>req</code> sisältää pyyntöön liittyvät tiedot, ja <code>res</code>-parametria käytetään vastauksen muodostamiseen. Tässä esimerkissä selaimelle annetaan vastauksena pelkkää testiä <code>send</code>-funktion avulla. Olisimme yhtä hyvin voineet antaa selaimelle vastauksena pelkän statuskoodin 200 <code>OK</code> kutsulla <code>res.send(200)</code>, tai JSON-muotoisen objektin kutsulla <code>res.json({ message: 'Hello world' })</code>.
   </p>
   <p>
-    Aloitetaan seuraavaksi pienen Express-sovelluksen toteuttaminen. Tätä varten sinulle on toteutettu pieni pohja, josta löytyy kaikki valmiina kaikki tarvitsemasi riippuvuudet. Pohja löytyy <a href="https://github.com/web-selainohjelmointi/Foorumi" target="_blank">tästä</a> GitHub repositoriosta. Saat repon omien repojesi joukkoon, kuten viime viikon Elokuvakirjasto-repon, klikkaamalla sivun oikeasta ylälaidasta "Fork"-painiketta, varmista vain, että olet ensin kirjautunut sisään. Painikkeen painamisen jälkeen siirryt forkatun repon sivulle, josta voit kopioida "HTTPS clone URL"-kentän sisällön ja suorittaa terminaalissa haluamassasi kansiossa komennon <code>git clone https://github.com/KAYTTAJATUNNUS/Foorumi.git</code>, jossa <code>git clone</code> komennon jälkeinen URL on kopioimasi "HTTPS clone URL"-kentän sisältö. Kun repositorio on kloonattu koneellesi, siirry siihen terminaalissa komennolla <code>cd Foorumi</code> ja suorita komento <code>npm install</code>.
+    Aloitetaan seuraavaksi pienen Express-sovelluksen toteuttaminen. Tätä varten sinulle on toteutettu pieni pohja, josta löytyy kaikki valmiina kaikki tarvitsemasi riippuvuudet. Pohja löytyy <a href="https://github.com/web-selainohjelmointi/Foorumi" target="_blank">tästä</a> GitHub repositoriosta. Saat repon omien repojesi joukkoon, kuten viime viikon Elokuvakirjasto-repon, klikkaamalla sivun oikeasta ylälaidasta "Fork"-painiketta, kunhan olet ensin kirjautunut Githubiin. Painikkeen painamisen jälkeen siirryt forkatun repon sivulle, josta voit kopioida "HTTPS clone URL"-kentän sisällön ja suorittaa terminaalissa haluamassasi kansiossa komennon <code>git clone https://github.com/KAYTTAJATUNNUS/Foorumi.git</code>, jossa <code>git clone</code> komennon jälkeinen URL on kopioimasi "HTTPS clone URL"-kentän sisältö. Kun repositorio on kloonattu koneellesi, siirry siihen terminaalissa komennolla <code>cd Foorumi</code> ja suorita komento <code>npm install</code>.
   </p>
   <p>
     Saatat törmätä <code>npm install</code>-komennon suorituksen yhteydessä tähän virheeseen:
@@ -9551,14 +9559,14 @@ npm ERR! not with npm itself.
   </p>
   <h2>Yksinkertaisen API:n toteuttaminen</h2>
   <p>
-    Seuraavaksi toteutamme keskustelualue-sovellukseemme palvelinpuolella API:n, jota selainpuolen sovelluksemme voi käyttää. API (Application programming interface) tarkoittaa selvällä suomen kielellä ohjelmointirajapintaa, jonka kautta eri ohjelmoivat voivat kommunikoida keskenään. Meidän tapauksessamme haluamme toteuttaa rajapinnan, joka käsittelee selaimen lähettämiä HTTP GET- ja POST-pyyntöjä.
+    Seuraavaksi toteutamme keskustelualue-sovellukseemme palvelinpuolen API:n, jota selainpuolen sovelluksemme voi käyttää. API (Application programming interface) tarkoittaa ohjelmointirajapintaa, jonka kautta eri ohjelmoivat voivat kommunikoida keskenään. Meidän tapauksessamme haluamme toteuttaa rajapinnan, joka käsittelee selaimen lähettämiä HTTP GET- ja POST-pyyntöjä.
   </p>
   <h3>Sovelluksen mallit</h3>
   <p>
     Tarkastellaan aluksi hieman sovelluksemme malleja, eli minkälaisia olioita haluamme tallentaa ja miten ne liittyvät toisiinsa. Keskustelualue koostuu neljästä mallista:
     <ul>
       <li><strong>Aihealue</strong> (topic), jolla on nimi ja kuvaus. Aihealue voi olla esimerkiksi "ohjelmointikielet", "videopelit" tai "elokuvat". Jokaiseen aihealueeseen kuuluu monta <strong>viestiä</strong>.</li>
-      <li><strong>Viesti</strong> (message), jolla otsikko ja sisältö. Viesti on johonkin <strong>aihealueeseen</strong> liittyvä viestiketju. Esimerkiksi aihealueeseen "ohjelmointikielet" voisi kuulua viestiketju "JavaScript vinkit". Jokaiseen viestiin liittyy aihealueen lisäksi <strong>käyttäjä</strong>, joka sen on lisännyt, sekä monta <strong>vastausta</strong>.</li>
+      <li><strong>Viesti</strong> (message), jolla on otsikko ja sisältö. Viesti on johonkin <strong>aihealueeseen</strong> liittyvä viestiketju. Esimerkiksi aihealueeseen "ohjelmointikielet" voisi kuulua viestiketju "JavaScript vinkit". Jokaiseen viestiin liittyy aihealueen lisäksi <strong>käyttäjä</strong>, joka sen on lisännyt, sekä monta <strong>vastausta</strong>.</li>
       <li><strong>Vastaus</strong> (reply), jolla on pelkästään sisältö. Vastaus on siis aina tietyn viestiketjun osa. Esimerkiksi "JavaScript vinkit" viestiketjun vastaus voisi olla "Kannattaa kokeilla Angularia". Jokaiseen vastaukseen liittyy <strong>viestin</strong> lisäksi <strong>käyttäjä</strong>, joka sen on lisännyt.</li>
       <li><strong>Käyttäjä</strong> (user), jolla on käyttäjätunnus ja salasana. Käyttäjä voi luoda aihealueita, viestejä ja vastauksia, kunhan hän on vain ensin kirjautunut sisään. Oman käyttäjän voi luoda rekisteröitymällä.</li>
     </ul>
@@ -9571,17 +9579,17 @@ npm ERR! not with npm itself.
     Jos et täysin ymmärrä kaaviota, ei hätää, niitä käydään tarkemmin kurssilla Ohjelmistotekniikan menetelmät.
   </p>
   <p>
-    Kurkistetaan seuraavaksi, miltä tietosisältö näyttää sovelluksessamme. Avaa <code>Foorumi</code>-kansion <code>models</code>-kansiossa sijaitseva <code>index.js</code>-tiedosto. Voit avata koko <code>Foorumi</code>-kansion NetBeansissa valitsemalla siinä File > New Project > HTML5 > HTML5 Application with Existing Sources ja valitsemalla kansioksi <code>Foorumi</code>-kansion. Tiedoston sisällä on alustettu juuri kuvailemani mallit muodossa, jota sovelluksemme ymmärtää. Kuten huomaat, jokaisessa mallissa on kuvailemieni attribuuttien lisäksi kokonaislukuarvoinen <code>id</code>-attribuutti, jonka avulla mallin oliot erotetaan toisistaan. Jos meillä on esimerkiksi kaksi viestiä, meidän täytyy jotenkin pystyä erottamaan ne toisistaan. Sisällön vertaaminen kuulostaa hankalalta ja lisäksi silloin meillä ei voisi olla kahta viestiä, joilla on sama sisältö. Mallien oliot erotetaankin toisistaan yksilöllisellä kokonaislukuarvolla, joka generoituu automaattisesti. Mallien sisällön määrittelemisen lisäksi, niiden väliset relaatiot on määritelty. Esimerkiksi relaatio "Viestillä on monta vastausta" kuvaillaan sovelluksellemme rivillä <code>Message.hasMany(Reply)</code> ja relaatio "Vastaukseen liittyy käyttäjä" rivillä <code>Reply.belongsTo(User)</code>. Käytämme sovelluksemme datan hakuun ja manipulointiin <a href="http://docs.sequelizejs.com/en/latest/" target="_blank">Sequelize</a>-kirjastoa, josta puhumme lisää myöhemmin.
+    Kurkistetaan seuraavaksi, miltä tietosisältö näyttää sovelluksessamme. Avaa <code>Foorumi</code>-kansion <code>models</code>-kansiossa sijaitseva <code>index.js</code>-tiedosto. Voit avata koko <code>Foorumi</code>-kansion NetBeansissa valitsemalla siinä File > New Project > HTML5 > HTML5 Application with Existing Sources ja valitsemalla kansioksi <code>Foorumi</code>-kansion. Tiedoston sisällä on alustettu juuri kuvaillut mallit muodossa, jota sovelluksemme ymmärtää. Kuten huomaat, jokaisessa mallissa on kuvailtujen attribuuttien lisäksi kokonaislukuarvoinen <code>id</code>-attribuutti, jonka avulla mallin oliot erotetaan toisistaan tietokannassa. Jos meillä on esimerkiksi kaksi viestiä, meidän täytyy jotenkin pystyä erottamaan ne toisistaan. Sisällön vertaaminen kuulostaa hankalalta ja lisäksi silloin meillä ei voisi olla kahta viestiä, joilla on sama sisältö. Mallien oliot erotetaankin toisistaan yksilöllisellä kokonaislukuarvolla, joka generoituu automaattisesti. Mallien sisällön määrittelemisen lisäksi, niiden väliset relaatiot on määritelty. Esimerkiksi relaatio "Viestillä on monta vastausta" kuvaillaan sovelluksellemme rivillä <code>Message.hasMany(Reply)</code> ja relaatio "Vastaukseen liittyy käyttäjä" rivillä <code>Reply.belongsTo(User)</code>. Käytämme sovelluksemme datan hakuun ja manipulointiin <a href="http://docs.sequelizejs.com/en/latest/" target="_blank">Sequelize</a>-kirjastoa, josta puhumme lisää myöhemmin.
   </p>
   <h3>Sequelize - datan lisääminen ja hakeminen</h3>
   <p>
     Olet luultavasti alkanut miettimään, että miten sovelluksemme data talletetaan siten, ettei se katoa, kun sammutamme tietokoneemme. Tähän tarkoitukseen meillä on käytössä tietokanta, jossa data pysyy tallessa tietokoneemme kovalevyllä, kuten tiedostosi. Käytössämme on yksinkertainen <a href="https://www.sqlite.org/" target="_blank">SQLite</a> tietokanta, joka tallentaa kaiken sovelluksemme datan yhteen, <code>database.sqlite</code> tiedostoon, joka sijaitsee sovelluksemme kansiossa <code>db</code>. Tämä ratkaisu ei ole kovin hyvä sovelluksiin, joissa on suuret määrät dataa, mutta sovelluksen kehittämiseen pienellä määrällä dataa se on käypä ratkaisu. 
   </p>
   <p>
-    Jotta datasta olisi jotain hyötyä, täytyy sitä pystyä hakemaan ja manipuloimaan. Tähän tarkoitukseen käytämme jo mainittua Sequelize-kirjastoa, joka on nk. <a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">ORM</a> (Object-relational mapping), jonka avulla voimme käyttää tietokantaamme sovelluksessamme helppokäyttöisen rajapinnan kautta ilman tietoa, mikä tietokantateknologia on käytössä. Hienoa tässä on se, että voimme vaihtaa tietokannamme SQLite tietokannasta mihin tahansa Sequelize:n tukemaan tietokantaan, kuten PostgreSQL-tietokaantaan ilman juuri mitään muutosta sovelluksessamme. Ilman ORM:n käyttöä, emme tätä pystyisi tekemään, koska eri tietokantateknologioiden syntaksi vaihtelee niin paljon, että sen vaihtaminen olisi suuressa sovelluksessa erittäin hankalaa.
+    Jotta datasta olisi jotain hyötyä, tulee sitä pystyä hakemaan ja manipuloimaan. Tähän tarkoitukseen käytämme jo mainittua Sequelize-kirjastoa, joka on nk. <a href="http://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">ORM</a> (Object-relational mapping)-kirjasto, jonka avulla voimme käyttää tietokantaamme sovelluksessamme helppokäyttöisen rajapinnan kautta ilman tietoa käytössä olevasta tietokantateknologiasta. Hienoa tässä on se, että voimme vaihtaa tietokantamme SQLite-tietokannasta mihin tahansa Sequelize:n tukemaan tietokantaan, kuten PostgreSQLään ilman suurempia muutoksia sovelluksessamme. Ilman ORM:n käyttöä tämä ei onnistuisi, sillä eri tietokantamoottorien hakukielten syntaksi -- vaikka ne ovat tyypillisesti SQL-pohjaisia -- vaihtelee usein paljon.
   </p>
   <p>
-    Otetaan muutama käytännön esimerkki, jotta saamme paremman kuvan, mistä oikein on kyse. Kuvitellaan, että käytössäme on kirja-malli, jolla on nimi (name), julkaisuvuosi (year) ja julkaisija (publisher). Malli kuvaillaan Sequelize:lle seuraavasti: 
+    Otetaan muutama käytännön esimerkki, jotta saamme paremman kuvan, mistä oikein tässä <em>mallissa</em> on kyse. Kuvitellaan, että käytössäme on kirja-malli, jolla on nimi (name), julkaisuvuosi (year) ja julkaisija (publisher). Malli kuvaillaan Sequelize:lle seuraavasti: 
   </p>
 
 <pre class="sh_javascript_dom">
@@ -9594,7 +9602,7 @@ var Book = sequelize.define('Book', {
 </pre>
 
 <p>
-  <code>name</code>-attribuutti on siis tyypiltään merkkijono (string), <code>year</code>-attribuutti kokonaisluku (integer) ja <code>publisher</code>-attribuutti merkkijono (string). Lisäämme myös kirjalle <code>id</code>-attribuutin, jotta kirjat voi erottaa toisistaan. Voimme lisätä tietokantaamme uuden kirjan kutsumalla <code>create</code>-funktiota seuraavasti:
+  <code>name</code>-attribuutti on tyypiltään merkkijono (string), <code>year</code>-attribuutti kokonaisluku (integer) ja <code>publisher</code>-attribuutti merkkijono (string). Lisäämme myös kirjalle <code>id</code>-attribuutin, jotta kirjat voi erottaa toisistaan. Voimme lisätä tietokantaamme uuden kirjan kutsumalla <code>create</code>-funktiota seuraavasti:
 </p>
 
 <pre class="sh_javascript_dom">
@@ -9634,12 +9642,12 @@ Book.findOne({ where: { name: 'Fahrenheit 451' } }).then(function(book){
 </pre>
 
 <p>
-  Tietokannasta voidaan hakea tietyn mallin objekteja eri funktioiden avulla. Tässä esimerkissä käytämme funktioita <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>, joka palauttaa taulukon mallin objekteja ja <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>, joka paluttaa yhden mallin objektin. Funktioista molemmat ovat asynkronisia, kuten muutkin tietokannan manipulointiin ja hakuun liittyvät funktiot. Molempiin funktioista voi antaa parametrina objektin, joka kertoo, minkälaisia attribuutteja haettavilla objekteilla tulee olla. <code>findOne</code>-funktion kohdalla parametrin ei tarvitse olla objekti, vaan se voi olla kokonaisluku, joka kertoo, mikä on haettavan objektin <code>id</code>-attribuutin arvo. Jokaisella objektilla on yksilöllinen <code>id</code>-attribuutin arvo, joten tietyllä id:llä löytyy aina yksi objekti (olettaen, että jollakin objektilla on parametrina annettu kokonaisluku <code>id</code>-attribuuttinaan). Molempiin funktioihin voi määrittää <code>where</code> objektin, joka määrittää ehtoja haettujen objektien attribuuteille. Voimme esimerkiksi hakea vain kirjat, joilla on tietty julkaisuvuosi.
+  Tietokannasta voidaan hakea tietyn mallin objekteja eri funktioiden avulla. Tässä esimerkissä käytämme funktioita <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>, joka palauttaa taulukon mallin objekteja ja <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>, joka palauttaa yksittäisen objektin. Funktioista molemmat ovat asynkronisia, kuten muutkin tietokannan manipulointiin ja hakuun liittyvät funktiot. Molempiin funktioista voi antaa parametrina objektin, joka kertoo, minkälaisia attribuutteja haettavilla objekteilla tulee olla. <code>findOne</code>-funktion kohdalla parametrin ei tarvitse olla objekti, vaan se voi olla kokonaisluku, joka kertoo, mikä on haettavan objektin <code>id</code>-attribuutin arvo. Jokaisella objektilla on yksilöllinen <code>id</code>-attribuutin arvo, joten tietyllä id:llä löytyy aina yksi objekti (olettaen, että jollakin objektilla on parametrina annettu kokonaisluku <code>id</code>-attribuuttinaan). Molempiin funktioihin voi määrittää <code>where</code> objektin, joka määrittää ehtoja haettujen objektien attribuuteille. Voimme esimerkiksi hakea vain kirjat, joilla on tietty julkaisuvuosi.
 </p>
 <h3>Selaimen tekemien pyyntöjen käsittely</h3>
 <h4>GET-pyyntöjen käsittely</h4>
 <p>
-  Kuten, jo kävimme lyhyesti läpi, API:n toteuttaminen perustee siihen, että määrittelemme palvelinpuolen sovelluksessamme, mitä tehdään, kun selain lähettää tietynlaisen pyynnön tiettyyn polkuun. Siirrytään <code>Foorumi</code>-kansiossa sijaitsevan <code>routes</code>-kansion <code>topics.js</code>-tiedostoon. Tiedosto sisältää valmiiksi määritellyt polut GET- ja POST-pyyntöjä varten. Kaikki polut alkavat polulla <code>/topics</code>, joten tiedostosta määritelty polku <code>/</code> viittaa polkuun <code>/topics</code>. Näin on määritelty <code>Foorumi</code>-kansion tiedostossa <code>app.js</code> kohdassa:
+  Kuten, jo kävimme lyhyesti läpi, API:n toteuttaminen perustee siihen, että määrittelemme palvelinpuolen sovelluksessamme mitä tehdään, kun selain lähettää tietynlaisen pyynnön tiettyyn polkuun. Siirrytään <code>Foorumi</code>-kansiossa sijaitsevan <code>routes</code>-kansion <code>topics.js</code>-tiedostoon. Tiedosto sisältää valmiiksi määritellyt polut GET- ja POST-pyyntöjä varten. Kaikki polut alkavat polulla <code>/topics</code>, joten tiedostosta määritelty polku <code>/</code> viittaa polkuun <code>/topics</code>. Näin on määritelty <code>Foorumi</code>-kansion tiedostossa <code>app.js</code> kohdassa:
 </p>
 <pre class="sh_javascript_dom">
 var topics = require('./routes/topics');
@@ -9665,7 +9673,7 @@ router.get('/', function(req, res, next) {
 });
 </pre>
 <p>
-  Reitin polkuun voi myös määritellä parametreja, jolloin voimme käsitellä pyynnöt sovelluksemme polkuihin <code>/topics/1</code> ja <code>/topics/99</code> yhden reitin määrittelemisellä, joka on viime määritelty viime esimerkissä esitellyn reitin alapuolella:
+  Reitin polkuun voi myös määritellä parametreja, jolloin voimme käsitellä pyynnöt sovelluksemme polkuihin <code>/topics/1</code> ja <code>/topics/99</code> yhden reitin määrittelemisellä:
 </p>
 <pre class="sh_javascript_dom">
 router.get('/:id', function(req, res, next) {
@@ -9675,11 +9683,11 @@ router.get('/:id', function(req, res, next) {
 });
 </pre>
 <p>
-  Olemme määritelleet polkuun parametrin <code>id</code> syntaksilla <code>:id</code>. Saamme polkuparametrin pyynnön parametreista <code>id</code>-kentästä, kuten näet.
+  Olemme määritelleet polkuun parametrin <code>id</code> syntaksilla <code>:id</code>. Saamme polkuparametrin pyynnön parametreista <code>id</code>-kentästä (<code>req.params.id</code>.
 </p>
 <h4>POST-pyyntöjen käsittely</h4>
 <p>
-  POST-pyynnön käsittely ei eroa hirveästi GET-pyynnön käsittelystä. Ainoa eroavaisuus on, että POST-pyynnön yhteydessä saamme selaimelta usein enemmän dataa, esimerkiksi chattiin lisättävän viestin JSON-muotoisena. Tällöin pääsemme reitissämme käsiksi selaimen lähettämään dataan <code>req</code>-parametrin <code>body</code>-kentän kautta. <code>topics.js</code>-tiedostosta löytyy valmis runko reitille aihealueen lisäämiseksi:
+  POST-pyynnön käsittely ei juurikaan eroa GET-pyynnön käsittelystä. Ainoa eroavaisuus on, että POST-pyynnön yhteydessä saamme selaimelta usein enemmän dataa. Tämä data voi olla esimerkiksi chattiin lisättävä viesti JSON-muotoisena. Selaimen lähettämään dataan pääsee käsiksi <code>req</code>-parametrin <code>body</code>-kentän kautta. <code>topics.js</code>-tiedostosta löytyy valmis runko reitille aihealueen lisäämiseksi:
 </p>
 <pre class="sh_javascript_dom">
 router.post('/', function(req, res, next) {
@@ -9701,7 +9709,7 @@ router.post('/', function(req, res, next) {
 <div class="tehtavat">
   <h3>API:n toteuttaminen: Aihealueet</h3>
   <p>
-    <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät <code>Foorumi</code>-kansioon! Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
+    <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät githubista saatavaan <code><a href="https://github.com/web-selainohjelmointi/Foorumi" target="_blank">Foorumi</a></code>-pohjaan. Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
   <p>
     Toteuta <code>routes/topics.js</code>-tiedosta määritellyt reitit <code>routes.get('/', ...)</code>, <code>routes.get('/:id', ...)</code> ja <code>routes.post('/', ...)</code> niin, että aihealueita pystyy hakemaan ja lisäämään. Hae reiteistä ensimmäisessä kaikki aihealueet (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findalloptions-queryoptions-promisearrayinstance" target="_blank">findAll</a></code>) ja palauta ne JSON-muotoisina. Toisessa reitissä hae aihealue id:llä, joka on määritelty muuttujassa <code>topicId</code> (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#findoneoptions-queryoptions-promiseinstance" target="_blank">findOne</a></code>) ja palauta se JSON-muotoisena. Kolmannessa reitissä tallenna muuttujaan <code>topicToAdd</code> talletettu objekti (vinkki: <code><a href="http://docs.sequelizejs.com/en/latest/api/model/#createvalues-options-promiseinstance" target="_blank">create</a></code>). Kun aihealue on lisätty, lähetä selaimelle vastauksena lisätty aihealue JSON-muotoisena. Älä välitä neljännestä reitistä, sitä ei tarvitse vielä toteuttaa.
@@ -9723,13 +9731,13 @@ Models.Topic.findAll().then(function(topics){
 </div>
 <h3>API:n käyttäminen selainpuolen sovelluksessa</h3>
 <p>
-  Toteutamme sovelluksemme selainpuolen tutulla ja turvallisella Angularilla. Jos kurkista <code>Foorumi</code>-kansiossa sijaitsevaan <code>public</code>-kansioon, löydät sovellukseen valmiiksi asennetut riippuvuudet <code>bower_components</code>-kansiosta ja Angular-sovelluksen rungon <code>app</code>-kansiosta. Kaikki tarvitsemasi riippuvuudet pitäisi olla asennettuna, mutta voit vapaasti asentaa uusia riippuvuuksia suorittamalla terminaalissa <code>Foorumi</code>-kansion juuressa komennon <code>bower install riippuvuus</code>, tai lisäämällä ne manuaalisesti haluaamasi paikkaan <code>public</code>-kansion sisällä.
+  Toteutamme sovelluksemme selainpuolen tutulla ja turvallisella Angularilla. Jos kurkistat <code>Foorumi</code>-kansiossa sijaitsevaan <code>public</code>-kansioon, löydät sovellukseen valmiiksi asennetut riippuvuudet <code>bower_components</code>-kansiosta ja Angular-sovelluksen rungon <code>app</code>-kansiosta. Kaikki tarvitsemasi riippuvuudet pitäisi olla asennettuna, mutta voit vapaasti asentaa uusia riippuvuuksia suorittamalla terminaalissa <code>Foorumi</code>-kansion juuressa komennon <code>bower install riippuvuus</code>, tai lisäämällä ne manuaalisesti haluaamasi paikkaan <code>public</code>-kansion sisällä.
 </p>
 <p>
-  Sovelluksen reitit on määritelty <code>app</code>-kansion tiedostossa <code>app.js</code>. Tällä hetkellä reiteissä esitetään vain staattisia näkymiä, eikä niihin ole liitetty mitään kontrolleria. Kansiossa <code>app/views</code> on valmiiksi toteutettuja, staattisia näkymätiedostoja, joita voit halutessasi muokata. Sivupohja tiedosto, johon mm. navigaatiopalkki kuuluu löytyy <code>Foorumi</code>-kansion juuresta tiedostosta <code>views/index.html</code> (ei siis <code>app/views</code>-kansiosta!).
+  Sovelluksen reitit on määritelty <code>app</code>-kansion tiedostossa <code>app.js</code>. Tällä hetkellä reiteissä esitetään vain staattisia näkymiä, eikä niihin ole liitetty yhtäkään kontrolleria. Kansiossa <code>app/views</code> on valmiiksi toteutettuja, staattisia näkymätiedostoja, joita voit halutessasi muokata. Sivupohjan virkaa ajava tiedosto, johon mm. navigaatiopalkki kuuluu, löytyy <code>Foorumi</code>-kansion juuresta tiedostosta <code>views/index.html</code> (ei siis <code>app/views</code>-kansiosta!).
 </p>
 <p>
-  Toteuttamaamme API käyttäämään on valmiiksi tehty pohja palvelulle <code>Api</code>, joka löytyy kansiosta <code>app/services/api.js</code>. Lisäksi <code>app/controllers</code> löytyy pohjat neljälle kontrollerille, <code>ShowMessageController</code>-, <code>ShowTopicController</code>-, <code>TopicsListController</code>- ja <code>UsersController</code>-kontrollerille.
+  Toteuttamaamme APIa varten on tehty pohja palvelulle <code>Api</code>, joka löytyy kansiosta <code>app/services/api.js</code>. Lisäksi <code>app/controllers</code> löytyy pohjat neljälle kontrollerille, <code>ShowMessageController</code>-, <code>ShowTopicController</code>-, <code>TopicsListController</code>- ja <code>UsersController</code>-kontrollerille.
 </p>
 <h4>AJAX-pyyntöjen lähettäminen palvelimelle</h4>
 <p>
@@ -9742,11 +9750,11 @@ $http.get('/messages')
     console.log(data);
   })
   .error(function(data, status, headers, config){
-    console.log('Joku meni pieleen...');
+    console.log('Jotain meni pieleen...');
   });
 </pre>
 <p>
-  Pyyntö on siis asynkronin, joten täytyy määrittää, mitä tehdään, kun pyyntö palvelimelta lopulta saapuu perille. Se onnistuu määrittämällä <code>success</code>-funktiolle parametrin, jota kutsutaan, kun palvelimelta tulee myöntävä vastaus statuskoodilla 200. Kutsuttavan funktion ensimmäinen parametri sisältää palvelimelta saadun vastauksen sisällön. Voimme myös antaa <code>error</code>-funktiolle parametriksi funktion, jota kutsutaan, jos palvelimelta ei tule myöntävää vastausta, eli jotain menee pieleen. Se on kätevää, kun halutaan välittää käyttäjälle palvelimen antama virheilmoitus.
+  Pyyntö on siis asynkroninen, joten täytyy määrittää, mitä tehdään, kun pyyntö palvelimelta lopulta saapuu perille. Se onnistuu määrittämällä <code>success</code>-funktiolle funktioparametrin, jota kutsutaan, kun palvelimelta tulee myöntävä vastaus statuskoodilla 200. Kutsuttavan funktion ensimmäinen parametri sisältää palvelimelta saadun vastauksen sisällön. Voimme myös antaa <code>error</code>-funktiolle parametriksi funktion, jota kutsutaan, jos palvelimelta ei tule myöntävää vastausta, eli jotain menee pieleen. Se on kätevää, kun halutaan välittää käyttäjälle palvelimen antama virheilmoitus.
 </p>
 <p>
   GET-pyyntöjen lisäksi voimme tietenkin lähettää POST-pyyntöjä, jossa välitämme pyynnön yhteydessä palvelimelle dataa. Se onnistuu yllätys, yllätys <code>post</code>-funktion avulla:
@@ -9758,11 +9766,11 @@ $http.post('/messages', { content: 'Wazzup guys?' })
     console.log(data);
   })
   .error(function(data, status, headers, config){
-    console.log('Joku meni pieleen...');
+    console.log('Jotain meni pieleen...');
   });
 </pre>
 <p>
-  Lisäämme siis <code>post</code>-funktiokutsun toiseksi parametriksi pyynnön yhteydessä palvelimelle lähetettävän datan. Lähetettävä data muutetaan automaattisesti JSON-muotoon, joten sinun ei tarvitse sitä erikseen tehdä.
+  Lisäämme siis <code>post</code>-funktiokutsun toiseksi parametriksi pyynnön yhteydessä palvelimelle lähetettävän datan. Lähetettävä data muutetaan automaattisesti JSON-muotoon, joten sitä ei tarvitse tässä sitä erikseen tehdä.
 </p>
 <div class="tehtavat">
   <h3>Aihealueet sovelluksessa (2p)</h3>
@@ -9806,7 +9814,7 @@ ChatApp.service('Api', function($http){
 });
 </pre>
 <p>
-  Muistathan, että sekä <code>get</code>-, että <code>post</code>-funktio lähettävää AJAX-pyynnön palvelimelle asynkronisesti, joten niille tulee antaa funktio, jota kutsutaan, kun pyyntöön saadaan vastaus palvelimelta. Se onnistuu ketjuttamalla pyynnön perään <code>success</code>-funktion kutsu, jota voi käyttää palvelua käyttävässä kontrollerissa seuraavasti:
+  Muistathan, että sekä <code>get</code>-, että <code>post</code>-funktiot lähettävät AJAX-pyynnön palvelimelle asynkronisesti, joten niille tulee antaa parametrina funktio, jota kutsutaan, kun pyyntöön saadaan vastaus palvelimelta. Tämä onnistuu ketjuttamalla pyynnön perään <code>success</code>-funktion kutsu, jota voi käyttää palvelua käyttävässä kontrollerissa seuraavasti:
 </p>
 <pre class="sh_javascript_dom">
 ChatApp.controller('ChatController', function($scope, Api){
@@ -9816,13 +9824,13 @@ ChatApp.controller('ChatController', function($scope, Api){
 });
 </pre>
 <p>
-  Kun <code>Api</code>-palvelun funktiot on toteutettu, toteuta kontrolleri niin, että se käyttää sitä esittämään aihealueita ja lisäämään niitä. Aihealueiden listaamiselle on toteutettu valmiiksi staattinen näkymä tiedostossa <code>app/views/topics/index.html</code>. Muokkaa näkymää niin, että se oikeasti listaa sovellukseen talletettuja aihealueita. Samaisen tiedoston alalaidassa on lomake, jonka kautta tulisi pystyä lisäämään uusi aihealue. Käytä tiedostossa <code>app/controllers/topics_list_controller.js</code> löytyvää <code>TopicsListController</code>-kontrolleria hakemaan <code>Api</code>-palvelun <code>getTopics</code>-funktiolla kaikki aihealueet ja listaa ne näkymässä <code>app/views/topics/index.html</code> niin, että listatussa aihealueessa on sen nimi ja kuvaus. Käytä myös samassa kontrollerissa <code>Api</code>-palvelun <code>addTopic</code>-funktiota lisäämään aihealue käyttäjän lomakkeeseen syöttämien tietojen perusteella. Kun käyttäjä on lisännyt aihealueen, ohjaa hänet polkuun <code>/topic/ID</code>, jossa <code>ID</code> on lisätyn aihealueen <code>id</code>-attribuutin arvo (vinkki: <code><a href="https://docs.angularjs.org/api/ng/service/$location" target="_blank">$location</a></code>-palvelun <code>path</code>-funktio). 
+  Kun <code>Api</code>-palvelun funktiot on toteutettu, toteuta kontrolleri niin, että se tarjoaa aihealueiden listaamiseen ja lisäämiseen tarvitut toiminnallisuudet. Aihealueiden listaamiselle on toteutettu valmiiksi staattinen näkymä tiedostossa <code>app/views/topics/index.html</code>. Muokkaa näkymää niin, että se oikeasti listaa sovellukseen talletettuja aihealueita. Samaisen tiedoston alalaidassa on lomake, jonka kautta tulisi pystyä lisäämään uusi aihealue. Käytä tiedostossa <code>app/controllers/topics_list_controller.js</code> löytyvää <code>TopicsListController</code>-kontrolleria hakemaan <code>Api</code>-palvelun <code>getTopics</code>-funktiolla kaikki aihealueet ja listaa ne näkymässä <code>app/views/topics/index.html</code> niin, että listatussa aihealueessa on sen nimi ja kuvaus. Käytä myös samassa kontrollerissa <code>Api</code>-palvelun <code>addTopic</code>-funktiota lisäämään aihealue käyttäjän lomakkeeseen syöttämien tietojen perusteella. Kun käyttäjä on lisännyt aihealueen, ohjaa hänet polkuun <code>/topic/ID</code>, jossa <code>ID</code> on lisätyn aihealueen <code>id</code>-attribuutin arvo (vinkki: <code><a href="https://docs.angularjs.org/api/ng/service/$location" target="_blank">$location</a></code>-palvelun <code>path</code>-funktio). 
 </p>
 <p>
   Toteuta vielä lopuksi tiedostosta <code>app/controllers/show_topic_controller.js</code> löytyvä <code>ShowTopicController</code>-kontrolleri niin, että se hakee <code>id</code>-polkuparametrin perusteella aihealueen käyttämällä <code>Api</code>-palvelun, <code>getTopic</code>-funktiota. Muistathan, että polkuparametrin arvon sai <code><a href="https://docs.angularjs.org/api/ngRoute/service/$routeParams" target="_blank">$routeParams</a></code>-palvelun avulla seuraavasti:
 </p>
 <pre class="sh_javascript_dom">
-FoorumApp.controller('ShowTopicController', function($scope, $routeParams, Api){
+FoorumApp.controller('ShowTopicController', function($scope, $routeParams, Api) {
   // id-polkuparametrin arvo
   console.log($routeParams.id);
 });
@@ -9838,10 +9846,10 @@ FoorumApp.controller('ShowTopicController', function($scope, $routeParams, Api){
 <pre class="sh_javascript_dom">
 Topic.hasMany(Message);
 // ...
-Message.belongsTo(Topic)
+Message.belongsTo(Topic);
 </pre>
 <p>
-  Tämän perusteella Sequelize tietää, että aihealueseen liittyy monta viestiä ja viesti liittyy yhteen aihealueseen. Seuraava vaihea olisi muokata API:mme <code>/topics/ID</code>-polusta saamamme JSON-muotoisten objektia niin, että siitä löytyy aihealueen attribuuttien lisäksi siihen liittyvät viestit. Otetaan käyttöön jo tarkkailemamme esimerkki kirja-mallista, joka määriteltiin seuraavasti:
+  Tämän perusteella Sequelize tietää, että aihealueseen liittyy monta viestiä ja viesti liittyy yhteen aihealueseen. Seuraava vaihe olisi muokata API:mme <code>/topics/ID</code>-polusta saamaamme JSON-muotoisten objektia niin, että siitä löytyy aihealueen attribuuttien lisäksi siihen liittyvät viestit. Otetaan käyttöön jo tarkkailemamme esimerkki kirja-mallista, joka määriteltiin seuraavasti:
 </p>
 <pre class="sh_javascript_dom">
 var Book = sequelize.define('Book', {
@@ -9994,7 +10002,7 @@ FoorumApp.controller('ShowMessageController', function($scope, $routeParams, $lo
   Toteuta vielä lopuksi toiminto, jonka avulla käyttäjä voi lisätä viestiin vastaukseen. Tee se toteuttamalla <code>Api</code>-palveluun funktio <code>addReply</code>, joka lähettää POST-pyynnön sovelluksesi polkuun <code>/messages/ID/reply</code> (jossa <code>ID</code> on funktion <code>messageId</code>-parametrin arvo), joka sisältää <code>reply</code>-parametrin arvon. Muistathan, että vastaus on <code>{ content: 'vastauksen sisältö' }</code>-muotoinen objekti. Tee sen jälkeen tarvittavat muutokset <code>ShowMessageController</code>-kontrolleriin ja <code>app/views/messages/show.html</code>-näkymään. Kun käyttäjä on lisännyt vastauksen, lisää vastaus viesti-objektin <code>Messages</code>-taulukkoon, niin se tulee näkyviin näkymässä.
 </p>
 </div>
-<h3>Yksinkertainen authentikaation toteuttaminen</h3>
+<h3>Yksinkertainen autentikaation toteuttaminen</h3>
 <p>
   Emme halua, että kuka tahansa pääsee käyttämään sovelluksemme toimintoja, vaan haluamme rajata ne vain kirjautuneille käyttäjille. Olemme jo määritelleet käyttäjälle mallin <code>models/index.js</code>-tiedostossa. Lisäksi on määritelty, että käyttäjällä on monta viesti ja vastausta sekä, että viestiin ja vastaukseen liittyy käyttäjä:
 </p>
@@ -10018,7 +10026,7 @@ Reply.belongsTo(User);
 //...
 </pre>
 <p>
-  Käyttäjällä on siis attribuutit <code>username</code> (käyttäjätunnus) ja <code>password</code> (salasana). Toteutetaan seuraavaksi sovellukseemme erittäin yksinkertainen authentikaatio, joka katsoo, löytyykö tietokannastamme käyttäjää annetulla käyttäjätunnuksella ja salasanalla. Jos käyttäjä löytyy, authentikaatio onnistuu, muuten se epäonnistuu. Siirrytään tiedostoon <code>routes/users.js</code>, johon on määritelty seuraava reitti:
+  Käyttäjällä on siis attribuutit <code>username</code> (käyttäjätunnus) ja <code>password</code> (salasana). Toteutetaan seuraavaksi sovellukseemme erittäin yksinkertainen autentikaatio, joka katsoo, löytyykö tietokannastamme käyttäjää annetulla käyttäjätunnuksella ja salasanalla. Jos käyttäjä löytyy, autentikaatio onnistuu, muuten se epäonnistuu. Siirrytään tiedostoon <code>routes/users.js</code>, johon on määritelty seuraava reitti:
 </p>
 <pre class="sh_javascript_dom">
 // POST /users/authenticate
@@ -10062,10 +10070,10 @@ router.post('/authenticate', function(req, res, next){
   Toteuteen vielä funktio, joka tarkastaa, onko käyttäjä kirjautunut sisään, eli toisin sanoen tarkastaa, onko <code>req.session.userId</code>-asetettu. Toteutetaan funktio tiedostoon <code>utils/authentication.js</code>-seuraavasti:
 </p>
 <pre class="sh_javascript_dom">
-var authentication = function(req, res, next){
-  if(!req.session.userId || req.session.userId == null){
+var authentication = function(req, res, next) {
+  if (!req.session.userId || req.session.userId == null) {
     res.send(403);
-  }else{
+  } else {
     next();
   }
 }
@@ -10073,7 +10081,7 @@ var authentication = function(req, res, next){
 // ...
 </pre>
 <p>
-  Funktio siis vain tarkistaa, että session <code>userId</code>-avain on asetettu. Jos avainta ei ole asetettu, käyttäjä ei ole authentikoitunut ja lähetämme vastauksena statuskoodin 403 (forbidden). Muuten käyttäjä on authentikoitunut ja kutsumme mystistä <code>next</code>-funktiota. 
+  Funktio siis tarkistaa, että session <code>userId</code>-avain on asetettu. Jos avainta ei ole asetettu, käyttäjä ei ole authentikoitunut ja lähetämme vastauksena statuskoodin 403 (forbidden). Muuten käyttäjä on authentikoitunut ja kutsumme mystistä <code>next</code>-funktiota. 
 </p>
 <p>
   Kuten ehkä huomaat, funktio näyttää erittäin paljon reiteissä määriteltyjä funktioita, jotka käsittelevät pyyntöjä. Se johtuu yksinkertaisesti siitä, että tätäkin funktiota käytetään pyynnön käsittelyyn, sillä tarkastelemme siinä pyyntöön liittyvää sessiota. Toteuttamamme funktio on Express:in nk. <a href="http://expressjs.com/guide/using-middleware.html" target="_blank">middleware</a>-funktio, joita voi määrittää reitteihin ennen itse pyyntöä käsittelevää funktiota. <code>else</code>-haarassa kutsuttava <code>next</code>-funktio tarkoittaa vaan sitä, että voimme siirtyä seuraavaan middleware-funktioon. Käytetään seuraavaksi toteuttamaamme middleware-funktiota aihealueen lisäyksen yhteydessä. Sille löytyi reitti tiedostossa <code>routes/topics.js</code>:
@@ -10232,7 +10240,7 @@ FoorumApp.config(function($routeProvider){
 </div>
 <h2>Node.js-sovellus Herokuun</h2>
 <p>
-  Lisätään seuraavaksi toteuttamme Foorumi-sovellus Herokuun. Se onnistuu lähes yhtä suoraviivaisesti, kuin viime viikolla Herokuun lisäämämme Elokuvakirjasto-sovellus. Tällä kertaa tosin emme Käytä Firebasea, vaan tarvitsemme Herokulta tietokannan. Kun kehitimme sovellustamme omalla koneellamme käytössämme oli SQLite-tietokanta ja siitä mainittiikin, ettei se oli hyvä vaihtoehto tuotanympäristössä, kuten Herokussa. Heroku tarjoaa onneksi meille PostgreSQL-tietokannan, johon vaihtaminen ei vaikuta sovellukseemme juuri ollenkaan.
+  Lisätään seuraavaksi toteuttamme Foorumi-sovellus Herokuun. Se onnistuu lähes yhtä suoraviivaisesti, kuin viime viikolla Herokuun lisäämämme Elokuvakirjasto-sovellus. Tällä kertaa emme tosin käytä Firebasea, vaan tarvitsemme Herokulta tietokannan. Kun kehitimme sovellustamme omalla koneellamme käytössämme oli SQLite-tietokanta ja siitä mainittiikin, ettei se ole hyvä vaihtoehto tuotantoympäristössä, kuten Herokussa. Heroku tarjoaa onneksi meille PostgreSQL-tietokannan, johon vaihtaminen ei vaikuta sovellukseemme juuri ollenkaan.
 </p>
 <p>
   Aloitetaan luomalla uusi Heroku-sovellus suorittamalla <code>Foorumi</code>-kansion juuressa komento <code>heroku create</code>. Jos et ole vielä asentanut Heroku Toolbelt:iä, lue viime viikon ohje "Sovellus muiden nähtäville: Heroku". Kun komento on suoritettu, pyydetään Herokulta käyttöömme PostgreSQL-tietokantaan suorittamalla <code>Foorumi</code>-kansion juuressa komento <code>heroku addons:add heroku-postgresql:dev</code>. Terminaaliin pitäisi ilmestyä tätä muistuttava teksti:
