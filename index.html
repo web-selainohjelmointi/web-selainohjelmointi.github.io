@@ -8727,10 +8727,10 @@ MyApp.run(function(AuthenticationService, $rootScope){
   <code>run</code>-funktion kutsutta suoritetaan moduulissa jokin funktio, aivan kuten jo reitityksen yhteydessä käyttämämme <code>config</code>-funktio. Ero funktioiden välillä on vain siinä, että <code>config</code>-funktio suoritetaan moduulin alustuksen yhteydessä ennen <code>run</code>-funktiota. Funktiokutsussa suoritamme funktion, jossa asetamme <code>$rootScope</code>-objektiin funktion <code>logOut</code>, joka käyttää palveluamme kirjatakseen käyttäjän ulos. Lisäksi lisäsin muuttujan <code>userLoggedIn</code>, jonka avulla näkymässä voi tarkastaa, onko käyttäjä kirjautunut sisään ja jos, niin millä tiedoilla. Määrittelemämme funktio ja muuttuja on nyt käytössä kaikissa näkymissä, joten voimme lisätä uloskirjautumista varten pohjatiedostoon (tiedostoon, jossa on määritelty <code>ng-view</code>-direktiivi) esimerkiksi seuraavan painikkeen:
 </p>
 <pre class="sh_html">
-&lt;button ng-click="logOut()" ng-if="!userLoggedIn"&gt;Kirjaudu ulos&lt;/button&gt;
+&lt;button ng-click="logOut()" ng-if="userLoggedIn"&gt;Kirjaudu ulos&lt;/button&gt;
 </pre>
 <p>
-  Painikkeen ei siis tarvitse olla minkään kontrollerin näkyvyysalueessa, koska <code>$rootScope</code>-objektiin määritetyt kentät ovat näkyvissä koko sovelluksen näkyvyysalueessa, eli kaikkialla <code>ng-app</code>-direktiivin sisällä. Kuten huomaat käytin myös <code>userLoggedIn</code>-muuttujaa hyväkseni näkymässä, koska olisi hölmöä näyttää uloskirjautumispainike, jos käyttäjä on kirjautunut sisään.
+  Painikkeen ei siis tarvitse olla minkään kontrollerin näkyvyysalueessa, koska <code>$rootScope</code>-objektiin määritetyt kentät ovat näkyvissä koko sovelluksen näkyvyysalueessa, eli kaikkialla <code>ng-app</code>-direktiivin sisällä. Kuten huomaat käytin myös <code>userLoggedIn</code>-muuttujaa hyväkseni näkymässä, koska olisi hölmöä näyttää uloskirjautumispainike, jos käyttäjä ei ole  kirjautunut sisään.
 </p>
 <div class="tehtavat">
 <h3>Elokuvakirjaston authentikaatio</h3>
