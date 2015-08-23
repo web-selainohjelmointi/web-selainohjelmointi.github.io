@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -7725,11 +7725,11 @@ module.exports = function(config) {
 
 <h2>Reititys Angularissa</h2>
 <p>
-  Isompi sovellus on usein jaettu useaan eri näkymään, jotka löytyvät eri poluista, kuten <code>/elokuvat</code>, <code>/elokuvat/1</code> ja <code>elokuvat/uusi</code>. Perinteisesti sovelluksen polut määritetään palvelinpuolen sovelluksessa, mutta kasva trendi on toteuttaa ainakin osa sovelluksen reitityksestä selainpuolella, jolloin sovelluksessa uuteen polkuun siirtyminen ei rasita niin paljon palvelinta. Näitä sovelluksia kutsutaan nimellä "<a href="http://en.wikipedia.org/wiki/Single-page_application">Single-page application</a>".
+  Isompi sovellus on usein jaettu useaan eri näkymään, jotka löytyvät eri poluista, kuten <code>/elokuvat</code>, <code>/elokuvat/1</code> ja <code>elokuvat/uusi</code>. Perinteisesti sovelluksen polut määritetään palvelinpuolen sovelluksessa, mutta kasvava trendi on toteuttaa ainakin osa sovelluksen reitityksestä selainpuolella, jolloin sovelluksessa uuteen polkuun siirtyminen ei rasita niin paljon palvelinta. Näitä sovelluksia kutsutaan nimellä "<a href="http://en.wikipedia.org/wiki/Single-page_application">Single-page application</a>".
 </p>
 <h3>Single-page sovellukset</h3>
 <p>
-  Single-page sovelluksesissa reitityksen pääpaino on siirtynyt palvelinpuolelta selainpuolella. Mutta miksi, mitä etuja siitä on? Suurin etu on siinä, että kun käyttäjä siirtyy sovelluksessa toiseen polkuun, palvelimelta haetaan vain uuden näkymän esittämiseen vaadittava sisältö, kuten HTML-sivu tai JSON-dataa sen sijaan, että kaikki sivulla esiintyvät resurssit kuten tyyli- ja skripti-tiedostot sekä kuvat haettaisiin uudelleen. Suorituskyky etu on siis melko huomattava, jolloin näkymien välillä siirtyminen on nopeampaa. Selainpuolen reititys ei ole kuitenkaan kaikki maailman ongelmat ratkaiseva tekiä, siinä on huonojakin puolia. Selainpuolen reitit eivät välttämättä toimi kaikilla alustoilla (etenkin mobiililaitteilla) ja usein sivulla on vain yksi sisääntuloväylä, jonka kautta kaikki reitit käsitellään. 
+  Single-page sovelluksessa reitityksen pääpaino on siirtynyt palvelinpuolelta selainpuolelle. Mutta miksi, mitä etuja siitä on? Suurin etu on siinä, että kun käyttäjä siirtyy sovelluksessa toiseen polkuun, palvelimelta haetaan vain uuden näkymän esittämiseen vaadittava sisältö, kuten HTML-sivu tai JSON-dataa sen sijaan, että kaikki sivulla esiintyvät resurssit, kuten tyyli- ja skripti-tiedostot sekä kuvat, haettaisiin uudelleen. Suorituskykyetu on siis melko huomattava, jolloin näkymien välillä siirtyminen on nopeampaa. Selainpuolen reititys kuitenkaan ole kaikki maailman ongelmat ratkaiseva tekijä, siinä on huonojakin puolia. Selainpuolen reitit eivät välttämättä toimi kaikilla alustoilla (etenkin mobiililaitteilla) ja usein sivulla on vain yksi sisääntuloväylä, jonka kautta kaikki reitit käsitellään. 
 </p>
 <h3>Reittien määrittäminen Angularissa</h3>
 <p>
