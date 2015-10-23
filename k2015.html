@@ -76,14 +76,18 @@
         </header>
 
         <p>Tämä materiaali on tarkoitettu Helsingin yliopiston
-          tietojenkäsittelytieteen laitoksen syksyllä 2015
+          tietojenkäsittelytieteen laitoksen keväällä ja kesällä 2015
           järjestettävälle kurssille web-selainohjelmointi. Materiaali
           pohjautuu <a href="http://www.cs.helsinki.fi/group/java/s12-weso/"
           target="_blank">syksyn 2012 kurssiin</a>, ja sen
           kirjoittajat ovat Kalle Ilves ja Arto Vihavainen. Vuoden
           2012 materiaalin syntyyn ovat vaikuttaneet useat tahot,
           joista tärkein lienee Mikael Nousiainen. Iso kiitos kuuluu
-          myös Kasper Hirvikoskelle.</p>
+          myös Kasper Hirvikoskelle. Kurssia web-selainohjelmointi on
+          edeltänyt aiemmin järjestetty kurssi Digitaalisen Median
+          tekniikat, jonka tämä kurssi korvaa. "DiMe"-kurssin
+          viimeisten vetäjien Samuli Kaipiaisen ja Matti Paksulan
+          henki kuitenkin elää kurssilla. </p>
 
 <!--
         <p>Materiaali päivittyy kurssin edetessä. Osa tehtävistä on osana
@@ -94,15 +98,18 @@
           erilaisista työkaluista.</p>
 -->
 
-        <p>Lue materiaalia siten, että teet samalla itse kaikki
-          lukemasi esimerkit. Esimerkkeihin kannattaa tehdä pieniä
-          muutoksia ja tarkkailla, miten muutokset vaikuttavat
-          ohjelman toimintaan. Äkkiseltään voisi luulla, että
-          esimerkkien tekeminen ja muokkaaminen hidastaa opiskelua.
-          Tämä ei kuitenkaan pidä ollenkaan paikkansa. Oppiminen
-          perustuu oleellisesti aktiiviseen tekemiseen ja rutiinin
+        <p><!-- Materiaali päivittyy kurssin edetessä.--> Lue materiaalia
+          siten, että teet samalla itse kaikki lukemasi
+          esimerkit. Esimerkkeihin kannattaa tehdä pieniä muutoksia ja
+          tarkkailla, miten muutokset vaikuttavat ohjelman
+          toimintaan. Äkkiseltään voisi luulla, että esimerkkien
+          tekeminen ja muokkaaminen hidastaa opiskelua.  Tämä ei
+          kuitenkaan pidä ollenkaan paikkansa. Oppiminen perustuu
+          oleellisesti aktiiviseen tekemiseen ja rutiinin
           kasvattamiseen.  Esimerkkien ja erityisesti omien kokeilujen
-          tekeminen on parhaita tapoja sisäistää luettua.</p>
+          tekeminen on parhaita tapoja sisäistää luettua. Muista että
+          copy-paste ei ole oppimisen kannalta yhtä tehokasta kuin
+          itse kirjoittaminen.</p>
 
 <!--
         <p>Pyri tekemään tai ainakin yrittämään tehtäviä sitä mukaa
@@ -126,20 +133,17 @@
           kirjoitusvirheitä, korjaa tilanne, ja tee pull-request
           osoitteessa <a href="https://github.com/web-selainohjelmointi/web-selainohjelmointi.github.io"
           target="_blank">https://github.com/web-selainohjelmointi/web-selainohjelmointi.github.io</a>. Kiitos
-          bugien ja ongelmien korjauksesta vuosien aikana kuuluu
-          monelle, joista tässä mainitaan vain muutama: pro_, gleant,
-          BiQ, Absor, Rase, jombo, BearGrylls, Marko, _jumi_, jykke,
-          Semilia, Walther, Loezi, happosade, doge ja mluukkai.</p>
+          bugien ja ongelmien korjauksesta kuuluu jo nyt seuraaville
+          nimimerkeille: pro_, gleant, BiQ, Absor, Rase, jombo,
+          BearGrylls, Marko, _jumi_, jykke, Semilia, Walther, Loezi,
+          happosade, doge ja mluukkai.</p>
 
-
+<!--
         <h2>Aikataulu</h2>
-
         <p>
-          Kurssin viikottaisten tehtävien viimeinen palautushetki on
-          keskiviikkoisin kello 20:00. Ensimmäinen deadline on
-          4.11.2015.
+          Kurssin viikottaisten tehtävien viimeinen palautushetki on torstaisin kello 23:59. Ensimmäinen deadline on 19.3.2015.
         </p>
-
+-->
 
         <div style="display: table">
           <div style="display: table-cell">
@@ -175,11 +179,8 @@
 
 	<p>Huom! Toisin kuin kurssilla web-palvelinohjelmointi, TMC <em>ei</em> tarkasta tehtävien oikeellisuutta. Palauttaessasi tehtävän lupaat sen olevan oikein.</p>
 
-	<p>Seuraa <a href="http://mooc.fi/courses/general/ohjelmointi/asentaminen/" target="_blank">asennusohjeita</a> ja asenna tarvitsemasi työvälineet. Valitse TMC NetBeansin asetuksista palvelimeksi <code>https://tmc.mooc.fi/hy</code> ja kurssiksi <code>s2015-weso</code>. Kun teet käyttäjätunnusta TMC:hen, käytä opiskelijanumeroasi käyttäjätunnuksena.</p>
+	<p>Seuraa <a href="http://mooc.fi/courses/general/ohjelmointi/asentaminen/" target="_blank">asennusohjeita</a> ja asenna tarvitsemasi työvälineet. Valitse TMC NetBeansin asetuksista palvelimeksi <code>https://tmc.mooc.fi/hy</code> ja kurssiksi <code>kesa2015-weso</code>. Kun teet käyttäjätunnusta TMC:hen, käytä opiskelijanumeroasi käyttäjätunnuksena.</p>
 
-	<h3>JSFiddle</h3>
-
-	<p><a href="http://jsfiddle.net/" target="_blank">JSFiddle</a> on kurssin materiaalissa paljon käytetty interaktiivinen alusta kokeilujen tekemiseen. Materiaaliin upotetut palat, missä voi esimerkiksi kirjoittaa HTML:ää ja JavaScriptia, sekä tarkastella tulosta, on toteutettu JSFiddlen avulla.</p>
 
 	<h3>Internet</h3>
 
@@ -200,11 +201,24 @@
 	<h3>HTML-dokumentin runko</h3>
 
 
-	<p>Tyypillisen HTML-dokumentin runko näyttää seuraavalta. Kun klikkaat allaolevassa <code>iframe</code>-elementissä <code>Result</code>-tekstiä, näet HTML-sivun, ja kun painat <code>HTML</code>-tekstiä, näet HTML-koodin. Klikkaamalla elementin oikeassa ylälaidassa olevasta <em>Edit in JSFiddle</em>-linkistä, pääset muokkaamaan elementtiä suoraan JSFiddlessä.</p>
+	<p>Tyypillisen HTML-dokumentin runko näyttää seuraavalta:</p>
 
+<pre class="sh_html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;Selaimen palkissa ja suosikeissa näkyvä otsikko&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
 
-	<iframe width="100%" height="250" src="http://jsfiddle.net/e3tuhyLz/embedded/html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+        &lt;h1&gt;Sivulla näkyvä otsikko&lt;/h1&gt;
 
+        &lt;p&gt;Sivuilla näytettävä normaali teksti on p-elementin sisällä.&lt;/p&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
 
 	<p>Yllä olevassa HTML-dokumentissa on dokumentin tyypin kertova erikoiselementti <code>&lt;!DOCTYPE html&gt;</code>, joka kertoo dokumentin olevan HTML-sivu. Tätä seuraa elementti <code>&lt;html&gt;</code>, joka aloittaa HTML-dokumentin. Elementti <code>&lt;html&gt;</code> sisältää yleensä kaksi elementtiä, elementit <code>&lt;head&gt;</code> ja <code>&lt;body&gt;</code>. Elementti <code>&lt;head&gt;</code> sisältää sivun otsaketiedot, eli esimerkiksi sivun käyttämän merkistön <code>&lt;meta charset="utf-8" /&gt;</code> ja otsikon <code>&lt;title&gt;</code>. Elementti <code>&lt;body&gt;</code> sisältää selaimessa näytettävän sivun rungon. Ylläolevalla sivulla on ensimmäisen tason otsake-elementti <code>h1</code> (<em>header 1</em>) ja tekstielementti <code>p</code> (<em>paragraph</em>).</p>
 
@@ -251,7 +265,7 @@
 </pre>
 
 
-    <p>Entä seuraavassa tapauksessa?</p>
+    <p>Entä seuraavalla HTML-dokumentilla?</p>
 
 
 <pre class="sh_html">
@@ -293,7 +307,41 @@
     <p>Sivuille voi lisätä listoja mm. <code>ol</code> (<em>ordered list</em>) ja <code>ul</code> (<em>unordered list</em>) -elementtien avulla. Elementeillä <code>ol</code> tai <code>ul</code> aloitetaan lista, ja listan sisälle asetettavat yksittäisiin listaelementteihin käytetään <code>li</code> (<em>list item</em>)-elementtiä. Yksittäiset listaelementit voivat taas sisältää esimerkiksi tekstisolmun tai lisää html-elementtejä.</p>
 
 
-    <iframe width="100%" height="350" src="http://jsfiddle.net/m5c5g65L/embedded/html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<pre class="sh_html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;Selaimen palkissa ja suosikeissa näkyvä otsikko&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;h1&gt;Sivulla näkyvä otsikko&lt;/h1&gt;
+
+        &lt;p&gt;Sivuilla näytettävä normaali teksti on p-elementin sisällä,
+        listaelementtiä voi käyttää esimerkiksi ostoslistan tekemiseen.&lt;/p&gt;
+
+        &lt;ol&gt;
+            &lt;li&gt;kauraa&lt;/li&gt;
+            &lt;li&gt;puuroa&lt;/li&gt;
+            &lt;li&gt;omenaa&lt;/li&gt;
+        &lt;/ol&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+      <p>Yllä oleva lista näyttää seuraavalta ilman muita elementtejä.</p>
+
+<div class="naytto">
+  <p>
+    <ol>
+      <li>kauraa</li>
+      <li>puuroa</li>
+      <li>omenaa</li>
+    </ol>
+  </p>
+</div>
 
 
     <h3>Kuvien lisääminen</h3>
@@ -301,7 +349,6 @@
     <p>Jokaisen web-sivuja rakentavan ihmisen tulee ainakin kerran elämässään lisätä kuva web-sivuilleen. Sivuille saa lisättyä kuvia elementillä <code>img</code>, jolla on attribuutti <code>src</code>, jonka arvona on kuvan sijainti. Kuvan sijainti riippuu kuvan näyttävän html-tiedoston sijainnista. Jos kuva on samassa kansiossa <code>html</code>-dokumentin kanssa, tarvitsee <code>img</code>-elementin <code>src</code>-attribuutin arvoksi asettaa vain kuvan nimi.</p>
 
     <p>Esimerkiksi, jos tämän html-tiedoston sisältämässä kansiossa on kansio nimeltä "img", ja siellä kuvatiedosto nimeltä "lamppu.png", saa kuvatiedoston sivuille näkyville elementillä <code>&lt;img src="img/lamppu.png" /&gt;</code>. Koska kuvaelementti <code>img</code> ei sisällä muita elementtejä tai tekstiä, voi sen sulkea suoraan.</p>
-
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -369,12 +416,7 @@
 
     <h3>Linkit toisille sivuille</h3>
 
-    <p>Elementin <code>a</code> (<em>anchor</em>) avulla voi luoda linkin sivulta toiselle. Sivu, jolle käyttäjä siirtyy, merkitään elementin <code>a</code> attribuutin <code>href</code> arvolla. Jos sovelluksessasi on kaksi sivua, <code>index.html</code> ja <code>oma.html</code>, voi sivulta <code>oma.html</code> luoda linkin sivulle <code>index.html</code> komennolla <code>&lt;a href="index.html"&gt;index.html&lt;/a&gt;</code>.</p>
-
-    <p>Sivulta voi lisätä myös linkin täysin toiselle sivulle ja linkki-elementeille voi lisätä myös attribuutin <code>target</code>, jolla voi ilmaista tietyn ikkunan, johon sivu avataan. Jos attribuutille <code>target</code> antaa arvon "_blank", avataan linkki aina uuteen ikkunaan.</p>
-
-    <p>Alla olevassa esimerkissä on kaksi linkkiä <code>YouTube</code>-sivustolle. Ensimmäinen linkki avaa linkin tässä ikkunassa, toinen linkki avaa linkin erillisessä selainikkunassa.</p>
-
+    <p>Elementin <code>a</code> (<em>anchor</em>) avulla voi luoda linkin sivulta toiselle. Sivu, jolle käyttäjä siirtyy, merkitään elementin <code>a</code> attribuutin <code>href</code> arvolla. Jos sovelluksessasi on kaksi sivua, <code>index.html</code> ja <code>oma.html</code>, voi sivulta <code>oma.html</code> luoda linkin sivulle <code>index.html</code> komennolla <code>&lt;a href="index.html"&gt;index.html&lt;/a&gt;</code>. Sivulta voi lisätä myös linkin täysin toiselle sivulle. Alla olevassa esimerkissä on linkki <code>YouTube</code>-sivustolle.</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -385,12 +427,23 @@
     &lt;/head&gt;
     &lt;body&gt;
 
-        &lt;p&gt;Linkkejä saa lisättyä a-elementillä: &lt;a href="https://www.youtube.com/watch?v=oT3mCybbhf0"&gt;klikkaamalla
+        &lt;h1&gt;Sivulla näkyvä otsikko&lt;/h1&gt;
+
+        &lt;p&gt;Sivuilla näytettävä normaali teksti on p-elementin sisällä,
+        listaelementtiä voi käyttää esimerkiksi ostoslistan tekemiseen.&lt;/p&gt;
+
+        &lt;ol&gt;
+            &lt;li&gt;kauraa&lt;/li&gt;
+            &lt;li&gt;puuroa&lt;/li&gt;
+            &lt;li&gt;omenaa&lt;/li&gt;
+        &lt;/ol&gt;
+
+        &lt;p&gt;Kuvan saa taas näytettyä img-elementillä. Välähtikö?&lt;/p&gt;
+
+        &lt;img src="img/lamppu.png" /&gt;
+
+        &lt;p&gt;Linkkejä saa lisättyä a-elementillä: &lt;a href="http://www.youtube.com/watch?v=9bZkp7q19f0"&gt;klikkaamalla
         liityt miljoonien joukkoon.&lt;/a&gt;&lt;/p&gt;
-
-
-        &lt;p&gt;Linkkejä saa lisättyä a-elementillä: &lt;a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"&gt;klikkaamalla
-        liityt kymmenien miljoonien joukkoon.&lt;/a&gt;&lt;/p&gt;
 
     &lt;/body&gt;
 &lt;/html&gt;
@@ -399,21 +452,16 @@
     <p>Yllä olevan sivun viimeinen tekstielementti näyttää seuraavalta:</p>
 
 <div class="naytto">
-
-  <p>Linkkejä saa lisättyä a-elementillä: <a href="https://www.youtube.com/watch?v=oT3mCybbhf0">klikkaamalla
-        liityt miljoonien joukkoon.</a></p>
-
-  <p>Linkkejä saa lisättyä a-elementillä: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">klikkaamalla
-        liityt kymmenien miljoonien joukkoon.</a></p>
-
+  <p>Linkkejä saa lisättyä a-elementillä: <a href="http://www.youtube.com/watch?v=9bZkp7q19f0">klikkaamalla liityt miljoonien joukkoon.</a></p>
 </div>
 
+    <p>Linkki-elementeille voi lisätä myös attribuutin <code>target</code>, jolla voi ilmaista tietyn ikkunan, johon sivu avataan. Jos attribuutille <code>target</code> antaa arvon "_blank", avataan linkki aina uuteen ikkunaan.</p>
 
 
     <h3>HTML5 ja apuvälineet sivun rakenteen määrittelyyn</h3>
 
 
-    <p><a href="http://www.w3.org/html/wg/html5/" target="_blank">HTML5</a>, tuttavallisemmin HTML, toi mukanaan sivun rakenteen suunnittelua helpottavia elementtejä. Sivun rakenteen määrittelyä helpottavat elementit <code>header</code>, jonka sisälle kirjoitetaan sivun yleinen alkuosa kuten <code>h1</code>-elementti ja valikko, <code>nav</code>, joka sisältää sivun valikon, <code>section</code>-elementti, joka esimerkiksi nivoo yhteen toisiinsa liittyviä osia, <code>article</code>, joka sisältää yksittäisen sivulla olevan dokumentin, ja <code>footer</code>, joka kertoo sivun loppuosan. Näiden avulla sivun saa jaettua loogisiin osakokonaisuuksiin.</p>
+    <p><a href="http://www.w3.org/html/wg/html5/" target="_blank">HTML5</a>, eli HTML-kuvauskielen uusin (vielä kesken oleva) versio, toi mukanaan sivun rakenteen suunnittelua helpottavia elementtejä. Sivun rakenteen määrittelyä helpottavat elementit <code>header</code>, jonka sisälle kirjoitetaan sivun yleinen alkuosa kuten <code>h1</code>-elementti ja valikko, <code>nav</code>, joka sisältää sivun valikon, <code>section</code>-elementti, joka esimerkiksi nivoo yhteen toisiinsa liittyviä osia, <code>article</code>, joka sisältää yksittäisen sivulla olevan dokumentin, ja <code>footer</code>, joka kertoo sivun loppuosan. Näiden avulla sivun saa jaettua loogisiin osakokonaisuuksiin.</p>
 
     <p>Rakennetta helpottavien elementtien käyttö ja toiminta liittyy elementtiin, jonka sisällä ne ovat. Jos elementtiä <code>header</code> käytetään elementin <code>article</code> sisällä, on <code>header</code> luonnollisesti artikkelin otsaketiedot. Jos taas <code>header</code>-elementti on <code>body</code>-elementin sisällä, liittyy <code>header</code>-elementin sisältö itse sivuun. </p>
 
@@ -478,7 +526,7 @@
 
     <h4>Rakenteellinen lähestymistapa sivujen sisällön määrittelyyn</h4>
 
-    <p>HTML-kuvauskieltä käytetään sivujen rakenteen määrittelyyn. Ennen <code>article</code>, <code>section</code>, ym. elementtejä, tapana oli erotella sivun alueita toisistaan <code>div</code> (<em>divider</em>)-elementeillä. Div-elementille määriteltiin tyyppi (<em>class</em>), joka kuvasi sivun osaa, jonka <code>div</code>-elementti sisälsi. Yllä olevan sivun rakenne voidaan luoda myös <code>div</code>-elementeillä.</p>
+    <p>HTML-kuvauskieltä käytetään sivujen rakenteen määrittelyyn. Ennen HTML5:ttä sivun elementtejä eroteltiin toisistaan <code>div</code> (<em>divider</em>)-elementeillä, joille määriteltiin attribuuttina sivun osa, jonka <code>div</code>-elementti sisälsi. Yllä olevan sivun rakenne voidaan luoda myös <code>div</code>-elementeillä.</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -512,7 +560,7 @@
 &lt;/html&gt;
 </pre>
 
-    <p>Huomannet että ero on käytännössä hyvin pieni. Oleellisinta on loogisten osakokonaisuuksien erottelu toisistaan.</p>
+    <p>Huomannet että ero on käytännössä hyvin pieni. Oleellisinta on loogisten osakokonaisuuksien erottelu toisistaan. HTML5 tarjoaa siihen työvälineet, joita kannattaa käyttää.</p>
 
 
 <div class="tehtavat">
@@ -528,7 +576,8 @@
 
     <h3>Lomakkeet</h3>
 
-	<p>Lomakkeita käytetään tiedon syöttämiseen web-sivuille. Tietoa voi lähettää joko erilliselle palvelimelle, tai käsitellä osana sivustoa JavaScript-kielen avulla. Lomakkeet aloitetaan HTML-elementillä <code>&lt;form&gt;</code>, jonka sisälle voi asettaa useita erilaisia kenttiä. Palvelimelle dataa lähetettäessä jokaisella kentällä tulee olla attribuutti <code>name</code>, jonka perusteella palvelinohjelmisto osaa erotella lähetettävän datan toisistaan.</p>
+	<p>Lomakkeita käytetään tiedon syöttämiseen web-sivuille. Tietoa voi lähettää joko erilliselle palvelimelle, tai käsitellä osana sivustoa JavaScript-kielen avulla. Lomakkeet aloitetaan HTML-elementillä <code>&lt;form&gt;</code>. Lomake-elementin sisälle voi asettaa useita erilaisia kenttiä. Palvelimelle dataa lähetettäessä jokaisella kentällä tulee olla attribuutti <code>name</code>, jota käytetään palvelimella tiedon identifiointiin.</p>
+
 
 	<p>Erilaisia lomakekenttiä on useita:</p>
 
@@ -603,13 +652,11 @@
 
 
 <aside class="extra">
-
   <p><strong>Moarr!</strong></p>
 
-  <p>Mikään yksittäinen HTML-opas ei itsessään kata kaikkea HTMLään liittyvää. Tässäkin dokumentissa tehtiin pieni pintaraapaisu HTMLn ominaisuuksiin. Erityisesti selainsovelluksia rakennettaessa uusinta informaatiota jaetaan mm. blogeissa ja muissa webissä julkaistavissa artikkeleissa. Web on täynnä timanttisia sivustoja kuten <a href="http://www.w3schools.com/html/" target="_blank">http://www.w3schools.com/html/</a>, <a href="http://www.html5rocks.com/" target="_blank">http://www.html5rocks.com/</a>, ... </p>
+  <p>Mikään yksittäinen HTML-opas ei itsessään kata kaikkea HTMLään liittyvää. Tässäkin dokumentissa tehtiin pieni pintaraapaisu HTMLn ominaisuuksiin. Erityisesti selainsovelluksia rakennettaessa uusinta informaatiota jaetaan mm. blogeissa ja muissa webissä julkaistavissa artikkeleissa. Web on täynnä timanttisia sivustoja kuten <a href="http://www.html5rocks.com/" target="_blank">http://www.html5rocks.com/</a>, <a href="http://html5-demos.appspot.com/" target="_blank">http://html5-demos.appspot.com/</a>, ... </p>
 
   <p>Kuten yllä olevista linkeistä huomaat, "puhekielessä" HTML5 sisältää HTML-syntaksin lisäksi CSSn ja JavaScriptin. Avain onneen on pienestä liikkeelle lähteminen: toteutta joku webissä oleva hieno sivu itse sivun lähdekoodia seuraten. Muokkaile lähdekoodia, ja ota selvää mitä eri komennot tekevät. Kun joku komento on epäselvä, <a href="http://lmgtfy.com/?q=Ep%C3%A4selv%C3%A4t+avainsanat" target="_blank"><em>google auttaa</em></a> -- myös esimerkiksi <a href="http://www.w3schools.com/" target="_blank">W3Schools</a> on kätevä.</p>
-
 </aside>
 
 
@@ -676,7 +723,7 @@ body {
 }
 </pre>
 
-    <p>Valitsimia voi käyttää myös suorien <a href="http://en.wikipedia.org/wiki/Tree_(data_structure)" target="_blank">lasten</a> valintaan, esimerkiksi seuraavassa valitaan ensimmäisen valitsimen joukosta toisen valitsimen tyyppiset suorat lapset, mutta ei niiden lapsia.</p>
+    <p>Valitsimia voi käyttää myös <a href="http://en.wikipedia.org/wiki/Tree_(data_structure)" target="_blank">lasten</a> valintaan, esimerkiksi seuraavassa valitaan ensimmäisen valitsimen joukosta toisen valitsimen tyyppinen lapsi.</p>
 
 <pre class="sh_css">
 <em>valitsin</em> &gt; <em>valitsin2</em> {
@@ -685,15 +732,6 @@ body {
 }
 </pre>
 
-
-    <p>Vastaavasti myös kaikki elementin alla olevat toiset elementit voi myös valita. Seuraavassa valitaan ensimmäisen valitsimen joukosta kaikki toisen valitsimen tyyppiset lapset ja lapsenlapset.</p>
-
-<pre class="sh_css">
-<em>valitsin</em> <em>valitsin2</em> {
-    <em>tyylin-nimi</em>: <em>tyylin-arvo</em>;
-    <em>toisen-tyylin-nimi</em>: <em>arvo</em> <em>toinen-arvo</em>;
-}
-</pre>
 
     <h3>Valitsimet</h3>
 
@@ -757,13 +795,9 @@ p {
   <h1>Sivulla näkyvä otsikko</h1>
 
   <p>Sivuilla näytettävä normaali teksti on p-elementin sisällä.</p>
-  <p class="blue-esim-luokka-attr">Kuten edellinen elementti, mutta tällä on luokka-attribuutti, jonka arvo on "blue".
-            Tyylimäärittely .blue asettaa tekstin värin siniseksi.</p>
+  <p class="blue-esim-luokka-attr">Kuten edellinen elementti, mutta tällä on luokka-attribuutti, jonka arvo on "blue".</p>
 
 </div>
-
-
-  <iframe width="100%" height="320" src="http://jsfiddle.net/u29j01fr/embedded/html,css,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
     <h4>Tunnus-attribuutti</h4>
 
@@ -806,26 +840,77 @@ article {
     background-color: rgb(200, 200, 200);
     margin: 1em;
     padding: 1em;
-    width: 30%;
+    width: 40%;
 
+    /* pyöreät kulmat -- useampi määrittely sillä tyylispesifikaatio vielä kesken */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 #highlighted-article {
-    width: 55%;
+    width: 42%;
     background-color: rgb(240, 240, 240);
+
+    /* fiilistellään css3-tyylien kanssa */
+    -webkit-transform: rotate(-2deg); /* chrome, safari */
+    -moz-transform: rotate(-2deg); /* firefox */
+    -o-transform: rotate(-2deg); /* opera */
     transform: rotate(-2deg);
 }
 </pre>
 
-  <iframe width="100%" height="420" src="http://jsfiddle.net/be2wekh4/1/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<style>
+.padded-article {
+    background-color: rgb(200, 200, 200);
+    margin: 1em;
+    padding: 1em;
+    width: 40%;
+
+    /* pyöreät kulmat -- useampi määrittely sillä tyylispesifikaatio vielä kesken */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+#highlighted-article {
+    background-color: rgb(240, 240, 240);
+    width: 42%;
+
+    /* fiilistellään css3-tyylien kanssa */
+    -webkit-transform: rotate(-2deg); /* chrome, safari */
+    -moz-transform: rotate(-2deg); /* firefox */
+    -o-transform: rotate(-2deg); /* opera */
+    transform: rotate(-2deg);
+}
+</style>
+
+<div class="naytto">
+        <header>
+            <h1>Sivulla näkyvä otsikko</h1>
+        </header>
+
+
+        <article class="padded-article" id="highlighted-article">
+            <p>Sivuilla näytettävä normaali teksti on p-elementin sisällä.</p>
+        </article>
+
+        <article class="padded-article">
+            <p>Sivuilla näytettävä normaali teksti on p-elementin sisällä.</p>
+        </article>
+
+        <article class="padded-article">
+            <p>Sivuilla näytettävä normaali teksti on p-elementin sisällä.</p>
+        </article>
+
+</div>
 
 
     <h3>Tyylien vaikutus elementteihin</h3>
 
     <p>Edellä olevassa esimerkissä tyyli <code>#highlighted-article</code> ei sisältänyt reunojen pyöristystä, mutta silti korostetun artikkelin reunat pyöristettiin silti. Miksi?</p>
 
-    <p>Elementti käyttää kaikkia sille määriteltyjä tyylejä. Esimerkiksi tyyli <code>#highlighted-article</code> on osana <code>article</code>-elementtiä, jolla taas on siihen liittyvä tyyli. Mielenkiintoinen kohta liittyy artikkelin leveyteen (tyylimäärittely <code>width</code>): tyylissä <code>#highlighted-article</code> oleva määrittely <code>width</code> korvaa tyylissä <code>article</code> määritellyn leveyden. Jos leveyttä ei olisi korvattu <code>#highlighted-article</code>-tyylissä, olisi leveys peritty <code>article</code>-elementille määritellystä tyylistä.</p>
+    <p>Elementti käyttää kaikkia sille määriteltyjä tyylejä. Esimerkiksi tyyli <code>#highlighted-article</code> on osana <code>article</code>-elementtiä, jolla taas on siihen liittyvä tyyli. Mielenkiintoinen kohta liittyy artikkelin leveyteen (tyylimäärittely <code>width</code>): tyylissä <code>#highlighted-article</code> oleva määrittely <code>width</code> korvaa tyylissä <code>article</code> määritellyn leveyden. Jos leveyttä ei olisi korvattu, olisi myös leveys peritty.</p>
 
     <p>Koska HTML-dokumentti on puu, voi tyylien periytymistä ajatella myös puumaisena periytymisenä. Jos elementille <code>body</code> määritellään tietynlainen tyyli, on kaikilla sen lapsisolmuilla <code>body</code>-elementissä määritelty tyyli, ellei lapsisolmu korvaa tyyliä.</p>
 
@@ -856,16 +941,6 @@ article {
       <p>Kun olet valmis, ja sivusi näyttää oikealta Chromessa, palauta tehtävä TMC:lle.</p>
     </div>
 
-
-    <h3>Lohko- ja sisäelementit</h3>
-
-    <p>HTML-sivuilla näkyvät elementit voidaan jakaa karkeasti kahteen tyyppiin: lohkoelementteihin (<code>block-level element</code>) ja sisäelementteihin (<code>inline element</code>). Lohkoelementtien ja sisäelementtien ero on se, että lohkoelementit luovat HTML-sivulle suorakulmaisen alueen, jota edeltää ja seuraa rivinvaihto. Esimerkiksi &lt;p&gt;-elementti on lohkoelementti.</p>
-
-    <p>Sisäelementit taas eivät luo rivinvaihtoa niitä ennen ja niiden jälkeen. Esimerkiksi &lt;span&gt;-elementti on sisäelementti.</p>
-
-    <p>Se, että onko elementti lohko- vai sisäelementti, määräytyy <a href="http://www.w3.org/TR/CSS21/sample.html" target="_blank">oletustyylin</a> perusteella. Lohkoelementeillä on <code>display</code>-tyylin arvona <code>block</code> kun taas sisäelementeillä <code>display</code>-tyylin arvona on <code>inline</code>. Alla esimerkki em. tyylien käytöstä.</p>
-
-  <iframe width="100%" height="300" src="http://jsfiddle.net/5j49b9Ln/embedded/html,css,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
     <h3>Case: Listojen tyylit</h3>
@@ -996,7 +1071,7 @@ article {
 
 
 
-    <p>Noin 10 vuotta sitten pyöreät kulmat tehtiin erillisillä kuvilla. Ei enää! Pyöreät kulmat eivät ole vielä ihan helpon komennon takana, vaan niihin tarvitaan kolme erillistä komentoa. Erillisiä komentoja tarvitaan selainyhteensopivuuden varmistamiseksi: pyöreät kulmat määrittelevä standardi ei ole vielä lopullinen...). Pyöreät kulmat saa lisättyä tyyliluokkaan <code>menu</code> seuraavasti:</p>
+    <p>Vielä noin 5 vuotta sitten pyöreät kulmat tehtiin erillisillä kuvilla. Ei enää! Pyöreät kulmat eivät ole vielä ihan helpon komennon takana, vaan niihin tarvitaan kolme erillistä komentoa. Erillisiä komentoja tarvitaan selainyhteensopivuuden varmistamiseksi: pyöreät kulmat määrittelevä standardi ei ole vielä lopullinen...). Pyöreät kulmat saa lisättyä tyyliluokkaan <code>menu</code> seuraavasti:</p>
 
 <pre class="sh_css">
 .menu {
@@ -1012,6 +1087,8 @@ article {
 
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 </pre>
 
@@ -1029,6 +1106,8 @@ article {
 
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 </style>
 
@@ -1043,9 +1122,18 @@ article {
       </ul>
 </div>
 
-    <h3>Case: Listojen tyylit, osa 2</h3>
+    <h4>Tyylivalitsimet ja menu</h4>
 
-    <p>Yllä oleva lähestymistapa, vaikkakin hieno, on hieman kömpelö. Jouduimme lisäämään jokaiselle tyyliteltävälle elementille luokkamäärittelyn. Tavoitteenamme on tyylitellä alla olevan sivun <code>header</code>-osio uudestaan. Huomaa jo nyt, että sivun <code>header</code>-osioon ei ole määritelty luokkia tai tunnuksia!</p>
+    <p>Yllä oleva lähestymistapa, vaikkakin hieno, on hieman kömpelö. Jouduimme lisäämään jokaiselle tyyliteltävälle elementille oman luokkamäärittelyn. Aiemmin näimme, että tyylejä voi määritellä listana seuraavasti:</p>
+
+<pre class="sh_css">
+<em>valitsin</em>, <em>valitsin2</em> {
+    <em>tyylin-nimi</em>: <em>tyylin-arvo</em>;
+    <em>toisen-tyylin-nimi</em>: <em>arvo</em> <em>toinen-arvo</em>;
+}
+</pre>
+
+    <p>Tutustutaan seuraavaksi toiseen tapaan. Tavoitteenamme on tyylitellä alla olevan sivun <code>header</code>-osio uudestaan. Huomaa jo nyt, että sivun <code>header</code>-osioon ei ole määritelty luokkia tai tunnuksia!</p>
 
 <pre class="sh_html">
 &lt;!DOCTYPE html&gt;
@@ -1093,21 +1181,18 @@ article {
 </div>
 
 
-    <h4>Elementtien valinta dokumentin rakenteen perusteella</h4>
-
-
-    <p>Toinen tapa valita tyyliteltäviä elementtejä liittyy niiden järjestykseen dokumentissa. Voimme tyylitellä <code>header</code>-elementin sisällä olevan <code>h1</code>-elementin vaaleammaksi. Huomaa että tämä tyylittely <em>ei</em> muuta kaikkia <code>h1</code>-elementtejä, vain vaan ne, jotka ovat <code>header</code>-elementin sisällä. </p>
+    <p>Toinen tapa valita tyyliteltäviä elementtejä liittyy niiden järjestykseen osana dokumenttia. Voimme tyylitellä <code>header</code>-elementin sisällä olevan <code>h1</code>-elementin seuraavasti. Huomaa että tämä tyylittely <em>ei</em> muuta kaikkia <code>h1</code>-elementtejä, vain vaan ne, jotka ovat <code>header</code>-elementin sisällä.</p>
 
 <pre class="sh_css">
 header h1 {
-    color: rgb(120, 120, 120);
+    color: rgb(80, 80, 80);
 }
 </pre>
 
 
 <style>
 #ex-1 header h1 {
-    color: rgb(120, 120, 120);
+    color: rgb(80, 80, 80);
 }
 
 </style>
@@ -1132,7 +1217,7 @@ header h1 {
 
 <pre class="sh_css">
 header h1 {
-    color: rgb(120, 120, 120);
+    color: rgb(40, 40, 40);
 }
 
 header nav ul {
@@ -1142,21 +1227,24 @@ header nav ul {
     line-height: 30px;
     margin: 0 auto 2em auto;
 
-    /* taustaväri */
+    /* taustaväriksi h1-elementin taustaväri */
     background-color: rgb(40, 40, 40);
 
     /* ei näytetä palloja */
     list-style-type: none;
 
+
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 </pre>
 
 
 <style>
 #ex-2 header h1 {
-    color: rgb(120, 120, 120);
+    color: rgb(40, 40, 40);
 }
 
 #ex-2 header nav ul {
@@ -1166,14 +1254,17 @@ header nav ul {
     line-height: 30px;
     margin: 0 auto 2em auto;
 
-    /* taustaväri */
+    /* taustaväriksi h1-elementin taustaväri */
     background-color: rgb(40, 40, 40);
 
     /* ei näytetä palloja */
     list-style-type: none;
 
+
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 </style>
 
@@ -1193,14 +1284,13 @@ header nav ul {
 </div>
 
 
-	<p>Ylläolevassa esimerkissä elementille <code>ul</code> on määritelty korkeudeksi 40 pikseliä. Listan elementit ovat kuitenkin lohkoelementtejä, joten jokaista edeltää ja seuraa rivinvaihto, ja listan elementit päätyvät niiden juurielementin ulkopuolelle. Se, että näkyykö tämä efekti, riippuu tosin myös selaimesta -- selaimilla on vapaus päättää, miten tyyli näytetään.</p>
 
-    <p>Lisätään listaelementeille määrittely <code>display: inline</code>, jossa ne asetetaan vierekkäin.</p>
+    <p>Ei mitenkään kovin komea, muutamat selaimet näyttävät myös listaelementit listan ulkopuolella. Lisätään listaelementeille määrittely, jossa ne asetetaan vierekkäin.</p>
 
 
 <pre class="sh_css">
 header h1 {
-    color: rgb(120, 120, 120);
+    color: rgb(40, 40, 40);
 }
 
 header nav ul {
@@ -1211,7 +1301,7 @@ header nav ul {
     margin: 0 auto 2em auto;
 
     /* taustaväriksi h1-elementin taustaväri */
-    background-color: rgb(120, 120, 120);
+    background-color: rgb(40, 40, 40);
 
     /* ei näytetä palloja */
     list-style-type: none;
@@ -1219,9 +1309,12 @@ header nav ul {
 
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 header nav ul li {
+    float: left;
     display: inline;
 }
 </pre>
@@ -1245,11 +1338,15 @@ header nav ul li {
     /* ei näytetä palloja */
     list-style-type: none;
 
+
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 #ex-3 header nav ul li {
+    float: left;
     display: inline;
 }
 </style>
@@ -1269,7 +1366,6 @@ header nav ul li {
 </div>
 
 
-    <h4>Linkkielementtien tyylittely</h4>
 
     <p>Ei vieläkään komea, mutta selviämme tästä kyllä. Muutetaan linkkielementtien väri valkoiseksi, suurennetaan niiden fonttia, ja asetetaan niille hieman tilaa ympärille.</p>
 
@@ -1291,17 +1387,21 @@ header nav ul {
     /* ei näytetä palloja */
     list-style-type: none;
 
+
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 header nav ul li {
+    float: left;
     display: inline;
 }
 
+
 header nav ul li a {
     color: rgb(255, 255, 255);
-    /* rivielementti, mutta suorakulmio */
     display: inline-block;
     padding: 5px 1.5em;
     text-decoration: none;
@@ -1327,11 +1427,16 @@ header nav ul li a {
     /* ei näytetä palloja */
     list-style-type: none;
 
+
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
+
 #ex-4 header nav ul li {
+    float: left;
     display: inline;
 }
 
@@ -1360,13 +1465,7 @@ header nav ul li a {
   </header>
 </div>
 
-    <p>Tyyli <code>text-decoration: none;</code> kertoo linkille, että sitä ei tule tyylitellä -- normaalisti linkeillä on sinertävä väri, ja ne on alleviivattu.</p>
-
-    <h4>Hiiren liikkeeseen reagointi</h4>
-
     <p>Lisätään vielä linkkielementeille toiminnallisuus, jossa niiden taustaväri muuttuu kun hiiri viedään elementin päälle. Asetetaan taustaväri tällöin valkoiseksi, ja linkin fontti aiemmin käytetyksi tummaksi väriksi.</p>
-
-    <p>Tämä tapahtuu määrittelemällä siihen elementtiin, jonka halutaan reagoivan hiiren saapumiseen, tyyli, jossa on lisäksi määre <code>:hover</code>.</p>
 
 <pre class="sh_css">
 header h1 {
@@ -1388,9 +1487,12 @@ header nav ul {
 
     /* pyöreät kulmat */
     border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 header nav ul li {
+    float: left;
     display: inline;
 }
 
@@ -1401,8 +1503,6 @@ header nav ul li a {
     text-decoration: none;
 }
 
-/* kun a-elementin päälle viedään hiiri, muutetaan sekä 
-   taustaväriä että tekstin väriä */
 header nav ul li a:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(40, 40, 40);
@@ -1435,6 +1535,7 @@ header nav ul li a:hover {
 }
 
 #ex-5 header nav ul li {
+    float: left;
     display: inline;
 }
 
@@ -1466,9 +1567,7 @@ header nav ul li a:hover {
 </div>
 
 
-      <p>Done! Tyylimaailman sopivuudesta jokainen saa toki päättää itse :). Alla sama vielä JSFiddlessä.</p>
-
-  <iframe width="100%" height="450" src="http://jsfiddle.net/ct7q9dhg/embedded/html,css,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+      <p>Done! Tyylimaailman sopivuudesta jokainen saa toki päättää itse :).</p>
 
 
     <div class="tehtavat">
@@ -1498,8 +1597,6 @@ header nav ul li a:hover {
 
 
     <h2>JavaScript</h2>
-
-    <p>TODO: jatka tästä</p>
 
 
     <p>Siinä missä HTML on kuvauskieli web-sivujen rakenteen ja sisällön luomiseen, ja CSS on kieli web-sivustojen tyylin määrittelyyn, JavaScript on kieli dynaamisen toiminnan lisäämiselle. Suomen kielioppia ajatellen HTML:ää voi ajatella substantiiveina, CSS:ää adjektiiveina, ja JavaScriptiä verbeinä. Käytännössä JavaScript on ohjelmakoodia, jota suoritetaan tarvittaessa komento kerrallaan -- ylhäältä alas, vasemmalta oikealle.</p>
