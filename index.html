@@ -818,7 +818,10 @@ article {
 }
 </pre>
 
-  <iframe width="100%" height="420" src="http://jsfiddle.net/be2wekh4/1/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+  <p>Sama JSFiddlessä karsittuna siten, että HTML:ssä vain dokumentin runko.</p>
+
+  <iframe width="100%" height="420" src="http://jsfiddle.net/be2wekh4/2/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
     <h3>Tyylien vaikutus elementteihin</h3>
@@ -1487,22 +1490,17 @@ header nav ul li a:hover {
 
 
 <aside class="extra">
-  <p><strong>Moar!</strong></p>
+  <p><strong>Moarr!</strong></p>
 
-  <p>Web on pullollaan myös CSSään liittyviä sivuja; <a href="http://www.css3.com/" target="_blank">http://www.css3.com/</a>, <a href="http://www.smashingmagazine.com/learning-css3-useful-reference-guide/" target="_blank">http://www.smashingmagazine.com/learning-css3-useful-reference-guide/</a>, ...</p>
-
-  <p>Viimeisin versio löytyy osoitteesta <a href="http://www.w3.org/Style/CSS/current-work" target="_blank">http://www.w3.org/Style/CSS/current-work</a> -- kyseessä on jatkuvasti päivittyvä standardi.</p>
+  <p>Web on pullollaan myös tyylitiedostoihin liittyviä sivuja sekä valmiita tyylipaketteja. Pelkästään tyylipaketteja löytyy <a href="http://usablica.github.io/front-end-frameworks/compare.html" target="_blank">kymmeniä</a>. Esimerkiksi Twitter Bootstrapia, johon tutustumme myöhemmin tällä kurssilla, käyttää yli <a href="http://trends.builtwith.com/websitelist/Twitter-Bootstrap" target="_blank">kuusi miljoonaa sivustoa</a>. Tyylitiedostoilla voi sivun ulkoasun lisäksi luoda  <a href="http://www.creativebloq.com/css3/animation-with-css3-712437" target="_blank">interaktiivisia visualisaatioita</a> ja toiminnallisuutta tulee jatkuvasti lisää. Viimeisin CSS:n versio löytyy osoitteesta <a href="http://www.w3.org/Style/CSS/current-work" target="_blank">http://www.w3.org/Style/CSS/current-work</a>.</p>
 </aside>
-
 
 
 
     <h2>JavaScript</h2>
 
-    <p>TODO: jatka tästä</p>
 
-
-    <p>Siinä missä HTML on kuvauskieli web-sivujen rakenteen ja sisällön luomiseen, ja CSS on kieli web-sivustojen tyylin määrittelyyn, JavaScript on kieli dynaamisen toiminnan lisäämiselle. Suomen kielioppia ajatellen HTML:ää voi ajatella substantiiveina, CSS:ää adjektiiveina, ja JavaScriptiä verbeinä. Käytännössä JavaScript on ohjelmakoodia, jota suoritetaan tarvittaessa komento kerrallaan -- ylhäältä alas, vasemmalta oikealle.</p>
+    <p>Siinä missä HTML on kuvauskieli web-sivujen rakenteen ja sisällön luomiseen ja CSS on kieli web-sivustojen tyylin määrittelyyn, JavaScript on kieli dynaamisen toiminnan lisäämiselle. Käytännössä JavaScript on ohjelmakoodia, jota suoritetaan tarvittaessa komento kerrallaan -- ylhäältä alas, vasemmalta oikealle.</p>
 
 
 <script>
@@ -1524,7 +1522,7 @@ function evalElementContent(elementId) {
 
 
 <aside class="extra">
-  <p>Vaikkakin käytämmekin komentoja <code>alert</code> ja <code>console.log</code> melko intensiivisesti, eivät ne ole osa JavaScript-spesifikaatiota. </p>
+  <p>Vaikkakin käytämmekin komentoja <code>alert</code> ja <code>console.log</code>, eivät ne ole osa JavaScript-spesifikaatiota. </p>
   <p>&nbsp;</p>
 </aside>
 
@@ -1534,7 +1532,9 @@ function evalElementContent(elementId) {
     <h3>Funktiot</h3>
 
 
-    <p>Jos ylläoleva koodi asetetaan lähdekooditiedostoon, se suoritetaan <em>heti</em> kun selain lataa tiedoston. Haluamme kuitenkin usein siirtää koodin suoritusta tulevaisuuteen, ja kiinnittää se esimerkiksi johonkin tiettyyn tapahtumaan. Tätä varten on olemassa funktiot. Funktioilla määritellään ohjelmakoodia, joka suoritetaan myöhemmin.</p>
+    <p>Jos ylläoleva koodi -- <code>alert("heippa!");</code> asetetaan javascript-lähdekooditiedostoon, se suoritetaan <em>heti</em> kun selain lataa tiedoston. Haluamme kuitenkin usein siirtää koodin suoritusta tulevaisuuteen, ja kiinnittää se esimerkiksi johonkin sivulla tapahtuvaan tapahtumaan.</p>
+
+    <p>Funktioilla määritellään ohjelmakoodia, joka suoritetaan myöhemmin.</p>
 
     <p>Funktio määritellään merkkijonolla <code>function funktionNimi() { <em>suoritettava koodi</em>}</code>. Ensin avainsana <code>function</code>, joka kertoo että seuraavaksi on tulossa funktion määrittely. Tätä seuraa funktion nimi ja sulut, joita seuraa aukeava aaltosulku <code>{</code>. Aaltosulun jälkeen tulee funktiota kutsuttaessa suoritettava ohjelmakoodi, jonka jälkeen tulee sulkeva aaltosulku <code>}</code>.</p>
 
@@ -1549,7 +1549,9 @@ function evalElementContent(elementId) {
       <p><input type="button" onclick="evalElementContent('js-kysynimi-funktio')" value="Suorita koodi!"></input></p>
     </div>
 
-      <p>Kun painat nappia "Suorita koodi!", huomaat ettei mitään tapahdu. Tämä johtuu siitä, että funktiota ei kutsuta mistään, eli funktion suorittamista ei pyydetä. Lisätään funktiokutsu. Funktion kutsuminen onnistuu sanomalla funktion nimi ja sulut, sekä puolipiste. Esimerkiksi <code>funktionNimi();</code>. Alla olevassa koodissa on sekä funktion <code>kysyNimiJaTervehdi</code> määrittely, että funktion <code>kysyNimiJaTervehdi</code> kutsu.</p>
+      <p>Kun painat nappia "Suorita koodi!", huomaat ettei mitään tapahdu :(.</p>
+
+      <p>Tämä johtuu siitä, että funktiota ei kutsuta mistään, eli funktion suorittamista ei pyydetä. Lisätään funktiokutsu. Funktion kutsuminen onnistuu sanomalla funktion nimi ja sulut, sekä puolipiste. Esimerkiksi <code>funktionNimi();</code>. Alla olevassa koodissa on sekä funktion <code>kysyNimiJaTervehdi</code> määrittely, että funktion <code>kysyNimiJaTervehdi</code> kutsu.</p>
 
       <div class="js-test">
       <p><textarea id="js-kysynimi-funktio-ja-kutsu" rows="8" cols="80">function kysyNimiJaTervehdi() {
@@ -1565,11 +1567,29 @@ kysyNimiJaTervehdi();</textarea></p>
 
       <h3>JavaScriptin lisääminen omille sivuille</h3>
 
-      <p>Aivan kuten CSS-tyylimäärittelyt, JavaScript-lähdekoodit tulee erottaa HTML-dokumentista.</p>
+      <p>Aivan kuten CSS-tyylimäärittelyt, JavaScript-lähdekoodit kannattaa erottaa HTML-dokumentista.</p>
 
       <p>JavaScript-tiedoston pääte on yleensä <code>.js</code> ja siihen viitataan elementillä <code>script</code>. Elementillä <code>script</code> on attribuutti <code>src</code>, jolla kerrotaan lähdekooditiedoston sijainti. Jos lähdekoodi on kansiossa <code>javascript</code> olevassa tiedostossa <code>code.js</code>, käytetään <code>script</code>-elementtiä seuraavasti: <code>&lt;script src="javascript/code.js"&gt;&lt;/script&gt;</code>. Huomaa että <code>script</code>-elementti suljetaan poikkeuksellisesti erikseen vaikka se ei sisälläkään tekstiä.</p>
 
-      <p>Hyvä käytäntö JavaScript-lähdekoodien lataamiseen on ladata ne juuri ennen niiden tarvitsemista. Jos lähdekoodia ei tarvita kuin vasta sivun ollessa kokonaan latautunut, kannattaa lähdekoodien hakeminen asettaa sivun loppuun. Tämä johtuu mm. siitä, että selaimen kohdatessa JavaScript-tiedoston, se lähtee hakemaan tiedostoa ja asettaa kaikki muut toiminnot odottamaan. Kun lähdekooditiedosto ladataan vasta sivun lopussa, käyttäjä <em>näkee</em> sivun sisältöä jo ennen lähdekoodin latautumista: tämä luo tunteen nopeammin reagoivista sivuista.</p>
+      <p>Yleinen käytänne JavaScript-lähdekoodien sivulle lisäämiseen on lisätä ne sivun loppuun. Tämä johtuu mm. siitä, että selain lähtee hakemaan JavaScript-tiedostoa kun se kohtaa sen määrittelyn HTML-dokumentissa, jolloin kaikki muut toiminnot odottavat latausta odottamaan. Jos lähdekooditiedosto ladataan vasta sivun lopussa, käyttäjälle <em>näytetään</em> sivun sisältöä jo ennen Javascript-lähdekoodin latautumista, sillä selaimet usein näyttävät sivua käyttäjälle sitä mukaa kun se latautuu. Tällä luodaan tunne nopeammin reagoivista ja latautuvista sivuista.</p>
+
+
+<aside class="info">
+  <br/>
+  <h1>Lataamisen siirtäminen sivun loppuun: määre defer</h1>
+
+  <p>Nykyään <code>script</code>-elementille voi lisätä määreen <code>defer</code>, jonka olemassaolo kertoo että elementin <code>src</code>-attribuutin määrittelemä tiedosto tulee suorittaa vasta kun html-sivu on käsitelty.</p>
+
+  <pre class="sh_html">
+...
+&lt;script src="javascript/code.js" defer&gt;&lt;/script&gt;
+...</pre>
+  
+  <p>Defer-määre on kuitenkin uudehko lisä, eikä se toimi kaikissa selaimissa. <a href="http://www.w3schools.com/tags/att_script_defer.asp" target="_blank">Lisätietoa täältä...</a></p>
+  <p>&nbsp;</p>
+</aside>
+
+
 
       <p>Luodaan kansioon <code>javascript</code> lähdekooditiedosto <code>code.js</code>. Tiedostossa <code>code.js</code> on funktio <code>sayHello</code>, joka tulostaa konsoliin viestin "BAD = browser application development".</p>
 
@@ -1627,6 +1647,10 @@ function sayHello() {
 }
         </script>
 </div>
+
+    <p>Sama JSFiddlessä siten, että javascript-tiedosto on osana sivua:</p>
+
+    <iframe width="100%" height="200" src="http://jsfiddle.net/7ntuqtmL/1/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
     <div class="tehtavat">
@@ -1691,7 +1715,7 @@ console.log(teksti);</textarea></p>
       <p><input type="button" onclick="evalElementContent('js-merkkijono-muuttujassa-alert')" value="Suorita koodi!"></input></p>
       </div>
 
-      <p>Merkkijonojen katenaatio eli yhdistäminen onnistuu summamerkillä Javasta tutulla tavalla. </p>
+      <p>Merkkijonojen yhdistäminen onnistuu plus-merkillä Javasta tutulla tavalla. </p>
 
       <div class="test-js">
       <p><textarea id="js-merkkijonojen-katenointi-alert" rows="6" cols="80">var eka = "2";
@@ -1702,6 +1726,9 @@ console.log(summa);</textarea></p>
       </div>
 
       <p>Yllä muuttujaan <code>summa</code> asetetaan muuttujien <code>eka</code> ja <code>toka</code> liitos, eli merkkijono <code>"23"</code>.</p>
+
+
+      <h4>Merkkijonon muuntaminen numeroksi</h4>
 
       <p>Jos merkkijonot haluaa muuttaa luvuiksi, tulee muunnoksessa käyttää JavaScriptin <code>parseInt</code>-funktiota. Komento <code>parseInt</code> muuttaa parametrina saadun merkkijonon kokonaisluvuksi.</p>
 
@@ -1719,8 +1746,7 @@ console.log(summa);</textarea></p>
       <p>Ohjelmiin tuodaan vaihtoehtoista toiminnallisuutta muuttujien ja vertailuoperaatioiden yhteistyöllä. Luodaan ohjelma, joka kysyy käyttäjältä numeroa. Jos käyttäjän antama numero on <code>5</code>, sanotaan "Oikein meni!". Vertailu onnistuu <code>if</code>-lauseella ja kahdella yhtäsuuruusmerkillä. Koska funktio <code>prompt</code> palauttaa merkkijonon, muunnetaan saatu luku numeroksi JavaScriptin <code>parseInt</code>-funktiolla.</p>
 
       <div class="test-js">
-      <p><textarea id="js-kysyluku-funktio-ja-kutsu" rows="8" cols="80">var numero = prompt("Kirjoita numero");
-numero = parseInt(numero);
+      <p><textarea id="js-kysyluku-funktio-ja-kutsu" rows="8" cols="80">var numero = parseInt(prompt("Kirjoita numero"));
 
 if (numero == 5) {
     console.log("Oikein meni!");
@@ -1732,8 +1758,7 @@ if (numero == 5) {
       <p>Jos haluamme sanoa "Oikein meni!" kun käyttäjä antaa numeron <code>5</code> tai <code>7</code>, voimme tehdä erillisen <code>else if</code>-vertailun. Vertailu <code>else if</code> tulee aina vertailun <code>if</code> jälkeen, ja vertailua <code>else if</code> ei voi käyttää ilman <code>if</code>-vertailua.</p>
 
       <div class="test-js">
-      <p><textarea id="js-kysyluku-viisi-tai-seitseman-funktio-ja-kutsu" rows="10" cols="80">var numero = prompt("Kirjoita joku numero?");
-numero = parseInt(numero);
+      <p><textarea id="js-kysyluku-viisi-tai-seitseman-funktio-ja-kutsu" rows="10" cols="80">var numero = parseInt(prompt("Kirjoita joku numero?"));
 
 if (numero == 5) {
     console.log("Oikein meni!");
@@ -1747,8 +1772,7 @@ if (numero == 5) {
       <p>Lauseita <code>else if</code> voi olla peräkkäin rajoittamaton määrä. Ohjelmakoodissa voi käyttää myös Javasta tuttuja <code>||</code> (<em>tai</em>) ja <code>&&</code> (<em>ja</em>) -operaatioita vertailutulosten yhdistämiseksi.</p>
 
       <div class="test-js">
-      <p><textarea id="js-kysyluku-joku-funktio-ja-kutsu" rows="8" cols="80">var numero = prompt("Kirjoita joku numero?");
-numero = parseInt(numero);
+      <p><textarea id="js-kysyluku-joku-funktio-ja-kutsu" rows="8" cols="80">var numero = parseInt(prompt("Kirjoita joku numero?"))
 
 if (numero == 5 || numero == 7) {
     console.log("Oikein meni!");
@@ -1760,8 +1784,7 @@ if (numero == 5 || numero == 7) {
       <p>Joskus haluamme tulostaa jotain, vaikka yksikään vertailu ei onnistuisi. Tällöin käytämme ehtoa <code>else</code>, joka tarkoittaa "muutoin". Lisätään yllä olevaan luvun tarkistamiseen <code>else</code>-lause, joka suoritetaan kun yksikään aiemmista ehdoista ei onnistunut.</p>
 
       <div class="test-js">
-      <p><textarea id="js-kysyluku-elsella-funktio-ja-kutsu" rows="10" cols="80">var numero = prompt("Kirjoita joku numero?");
-numero = parseInt(numero);
+      <p><textarea id="js-kysyluku-elsella-funktio-ja-kutsu" rows="10" cols="80">var numero = parseInt(prompt("Kirjoita joku numero?"));
 
 if (numero == 5 || numero == 7) {
     console.log("Oikein meni!");
@@ -1772,12 +1795,11 @@ if (numero == 5 || numero == 7) {
       <p><input type="button" onclick="evalElementContent('js-kysyluku-elsella-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
       </div>
 
-      <p>Muutkin Javasta tutut vertailuoperaatiot ovat käytössä. Suurempi kuin <code>&gt;</code> merkillä tarkistetaan onko luku suurempi kuin joku luku, ja pienempi kuin <code>&lt;</code> merkillä tarkistetaan onko luku pienempi kuin joku luku. Tehdään ohjelma, joka kysyy ikää, ja sanoo "Huijaat!", jos ikä on pienempi kuin 0 tai suurempi kuin 120. Muulloin ohjelma sanoo &quot;Et huijannut! :)&quot; .</p>
+      <p>Muutkin Javasta tutut vertailuoperaatiot ovat käytössä. Suurempi kuin <code>&gt;</code> merkillä tarkistetaan onko luku suurempi kuin joku luku, ja pienempi kuin <code>&lt;</code> merkillä tarkistetaan onko luku pienempi kuin joku luku. Tehdään ohjelma, joka kysyy ikää, ja sanoo "Huijaat!", jos ikä on pienempi kuin 0 tai suurempi kuin 120. Muulloin ohjelma sanoo &quot;Et huijannut!&quot; .</p>
 
 
       <div class="test-js">
-      <p><textarea id="kysyika-funktio-ja-kutsu" rows="10" cols="80">var ika = prompt("Mikä on ikäsi?");
-ika = parseInt(ika);
+      <p><textarea id="kysyika-funktio-ja-kutsu" rows="10" cols="80">var ika = parseInt(prompt("Mikä on ikäsi?"));
 
 if (ika < 0 || ika > 120) {
     console.log("Huijaat!");
@@ -1788,7 +1810,11 @@ if (ika < 0 || ika > 120) {
       <p><input type="button" onclick="evalElementContent('kysyika-funktio-ja-kutsu')" value="Suorita koodi!"></input></p>
       </div>
 
-      <p>Yllä olemme vertailleet juurikin <em>muuttujien arvoja</em>. Vertailuoperaattorin <code>==</code> yksi päänvaivaa tuottava ominaisuus on se, että vertailuoperaatio ei välitä muuttujan tyypistä. Esimerkiksi seuraava vertailu tulostaa viestin "Ehdottomasti totta!".</p>
+      <h4>Dynaaminen tyypitys ja vertailuoperaatiot</h4>
+
+      <p>Yllä olemme vertailleet juurikin <em>muuttujien arvoja</em>. Koska JavaScript on dynaamisesti tyypitetty kieli, voi muuttujan tyyppi muuttua kun siihen asetetaan uusi arvo.</p>
+
+      <p>Vertailuoperaattorin <code>==</code> eräs päänvaivaa tuottava ominaisuus on se, että vertailuoperaatio ei välitä muuttujan tyypistä. Esimerkiksi seuraava vertailu tulostaa viestin "Ehdottomasti totta!".</p>
 
       <div class="test-js">
       <p><textarea id="js-vertailun-tyyppi" rows="7" cols="80">var auton_merkki = "";
@@ -1800,7 +1826,12 @@ if(auton_merkki == false) {
       <p><input type="button" onclick="evalElementContent('js-vertailun-tyyppi')" value="Suorita koodi!"></input></p>
       </div>
 
-      <p>Jotta vertailussa otettaisiin huomioon myös muuttujan <em>sen hetkinen</em> tyyppi, käytetään kolmatta yhtäsuuri kuin -merkkiä. Jotta muuttujan tyypin saa otettua huomioon, tulee yhtäsuuruusvertailu toteuttaa kolmella yhtäsuuri kuin -merkillä (<code>===</code>).</p>
+      <p>Tyhjä merkkijono vastaa siis totuusarvoa <code>false</code>.</p>
+
+
+      <h4>Muuttujan tyypin huomioiva vertailu</h4>
+
+      <p>Jotta vertailussa otettaisiin huomioon myös muuttujan <em>sen hetkinen</em> tyyppi, käytetään vertailuoperaatiossa ylimääräistä yhtäsuuri kuin -merkkiä. Jos vertailu tehdään kolmella yhtäsuuruusmerkillä (<code>===</code>) tarkistaa JavaScript sekä muuttujan arvon että muuttujan tyypin.</p>
 
       <div class="test-js">
       <p><textarea id="js-vertailun-tyyppi-tyypilla" rows="9" cols="80">var auton_merkki = "";
@@ -1815,7 +1846,7 @@ if(auton_merkki === false) {
       </div>
 
 
-      <p>Sama pätee myös erisuuri kuin (<code>!=</code>) -vertailulle.</p>
+      <p>Sama pätee myös erisuuri kuin (<code>!==</code>) -vertailulle.</p>
 
       <h4>Toistolauseet</h4>
 
@@ -1919,46 +1950,84 @@ console.log(summa);
 
       <h4>Taulukot</h4>
 
-      <p>Taulukkotyyppisiä muuttujia voidaan luoda komennolla <code>new Array()</code>, jolle annetaan parametrina taulukon koko. Esimerkiksi seuraavassa luodaan 3 paikkaa sisältävä taulukko. Taulukkomuuttujan indeksointi tapahtuu hakasuluilla.</p>
+      <p>Taulukkotyyppisiä muuttujia voidaan luoda komennolla <code>[]</code>, joka on lyhenne komennolla <code>new Array();</code>. Esimerkiksi seuraavassa luodaan 3 paikkaa sisältävä taulukko.</p>
 
 <pre class="sh_javascript_dom">
-var salasanat = new Array(3);
-salasanat[0] = "salasana";
-salasanat[1] = "alasanas";
-salasanat[2] = "lasanasa";
+var salasanat = ["salasana", "alasanas", "lasagna"];
 </pre>
 
-
-      <p>Jos taulukon arvot tiedetään ennalta, voidaan taulukko luoda myös suoraan konstruktorikutsussa.</p>
+	<p>Taulukkomuuttujan indeksointi tapahtuu hakasuluilla, ja ensimmäinen alkio on indeksissä 0.</p>
 
 <pre class="sh_javascript_dom">
-var salasanat = new Array("salasana", "alasanas", "lasanasa");
+var salasanat = ["salasana", "alasanas", "lasagna"];
+
+console.log(salasanat[1]); // tulostaa konsoliin merkkijonon "alasanas"
 </pre>
 
       <p>Taulukot voivat sisältää myös erityyppisiä muuttujia.</p>
 
 <pre class="sh_javascript_dom">
-var tiedot = new Array("Mikke", 1984);
+var tiedot = ["Mikke", 1984];
 </pre>
+
+
+      <p>Uusia alkioita voidaan lisätä taulukkoon joko indeksiviittauksella (taulukon koko ei ole lyöty kiveen kuten esimerkiksi Javassa), tai taulukon metodilla <code>push</code>.</p>
+
+
+      <div class="test-js">
+      <p><textarea id="js-array-push" rows="7" cols="80">var tiedot = ["Mikke", 1984];
+tiedot[2] = "Kati";
+tiedot.push("Miti");
+
+console.log(tiedot[3]);
+</textarea></p>
+
+      <p><input type="button" onclick="evalElementContent('js-array-push')" value="Suorita koodi!"></input></p>
+      </div>
+
+
+      <aside class="info">
+	<br/>
+	<h1>Taulukoilla saa vaikka mitä aikaan!</h1>
+
+	<ul>
+	  <li><a href="http://lmgtfy.com/?q=how+do+i+remove+an+object+from+a+javascript+array" target="_blank">Miten poistan alkion taulukosta?</a></li>
+	  <li><a href="http://lmgtfy.com/?q=javascript+how+do+i+print+all+items+in+an+array" target="_blank">Miten tulostan kaikki taulukon alkiot?</a></li>
+	  <li><a href="http://lmgtfy.com/?q=javascript+how+do+i+get+unique+items+in+an+array" target="_blank">Miten saan selville uniikin alkiot taulukossa?</a></li>
+	  <li>jne..</li>
+	</ul>
+      </aside>
+
 
 
       <h4>Oliot</h4>
 
-      <p>Taulukoiden lisäksi JavaScriptissä tiedon käsittelyyn käytetään <code>Object</code>-tyyppisiä muuttujia, eli olioita. Olio luodaan komennolla <code>new Object()</code>, jonka jälkeen oliolle voi asettaa arvoja.</p>
+      <p>Olioiden luonti tapahtuu JSON, eli <code>JavaScript Object Notation</code>-syntaksin avulla -- tämä saattaa olla joillekin palvelinohjelmointi-kurssilla olleille tutun näköinen notaatio.</p>
 
-<pre class="sh_javascript_dom">
-var mikke = new Object();
-mikke.nimi = "Mikke";
-mikke.syntymavuosi = 1984;
-</pre>
-
-      <p>Olioiden luontiin liittyy myös hieman kevyempi syntaksi, joka saattaa olla joillekin palvelinohjelmointi-kurssilla olleille tutun näköinen.</p>
+      <p>Olion määrittely alkaa aaltosululla <code>{</code>, jota seuraa muuttujan nimi ja sille annettava arvo. Arvon asetus oliomuuttujalle tapahtuu kaksoispisteellä, esimerkiksi <code>nimi: "Mikke"</code>. Useampia muuttujia voi määritellä pilkulla eroteltuna. Olion määrittely lopetetaan sulkevaan aaltosulkuun <code>}</code>.</p>
 
 <pre class="sh_javascript_dom">
 var mikke = {nimi: "Mikke", syntymavuosi: 1984};
 </pre>
 
-      <p>Olioiden rakenne ei ole ennalta määrätty. Voimme esimerkiksi luoda muuttujalle <code>mikke</code> vaimon helposti.</p>
+      <p>Olion muuttujiin pääsee käsiksi piste-notaatiolla. Esimerkiksi <code>mikke</code>-olion muuttuja <code>nimi</code> löytyy komennolla <code>mikke.nimi</code>.</p> 
+
+<pre class="sh_javascript_dom">
+var mikke = {nimi: "Mikke", syntymavuosi: 1984};
+console.log(mikke.nimi);
+</pre>
+
+      <p>Myös uusien oliomuuttujien lisääminen on suoraviivaista. Uuden muuttujan lisääminen tapahtuu myös pistenotaatiolla -- harrastuksen lisääminen tapahtuu <code>mikke</code>-oliolle sanomalla <code>mikke.harrastus = "koodaus";</code>.</p>
+
+<pre class="sh_javascript_dom">
+var mikke = {nimi: "Mikke", syntymavuosi: 1984};
+console.log(mikke.nimi);
+mikke.harrastus = "koodaus";
+console.log(mikke.harrastus);
+</pre>
+
+
+      <p>Olioiden rakennetta ei siis ole lyöty ennalta lukkoon, ja voimme helposti lisätä oliolle <code>mikke</code> vaimon.</p>
 
 <pre class="sh_javascript_dom">
 var mikke = {nimi: "Mikke", syntymavuosi: 1984};
@@ -1984,16 +2053,34 @@ mikke.vaimo = kate;
 /* nyt voimme kysyä miken vaimon nimeä seuraavasti */
 console.log(mikke.vaimo.nimi + " on syntynyt vuonna " + mikke.vaimo.syntymavuosi);
 </textarea></p>
+      
       <p><input type="button" onclick="evalElementContent('js-mikke-ja-kate')" value="Suorita koodi!"></input></p>
       </div>
+
+
+      <aside class="info">
+	<br/>
+	<h1>Olioiden luonti <code>new</code>-komennolla</h1>
+
+	<p>Olioiden luominen onnistuu myös komennolla <code>new Object();</code>, jonka jälkeen oliolle voi asettaa arvoja.</p>
+
+<pre class="sh_javascript_dom">
+var mikke = new Object();
+mikke.nimi = "Mikke";
+mikke.syntymavuosi = 1984;
+</pre>
+
+       <p>Edellisessä esimerkissä näimme myös new Date-kutsun. <a href="http://lmgtfy.com/?q=what+does+new+date+do+in+javascript" target="_blank">Mitä new Date() komento oikein tekee?</a></p>
+
+</aside>
 
 
       <h3>Web-sivun elementtien arvojen käsittely</h3>
 
 
-      <p>Palataan web-maailmaan. JavaScriptiä käytetään ennenkaikkea dynaamisen toiminnallisuuden lisäämiseksi web-sivuille. Esimerkiksi web-sivuilla oleviin elementteihin tulee pystyä asettamaan arvoja. JavaScriptissä pääsee käsiksi dokumentissa oleviin elementteihin komennolla <code>document.getElementById("tunnus")</code>, joka palauttaa elementin, jonka <code>id</code>-attribuutti on "tunnus".</p>
+      <p>Palataan web-maailmaan. JavaScriptiä käytetään ennenkaikkea dynaamisen toiminnallisuuden lisäämiseksi web-sivuille. Esimerkiksi web-sivuilla oleviin elementteihin tulee pystyä asettamaan arvoja, ja niitä tulee myös pystyä hakemaan. JavaScriptissä pääsee käsiksi dokumentissa oleviin elementteihin komennolla <code>document.getElementById("tunnus")</code>, joka palauttaa elementin, jonka <code>id</code>-attribuutti on "tunnus".</p>
 
-      <p>Alla olevassa esimerkissä on luotu tekstikenttä, jonka HTML-koodi on <code>&lt;input type="text" id="tekstikentta"/&gt;</code>. Kentän tunnus on siis <code>tekstikentta</code>. Javascriptillä on komento <code>document.getElementById("tunnus")</code>, jonka avulla voidaan hakea tietyn nimistä elementtiä. Tekstikenttäelementillä on attribuutti <code>value</code>, joka voidaan tulostaa.</p>
+      <p>Alla on tekstikenttä, jonka HTML-koodi on <code>&lt;input type="text" id="tekstikentta"/&gt;</code>. Kentän tunnus on siis <code>tekstikentta</code>. Jos haluamme päästä käsiksi elementtiin, jonka tunnus on "tekstikentta", käytämme komentoa <code>document.getElementById("tekstikentta")</code>. Tekstikenttäelementillä on attribuutti <code>value</code>, joka voidaan tulostaa.</p>
 
 
 <div class="test-js">
@@ -2026,7 +2113,9 @@ console.log("Tekstikentän arvo oli " + arvo);
 
       <h4>Arvon asettaminen osaksi tekstiä</h4>
 
-      <p>Yllä tekstikentälle asetettiin arvo sen <code>value</code>-attribuuttiin. Kaikilla elementeillä ei ole <code>value</code>-attribuuttia, vaan joillain näytetään niiden elementin <em>sisällä</em> oleva arvo. Elementin sisälle asetetaan arvo muuttujaan liittyvällä attribuutilla <code>innerHTML</code>. Tässä alapuolella on esimerkiksi <code>p</code>-elementti, jonka <code>id</code> on <code>js-hidden-p-element</code>, ja jolla ei ole mitään arvoa.</p>
+      <p>Yllä tekstikentälle asetettiin arvo sen <code>value</code>-attribuuttiin. Kaikilla elementeillä ei ole <code>value</code>-attribuuttia, vaan joillain näytetään niiden elementin <em>sisällä</em> oleva arvo. Elementin sisälle asetetaan arvo muuttujaan liittyvällä attribuutilla <code>innerHTML</code>.</p>
+
+      <p>Tämän tekstin alapuolella on <code>p</code>-elementti, jonka <code>id</code> on <code>js-hidden-p-element</code>. Elementin sisällä ei ole lainkaan tekstiä, joten sitä ei näytetä. Voit kuitenkin asettaa tekstin allaolevan JavaScript-koodin avulla, jolloin se se tulee näkyville.</p>
 
       <p id="js-hidden-p-element"></p>
 
@@ -2038,7 +2127,7 @@ document.getElementById("js-hidden-p-element").innerHTML = syote;
       </div>
 
 
-      <p>Vastaavasti tekstin keskelle voi myös asettaa arvoja. Elementti <code>span</code> on tähän aivan mainio. <strong><span id="spanelementti">Tämä teksti on span-elementin sisällä, jonka tunnus on "spanelementti"</span></strong>.
+      <p>Vastaavasti tekstin keskelle -- sisäelementtiin -- voi asettaa arvoja. Elementti <code>span</code> on tähän aivan mainio. <strong><span id="spanelementti">Tämä teksti on span-elementin sisällä, jonka tunnus on "spanelementti"</span></strong>.
 
 
       <div class="test-js">
@@ -2048,11 +2137,19 @@ document.getElementById("spanelementti").innerHTML = syote;
     <p><input type="button" onclick="evalElementContent('js-kysy-ja-aseta-spaniin-arvo')" value="Suorita koodi!"></input></p>
       </div>
 
+      <h4>Interaktiivinen toiminta -- reagointi klikkaamiseen</h4>
+
+      <p>HTML-elementtiin voi lisätä <a href="http://www.w3schools.com/jsref/event_onclick.asp" target="_blank">onclick</a>-attribuutin, jolle määritellään arvoksi elementin klikkauksen yhteydessä suoritettava JavaScript-koodi -- <code>&lt;element onclick="ohjelmakoodi tai funktiokutsu"&gt</code>.</p>
+
+      <p onclick="alert('wakawaka');">Esimerkiksi tämä teksti on määritelty siten, että jos tätä klikkaa, näkyy teksti "wakawaka".</p>
+
+
+      
 
       <h3>Case: Laskin</h3>
 
 
-      <p>Luodaan oma laskin. Laskimella on kaksi toiminnallisuutta: pluslasku ja kertolasku. Luodaan ensin laskimelle javascriptkoodi, joka on tiedostossa <code>laskin.js</code>. Javascript-koodissa oletetaan, että on olemassa <code>input</code>-tyyppiset elementit tunnuksilla "eka" ja "toka" sekä <code>span</code>-tyyppinen elementti tunnuksella "tulos". Funktiossa <code>plus</code> haetaan elementtien "eka" ja "toka" arvot, ja asetetaan pluslaskun summa elementin "tulos" arvoksi. Kertolaskussa tehdään lähes sama, mutta tulokseen asetetaan kertolaskun tulos. Koodissa on myös apufunktio, jota käytetään arvojen muuttamiseksi numeroiksi.</p>
+      <p>Luodaan laskin. Laskimella on kaksi toiminnallisuutta: pluslasku ja kertolasku. Luodaan ensin laskimelle javascriptkoodi, joka on tiedostossa <code>laskin.js</code>. Javascript-koodissa oletetaan, että on olemassa <code>input</code>-tyyppiset elementit tunnuksilla "eka" ja "toka" sekä <code>span</code>-tyyppinen elementti tunnuksella "tulos". Funktiossa <code>plus</code> haetaan elementtien "eka" ja "toka" arvot, ja asetetaan pluslaskun summa elementin "tulos" arvoksi. Kertolaskussa tehdään lähes sama, mutta tulokseen asetetaan kertolaskun tulos. Koodissa on myös apufunktio, jota käytetään sekä arvojen hakemiseen annetuilla tunnuksilla merkityistä kentistä että näiden haettujen arvojen muuttamiseen numeroiksi.</p>
 
 <pre class="sh_javascript_dom">
 function haeNumero(tunnus) {
@@ -2152,7 +2249,9 @@ function laskinKerto() {
 <div class="tehtavat">
       <h3>Laskimen jatkokehitys</h3>
 
-      <p>Yllä oleva laskin tulee mukana tehtäväpohjassa. Tehtävänäsi on ensin lisätä laskimelle myös miinus- ja jakolaskut. Kun miinus- ja jakolasku toimii, integroi visualisoinnista tykkäävän kaverisi alla oleva koodi osaksi laskimen toimintaa. Alla oleva koodi lisää laskimeen piirtoelementin, sekä piirtää ruudulle liikkuvan neliön, jonka vauhti riippuu tuloksesta.</p>
+      <p>Toteuta edellisen esimerkin perusteella laskin, jossa on plus-, miinus-, kerto- ja jakolaskutoiminnallisuus. </p>
+
+<!-- Kun miinus- ja jakolasku toimii, integroi visualisoinnista tykkäävän kaverisi alla oleva koodi osaksi laskimen toimintaa. Alla oleva koodi lisää laskimeen piirtoelementin, sekä piirtää ruudulle liikkuvan neliön, jonka vauhti riippuu tuloksesta.</p>
 
 
       <pre class="sh_html">
@@ -2204,9 +2303,9 @@ function piirra() {
 
 ajasta();
       </pre>
-
+-->
       <p>Kun olet valmis, ja sivun ladatessa näet liikkuvan punaisen neliön, jonka vauhti riippuu laskimen tuloksesta, palauta tehtävä TMC:lle.</p>
-    </div>
+   </div>
 </div>
 
 
@@ -2236,22 +2335,22 @@ ajasta();
         &lt;/header&gt;
 
         &lt;article&gt;
-      &lt;h1&gt;Eka artikkeli&lt;/h1&gt;
+          &lt;h1&gt;Eka artikkeli&lt;/h1&gt;
 
-      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
-    &lt;/article&gt;
-
-        &lt;article&gt;
-      &lt;h1&gt;Toka artikkeli&lt;/h1&gt;
-
-      &lt;p&gt;Morbi a elit enim, sit amet iaculis massa. Vivamus blandit...&lt;/p&gt;
-    &lt;/article&gt;
+          &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+        &lt;/article&gt;
 
         &lt;article&gt;
-      &lt;h1&gt;Kolmas artikkeli&lt;/h1&gt;
+          &lt;h1&gt;Toka artikkeli&lt;/h1&gt;
 
-      &lt;p&gt;Now that we know who you are, I know who I am. I'm...&lt;/p&gt;
-    &lt;/article&gt;
+          &lt;p&gt;Morbi a elit enim, sit amet iaculis massa. Vivamus blandit...&lt;/p&gt;
+        &lt;/article&gt;
+
+        &lt;article&gt;
+          &lt;h1&gt;Kolmas artikkeli&lt;/h1&gt;
+
+          &lt;p&gt;Now that we know who you are, I know who I am. I'm...&lt;/p&gt;
+        &lt;/article&gt;
 
 
         &lt;script src="script.js"&gt;&lt;/script&gt;
@@ -2291,7 +2390,7 @@ function displayArticle(index) {
     <div class="tehtavat">
       <h3>PerusMOOC (3p)</h3>
 
-      <p>Huom! Tämä tehtävä on kolmen pisteen arvoinen: palauta se vain jos teet tehtävän kokonaan.</p>
+      <p>Huom! Tämä tehtävä on kolmen pisteen arvoinen. Palauta se kun olet saanut sen kokonaan valmiiksi.</p>
 
       <p>Tehtävässä on käytetty seuraavia värejä:</p>
 
@@ -2554,6 +2653,10 @@ SCRIPT
     </div>
 
 </section>
+
+
+      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
+
 
 <section class="week">
     <header>
