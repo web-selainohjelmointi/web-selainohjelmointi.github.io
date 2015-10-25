@@ -5,26 +5,37 @@
     <title>Web-selainohjelmointi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/sh_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/chartist.min.css">
     <link rel="stylesheet" href="css/weso.css">
-    <script src="js/jquery.js"></script>
+
+    <script src="js/libs/jquery/jquery.js"></script>
+    <script src="js/libs/jqueryui/jquery-ui.js"></script>
     <script src="js/mustache.min.js"></script>
     <script src="js/material.js"></script>
-
 
     <script type="text/javascript" src="js/sh_main.js"></script>
     <script type="text/javascript" src="js/sh_java.js"></script>
     <script type="text/javascript" src="js/sh_xml.js"></script>
     <script type="text/javascript" src="js/sh_html.js"></script>
     <script type="text/javascript" src="js/sh_css.js"></script>
+
     <script type="text/javascript" src="js/sh_javascript_dom.js"></script>
-    <script>
-      jQuery(document).ready(function() {
-      Material.createContentList();
-      Material.createExerciseList();
-      sh_highlightDocument();
-      });
-    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/libs/chartist.min.js"></script>
+    <script src="js/libs/visibility.core.js"></script>
+    <script src="js/libs/visibility.timers.js"></script>
+    <script src="js/libs/visibility.fallback.js"></script>
+
+    <script src="js/js-logger.js"></script>
+    <script src="js/verticalfloat.js"></script>
+    <script src="js/pheromones.js"></script>
+
+    <script src="js/weso.js"></script>
+
   </head>
   <body>
 
@@ -67,8 +78,40 @@
             <a href="#viikko7">Viikko 7</a>
           </li>
         </ul>
+
+	<div style="direction: rtl;">
+	  <button id="logout" class="btn btn-warning">Kirjaudu ulos</button>
+	</div>
+	
       </nav>
     </header>
+
+
+    <div class="modal fade"  id="tmcAuthModal" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="tmcAuthModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="form-inline"  id="TmcLoginForm" role="form">
+	  <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="tmcAuthModalLabel">Kirjoita TMC-tunnuksesi</h4>
+            </div>
+            <div class="modal-body">
+              <p>Pyydämme sinua kirjautumaan TMC-tunnuksillasi materiaaliin. Kirjautumistietoja käytetään oppimateriaalin käytön tutkimukseen.</p>
+              <div id="tmc-account-wrong-alert" class="hidden alert alert-danger">Tarkista TMC-tunnuksesi</div>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">TMC-tunnus</label>
+                <input type="text" name="tmcAccountName" class="form-control" id="inputTmcAccount" placeholder="TMC-tunnus">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="tmcAccountNOACCOUNT" class="btn btn-default" data-dismiss="modal">En halua</button>
+              <button type="submit" name="tmcLoginButton" id="tmcAccountOK" class="btn btn-primary">OK</button>
+            </div>
+	  </div><!-- /.modal-content -->
+        </form>
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
     <article>
       <section>
         <header>
@@ -139,6 +182,31 @@
           keskiviikkoisin kello 20:00. Ensimmäinen deadline on
           4.11.2015.
         </p>
+
+
+	<h2>Pisteytys</h2>
+
+        <p>Kurssi sisältää seitsemän tehtäväsarjaa. <strong>Ensimmäinen tehtäväsarja julkaistaan 25. lokakuuta 2015</strong>. Uusia tehtäväsarjoja julkaistaan viikoittain. Tehtäväsarjojen viimeinen palautuspäivämäärä on aina keskiviikkoisin kello 22:00. Ensimmäisen tehtäväsarjan viimeinen palautuspäivä on <strong>keskiviikkona 4.11. klo 22:00</strong>.</p>
+
+        <p>Kurssin arvostelu perustuu viikoittaisiin harjoitustehtäviin, sekä kahteen kokeeseen, joista toinen tehdään kynällä ja paperilla, ja toinen tietokoneella. Kurssin pisteytys on seuraava:</p>
+
+	<ul>
+	  <li>Viikoittaisista tehtäväsarjoista saa 100 pistettä viikkoa kohti. Täydet 100 pistettä saa tekemällä kaikki viikon tehtävät, eli keräämällä kaikki viikon tehtävistä saatavilla olevat pisteet. Huomaa, että viikoittaisissa tehtävissä on painotuseroja -- esimerkiksi ensimmäisen viikon viimeinen tehtävä yhtä arvokas kuin tehtävät 1, 2 ja 4 yhdessä.</li>
+	  <li>Paperilla tehtävästä kokeesta on mahdollista saada 250 pistettä.</li>
+	  <li>Tietokoneella tehtävästä kokeesta on mahdollista saada 250 pistettä.</li>
+	</ul>
+	
+
+	<p>Kurssista voi saada yhteensä 1200 pistettä. Sekä paperilla ja kynällä että tietokoneella tehtävistä kokeista on kummastakin saatava vähintään puolet mahdollisista pisteistä. Kurssin alustavat arvosanarajat ovat seuraavat:</p>
+	
+	<ul>
+	  <li>700 -> 1</li>
+	  <li>800 -> 2</li>
+	  <li>900 -> 3</li>
+	  <li>1000 -> 4</li>
+	  <li>1100 -> 5</li>
+	</ul>
+
 
 
         <div style="display: table">
@@ -272,7 +340,7 @@
 
 
 <div class="tehtavat">
-  <h3>Ascii Artist (100p)</h3>
+  <h3>Ascii Artist (1p)</h3>
 
   <p>Huom! Jos NetBeans ei suostu avaamaan tehtäviä ja valittaa esimerkiksi "failed to download exercises", varmista että käytössäsi on HTML5-tuki. Tämän tuen saa ladattua NetBeansin Tools->Plugins -valikosta. Ladattu liitännäinen aktivoituu viimeistään kun luot uuden HTML5-projektin (File -> New Project -> HTML5 -> ...).</p>
 
@@ -516,7 +584,7 @@
 
 
 <div class="tehtavat">
-  <h3>Kampuskuoro (100p)</h3>
+  <h3>Kampuskuoro (1p)</h3>
 
   <p>Luo tehtäväpohjassa olevaan kansioon <code>src</code> (tai Site Root) uusi sivu <code>index.html</code>. Muokkaa sivua siten, että se näyttää seuraavalta selaimessa:</p>
 
@@ -836,7 +904,7 @@ article {
 
 
     <div class="tehtavat">
-      <h3>CSS Askeleet (200p)</h3>
+      <h3>CSS Askeleet (2p)</h3>
 
       <p>Luo tehtäväpohjan kansioon <code>src</code> tyylitiedosto <code>style.css</code>, ja viittaa siihen tiedostosta <code>index.html</code>. Muokkaa tyylitiedostoa <code>style.css</code> siten, että sivu <code>index.html</code> näyttää seuraavanlaiselta.</p>
 
@@ -1475,7 +1543,7 @@ header nav ul li a:hover {
 
 
     <div class="tehtavat">
-      <h3>Suosikit (100p)</h3>
+      <h3>Suosikit (1p)</h3>
 
       <p>Tehtäväpohjassa on lista suosikkeja. Tehtävänäsi on lisätä sivulle tyyli, joka tekee sivusta seuraavannäköisen. Huomaa, että sivun artikkeli-elementtien tulee kääntyä hieman kun hiiri viedään niiden päälle.</p>
 
@@ -1655,7 +1723,7 @@ function sayHello() {
 
     <div class="tehtavat">
 
-      <h3>Mitä eläin sanoo? (100p)</h3>
+      <h3>Mitä eläin sanoo? (1p)</h3>
 
       <p>Tehtäväpohjassa tulevalla sivulla on kolme erillistä eläintä. Luo tehtäväpohjaan erillinen javascript-tiedosto, ja lataa se sivun käyttöön. Lisää toiminnallisuus, jonka avulla lehmän nappia painettaessa käyttäjälle tulostetaan viesti "muu muu", porsaan nappia painettaessa "nöf nöf", ja kanan nappia painettaessa "kot kot".</p>
 
@@ -2247,7 +2315,7 @@ function laskinKerto() {
 
 
 <div class="tehtavat">
-      <h3>Oma laskin (100p)</h3>
+      <h3>Oma laskin (2p)</h3>
 
       <p>Toteuta edellisen esimerkin perusteella laskin, jossa on plus-, miinus-, kerto- ja jakolaskutoiminnallisuus. Varmista, että sivu on käytettävä ilman erillistä ohjetekstiä, eli että käyttämäsi napit ja tekstit kertovat käyttäjälle kaiken oleellisen.</p>
 
@@ -2388,7 +2456,7 @@ function displayArticle(index) {
 
 
     <div class="tehtavat">
-      <h3>PerusMOOC (300p)</h3>
+      <h3>PerusMOOC (3p)</h3>
 
       <p>Tehtävässä on käytetty seuraavia värejä:</p>
 
@@ -2599,7 +2667,7 @@ document.getElementById("dom-esim-4").appendChild(artikkeli);
 
     <div class="tehtavat">
 
-      <h3>Yleiskone (300p)</h3>
+      <h3>Yleiskone (3p)</h3>
 
       <p>Yleiskone on erilaisissa toiminnoissa auttava sivusto, jonka kautta käyttäjä voi käydä etsimässä apua arkisiin ongelmiin. Toteuta yleiskone, jossa on seuraavat kolme toiminnallisuutta -- jokaisen toiminnallisuuden tulee näkyä käyttäjälle erillisenä sivuna, jota käyttäjä osaa käyttää ilman erillistä koulutusta. Panosta siis myös ohjeistukseen!</p>
 
@@ -10259,6 +10327,14 @@ var sequelize = new Sequelize('postgres://gtoisioduequfh:MST5G0EEMFkbWWQMrUqsudk
 </p>
 </section>
 </article>
+
+    
+    <footer>
+      <p>
+        <a id="license" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" style="border-width:0; float:left; padding:15px" src="http://i.creativecommons.org/l/by-nc-sa/2.0/88x31.png" /></a>
+        <small>T&auml;m&auml; materiaali on lisensoitu Creative Commons BY-NC-SA-lisenssill&auml;, joten voit k&auml;ytt&auml;&auml; ja levitt&auml;&auml; sit&auml; vapaasti, kunhan alkuper&auml;isten tekij&ouml;iden nimi&auml; ei poisteta. Jos teet muutoksia materiaaliin ja haluat levitt&auml;&auml; muunneltua versiota, se t&auml;ytyy lisensoida samanlaisella vapaalla lisenssill&auml;. Materiaalien k&auml;ytt&ouml; kaupalliseen tarkoitukseen on ilman erillist&auml; lupaa kielletty.</p>
+    </footer>
+
 
 
 </body>
