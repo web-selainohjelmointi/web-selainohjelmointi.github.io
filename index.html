@@ -6941,46 +6941,44 @@ var MyApp = angular.module('MyApp', ['firebase']);
 var MyApp = angular.module('MyApp', []);
 
 MyApp.service('Set', function(){
-  return {
-    intoSet: function(arr){
-      var set = [];
+  this.intoSet = function(arr){
+    var set = [];
 
-      arr.forEach(function(item){
-        if(set.indexOf(item) < 0){
-          set.push(item);
-        }
-      });
+    arr.forEach(function(item){
+      if(set.indexOf(item) < 0){
+        set.push(item);
+      }
+    });
 
-      return set;
-    },
+    return set;
+  }
 
-    union: function(arrA, arrB){
-      var setA = this.intoSet(arrA);
-      var setB = this.intoSet(arrB);
+  this.union = function(arrA, arrB){
+    var setA = this.intoSet(arrA);
+    var setB = this.intoSet(arrB);
 
-      setB.forEach(function(item){
-        if(setA.indexOf(item) < 0){
-          setA.push(item);
-        }
-      });
+    setB.forEach(function(item){
+      if(setA.indexOf(item) < 0){
+        setA.push(item);
+      }
+    });
 
-      return setA;
-    },
+    return setA;
+  }
 
-    intersection: function(arrA, arrB){
-      var setA = this.intoSet(arrA);
-      var setB = this.intoSet(arrB);
+  this.intersection = function(arrA, arrB){
+    var setA = this.intoSet(arrA);
+    var setB = this.intoSet(arrB);
 
-      var intersected = [];
+    var intersected = [];
 
-      setA.forEach(function(item){
-        if(setB.indexOf(item) >= 0){
-          intersected.push(item);
-        }
-      });
+    setA.forEach(function(item){
+      if(setB.indexOf(item) >= 0){
+        intersected.push(item);
+      }
+    });
 
-      return intersected;
-    }
+    return intersected;
   }
 });
 </pre>
@@ -7015,12 +7013,12 @@ MyApp.controller('MyController', function($scope, Set) {
 <pre class="sh_javascript_dom">
 var MyApp = angular.module('MyApp', ['firebase']);
 
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseObject){
   // ...
 });
 </pre>
 <p>
-  Injektoin siis ensin <code>firebase</code>-moduulin omaan moduuliini ja sen jälkeen sen tarjoaman <code>$firebase</code>-palvelun omaan <code>FirebaseService</code>-palveluuni.
+  Injektoin siis ensin <code>firebase</code>-moduulin omaan moduuliini ja sen jälkeen sen tarjoaman <code>$firebaseObject</code>-palvelun omaan <code>FirebaseService</code>-palveluuni.
 </p>
 <img src="img/firebase_content.png" style="float: right; width: 300px; margin-left: 15px;">
 <p>
@@ -7031,10 +7029,9 @@ MyApp.service('FirebaseService', function($firebase){
   Olen jo saanut valmiiksi <code>FirebaseService</code>-palveluni rungon. Lisään siihen seuraavaksi funktion, joka hakee datani Firebasesta:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseObject){
   var firebaseRef = new Firebase('OMA_FIREBASE');
-  var sync = $firebase(firebaseRef);
-  var data = sync.$asObject();
+  var data = $firebaseObject(firebaseRef);
 
   this.fetchData = function(){
     return data;
@@ -7044,7 +7041,7 @@ MyApp.service('FirebaseService', function($firebase){
 
 <img src="img/firebase_data_url.png" style="float: left; width: 300px; margin-right: 15px;">
 <p>
-  Käydään läpi, mitä <code>FirebaseService</code>-palvelussa oikein tapahtuu. Talletan aluksi <code>firebaseRef</code>-muuttujaan <code>Firebase</code>-olion, joka ottaa parametrikseen sovelluksemme datasäilön sijainnin (joudut vaihtamaan kohtaan <code>OMA_FIREBASE</code> oman datasi sijainnin, joka löytyy dashboardiltasi kuvan osoittamasta paikasta). Datasi sijainti on muotoa <code>https://FIREBASE_KAYTTAJANI.firebaseio.com</code>. Sen jälkeen lisään palveluuni funktion <code>fetchData</code> kontrollerin käyttöä varten. Funktiossa talletan referenssin dataani kutsumalla injektoimaani <code>$firebase</code>-funktiota omalla <code>Firebase</code>-oliollani. Sen jälkeen voin hakea sovellukseni datan kutsumalla referenssille funktiota <code>$asObject()</code>. Otetaan seuraavaksi palvelu käyttöön kontrollerissa:
+  Käydään läpi, mitä <code>FirebaseService</code>-palvelussa oikein tapahtuu. Talletan aluksi <code>firebaseRef</code>-muuttujaan <code>Firebase</code>-olion, joka ottaa parametrikseen sovelluksemme datasäilön sijainnin (joudut vaihtamaan kohtaan <code>OMA_FIREBASE</code> oman datasi sijainnin, joka löytyy dashboardiltasi kuvan osoittamasta paikasta). Datasi sijainti on muotoa <code>https://FIREBASE_KAYTTAJANI.firebaseio.com</code>. Sen jälkeen lisään palveluuni funktion <code>fetchData</code> kontrollerin käyttöä varten. Funktiossa talletan referenssin dataani kutsumalla injektoimaani <code>$firebaseObject</code>-funktiota omalla <code>Firebase</code>-oliollani. Otetaan seuraavaksi palvelu käyttöön kontrollerissa:
 </p>
 <pre class="sh_javascript_dom">
 MyApp.controller('MyController', function($scope, FirebaseService){
@@ -7082,10 +7079,9 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   Olemme onnistuneet hakemaan dataa Firebasesta, joten seuraava looginen askel on katsoa, miten voimme lisätä sinne dataa. Paltaan takaisin <code>FirebaseService</code>-palvelumme pariin ja lisätään siihen funktio <code>addMessage</code>, joka lisää parametrina saadun objektin Firebaseen:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseArray){
   var firebaseRef = new Firebase('OMA_FIREBASE/messages');
-  var sync = $firebase(firebaseRef);
-  var messages = sync.$asArray();
+  var messages = $firebaseArray(firebaseRef);
 
   this.addMessage = function(message){
     messages.$add(message);
@@ -7093,7 +7089,7 @@ MyApp.service('FirebaseService', function($firebase){
 });
 </pre>
 <p>
-  Tämä eroaa melko datan lisäämisestä, joten on hyvä käydä läpi, mitä oikein tapahtuu. Aluksi alustin uuden <code>Firebase</code>-olion melkein samaan tapaan kuin datan hakemisen kanssa, pientä yksityiskohtaa lukuunottamatta. Huomasit ehkä, että lisäsin Firebase-polkuni perään <code>/messages</code>. Tein sen siitä syystä, että haluan hakea ja tehdä muutoksia vain resurssiin <code>messages</code>. Sen jälkeen kutsun <code>$firebase</code>-funktiota alustamallani <code>Firebase</code> oliolla aivan, kuten datan lisäämisen kanssa. Seuraavaksi en kuitenkaan kutsu referenssille funktiota <code>$asObject</code>, vaan <code>$asArray</code>, koska haluan käsitellä dataani taulukkona objektin sijaan. Se on melko loogista, koska haluan hakea ja muokata joukkoa viestejä.
+  Tämä eroaa melko datan lisäämisestä, joten on hyvä käydä läpi, mitä oikein tapahtuu. Aluksi alustin uuden <code>Firebase</code>-olion melkein samaan tapaan kuin datan hakemisen kanssa, pientä yksityiskohtaa lukuunottamatta. Huomasit ehkä, että lisäsin Firebase-polkuni perään <code>/messages</code>. Tein sen siitä syystä, että haluan hakea ja tehdä muutoksia vain resurssiin <code>messages</code>. Sen jälkeen kutsun <code>$firebaseObject</code>-funktion sijaan <code>$firebaseArray</code>-funktiota alustamallani <code>Firebase</code> oliolla aivan. Teen tämän siksi, koska haluan käsitellä dataani taulukkona objektin sijaan. Se on melko loogista, koska haluan hakea ja muokata joukkoa viestejä.
 </p>
 <p>
   Alustus on tehty, pureudutaan seuraavaksi funktioon <code>addMessage</code>. Sen toteutus on erittäin yksinkertainen, kutsun vain <code>messages</code>-resurssilleni funktiota <code>$add</code>, joka lisää parametrina saadun objektin taulukkoon muiden viestien sekaan. Ei siis sen kummempaa. Käytetään toteuttamaamme palvelua vielä kontrollerissamme:
@@ -7132,10 +7128,9 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   Pystyn nyt lisäämään dataa Firebaseen, mutta en pääse tarkkailemaan sitä muualta, kuin Firebase käyttäjäni dashboardilta. Lisätään siis vielä <code>FirebaseService</code>-palveluun funktio <code>getMessages</code>, joka hakee kaikki viestit <code>messages</code>-resurssista, jotta voimme näyttää ne näkymässä:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseArray){
   var firebaseRef = new Firebase('OMA_FIREBASE/messages');
-  var sync = $firebase(firebaseRef);
-  var messages = sync.$asArray();
+  var messages = $firebaseArray(firebaseRef);
 
   this.addMessage = function(message){
     messages.$add(message);
@@ -7194,12 +7189,10 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   </p>
 <pre class="sh_javascript_dom">
 var messagesFirebaseRef = new Firebase('OMA_FIREBASE/messages');
-var messagesSync = $firebase(messagesFirebaseRef);
-var messages = messagesSync.$asArray();
+var messages = $firebaseArray(messagesFirebaseRef);
 
 var usersFirebaseRef = new Firebase('OMA_FIREBASE/users');
-var usersSync = $firebase(usersFirebaseRef);
-var users = usersSync.$asArray();
+var users = $firebaseArray(usersFirebaseRef);
 </pre>
   <p>
     Kun käyttäjä avaa sovelluksen, pyydä häntä valitsemaan itselleen käyttäjätunnus. Jos käyttäjätunnus löytyy ennestään, älä lisää sitä uudestaan Firebaseen (vinkki: hae kaikki käyttäjät Firebasesta ja katso, löytyykö sieltä käyttäjän antamaa käyttäjätunnusta), muuten lisää uusi käyttäjä (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-addnewdata" target="_blank">$add</a></code>). Kun käyttäjätunnus on valittu (vinkki: piilota chatti-näkymä kunnes käyttäjätunnuksella on arvo, esimerkiksi <code>ng-show</code>-direktiivin avulla), näytä näkymässä chatin viestit ja sen vieressä chatin käyttäjät. Kun käyttäjä lisää viestin chattiin, näytä viestin vieressä hänen käyttäjänimensä ja sen alapuolella, milloin viesti on lisätty (vinkki: <code><a href="http://www.w3schools.com/jsref/jsref_obj_date.asp" target="_blank">Date</a></code>). Lisää siis Firebaseen talletettavaan viestiin esimerkiksi kenttä <code>username</code> (käyttäjätunnukselle) ja <code>added</code> (viestin lisäämisen ajalle). Älä anna käyttäjän lisätä chattiin tyhjää viestiä.
@@ -7213,10 +7206,9 @@ var users = usersSync.$asArray();
   Katsotaan vielä pari höydyllistä Firebasen toimintoa ennen kuin siirrymme muiden aiheiden pariin. Tarkastellaan ensin, miten voimme muokata olemassaolevaa dataa. Käytetään esimerkkinä edellisessä osiossa toteuttamaamme pientä chatti-sovellusta. Lisätään <code>FirebaseService</code>-palveluun funktio <code>editMessage</code>, joka tallettaa parametreina saatuun viestiin tehdyt muutokset:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseArray){
   var firebaseRef = new Firebase('OMA_FIREBASE/messages');
-  var sync = $firebase(firebaseRef);
-  var messages = sync.$asArray();
+  var messages = $firebaseArray(firebaseRef);
 
   this.addMessage = function(message){
     messages.$add(message);
@@ -7301,10 +7293,9 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   Kun olemme päässeet vauhtiin, toteutetaan vielä viestin poistotoiminto. Palataan takaisin <code>FirebaseService</code>-palvelun pariin ja lisätään sinne funktio <code>removeMessage</code>, joka poistaa parametrina annetun pelin Firebasesta:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseArray){
   var firebaseRef = new Firebase('OMA_FIREBASE/messages');
-  var sync = $firebase(firebaseRef);
-  var messages = sync.$asArray();
+  var messages = $firebaseArray(firebaseRef);
 
   this.addMessage = function(message){
     messages.$add(message);
