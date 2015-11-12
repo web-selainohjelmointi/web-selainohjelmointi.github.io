@@ -6009,9 +6009,6 @@ function showdata() {
 </section>
 
 
-      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
-
-
 
 <section class="week">
   <header>
@@ -6106,7 +6103,7 @@ function HelloController($scope){
   Nyt kontrollerimme näkyvyysalue on <code>div</code>-elementti, ja kaikki sen lapset. Näkymän otsikon sisältö ei ole enää pelkästään "Hello!", vaan muuttujalla <code>name</code> on asetettu kontrollerissa alkuarvo, "Kalle". Otsikon sisältö on siis "Hello Kalle!" ja lisäksi tekstikentän, jonka arvo on sidottu muuttujaan <code>name</code>, sisältö on "Kalle". On myös tärkeää lisätä <code><a href="https://docs.angularjs.org/api/ng/directive/ngApp" target="_blank">ng-app</a></code>-attribuutti johonkin DOM-elementtiin, joka sisältää kaikki elementit, jotka ovat kytköksissä Angulariin. Lisäsin sen tässä esimerkissä <code>body</code>-tagiin, mutta olisin voinyt lisätä sen yhtä hyvin <code>html</code>-tagiin.
 </p>
 <div class="tehtavat">
-  <h3>My name is Bond, James Bond</h3>
+  <h3>My name is Bond, James Bond (1p)</h3>
   Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että näkymän otsikon sisältö määräytyy "etunimi" ja "sukunimi" tekstikenttien perusteella. Jos siis "etunimi"-kentän arvo on "Kalle" ja "sukunimi"-kentän arvo on "Ilves", on otsikon sisältö "My names is Ilves, Kalle Ilves". Otsikon alkuarvon tulee olla "My name is Bond, James Bond". Joudut tekemään muutoksia näkymän lisäksi <code>BondController</code>-kontrolleriin, joka sijaitsee tiedostossa <code>app/app.js</code>.
 </div>
 <h3>Näkymät</h3>
@@ -6218,7 +6215,7 @@ function ExampleController($scope){
   <code>filter</code>-filtterin parametri olisi yhtä hyvin voinut olla esimerkiksi muuttuja tai funktio.
 </p>
 <div class="tehtavat">
-  <h3>Nättiä dataa</h3>
+  <h3>Nättiä dataa (1p)</h3>
   Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että se listaa (vinkki: <code><a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_blank">ng-repeat</a></code>) <code>index.html</code>-näkymässä <code>MovieController</code>-kontrollerissa (löytyy tiedostosta <code>app/app.js</code>) määritellyn taulukon <code>movies</code> elokuvat siten, että lista näyttää kutakuinkin tältä:
   <div>
     <p>
@@ -6317,7 +6314,7 @@ function ExampleController($scope){
   <code>ng-model</code>-attribuutissa määritellyissä muuttujissa on käytössä nk. "two way data binding", jolloin mallin muuttaminen kontrollerissa aiheuttaa näkymän päivityksen ja samoin mallin muuttaminen näkymässä aiheuttaa siihen muutoksen kontrollerissa.
 </p>
 <div class="tehtavat">
-  <h3>Elokuvafiltteri</h3>
+  <h3>Elokuvafiltteri (1p)</h3>
   <p>
     Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että <code>index.html</code>-näkymässä muodostettua elokuvien listaa pystyy filtteröimään nimen, julkaisuvuoden ja ohjaajan perusteella käyttämällä näkymässä olevia kenttiä. Jos siis käyttäjä syöttää esimerkiksi "nimi"-kenttään arvon "The Lord" ja "ohjaaja"-kenttään arvon "Peter", tulee näkymässä listata vain elokuvat, joiden nimestä löytyy sana "The Lord" ja ohjaajan nimestä löytyy sana "Peter". <a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">Filtteröintiin</a> tutustumisesta on tehtävässä paljon apua. Taulukko <code>movies</code> löytyy kontrollerista <code>MovieController</code> (joka löytyy tiedostosta <code>app/app.js</code>). Älä tee muutoksia <code>movies</code>-taulukkoon, mutta muuten voit tehdä kontrolleriin haluamiasi muutoksia.
   </p>
@@ -6440,7 +6437,7 @@ function ExampleController($scope){
   <iframe width="100%" height="300" src="http://jsfiddle.net/HB7LU/10936/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </p>
 <div class="tehtavat">
-  <h3>Validi sen olla pitää!</h3>
+  <h3>Validi sen olla pitää! (2p)</h3>
   <p>Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että siinä oleva lomake validoidaan. Lomake on validi, jos seuraavat ehdot ovat voimassa:
   <ul>
     <li>
@@ -6561,7 +6558,7 @@ function ExampleController($scope){
   <iframe width="100%" height="300" src="http://jsfiddle.net/HB7LU/10905/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </p>
 <div class="tehtavat">
-  <h3>Laskin</h3>
+  <h3>Laskin (1p)</h3>
   <p>
     Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi laskea kerto-, plus-, erotus- ja jakolaskuja syöttämällä haluamansa luvut kahteen kenttään ja painamalla jotain neljästä painikkeesta, jolloin valittu laskuoperaatio suoritetaan luvuille ja tulos näytetään käyttäjälle kenttien yläpuolella. Jos käyttäjä yrittää jakaa lukua nollalla, ota jakolaskupainike pois käytöstä (vinkki: <code>ng-disabled</code>). Toteuta laskin tekemällä tarvittavat muutokset <code>CalculatorController</code>-kontrolleriin (löytyy tiedostosta <code>app/app.js</code>) ja <code>index.html</code>-näkymään.
   </p>
@@ -6652,7 +6649,7 @@ App.controller('MyController', function($scope, $interval){
   Käytän injektoitua <code>$interval</code>-funktiota vähentääkseni muuttujan <code>message</code> arvoa joka sekunti (sekunti on 1000 millisekuntia).
 </p>
 <div class="tehtavat">
-  <h3>Pikakirjoitus</h3>
+  <h3>Pikakirjoitus (2p)</h3>
   <p>
     Muokkaa tehtäväpohjassa olevaa dokumenttia siten, että käyttäjä voi testata pikakirjoitustaitojaan. Pikakirjoituspelin tulee toimia niin, että käyttäjä näkee sivulla pitkän "Lorem ipsum dolor sit amet..."-tekstin, jonka sisältö löytyy muuttujasta <code>text</code>. Kun käyttäjä painaa "Aloita!"-painiketta, hänen täytyy alkaa kirjoittamaan näkeemäänsä tekstiä tekstikenttään niin nopeasti kuin mahdollista. Käyttäjällä on aikaa kirjoittaa tekstiä 15 sekuntia. Varmista, ettei käyttäjä tee kirjoitusvirhettä niin, ettet hyväksy tekstikenttään virheellisiä merkkejä. Samaan aikaan, kun käyttäjä kirjoittaa, sivulla näkyvän laskurin arvo vähenee joka sekunti. Kun laskurin arvo on 0, tulee käyttäjälle ilmoittaa alert-ikkunan kautta, kuinka monta merkkiä hän onnistui kirjoittamaan. Pelin uudelleen aloittamiseksi riittää, että käyttäjä päivittää sivun, mutta voit halutessasi alustaa pelin uudelleen, kun laskurin arvo on 0.
   </p>
@@ -6918,7 +6915,7 @@ App.directive('counter', function(){
   Tämä osio oli vasta pintaraapaisu direktiivien käyttöön. Lisää niistä voi lukea <a href="https://docs.angularjs.org/guide/directive" target="_blank">Angularin Developer Guidesta</a>.
 </p>
 <div class="tehtavat">
-  <h3>Slider-direktiivi</h3>
+  <h3>Slider-direktiivi (3p)</h3>
   <p>
     <iframe width="100%" height="200" src="http://jsfiddle.net/5TTm4/2852/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
   </p>
@@ -6948,6 +6945,9 @@ $("#slider").slider({
 </div>
 </section>
 
+
+
+      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
 
 
 <section class="week">
