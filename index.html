@@ -6947,9 +6947,6 @@ $("#slider").slider({
 
 
 
-      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
-
-
 <section class="week">
   <header>
     <a name="viikko5"></a>
@@ -7105,7 +7102,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   Näkymään ilmestyy otsikko "Hello World!", joten datan hakeminen Firebasesta on onnistunut.
 </p>
 <div class="tehtavat">
-  <h3>Hello Firebase!</h3>
+  <h3>Hello Firebase! (1p)</h3>
   <p>
     <a href="https://www.firebase.com/signup/" target="_blank">Rekisteröidy</a> Firebaseen ja lisää sinne dataa, jonka sisältö on <code>{ message: 'Hello World!' }</code> (<code>message</code>-kenttä, jonka arvo on "Hello World"). Muista, että voit lisätä sovellukseesi dataa suoraan Firebasesta siirtymällä dashboardilta sovelluksesi hallintaan klikkaamalla "Manage App".
   </p>
@@ -7222,7 +7219,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   Se on siinä! Olemme toteuttaneet pienen chatin, seuraavaksi saat hieman parannella sitä.
 </p>
 <div class="tehtavat">
-  <h3>Chat (2p)</h3>
+  <h3>Chat (3p)</h3>
   <p>
     Parannellaan hieman yllä olevaa esimerkkiä lisäämällä chattiin käyttäjät. Vinkki: pidä käyttäjät ja viestit erillisinä resursseina Firebasessa, esimerkiksi näin:
   </p>
@@ -7425,7 +7422,7 @@ MyApp.controller('MyController', function($scope, FirebaseService){
   Näkymässä "Poista"-painikkeen painallus kutsuu funktiota <code>removeMessage</code>. Huomaa, ettei poistamisen yhteydessä tarvitse poistaa alkiota erikseen <code>messages</code>-taulukossa, koska Firebase synkronoi taulukon sisällön automaattisesti.
 </p>
 <div class="tehtavat">
-  <h3>TodoApp ja Firebase (3p)</h3>
+  <h3>TodoApp ja Firebase (2p)</h3>
   <p>
     Toteutimme viime viikolla muistilistan, jonka mallivastaus löytyy tehtäväpohjasta. Voit halutessasi korvata mallivastauksen omalla toteutuksellasi. Toteuta sovellukseen palvelu, joka keskustelee Firebasen kanssa niin, että muistilistan tehtäviä pystyy lisäämään (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-addnewdata" target="_blank">$add</a></code>), merkkaamaan tehdyiksi (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-saverecordorindex" target="_blank">$save</a></code>) ja poistamaan (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-removerecordorindex" target="_blank">$remove</a></code>) Firebasesta. Kaikki viime viikolla toteutetut toiminnot tulee siis nyt toteuttaa käyttämällä Firebasea. Valmiissa tehtäväpohjassa Firebasen kanssa keskustelevan <code>FirebaseService</code>-palvelun pohja löytyy tiedostosta <code>app/directives/firebase_service.js</code>, kontrolleri <code>TodoController</code> tiedostosta <code>app/controllers/todo_controller.js</code> ja näkymä tiedostosta <code>index.html</code>. Tee siis tarvittavat muutokset palveluun, kontrolleriin ja näkymään.
   </p>
@@ -7741,7 +7738,7 @@ module.exports = function(config) {
   Yleensä <code>karma.conf.js</code>-tiedosto löytyy tehtäväpohjasta valmiina, mutta tulevaisuudessa tulee tehtäviä, jossa sinun täytyy määritellä se itse. Silloinkin yleensä <code>karma.conf.js</code>-tiedoston runko on valmiina, jolloin riittää vain määritellä <code>files</code>-kenttään testien ajamisen yhteydessä selaimeen ladattavat tiedostot.
 </p>
 <div class="tehtavat">
-  <h3>Muistilistan testaaminen</h3>
+  <h3>Muistilistan testaaminen (2p)</h3>
   <p>
     Tehtäväpohjasta löytyy viime viikolla toteutetun muistilistasovelluksen mallivastaus, joka ei vielä käyttänyt Firebasea. Voit halutessasi korvata mallivastauksen omalla toteutuksellasi. Muistilistan testaamista varten on toteutettu runko tiedostossa <code>app/test/todo_controller_test.js</code>, mutta testit eivät vielä meni läpi. Sinun tehtäväsi on testata testeissä muistilistan eri toimintoja ja saada testit menemään läpi. Testattavat toiminnot kuvataan kunkin testin kohdalla, <code>it</code>-funktion kutsussa, toteuta siis kuvausta vastaava testi. Jos käytät tehtäväpohjan toteutusta, aloita tutustumalla <code>TodoController</code>-kontrolleriin tiedostossa <code>app/controllers/todo_controller.js</code>. <strong>Huom! Jos lisäät tehtäväpohjaan tiedostoja tai muokkaat niiden nimiä, muista päivättää <code>karma.conf.js</code>-tiedosto, jotta lisäämäsi/muokkaamasi tiedostot ladataan selaimeen testien ajamisen yhteydessä.</strong>
   </p>
@@ -7835,7 +7832,7 @@ App.controller('HelloController', function($scope){
   <iframe width="100%" height="300" src="http://jsfiddle.net/Mh2UH/15/embedded/result,js,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 </p>
 <div class="tehtavat">
-  <h3>PerusMOOC reiteillä</h3>
+  <h3>PerusMOOC reiteillä (1p)</h3>
   <p>
     Tehtäväpohjan mukana tulee viikolla 1 toteutetun PerusMOOC-tehtävän runko ja sivupohjat sivuille "PerusMOOC", "Materiaali" ja "Oma etenemiseni". Muokkaa tehtäväpohjaa niin, että etusivun sisältönä (polussa <code>#/</code>) näytetään "PerusMOOC"-sivupohja, polussa <code>#/materiaali</code> "Materiaali"-sivupohja ja polussa <code>#/oma-etenemiseni</code> "Oma etenemiseni"-sivupohja. Muista injektoida <code>ngroute</code>-moduuli omaan moduulisi, jotta pääset määrittämään sovelluksesi reitit konfiguroimalla <code>$routeProvider</code>-komponenttia. Tee <code>$routeProvider</code>-komponenttiin liittyvät konfiguraatiot tiedostossa <code>app/app.js</code>, jossa itse moduuli sijaitsee. Tarvittavat kontrollerit voit luoda <code>app/controllers</code> kansioon. <strong>Muista linkittää luomasi <code>js</code>-tiedostot <code>index.html</code>-näkymässä <code>script</code>-tagien avulla!</strong>. Kun reitit on toteutettu, muokkaa vielä navigaatiopalkin linkkejä niin, että ne osoittavat oikeisiin paikkoihin. Näkymätiedostot <code>etusivu.html</code>, <code>materiaali.html</code> ja <code>etenemiseni.html</code> löytyvät kansiosta <code>app/views</code>. Muista, että <code>templateUrl</code>-kentässä määritellyn näkymätiedostopolun juuri on projektisi <code>src</code>-kansio.
   </p>
@@ -7942,7 +7939,7 @@ App.controller('UserController', function($scope, $routeParams, $location){
   Lisäsin siis kontrollerin <code>if</code>-ehdon <code>else</code>-haaraan ohjauksen polkuun <code>#/kayttaja/kalle</code> (huomaa, ettei polun eteen tarvitse laittaa <code>#</code>-merkkiä!). Nyt jos käyttäjää ei löydy, ohjataan käyttäjä polkuun <code>#/kayttaja/kalle</code>, eli käyttäjän "Kalle" profiilisivulle. Tapa muistuttavaa hyvin paljon palvelinohjelmissa tehtävää uudelleenohjausta. <code>$location</code>-palvelua käytetään myös hyvin paljon selaimen osoitepalkin sisällön tarkkailuun. Esimerkiksi, jos haluamme koko tähän hetkisen url:in (esim. http://cs.helsinki.fi/courses), voimme kutsua <code>absUrl</code>-funktiota ja jos haluamme vain pyynnön osan (esim. /courses), voimme kutsua <code>url</code>-funktiota.
 </p>
 <div class="tehtavat">
-  <h3>Kuin kissat ja koirat</h3>
+  <h3>Kuin kissat ja koirat (2p)</h3>
   <p>
     Tehtäväpohjassa on määritelty palvelut <code>Cat</code> (tiedostossa <code>app/services/cat.js</code>) ja <code>Dog</code> (tiedostossa <code>app/services/dog.js</code>), jotka molemmat tarjoavat funktion <code>all</code>, joka paluttaa taulukon kissoja, tai koiria, riippuen kumman palvelun funktiota kutsutaan. Toteuta kontrollerit <code>ListController</code> (pohja tiedostossa <code>app/controllers/list_controller.js</code>), joka listaa etusivulla (polussa #/) kaikki kissat sekä koirat ja <code>CatController</code> (pohja tiedostossa <code>app/controllers/cat_controller.js</code>), joka näyttää polussa <code>#/kissat/ROTU</code> polkuparametrin <code>ROTU</code>-arvonana (vinkki: <code><a href="https://docs.angularjs.org/api/ngRoute/service/$routeParams" target="_blank">$routeParams</a></code>) annetun kissarodun tiedot seuraavasti:
   </p>
@@ -8078,7 +8075,7 @@ module.exports = function(grunt) {
   Seuraavassa tehtävässä pääset käyttämään Grunttia. Jos et asentanut testaamisen yhteydessä Node.js:ssää ja Git:iä, tee se nyt. Ohjeet löytyvät osiosta Testien suorittaminen. Kun asennus on tehty, avaa NetBeans ja siinä tämän viikon tehtävistä tehtävä <code>GruntToihin</code>. Klikkaa projektin nimen päällä hiiren oikeaa painiketta ja valitse "Npm install", se asentaa tarvitsemasi riippuvuudet, mukaan lukien Gruntin. Sen jälkeen paina taas projektisi nimen päällä hiiren oikeaa painiketta ja valitse "Properties" ja siirry avautuvasta ikkunasta "Grunt"-kategoriaan. Voit valita, milloin Gruntin taskit suoritetaan valitsemalla jonkun kolmesta vaihtoehdosta ja syöttämällä sen viereiseen tekstikenttään, minkä ryhmän taskit suoritetaan (esimerkiksi "default"). Jos käytät laitoksen konetta, voit suorittaa Gruntin taskit terminaalissa NetBeansin-projektin juuressa suorittamalla ensin komennon <code>npm install</code> ja sen jälkeen komennon <code>node -e "require('grunt').cli();"</code>.
 </p>
 <div class="tehtavat">
-<h3>Laitetaan Grunt töihin</h3>
+<h3>Laitetaan Grunt töihin (2p)</h3>
 <p>
   Arto on toteuttanut eeppisen kokoisen sovelluksen, mutta hänellä on sen kanssa pari pientä ongelmaa. Ensinnäkin, Matti valitti, että Arton sovellus lataa palvelimelta aivan turhan monta <code>js</code>-tiedostoa ja antoikin vinkiksi, että Gruntilla JavaScript tiedostot voi yhdistää yhdeksi kompaktiksi <code>js</code>-tiedostoksi käyttäen <a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank">grunt-contrib-uglify</a>-pluginia. Sama ongelmalla Artolla on <code>css</code>-tiedostojen kanssa. Siihen soveltuu Matin mukaan <a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank">grunt-contrib-cssmin</a>-plugini. Lisäksi Artolla on koodissaan syntaksivirhe, jota hän ei millään löydä. Hän tietää, että sen löytämiseen voi käyttää <a href="https://www.npmjs.com/package/grunt-contrib-jshint" target="_blank">grunt-contrib-jshint</a>, mutta hän tarvitsee apua sen konfigurointiin. Voitko auttaa Artoa?
 </p>
@@ -8102,6 +8099,9 @@ module.exports = function(grunt) {
 </div>
 </section>
 
+
+
+      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
 
 
 <section class="week">
