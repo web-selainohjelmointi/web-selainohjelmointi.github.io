@@ -8111,9 +8111,6 @@ module.exports = function(grunt) {
 
 
 
-      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
-
-
 <section class="week">
   <header>
     <a name="viikko6"></a>
@@ -8182,7 +8179,7 @@ README.md
     <p>
       Jos sinulla on vaikeuksia sovelluksen kehittämisessä NetBeansissa, lue <a href="#17.1.3-Muutosten-julkaiseminen-Herokussa">tämä</a> ohje.
     </p>
-    <h3>Look Mama, I'm in Heroku!</h3>
+    <h3>Look Mama, I'm in Heroku! (2p)</h3>
     <p>
       Noudata yllä olevia ohjeita ja julkaise <code>Elokuvakirjasto</code>-projektin pohja Herokussa. Harjoittele lisäksi hieman muutosten julkaisemista tekemällä jokin pieni muutos sovellukseesi (esimerkiksi etusivun otsikon vaihtaminen) ja julkaise muutettu sovellus. Kun olet saanut sovelluksesi pohjan Herokuun ja osaat julkaista muutoksia, voit palauttaa tehtävän lisäämällä <code>index.html</code>-tiedostoon linkin Herokussa sijaitsevaan sovellukseesi.
     </p>
@@ -8399,7 +8396,7 @@ MyApp.controller('MyController', function($scope, $routeParams, FirebaseService)
     <p style="padding-top: 10px">
       Kaikki näistä tehtävistä palautetaan Herokuun, joten tehtäpohjien palautuksessa riittää laittaa linkki Heroku-sovellukseesi tehtäväpohjien <code>index.html</code>-tiedostoon. Tehtävien tekoon kannattaa kuitenkin käyttää forkkaamasi <code>Elokuvakirjasto</code>-repon pohjaa, jotta voit helposti julkaista tekemäsi muutokset Herokuun. Pystyt avaamaan sen NetBeansissa valitsemalla File > New Project > HTML5 > HTML5 Application with Existing Sources ja valitsemalla kansioksi <code>Elokuvakirjasto</code>-kansion. Muista asentaa riippuvuudet klikkaamalla hiiren oikeaa painiketta projektin nimen päällä ja valitsemalla "Npm install" ja "Bower install". Jos käytät laitoksen konetta, suorita terminaalissa projektisi juuressa komennot <code>npm install</code> ja <code>./node_modules/bower/bin/bower install</code>, jotka tekevät täysin saman asian.
     </p>
-    <h3>Elokuvien listaaminen ja lisääminen (2p)</h3>
+    <h3>Elokuvien listaaminen ja lisääminen (3p)</h3>
     <p>
       Toteutaan sovellukseemme ensimmäisenä toiminnot elokuvien listaamiselle ja lisäämiselle. Voit aloittaa toteuttamalla palvelun, joka hakee Firebasesta kaikki elokuvat ja lisää sinne elokuvan annetuilla tiedoilla. Muistin virkistämiseksi, datan haku Firebasesta toimi näin:
     </p>
@@ -8442,7 +8439,7 @@ MyApp.service('FirebaseService', function($firebase){
     <p>
       Elokuvien listaamiselle ja lisäämiselle löytyy pari testiä <code>test</code>-kansiota. Elokuvien listaamisen testit löytyvät kansiosta <code>test/movie_list_test.js</code> ja elokuvien lisäämisen testit kansiosta <code>test/add_movie_test.js</code>. Testaa mollemmissa teisteissä kuvattuja toimintoja. Muista mockata Firebasen kanssa keskuteleva palvelusi niin, että tiedät, mitä dataa kontrollerien pitäisi saada. Testaa lisäksi, että Firebasea käyttävän palvelun funktiota kutsutaan kontrollereissa lisäämällä funktioihin vakoilijat <code>spyOn</code>-funktiolla ja lisäämällä <code>toHaveBeenCalled</code>-oletukset funktioihin, joita pitäisi kutsua. Muista muokata tarvittaessa <code>Elokuvakirjasto</code>-kansion juuressa sijaitsevaa <code>karma.conf.js</code>-tiedostoa, niin että testattavat tiedostot ladataan selaimeen, joka onnistui lisäämällä niiden polut tiedostossa määriteltyyn <code>files</code>-taulukkoon.
     </p>
-    <h3>Elokuvien esittäminen, muokkaaminen ja poistaminen (2p)</h3>
+    <h3>Elokuvien esittäminen, muokkaaminen ja poistaminen (3p)</h3>
     <p>
       Toteuta seuraavaksi Firebase käyttävään palveluusi toiminnot elokuvan esittämiselle muokkaamisella, poistamiselle. Muokkaukseen voit käyttää funktiota <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-saverecordorindex" target="_blank">$save</a></code> ja poistamiseen funktiota <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-removerecordorindex" target="_blank">$remove</a></code>. Elokuvan esittäminen kannattaa toteuttaa niin, että haet Firebasea käyttävästä palvelussa elokuvan avaimella, jolla se on talletettu käyttäen <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-getrecordkey" target="_blank">$getRecord</a></code>-funktiota. Muistathan, että yksittäisin objektin haku Firebasesta onnistui seuraavasti:
     </p>
@@ -8520,7 +8517,7 @@ FirebaseServiceMock = (function(){
 <p>
    Muista muokata tarvittaessa <code>Elokuvakirjasto</code>-kansion juuressa sijaitsevaa <code>karma.conf.js</code>-tiedostoa, niin että testattavat tiedostot ladataan selaimeen, joka onnistui lisäämällä niiden polut tiedostossa määriteltyyn <code>files</code>-taulukkoon.
 </p>
-  <h3>Elokuvien haku: OMDb API</h3>
+  <h3>Elokuvien haku: OMDb API (2p)</h3>
   <p>
     Toteutaan lopuksi sovellukseemme elokuvien haku käyttäen <a href="http://www.omdbapi.com/" target="_blank">The Open Movie Databasen API:a</a>. Sen kautta voimme hakea elokuvia eri <a href="http://www.omdbapi.com/#parameters" target="_blank">parametrien</a> perusteella. Voimme esimerkiksi hakea kaikki elokuvat, joiden nimestä löytyy sana "lord" osoitteesta <code>http://www.omdbapi.com/?s=lord</code>, jolloin saamme vastauksena JSON-muotoisen objektin haun tuottamista tuloksista. Vastaus voi olla esimerkiksi tämä:
   </p>
@@ -8772,7 +8769,7 @@ MyApp.run(function(AuthenticationService, $rootScope){
   Painikkeen ei siis tarvitse olla minkään kontrollerin näkyvyysalueessa, koska <code>$rootScope</code>-objektiin määritetyt kentät ovat näkyvissä koko sovelluksen näkyvyysalueessa, eli kaikkialla <code>ng-app</code>-direktiivin sisällä. Kuten huomaat käytin myös <code>userLoggedIn</code>-muuttujaa hyväkseni näkymässä, koska olisi hölmöä näyttää uloskirjautumispainike, jos käyttäjä ei ole  kirjautunut sisään.
 </p>
 <div class="tehtavat">
-<h3>Elokuvakirjaston authentikaatio</h3>
+<h3>Elokuvakirjaston authentikaatio (2p)</h3>
 <p>
   Toteuta seuraavaksi Elokuvakirjasto-sovellukseesi authentikaatio. Aloita toteuttamalla palvelu, jonka kautta käyttäjä voi luoda uuden käyttäjätilin sähköpostiosoitteella ja salasanalla (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-createusercredentials" target="_blank">$createUser</a></code>-funktio), kirjautua sisään käyttäjätilin tiedoilla (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-authwithpasswordcredentials-options" target="_blank">$authWithPassword</a></code>-funktio) ja kirjautua ulos (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-unauth" target="_blank">$unauth</a></code>-funktio). Lisää myös funktio, joka palauttaa tiedot kirjautuneesta käyttäjästä (vinkki: <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-getauth" target="_blank">$getAuth</a></code>-funktio). Muista injektoida palveluun <code>$firebaseAuth</code>-palvelu, joka tarjoaa authentikaatioon tarkoitetut funktiot. Lisää lisäksi Firebaseen sääntö, joka estää kirjoittamisen elokuvaresurssiin ilman kirjautumista. Elokuvaresurssin lukemisen voit sallia halutessasi kaikille käyttäjille. Muista myös aktivoida authentikaatio salasanalla sovelluksesi hallintasivulta kohdasta "Login & Auth".
 </p>
@@ -8819,7 +8816,7 @@ Toteuta samaan kontrolleriin toiminto, jonka avulla käyttä voi luoda uuden kä
   Avaa sen jälkeen tiedosto <code>index.html</code> selaimessa esimerkiksi NetBeansin kautta ja näet jo, että ulkoasussa on tapahtunut pieniä muutoksia. Tällä hetkellä pääasiassa fontti ja linkkien väri on muuttunut, mutta seuraavaksi teemme suurempia muutoksia.
 </p>
   <div class="tehtavat">
-    <h3>Kiillota kilpesi</h3>
+    <h3>Kiillota kilpesi (2p)</h3>
     <p>
       Lisää Elokuvakirjasto-sovellukseesi Bootstrapin lähdekoodit, kuten yllä olevassa ohjeessa on tehty. Tutustu sen jälkeen Bootstrapin <a href="http://getbootstrap.com" target="_blank">dokumentaatioon</a> lukemalla sieltä ainakin seuraavat sivut:
       <ul>
@@ -9086,7 +9083,7 @@ h1{
   Ensimmäisellä rivillä ensimmäinen sarake ei siirry, mutta seuraavaan sarakkeeseen on lisätty luokka <code>col-md-offset-4</code>, joten se siirtyy alkuperäisestä paikastaan neljä saraketta oikealla. Nyt sarakkeiden väliin jaa neljän sarakkeen leveyinen tila. Toisella rivillä molemmat sarakkeet siirtyvät kolmen sarakkeen verran oikealla, koska molempiin on lisätty luokka <code>col-md-offset-3</code>. Samoin käyttäytyy kolmannen rivin ainoa sarake. Tässä vielä <a href="http://jsfiddle.net/DTcHh/4614/" target="_blank">jsFiddle</a>, joka havainnollistaa yllä olevaa esimerkkiä (muuta "Result"-laatikon kokoa, niin näet, kuinka grid muuttaa muotoaan). Lisää Bootstrapin grid-järjestelmästä voit lukea halutessasi <a href="http://getbootstrap.com/css/#grid" target="_blank">täältä</a>.
 </p>
 <div class="tehtavat">
-    <h3>Ulkoasu responsiiviseksi</h3>
+    <h3>Ulkoasu responsiiviseksi (2p)</h3>
     <p>
       Tehtäväpohjan <code>index.html</code>-tiedostosta löytyy sivupohja joka ei ole lainkaan responsiivinen. Tämän tehtävän aikana me aiomme tosin muuttaa asian täysin. Aloitetaan lisäämällä tyyleihin media-kyselyita, jonka avulla voimme mukauttaa ulkoasua kapenevaan näyttöön. Toteuta <code>css/site.css</code>-tiedostoon media-kyselyt ja tyyleihin kohdistuvat muutokset, jotka tekevät seuraavat asiat:
       <ul>
@@ -9437,7 +9434,7 @@ fadeout(rgba(255,0,0,0.5), 20%); // rgba(255, 0, 0, 0.3)
   Avaa NetBeansissa tämän viikon tehtävä <code>LessIsMore</code>, klikkaa hiiren oikeaa painiketta sen nimen päällä ja valitse "Npm install", joka asentaa Less-kääntäjän. Jos käytät laitoksen konetta suorita terminaalissa projektin juuressa komento <code>npm install</code>. Kun kääntäjä on asennettu paina taas hiiren oikeaa painiketta projektin nimen päällä ja valitse "Properties". Valitse avautuneen ikkunan vasemmasta valikosta "CSS Preprocessors" ja sieltä "Less". Valitse checkboxi "Compile Less Files on Save" ja paina "Configure Executables"-painiketta. Klikkaa avautuneesta ikkunasta "Less path"-tekstikentän vierestä "Browse..."-painiketta ja valitse projektin juuresta tiedosto <code>node_modules/less/bin/lessc</code>. Paina sen jälkeen "Ok"-painiketta. Less-tiedostot käännetään nyt tallenuksen yhteydessä.
 </p>
   <div class="tehtavat">
-    <h3>Less is more</h3>
+    <h3>Less is more (2p)</h3>
     <p>
       Tehtäväpohjan kansiossa <code>less</code> on tyylitiedosto <code>site.less</code>, joka kaipaa kipeästi refaktorointia. Tyylitiedoston ilmeisiä ongelmia ovat pitkät valitsimet ja toistuvuus, joihin aiomme seuraavaksi puuttua. Refaktoroi tiedosto <code>site.less</code>-tiedosto seuraavasti:
       <uL>
@@ -9511,6 +9508,11 @@ background: linear-gradient(red, blue); /* Standardi */
   });
 </script>
 -->
+
+
+
+      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
+
 
 <section class="week">
   <header>
