@@ -8364,10 +8364,9 @@ describe('MyController', function(){
   Yksittäisen objektin saa haettua Firebasesta käyttämällä <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-getrecordkey" target="_blank">$getRecord</a></code>-funktiota:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseArray){
   var firebaseRef = new Firebase('OMA_FIREBASE/data');
-  var sync = $firebase(firebaseRef);
-  var dataAsArray = sync.$asArray();
+  var dataAsArray = $firebaseArray(firebaseRef);
 
   this.getObject = function(key, done){
     dataAsArray.$loaded(function(){
@@ -8402,8 +8401,7 @@ MyApp.controller('MyController', function($scope, $routeParams, FirebaseService)
     </p>
 <pre class="sh_javascript_dom">
 var firebaseRef = new Firebase('OMA_FIREBASE/movies');
-var sync = $firebase(firebaseRef);
-var movies = sync.$asArray();
+var movies = $firebaseArray(firebaseRef);
 
 this.getMovies = function(){
   return movies;
@@ -8418,12 +8416,12 @@ this.addMovies = function(movie){
 }
 </pre>
     <p>
-      Muista myös injektoida, <code>firebase</code>-moduuli omaan moduuliisi, sekä <code>$firebase</code> palveluusi:
+      Muista myös injektoida, <code>firebase</code>-moduuli omaan moduuliisi, sekä <code>$firebaseArray</code> palveluusi:
     </p>
 <pre class="sh_javascript_dom">
 var MyApp = angular.module('MyApp', ['firebase']);
 
-MyApp.service('FirebaseService', function($firebase){
+MyApp.service('FirebaseService', function($firebaseArray){
   // ...
 });
 </pre>
@@ -8445,8 +8443,7 @@ MyApp.service('FirebaseService', function($firebase){
     </p>
 <pre class="sh_javascript_dom">
 var firebaseRef = new Firebase('OMA_FIREBASE/movies');
-var sync = $firebase(firebaseRef);
-var movies = sync.$asArray();
+var movies = $firebaseArray(firebaseRef);
 
 this.getMovie = function(key, done){
   movies.$loaded(function(){
@@ -8575,7 +8572,7 @@ MyApp.config(['$httpProvider', function($httpProvider) {
   Firebasessa on monta tapaa toteuttaa sovellukseen authentikaatio, kuten Facebookin tai Twitterin kautta. Me kuitenkin toteutamme perinteisen kirjautumisen sähköpostiosoitteella ja salasanalla. Aloitetaan luomalla palvelu <code>AuthenticationService</code>, jonka kautta voimme lisätä Firebaseen käyttäjän ja kirjata käyttäjän sisään sovellukseemme:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('AuthenticationService', function($firebase, $firebaseAuth){
+MyApp.service('AuthenticationService', function($firebaseAuth){
   var firebaseRef = new Firebase('OMA_FIREBASE');
   var firebaseAuth = $firebaseAuth(firebaseRef);
 
@@ -8666,7 +8663,7 @@ MyApp.controller('UserController', function($scope, $location, AuthenticationSer
   Nyt authentikaatio toimii, kuten pitääkin, eli kirjautumaton käyttäjä ei pysty lisäämään, muokkaamaan tai poistamaan elokuvia. Sovelluksessa on tosin yksi pieni ongelma, sillä kirjautumaton käyttäjä pääsee vielä lisäys- ja muokkaussivuille sekä näkee listaussivulla poistopainikkeen. Ongelma on kuitenkin helppo ratkaista, lisätään ensin palveluumme funktio <code>checkLoggedIn</code>, joka tarkastaa, onko käyttäjä kirjaunut sisään käyttämällä <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-waitforauth" target="_blank">$waitForAuth</a></code>-funktiota:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('AuthenticationService', function($firebase, $firebaseAuth){
+MyApp.service('AuthenticationService', function($firebaseAuth){
   var firebaseRef = new Firebase('OMA_FIREBASE');
   var firebaseAuth = $firebaseAuth(firebaseRef);
 
@@ -8732,7 +8729,7 @@ MyApp.controller('MyController', function($scope, currentAuth, $location){
   Käyttäjällä pitäisi olla vielä mahdollisuus kirjautua ulos. Lisätään <code>AuthenticationService</code>-palveluun vielä funktio <code>logUserOut</code>, joka käyttää funktiota <code><a href="https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-unauth" target="_blank">$unauth</a></code>, joka poistaa tiedon käyttäjän kirjautumisesta Firebasesta:
 </p>
 <pre class="sh_javascript_dom">
-MyApp.service('AuthenticationService', function($firebase, $firebaseAuth){
+MyApp.service('AuthenticationService', function($firebaseAuth){
   var firebaseRef = new Firebase('OMA_FIREBASE');
   var firebaseAuth = $firebaseAuth(firebaseRef);
 
