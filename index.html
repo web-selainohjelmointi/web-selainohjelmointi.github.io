@@ -9507,10 +9507,6 @@ background: linear-gradient(red, blue); /* Standardi */
 -->
 
 
-
-      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
-
-
 <section class="week">
   <header>
     <a name="viikko7"></a>
@@ -9747,7 +9743,7 @@ router.post('/', function(req, res, next) {
   Katsotaan vielä, miten POST-pyynnön lähettäminen onnistuu. Tehtävänannon mukaan chattiin täytyy kirjautua, ennen kuin sinne voi lähettää viestejä. Se onnistuu seuraavasti: "Kun käyttäjä kirjoittaa käyttäjätunnuksen ja painaa Login-nappia, selainsovellus lähettää palvelimelle JSON-merkkijonon, joka on muotoa <code>{ "nickname": nick }</code>, missä <code>nick</code> on käyttäjän kirjoittama käyttäjätunnus. Kirjautumispyyntö tehdään HTTP POST-pyyntönä osoitteeseen <code>http://bad.herokuapp.com/app/auth</code>. Jos kirjautuminen onnistuu, palvelin palauttaa statuskoodin 200, muuten statuskoodi on jokin muu". Aloitetaan, kuten GET-pyynnön kanssa, lisätään "Enter request URL here"-kenttään osoite <code>http://bad.herokuapp.com/app/auth</code>, mutta valitaan viereisesti pudotusvalikosta "GET" sijaan "POST". Lisätään kyselyyn yksi otsake, jotta palvelin tietää, että olemme lähettämässä JSON-muotoista dataa. Se onnistuu klikkaamalla "Headers"-painiketta ja lisäämällä "Header"-kenttään "Content-Type" ja "Value"-kenttään "application/json". Valitse sen jälkeen alapuolelta "raw"-tabi ja sen viereisestä pudotusvalikosta "JSON". Tämän jälkeen voimme lisätä alapuolella sijaitsevaan kenttään JSON-muotoisen objektin, joka sisältää nimimerkkisi. Lisään kenttään esimerkiksi <code>{ "nickname": "foo" }</code> ja klikkaa "send"-painiketta. Palvelimelta pitäisi tulla vastauksena JSON-objekti ja statuskoodi 200.
 </p>
 <div class="tehtavat">
-  <h3>API:n toteuttaminen: Aihealueet</h3>
+  <h3>API:n toteuttaminen: Aihealueet (2p)</h3>
   <p>
     <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät githubista saatavaan <code><a href="https://github.com/web-selainohjelmointi/Foorumi" target="_blank">Foorumi</a></code>-pohjaan. Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
@@ -9958,7 +9954,7 @@ Book.create(bookToAdd).then(function(book){
   Nyt kirja nimeltä "The Hobbit or There and Back Again" viittaa kirjailijaan, jonka <code>id</code>-attribuutin arvo on 1, joka voisi olla vaikkapa kirjailija nimeltä "John Ronald Reuel Tolkien". Kirjan tapauksessa kentän siihen liittyvän kirjalijan <code>id</code>-attribuutin arvo löytyy kentästä <code>AuthorId</code>. Sama periaate pätee kaikkiin malleihin, joihin liittyy jokin toinen malli, kentän nimi on aina <code>MalliId</code>, jossa <code>Malli</code>, on malliin liittyvän mallin nimi.
 </p>
 <div class="tehtavat">
-  <h3>API:n toteuttaminen: Viestit ja niiden aihealueet (2p)</h3>
+  <h3>API:n toteuttaminen: Viestit ja niiden aihealueet (3p)</h3>
   <p>
     <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät  <code>Foorumi</code>-kansioon! Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
@@ -10139,7 +10135,7 @@ router.post('/', authentication, function(req, res, next) {
   Tällä hetkellä selainpuolella on hieman ikävää, että käyttäjä näkee aihealueen, viestin ja vastauksen lisäyslomakkeen, mutta lisääminen niiden kautta ei onnistu, koska palvelin vastaa pyyntöihin statuskoodilla 403. Ne pitäisi siis kokonaan piilottaa, jos käyttäjä ei ole kirjautunut sisään. Käyttäjä ei pysty myöskään kirjautumaan sisään ja sen jälkeen kirjautumaan ulos, eikä rekisteröitymään. Seuraavissa tehtävissä puutumme näihin ongelmiin.
 </p>
 <div class="tehtavat">
-  <h3>API:n toteuttaminen: Käyttäjät</h3>
+  <h3>API:n toteuttaminen: Käyttäjät (3p)</h3>
   <p>
     <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät  <code>Foorumi</code>-kansioon! Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
@@ -10204,7 +10200,7 @@ Models.Message.create(messageToAdd).then(function(message){
 </p>
 </div>
 <div class="tehtavat">
-  <h3>Käyttäjät sovelluksessa (2p)</h3>
+  <h3>Käyttäjät sovelluksessa (4p)</h3>
   <p>
     <strong>Älä koske tämän viikon tehtävien tehtäväpohjiin, vaan toteuta kaikki tehtävät  <code>Foorumi</code>-kansioon! Kun tehtävä on valmis, lähetä vain tehtäväpohja TMC:llä.</strong>
   </p>
@@ -10320,6 +10316,13 @@ var sequelize = new Sequelize('postgres://gtoisioduequfh:MST5G0EEMFkbWWQMrUqsudk
 </section>
 </article>
 
+<!--
+
+
+
+      <p><img src="img/paivitysraja.jpg"><br/>Päivitysraja -- (Kuva: <a href="https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:SchoolCrossing.jpg</a>)</p>
+
+-->
 
     <footer>
       <p>
